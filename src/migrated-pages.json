@@ -1,0 +1,130 @@
+[
+  {
+    "path": "/housing-disrepair-claims",
+    "eyebrow": "Housing disrepair claims",
+    "title": "Housing Disrepair Claims",
+    "meta": "A practical guide to housing disrepair claims, landlord repair duties, evidence, repairs and compensation.",
+    "intro": "If serious defects in your rented home remain unresolved after you have reported them, you may be able to seek repairs and compensation through a housing disrepair claim.",
+    "heading": "When poor housing conditions may become a legal claim",
+    "copy": "A claim depends on the landlord being responsible for the problem, receiving notice of it and having a reasonable opportunity to investigate and repair it. The condition of the home and its effect on your household must also be supported by evidence.",
+    "items": ["Damp, mould, leaks and water damage", "Heating, hot-water and electrical failures", "Unsafe structure, windows, doors or flooring", "Pests, sanitation problems and damaged belongings"],
+    "sections": [
+      {"title":"What can a claim achieve?","body":"Depending on the facts, a housing claim may seek an agreement or court order for necessary work, compensation for loss of enjoyment of the home, and reimbursement of supported financial loss. The available remedy and value are assessed individually."},
+      {"title":"The evidence that matters","body":"Keep dated photographs and videos, repair references, emails, complaint responses, appointment records and a timeline of recurring defects. Receipts, medical records and proof of damaged belongings may also be relevant where they show a direct impact."},
+      {"title":"How the process usually develops","body":"The team first reviews eligibility and the reporting history. If the matter is accepted, the property may be inspected by an independent expert before a formal claim is sent to the landlord. Many cases resolve through negotiation; court proceedings are considered when an appropriate resolution cannot be reached."}
+    ],
+    "faqs": [["Do I need to report the problem first?","Usually, yes. Notice gives the landlord an opportunity to investigate and carry out the work. Keep proof of every report."],["Must I still live at the property?","Current occupation can affect the practical remedies and funding available, but eligibility should be assessed from the individual facts."],["Is compensation guaranteed?","No. Liability, evidence, the effect of the conditions and the outcome of negotiations or proceedings all matter."]]
+  },
+  {
+    "path": "/housing-disrepair-claims/social-housing",
+    "eyebrow": "Social housing",
+    "title": "Social Housing Disrepair Claims",
+    "meta": "Information for council and housing-association tenants dealing with unresolved repairs and unsafe housing conditions.",
+    "intro": "Council and housing-association tenants should have a home that is kept in repair and fit to live in. Repeated delays, missed appointments or ineffective work may justify closer legal review.",
+    "heading": "Repair rights in social housing",
+    "copy": "Social landlords often manage repairs through large teams and outside contractors. That can make a clear paper trail especially important: record each report, reference, visit, cancelled appointment and temporary repair.",
+    "items": ["Council and housing-association homes", "Communal or building-wide defects", "Repeated contractor visits and failed repairs", "Formal complaints and escalation records"],
+    "sections": [
+      {"title":"What makes social-housing cases different?","body":"Responsibility may be divided between a landlord, managing agent and contractor, while communal defects can affect several homes. The legal duties remain with the relevant landlord even where day-to-day work is outsourced."},
+      {"title":"Health, safety and daily life","body":"Persistent damp, mould, heating failures, unsafe electrics and structural defects may affect health and restrict the use of rooms. Note who is affected, how often the problem occurs and any steps taken to reduce the risk."},
+      {"title":"Using the complaints process","body":"A formal complaint can clarify the landlord’s position and create useful evidence. Keep the acknowledgement, stage-one and stage-two decisions, and any referral to the Housing Ombudsman separate from your repair log."}
+    ],
+    "faqs": [["Can I claim against a housing association?","Potentially. The key questions include responsibility, notice, reasonable repair time and evidence of the effect on the household."],["What if contractors attended but the problem returned?","Record every visit and photograph the recurring defect. An attempted repair does not necessarily resolve the underlying issue."],["Should I stop paying rent?","Do not withhold rent without specific legal advice. Rent arrears can create separate risks."]]
+  },
+  {
+    "path": "/housing-disrepair-claims/tenant-rights-landlord-obligations",
+    "eyebrow": "Tenant rights",
+    "title": "Tenant Rights and Landlord Repair Obligations",
+    "meta": "A clear guide to tenant repair rights, landlord obligations and the steps to take when defects are not resolved.",
+    "intro": "Landlords have legal responsibilities for key parts of a rented home, while tenants need to report defects and provide reasonable access for inspection and repair.",
+    "heading": "Understanding who is responsible for what",
+    "copy": "Repair responsibility depends on the tenancy, the part of the property affected and the cause of the problem. Core duties commonly cover the structure and exterior and installations for water, sanitation, heating, gas and electricity.",
+    "items": ["Structure and exterior", "Water, sanitation and drainage installations", "Heating and hot-water systems", "Fitness and safety of the home"],
+    "sections": [
+      {"title":"The landlord’s opportunity to act","body":"A landlord normally needs to know about a defect before being expected to repair it. What counts as a reasonable response time depends on urgency, risk, access, diagnosis and the work required."},
+      {"title":"Your role as a tenant","body":"Report problems promptly, explain any immediate risk, keep the property reasonably accessible for agreed visits and retain a written record. You should also avoid carrying out major work without advice or permission."},
+      {"title":"When the home may be unfit","body":"Fitness concerns can involve damp, ventilation, water supply, sanitation, heating, electrical safety, structural stability and other hazards. The overall effect on safe occupation matters, not simply the label attached to the defect."}
+    ],
+    "faqs": [["How quickly must a landlord repair a problem?","There is no single period for every defect. Urgent safety issues demand a faster response than non-urgent work."],["Who proves the landlord knew?","Emails, portal reports, repair references, letters and complaint responses can all help show notice."],["Can access be refused?","Tenants are normally expected to provide reasonable access on proper notice, subject to emergencies and the tenancy terms."]]
+  },
+  {
+    "path": "/housing-disrepair-claims/council-housing",
+    "eyebrow": "Council housing",
+    "title": "Council Housing Disrepair Claims",
+    "meta": "Guidance for council tenants whose reported housing repairs remain unresolved or keep returning.",
+    "intro": "If a council has been told about a repair problem but has not dealt with it within a reasonable time, the reporting history and impact on your home can be reviewed.",
+    "heading": "Building a clear case from the council repair record",
+    "copy": "Council systems can generate many repair numbers, inspections and contractor appointments. Put them into one dated timeline so it is clear what was reported, what work was promised and whether the defect continued.",
+    "items": ["Online and telephone repair references", "Inspection and contractor appointments", "Stage-one and stage-two complaints", "Photographs after incomplete or failed work"],
+    "sections": [
+      {"title":"Repairs and complaints are separate tracks","body":"Continue reporting active defects even while a formal complaint is underway. A complaint can address delay and service failure, but it does not replace the need to keep the repair team informed about current conditions."},
+      {"title":"Communal and structural problems","body":"Leaks from roofs or neighbouring areas, unsafe entrances, external brickwork and shared drainage may require investigation beyond the individual flat. Record where the defect appears and any other areas affected."},
+      {"title":"Possible outcomes","body":"A legal claim may seek defined remedial work and compensation where the evidence supports it. Ombudsman remedies, complaint payments and court damages are different and should be accounted for carefully."}
+    ],
+    "faqs": [["Can I complain and make a legal claim?","They can overlap, but they serve different purposes. Obtain advice about the best sequence for your circumstances."],["What if the council closes each repair job?","Keep evidence showing the physical problem remained or returned and make a new report where necessary."],["Will a claim affect my tenancy?","A landlord should not penalise a tenant simply for asserting repair rights, but any tenancy or arrears issues should be disclosed to your adviser."]]
+  },
+  {
+    "path": "/housing-disrepair-claims/managing-your-claim",
+    "eyebrow": "Managing a claim",
+    "title": "Managing Your Housing Disrepair Claim",
+    "meta": "Practical steps for keeping evidence, attending inspections and communicating during a housing disrepair claim.",
+    "intro": "A well-organised repair history helps your legal team understand what happened and keeps the focus on the work and evidence needed to resolve the case.",
+    "heading": "Keep the claim accurate and up to date",
+    "copy": "Continue reporting new or recurring defects, save correspondence and tell your solicitor about repairs, inspections, changes of address, health developments or contact from the landlord’s representatives.",
+    "items": ["Maintain a dated repair timeline", "Keep photographs in their original files", "Attend agreed inspections and appointments", "Send important updates to your legal team"],
+    "sections": [
+      {"title":"Before an inspection","body":"Make a list of every affected area, gather earlier photographs and ensure reasonable access. Do not conceal, exaggerate or alter conditions; the expert needs an accurate view of the property."},
+      {"title":"During repair works","body":"Record when contractors arrive, what they do and whether further work is proposed. Photograph completed work and report promptly if the underlying problem remains or new damage appears."},
+      {"title":"Communication and settlement","body":"Read advice and settlement terms carefully and ask about anything unclear. Decisions about repairs, compensation, costs and deadlines should be based on the full position rather than a headline figure alone."}
+    ],
+    "faqs": [["Should I keep reporting defects after instructing solicitors?","Yes, unless your legal team advises otherwise. The landlord still needs current information and access."],["Can I redecorate damaged areas?","Ask your adviser first where evidence may be affected. If urgent work is needed, take clear photographs before and after."],["What if I move home?","Tell your solicitor immediately because a move can affect available remedies, evidence and the handling of the claim."]]
+  },
+  {
+    "path": "/housing-disrepair-claims/private-landlord",
+    "eyebrow": "Private renting",
+    "title": "Private Landlord Housing Disrepair Claims",
+    "meta": "Information for private tenants dealing with unresolved repair problems, unsafe conditions and landlord inaction.",
+    "intro": "Private landlords also have repair and fitness duties. If serious defects remain after notice, a tenant may have legal and regulatory options.",
+    "heading": "Act carefully and preserve the tenancy record",
+    "copy": "Report the problem in writing even if you first raised it by phone. Keep the tenancy agreement, deposit information, inspection reports and all messages with the landlord or managing agent.",
+    "items": ["Written notice to landlord or agent", "Tenancy and inventory documents", "Council environmental-health contact", "Evidence of access and repair appointments"],
+    "sections": [
+      {"title":"Landlord and managing-agent roles","body":"An agent may handle communications, but legal responsibility depends on the tenancy and the relevant duty. Send reports through the required channel and retain proof of delivery."},
+      {"title":"Safety and local-authority help","body":"Urgent hazards may justify contacting the council’s environmental health or private-sector housing team. Gas or electrical emergencies should be dealt with through the appropriate emergency service or qualified provider."},
+      {"title":"Possession concerns","body":"Private tenants are often worried about eviction after complaining. The rules are fact-sensitive and can change, so obtain current advice promptly if you receive a notice or threats concerning the tenancy."}
+    ],
+    "faqs": [["Can I arrange repairs and deduct the cost from rent?","This is risky without specific advice and a careful procedure. Do not simply withhold rent."],["What if I reported the issue only by telephone?","Write now to confirm the earlier reports, dates and what was said, then keep the response."],["Can the council inspect a privately rented home?","Local authorities have enforcement powers relating to housing hazards, although their process is separate from a damages claim."]]
+  },
+  {
+    "path": "/housing-disrepair-claims/pre-action-protocol",
+    "eyebrow": "Claims procedure",
+    "title": "Pre-Action Protocol for Housing Condition Claims",
+    "meta": "How the housing conditions pre-action protocol structures evidence, expert inspection and early resolution before court proceedings.",
+    "intro": "The pre-action protocol sets out steps tenants and landlords should usually follow before court proceedings in a housing conditions dispute.",
+    "heading": "Exchange the right information before litigation",
+    "copy": "The protocol encourages early identification of defects, disclosure of relevant records, appropriate expert evidence and genuine attempts to agree repairs and compensation.",
+    "items": ["A detailed letter of claim", "Landlord acknowledgement and response", "Relevant repair and tenancy records", "Expert inspection where reasonably required"],
+    "sections": [
+      {"title":"The letter of claim","body":"The letter should identify the property, tenancy, defects, notice history, effect on the household and remedy sought. It may also propose an expert and request relevant documents."},
+      {"title":"Inspection and expert evidence","body":"An expert may be needed to identify the cause of the defects, necessary work and likely cost. The parties should consider whether a single joint expert or another proportionate approach is suitable."},
+      {"title":"Urgent cases and court proceedings","body":"Safety-critical conditions may require faster action. If the landlord does not engage or a reasonable resolution cannot be achieved, the legal team will advise whether proceedings are proportionate and appropriate."}
+    ],
+    "faqs": [["Does the protocol guarantee settlement?","No. It creates a framework for exchanging information and trying to resolve the dispute."],["Is there always a surveyor?","Not in every matter. Expert evidence should be necessary and proportionate to the issues."],["Can the protocol be skipped?","Urgent circumstances may require a different approach, but that decision needs case-specific legal advice."]]
+  },
+  {
+    "path": "/housing-disrepair-claims/housing-condition-claims",
+    "eyebrow": "Housing conditions",
+    "title": "Housing Condition Claims",
+    "meta": "Housing condition claims explained: fitness, repairs, evidence and the legal process for tenants in unsafe homes.",
+    "intro": "Housing condition claims can address unresolved disrepair and wider conditions that make a rented home unsafe or unfit to live in.",
+    "heading": "Looking at the home as a whole",
+    "copy": "A property may have individual repair defects and also broader fitness concerns. The assessment considers the nature of each hazard, how the conditions interact and their effect on safe occupation by the particular household.",
+    "items": ["Damp, mould and inadequate ventilation", "Leaks, sanitation and water supply", "Heating, electrical and fire-safety concerns", "Structural instability and unsafe facilities"],
+    "sections": [
+      {"title":"Disrepair and fitness","body":"A disrepair claim often focuses on an item that has deteriorated or needs repair. Fitness law can consider a wider range of conditions. In practice, both may be relevant to the same home and should be analysed together."},
+      {"title":"Who may be eligible?","body":"The landlord must be legally responsible for the relevant condition. Evidence should show notice where required, a reasonable opportunity to act, and the continuing effect on the tenant or household."},
+      {"title":"Repairs and compensation","body":"A claim may seek appropriate work and financial compensation, but neither is automatic. The remedy depends on liability, expert evidence, duration, seriousness, loss of use and any supported financial or health impact."}
+    ],
+    "faqs": [["Is a housing condition claim different from disrepair?","The concepts overlap. Fitness can extend beyond a single item needing repair and considers whether the home is suitable to live in."],["What if repairs were attempted?","An attempted repair may be relevant, but recurring defects can still require investigation and further action."],["How is compensation assessed?","There is no universal calculator. Duration, severity, affected rooms, rent, evidence and other proven losses may all be considered."]]
+  }
+]

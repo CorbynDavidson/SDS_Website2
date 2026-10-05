@@ -1,0 +1,157 @@
+[
+  {
+    "slug":"sheldon-davidson",
+    "name":"Sheldon Davidson",
+    "role":"Managing Director",
+    "image":"sheldon-davidson.webp",
+    "phone":"0161 796 3000",
+    "email":"info@sds-solicitors.com",
+    "intro":"Sheldon is Managing Director of Sheldon Davidson Solicitors Limited and has more than 27 years’ experience as a solicitor.",
+    "bio":["After studying law in Manchester and completing professional training at Chester Law School, Sheldon qualified as a solicitor in 1994. He worked in general practice before establishing Sheldon Davidson Solicitors in 1997.","The practice has grown from a small founding team to more than 40 full- and part-time employees. Sheldon attributes that growth to personal, professional client care, strong community ties and the firm’s independence.","He remains responsible for the firm’s direction and for maintaining an approachable service that combines legal standards with clear, human communication."],
+    "qualifications":["LL.B (Hons)","Qualified as a solicitor in 1994"]
+  },
+  {
+    "slug":"victoria-mccormack",
+    "name":"Victoria McCormack",
+    "role":"Managing Partner",
+    "image":"sds-victoria-mccormack.webp",
+    "phone":"0161 796 3000",
+    "email":"info@sds-solicitors.com",
+    "intro":"Victoria is Managing Partner and Practice Manager at Sheldon Davidson Solicitors, overseeing the firm’s operations, client care and compliance standards.",
+    "bio":["Victoria has been with Sheldon Davidson Solicitors for more than 26 years. She began as the firm’s Office Junior and progressed through a range of roles, giving her a detailed understanding of the practice and its day-to-day demands.","As Practice Manager, she oversees the firm’s daily operations, including compliance, staffing, client care, financial processes, strategic development and operational support. Her work helps the legal teams maintain consistently high professional standards.","Victoria also remains directly involved in fee-earning work. Continuing to work on live matters keeps her close to legal and procedural developments and enables her to share practical insight, support colleagues and improve working practices across the firm."],
+    "qualifications":["More than 26 years with Sheldon Davidson Solicitors","Managing Partner and Practice Manager","Firm-wide compliance, operations and client-care responsibility","Continued involvement in fee-earning casework"]
+  },
+  {
+    "slug":"daisy-kerins",
+    "name":"Daisy Kerins",
+    "role":"Housing Disrepair Solicitor",
+    "image":"sds-daisy-kerins.webp",
+    "phone":"0161 796 4261",
+    "email":"daisy.kerins@sds-solicitors.com",
+    "intro":"Daisy is a qualified Housing Disrepair Solicitor who supports tenants seeking effective repairs and compensation for poor housing conditions.",
+    "bio":["Before qualifying in summer 2026, Daisy spent three years working as a fee earner and paralegal. That experience covered the practical and evidential stages of helping clients progress housing matters.","Her work focuses on listening carefully to the effect the conditions have had, explaining the process clearly and helping clients assemble the repair history and supporting evidence.","Daisy aims to provide calm, practical support to people dealing with stressful living conditions and prolonged landlord inaction."],
+    "qualifications":["First Class LLB, Liverpool John Moores University","LPC/LLM, Liverpool John Moores University","Published in the LJMU Student Law Journal"]
+  },
+  {
+    "slug":"katie-morgan",
+    "name":"Katie Morgan",
+    "role":"Housing Disrepair Executive",
+    "image":"katie-morgan.webp",
+    "phone":"0161 796 4255",
+    "email":"katie.morgan@sds-solicitors.com",
+    "intro":"Katie has six years’ housing-disrepair experience spanning both pre-litigation and litigated claims.",
+    "bio":["Katie manages matters from initial instructions and evidence gathering through letters of claim, surveyor evidence, negotiation and resolution under the Housing Conditions Pre-Action Protocol.","Her litigation experience includes assisting with court documents, witness statements, schedules of loss, counsel and case-management directions.","She focuses on making the process understandable and ensuring clients remain informed while their repairs and compensation claim progress."],
+    "qualifications":["Law graduate, University of Greater Manchester","Pre-litigation and litigation experience in housing disrepair"]
+  },
+  {
+    "slug":"jen-schofield",
+    "name":"Jen Schofield",
+    "role":"Housing Disrepair Executive",
+    "image":"sds-jen-schofield.webp",
+    "phone":"0161 796 4240",
+    "email":null,
+    "intro":"Jen supports housing clients through the pre-litigation stages of their claims, from initial evidence review to engagement with landlords and surveyors.",
+    "bio":["Jen joined Sheldon Davidson Solicitors in March 2025 after more than 15 years handling road-traffic personal-injury matters, before moving into the Housing Disrepair Department.","Her current work includes taking detailed instructions, assessing potential claims, gathering evidence, preparing letters of claim and liaising with landlords, housing providers and their representatives.","She also assists with surveyor instructions and evidence review, while keeping clients updated in a professional and approachable way."],
+    "qualifications":["More than 15 years’ prior claims-handling experience","Housing disrepair pre-litigation experience"]
+  },
+  {
+    "slug":"dominique-stansfield",
+    "name":"Dominique Stansfield",
+    "role":"HDR New Claims Team Leader",
+    "image":"sds-dominique-stansfield.webp",
+    "phone":"0161 796 4242",
+    "email":null,
+    "intro":"Dominique leads the Housing Disrepair New Claims team and has worked in the sector since April 2023.",
+    "bio":["Dominique supports clients through the opening stages of housing-disrepair matters, coordinating initial case preparation, client communication and the information needed for an efficient assessment.","Before specialising in housing disrepair, she worked across Plevin, business-energy and PPI/FOS claims. That consumer-claims background strengthened her analytical approach and understanding of evidence-led case preparation.","Her focus is making the first stage of a claim organised, responsive and sensitive to the circumstances the client is facing."],
+    "qualifications":["Housing-disrepair experience since 2023","Consumer-claims and case-preparation background"]
+  },
+  {
+    "slug":"lauren-davies",
+    "name":"Lauren Davies",
+    "role":"HDR New Claims Handler",
+    "image":"sds-lauren-davies.webp",
+    "phone":"0161 546 8996",
+    "email":null,
+    "intro":"Lauren brings 15 years’ claims experience to the Housing Disrepair New Claims team.",
+    "bio":["Lauren spent 15 years working in personal-injury law, primarily on lower-value road-traffic matters. Her experience includes the Official Injury Claim Portal, liability assessment, valuation and settlement negotiation.","She now applies those investigative, organisational and client-care skills when reviewing new housing-disrepair enquiries and helping tenants explain the problems affecting their homes.","Lauren aims to make the opening stage clear and supportive while gathering the information needed for the team to assess the potential claim."],
+    "qualifications":["15 years’ personal-injury claims experience","OIC Portal, liability and quantum experience","Housing-disrepair new-claims experience"]
+  },
+  {
+    "slug":"milena-bologan",
+    "name":"Milena Bologan",
+    "role":"HDR New Claims Handler",
+    "image":"milena-bologan.webp",
+    "phone":null,
+    "email":null,
+    "intro":"Milena works in the Housing Disrepair New Enquiries team, assessing enquiries and guiding prospective clients through the initial process.",
+    "bio":["Milena takes detailed initial instructions, identifies potential housing-condition claims and helps clients understand what information may be needed next.","Before joining the firm, she developed housing-disrepair experience through the University of Manchester’s Pro Bono Legal Advice Service. She has also volunteered with a domestic-abuse helpline, strengthening her listening, empathy and communication skills.","She is committed to giving each prospective client a professional and approachable first experience, particularly where the person is dealing with difficult or unsafe living conditions."],
+    "qualifications":["First Class LLB, University of Manchester","University of Manchester Pro Bono Legal Advice Service","Housing Disrepair New Enquiries experience"]
+  },
+  {
+    "slug":"yulie-wagman",
+    "name":"Yulie Wagman",
+    "role":"HDR New Claims Handler",
+    "image":"yulie-wagman.webp",
+    "imageAlt":"Profile photograph coming soon for Yulie Wagman",
+    "phone":"0161 796 4258",
+    "email":null,
+    "intro":"Yulie supports housing-disrepair clients from their first enquiry and remains a consistent point of contact as matters progress.",
+    "bio":["Yulie’s role centres on client care, regular updates and reassurance. She helps clients understand the early stages of their matter and ensures their questions and circumstances are heard.","Her previous experience spans aviation, service industries, online retail and property finance. This varied background has developed strong customer-service, case-management and administrative skills.","She brings an organised, detail-focused approach to the team and places particular importance on building trust with clients who may find the process stressful or unfamiliar."],
+    "qualifications":["Housing-disrepair client support","Case-management and administration experience","Property-finance and customer-service background"]
+  },
+  {
+    "slug":"modupe-somoye",
+    "name":"Modupe Somoye",
+    "role":"HDR New Claims Handler",
+    "image":"modupe-somoye.webp",
+    "phone":"0161 767 2801",
+    "email":null,
+    "intro":"Modupe is a Housing Disrepair Claims Advisor who helps prospective clients understand their options from the beginning of an enquiry.",
+    "bio":["Modupe listens to the circumstances behind each enquiry, helps identify the client’s objectives and supports the information-gathering needed for an initial assessment.","Before joining the firm, she volunteered at a Community Legal Advice Centre on family-law matters and worked at a Child Contact Centre, helping to maintain a calm and supportive environment for families.","Those experiences strengthened her communication and empathy and inform the friendly, approachable service she provides to housing clients."],
+    "qualifications":["First Class law graduate","Community Legal Advice Centre experience","Housing-disrepair claims-advice experience"]
+  },
+  {
+    "slug":"moyin-ajidagba",
+    "name":"Moyin Ajidagba",
+    "role":"HDR New Claims Handler",
+    "image":"moyin-ajidagba.webp",
+    "phone":"0161 796 4246",
+    "email":null,
+    "intro":"Moyin supports clients through the opening stages of housing-disrepair claims and helps explain the legal options available.",
+    "bio":["Moyin developed her interest in accessible legal support while studying law and through experience with the Legal Department at South Ribble Council, where she gained exposure to housing and other legal matters.","She also worked within a family-law practice, supporting people at what could be a difficult and overwhelming point in their lives. That work strengthened her confidence, communication and ability to build trust.","In the Housing Disrepair team, she focuses on providing a clear and compassionate first point of contact and helping clients navigate the initial claims process."],
+    "qualifications":["LLB (Hons) 2:1, Nottingham Trent University","South Ribble Council Legal Department experience","Housing-disrepair new-claims experience"]
+  },
+  {
+    "slug":"kaneesha-zendera",
+    "name":"Kaneesha Zendera",
+    "role":"Paralegal/Administrator",
+    "image":"sds-kaneesha-zendera.webp",
+    "phone":"0161 796 4241",
+    "email":null,
+    "intro":"Kaneesha supports the legal team as a Paralegal and Administrator, combining academic legal knowledge with practical client work.",
+    "bio":["Kaneesha has developed practical legal skills through paralegal work, using the knowledge gained during undergraduate and postgraduate study to support clients and case progression.","Her role requires careful administration, accurate information handling and clear communication with clients and colleagues.","She contributes to an organised claims process and to the wider support available within the Housing Disrepair team."],
+    "qualifications":["Undergraduate and postgraduate legal study","Paralegal and legal-administration experience"]
+  },
+  {
+    "slug":"blake-davidson",
+    "name":"Blake Davidson",
+    "role":"Paralegal (Legal Apprentice)",
+    "image":"sds-blake-davidson.webp",
+    "phone":"0161 767 2808",
+    "email":null,
+    "intro":"Blake is a Housing Disrepair Paralegal and Legal Apprentice who assists clients during the pre-litigation stage of their claims.",
+    "bio":["Blake takes initial instructions, gathers and reviews evidence and helps assess the merits of potential housing-disrepair claims.","More than three years in a new-claims environment has developed his communication, investigation and attention to detail, helping him identify important issues early in a matter.","Alongside his role, Blake is completing a Law Apprenticeship with the aim of qualifying as a solicitor, combining formal study with practical housing-disrepair experience."],
+    "qualifications":["More than three years’ new-claims experience","Housing-disrepair pre-litigation experience","Current Law Apprentice"]
+  },
+  {
+    "slug":"corbyn-lewis",
+    "name":"Corbyn Lewis",
+    "role":"Administrator",
+    "image":"sds-corbyn-lewis.webp",
+    "phone":"0161 767 2855",
+    "email":null,
+    "intro":"Corbyn provides administrative support within the Housing Disrepair team and helps maintain an organised service for clients and colleagues.",
+    "bio":["Corbyn is a motivated legal administrator with a strong interest in developing practical experience within the legal profession.","His work supports the day-to-day administration required to keep enquiries and case information organised and available to the wider team.","He is committed to dependable legal support and to developing his knowledge as part of a busy housing practice."],
+    "qualifications":["Housing-disrepair team administration","Developing practical legal experience"]
+  }
+]

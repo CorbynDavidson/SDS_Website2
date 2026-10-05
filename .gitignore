@@ -1,0 +1,38 @@
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+out/
+coverage/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local runtime and scratch
+.sites-runtime/
+.sites-checkout*/
+.wrangler/
+.tmp/
+tmp/
+scratch/
+*.log
+*.tsbuildinfo
+*.sqlite
+*.sqlite3
+*.db
+
+# Generated archives
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
