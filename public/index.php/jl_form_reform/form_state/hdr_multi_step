@@ -1,0 +1,61 @@
+/*Form state visibility*/
+div.ccm-page.jl_form_reform__hdr_multi_step_s__success .jl_form_reform__hdr_multi_step_hide_when_success,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__warning .jl_form_reform__hdr_multi_step_hide_when_warning,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__danger .jl_form_reform__hdr_multi_step_hide_when_danger,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__primary .jl_form_reform__hdr_multi_step_hide_when_primary,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__secondary .jl_form_reform__hdr_multi_step_hide_when_secondary,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__info .jl_form_reform__hdr_multi_step_hide_when_info,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__light .jl_form_reform__hdr_multi_step_hide_when_light,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__dark .jl_form_reform__hdr_multi_step_hide_when_dark,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__1 .jl_form_reform__hdr_multi_step_hide_when_1,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__2 .jl_form_reform__hdr_multi_step_hide_when_2,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__3 .jl_form_reform__hdr_multi_step_hide_when_3,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__4 .jl_form_reform__hdr_multi_step_hide_when_4,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__5 .jl_form_reform__hdr_multi_step_hide_when_5,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__6 .jl_form_reform__hdr_multi_step_hide_when_6,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__7 .jl_form_reform__hdr_multi_step_hide_when_7,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__8 .jl_form_reform__hdr_multi_step_hide_when_8,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__user_is_guest .jl_form_reform__hdr_multi_step_hide_when_user_is_guest,
+div.ccm-page.jl_form_reform__hdr_multi_step_s__user_is_registered .jl_form_reform__hdr_multi_step_hide_when_user_is_registered,
+div.ccm-page .form-reforn{display:none;}
+/*end*/
+
+/*supplementary styles*/
+
+/*validation_supplementary_css*/
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated .form-control.is-invalid,
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated .form-control.form-control:invalid {
+    border-color: #a32c0d;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23A32C0D'%3E%3Ccircle cx='6' cy='6' r='4.5'/%3E%3Cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3E%3Ccircle cx='6' cy='8.2' r='.6' fill='%23A32C0D' stroke='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated:has(.form-check-input.is-invalid) .required{
+    color: #a32c0d!important;
+}
+
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated .form-control.is-invalid:focus,
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated .form-control:invalid:focus,
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated .form-check-input.is-invalid:focus, 
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated .form-check-input:invalid:focus {
+    border-color: #a32c0d;
+    box-shadow: 0 0 0 0.25rem rgb(163 44 13 / 25%);
+}
+
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated .form-check-input.is-invalid, 
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated .form-check-input:invalid {
+    border-color: #a32c0d;
+}
+
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated .form-check-input.is-invalid~.form-check-label, 
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated .form-check-input:invalid~.form-check-label {
+    color: #a32c0d;
+}
+
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated .form-check-input.is-invalid:checked, 
+html:not(.ccm-edit-mode) .ccm-page .form-reform-control.was-validated .form-check-input:invalid:checked {
+    background-color: #a32c0d;
+}

@@ -1,0 +1,85 @@
+{
+  "source_origin": "https://www.sds-solicitors.com",
+  "captured_at": "2026-10-05T23:27:23.964591+00:00",
+  "sitemap_pages": 248,
+  "captured_pages": 288,
+  "discovered_pages": 40,
+  "captured_assets": 264,
+  "asset_bytes": 29080047,
+  "unresolved_pages": [],
+  "unresolved_assets": [
+    {
+      "url": "https://www.sds-solicitors.com/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/news-bg.jpg",
+      "status": 404,
+      "captured_at": "2026-10-05T23:27:16.578149+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.sds-solicitors.com/concrete/images/devices/iphone/iphone4-landscape.png",
+      "status": 404,
+      "captured_at": "2026-10-05T23:27:20.514949+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.sds-solicitors.com/concrete/images/devices/iphone/iphone4.png",
+      "status": 404,
+      "captured_at": "2026-10-05T23:27:20.534341+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.sds-solicitors.com/concrete/skin-bootstrap/vline-rtl.gif",
+      "status": 404,
+      "captured_at": "2026-10-05T23:27:22.330914+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.sds-solicitors.com/concrete/skin-bootstrap/vline.gif",
+      "status": 404,
+      "captured_at": "2026-10-05T23:27:22.434320+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.sds-solicitors.com/packages/katalysis_sds_theme/themes/katalysis_sds_theme/css/owl.video.play.png",
+      "status": 404,
+      "captured_at": "2026-10-05T23:27:22.428607+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.sds-solicitors.com/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/ui-icons_444444_256x240.png",
+      "status": 404,
+      "captured_at": "2026-10-05T23:27:23.183487+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.sds-solicitors.com/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/ui-icons_555555_256x240.png",
+      "status": 404,
+      "captured_at": "2026-10-05T23:27:23.396161+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.sds-solicitors.com/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/ui-icons_777620_256x240.png",
+      "status": 404,
+      "captured_at": "2026-10-05T23:27:23.629384+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.sds-solicitors.com/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/ui-icons_777777_256x240.png",
+      "status": 404,
+      "captured_at": "2026-10-05T23:27:23.626694+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.sds-solicitors.com/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/ui-icons_cc0000_256x240.png",
+      "status": 404,
+      "captured_at": "2026-10-05T23:27:23.822999+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.sds-solicitors.com/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/ui-icons_ffffff_256x240.png",
+      "status": 404,
+      "captured_at": "2026-10-05T23:27:23.963841+00:00",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "complete": false
+}

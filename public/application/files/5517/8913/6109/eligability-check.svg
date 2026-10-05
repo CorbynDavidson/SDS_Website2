@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140" fill="none">
+  <rect x="41" y="30" width="58" height="81" rx="4" fill="#001D69"></rect>
+  <rect x="47" y="36" width="45" height="21" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round"></rect>
+  <rect x="47.1896" y="64.5646" width="11.9579" height="9.78373" fill="#00AEDE" stroke="#00AEDE" stroke-width="2" stroke-linejoin="round"></rect>
+  <rect x="63.4958" y="64.5646" width="11.9579" height="9.78373" fill="#00AEDE" stroke="#00AEDE" stroke-width="2" stroke-linejoin="round"></rect>
+  <rect x="79.802" y="64.5646" width="11.9579" height="9.78373" fill="#00AEDE" stroke="#00AEDE" stroke-width="2" stroke-linejoin="round"></rect>
+  <rect x="47.1896" y="78.6967" width="11.9579" height="9.78373" fill="#00AEDE" stroke="#00AEDE" stroke-width="2" stroke-linejoin="round"></rect>
+  <rect x="47.1896" y="92.8287" width="11.9579" height="9.78373" fill="#00AEDE" stroke="#00AEDE" stroke-width="2" stroke-linejoin="round"></rect>
+  <rect x="63.4958" y="78.6967" width="11.9579" height="9.78373" fill="#00AEDE" stroke="#00AEDE" stroke-width="2" stroke-linejoin="round"></rect>
+  <rect x="63.4958" y="92.8287" width="11.9579" height="9.78373" fill="#00AEDE" stroke="#00AEDE" stroke-width="2" stroke-linejoin="round"></rect>
+  <rect x="79.802" y="78.6967" width="11.9579" height="23.9158" fill="#00AEDE" stroke="#00AEDE" stroke-width="2" stroke-linejoin="round"></rect>
+  <path d="M93.728 111H46.272C42.8176 111 40 108.181 40 104.725V35.2753C40 31.819 42.8176 29 46.272 29H93.728C97.1824 29 100 31.819 100 35.2753V104.725C100 108.181 97.1824 111 93.728 111ZM46.272 30.6201C43.7028 30.6201 41.6193 32.7047 41.6193 35.2753V104.725C41.6193 107.295 43.7028 109.38 46.272 109.38H93.728C96.2972 109.38 98.3807 107.295 98.3807 104.725V35.2753C98.3807 32.7047 96.2972 30.6201 93.728 30.6201H46.272Z" fill="#001D69"></path>
+  <path d="M90 92.3878H87.4118V95H84.5882V92.3878H82V89.6122H84.5882V87H87.4118V89.6122H90V92.3878Z" fill="#001D69"></path>
+</svg>

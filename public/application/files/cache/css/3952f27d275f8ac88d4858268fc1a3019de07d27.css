@@ -1,0 +1,565 @@
+.clear_float:before,.clear_float:after{display:table;content:" "}.clear_float:after{clear:both}.dropzone,.dropzone *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.dropzone{position:relative;border:1px solid rgba(0,0,0,0.08);background:rgba(0,0,0,0.02);padding:1em;border:1px solid rgba(0,0,0,0.03);min-height:160px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-ms-border-radius:3px;background:rgba(0,0,0,0.03);padding:23px}.dropzone.dz-drag-hover{border-color:green;background:green}.dropzone.dz-clickable{cursor:pointer}.dropzone.dz-drag-hover{border-color:green;background:green}.dropzone.dz-started .dz-message{display:none}.dropzone .dz-message{opacity:1;-ms-filter:none;filter:none}.dropzone .dz-preview{-webkit-box-shadow:1px 1px 4px rgba(0,0,0,0.16);-moz-box-shadow:1px 1px 4px rgba(0,0,0,0.16);box-shadow:1px 1px 4px rgba(0,0,0,0.16);font-size:14px;background:rgba(255,255,255,0.8);position:relative;display:inline-block;margin:14px;vertical-align:top;border:1px solid #acacac;padding:6px 6px 28px 6px}.dropzone .dz-preview.dz-image-preview:hover .dz-details img{display:block;opacity:0.1;filter:alpha(opacity=10);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=10)"}.dropzone .dz-preview .dz-details{width:100px;height:100px;position:relative;background:#ebebeb;padding:5px}.dropzone .dz-preview .dz-details .dz-filename{overflow:hidden;height:100%}.dropzone .dz-preview .dz-details img{position:absolute;top:0;left:0;width:100px;height:100px}.dropzone .dz-preview .dz-details .dz-size{position:absolute;bottom:-28px;left:3px;height:28px;line-height:28px}.dropzone .dz-preview.dz-error .dz-error-mark{display:block;opacity:1;-ms-filter:none;filter:none}.dropzone .dz-preview.dz-error .dz-progress .dz-upload{background:#ee1e2d}.dropzone .dz-preview.success .dz-progress{display:none;display:block;filter:alpha(opacity=0);opacity:0;-webkit-transition:opacity .4s ease-in-out;-o-transition:opacity .4s ease-in-out;transition:opacity .4s ease-in-out}.dropzone .dz-preview.success .dz-success-mark{display:block;filter:alpha(opacity=100);opacity:1}.dropzone .dz-preview:hover .dz-details img{display:none}.dropzone .dz-preview:hover .dz-success-mark,.dropzone .dz-preview:hover .dz-error-mark{display:none}.dropzone .dz-preview .dz-success-mark,.dropzone .dz-preview .dz-error-mark{display:none;position:absolute;width:40px;height:40px;font-size:30px;text-align:center;right:-10px;top:-10px;display:block;filter:alpha(opacity=0);opacity:0;-webkit-transition:opacity .4s ease-in-out;-o-transition:opacity .4s ease-in-out;transition:opacity .4s ease-in-out}.dropzone .dz-preview .dz-success-mark span,.dropzone .dz-preview .dz-error-mark span{display:none}.dropzone .dz-preview .dz-success-mark{color:#8cc657;background-position:-268px -163px}.dropzone .dz-preview .dz-error-mark{color:#ee162d;background-position:-268px -123px}.dropzone .dz-preview .dz-progress{position:absolute;top:100px;left:6px;right:6px;height:6px;background:#d7d7d7}.dropzone .dz-preview .dz-progress .dz-upload{bottom:0;background-color:#8cc657;-webkit-animation:loading 0.4s linear infinite;-moz-animation:loading 0.4s linear infinite;-o-animation:loading 0.4s linear infinite;-ms-animation:loading 0.4s linear infinite;animation:loading 0.4s linear infinite;-webkit-transition:width .3s ease-in-out;-o-transition:width .3s ease-in-out;transition:width .3s ease-in-out;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;-ms-border-radius:2px;position:absolute;top:0;left:0;width:0%;height:100%}.dropzone .dz-preview .dz-error-message{position:absolute;top:0px;left:0px;background-color:#ee1e2d;padding:8px 10px;color:#ffffff;min-width:100%;max-width:100%;min-height:100%;max-height:100%;display:block;filter:alpha(opacity=0);opacity:0;-webkit-transition:opacity .3s ease-in-out;-o-transition:opacity .3s ease-in-out;transition:opacity .3s ease-in-out}.dropzone .dz-preview:hover.dz-error .dz-error-message{display:block;filter:alpha(opacity=100);opacity:1}.dropzone .dz-default.dz-message{filter:alpha(opacity=100);opacity:1;-webkit-transition:opacity .3s ease-in-out;-o-transition:opacity .3s ease-in-out;transition:opacity .3s ease-in-out;position:absolute;width:428px;height:123px;margin-left:-214px;margin-top:-61.5px;top:50%;left:50%;font-size:24px;text-align:center;color:#999}.dropzone.dz-square .dz-default.dz-message{background-position:0 -123px;width:268px;margin-left:-134px;height:174px;margin-top:-87px}.dropzone.dz-drag-hover .dz-message{filter:alpha(opacity=15);opacity:.15}.dropzone.dz-started .dz-message{display:block;filter:alpha(opacity=0);opacity:0}#dropzone{margin:30px 0;-webkit-box-shadow:0 0 50px rgba(0,0,0,0.13);-moz-box-shadow:0 0 50px rgba(0,0,0,0.13);box-shadow:0 0 50px rgba(0,0,0,0.13);padding:4px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-ms-border-radius:3px}#dropzone .dropzone{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
+
+/*
+ * Software by John Liddiard (aka JohntheFish)
+ * www.c5magic.co.uk
+ *
+ * This package contains software copyright and proprietary to John Liddiard
+ *
+ */
+
+/*
+ * A convenience, for any clickable related stying
+ */
+.snapshot-drag-drop-btn:not([disabled]) {
+    cursor: pointer;
+}
+
+.form-reform-snapshot-drag-drop-repeater {
+    height: auto;
+    min-height:38px;
+}
+
+.form-reform-snapshot-drag-drop-repeater .form-reform-placeholder{
+    font-style: italic;
+}
+
+.form-reform-snapshot-drag-drop-repeater:disabled,
+.form-reform-snapshot-drag-drop-repeater[disabled],
+.form-reform-snapshot-drag-drop-repeater.disabled{
+    background-color: #e9ecef;
+}
+
+.form-reform-snapshot-drag-drop-repeater .snapshot-form-reform-repeater-item {
+    padding: 5px;
+    outline: 1px solid #aaa;
+    border-radius: 3px;
+    margin-right: 5px;
+    width: auto;
+    display: inline-block;
+    position: relative;
+    min-height: 70px;
+}
+
+.form-reform-snapshot-drag-drop-repeater .snapshot-form-reform-repeater-thumbnail {
+    max-width: 200px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.form-reform-snapshot-drag-drop-repeater .snapshot-remove {
+    position: absolute;
+    right: 7px;
+    bottom: 32px;
+    background-color: rgba(200, 200, 200, 0.6);
+    padding: 5px;
+    border-radius: 2px;
+}
+
+/* Styling for system svg thumbnails used in dropzone overlay for non-image types */
+.snapshot-drag-drop-wrapper .dropzone .snapshot-preview.dz-preview:not(.dz-image-preview) .dz-details img {
+    top: unset;
+    left: unset;
+    bottom: 20px;
+    right: 0;
+    opacity: 0.6;
+}
+
+
+/*
+ * The button in the toolbar
+ */
+.jl-snapshot-button-drag_drop.drag-drop-killed {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+.jl-snapshot-button-drag_drop.drag-drop-killed .fa {
+    transform: rotate(60deg);
+}
+
+.dragdrop-icon-transform {
+    transform: scale(-1.7, 0.8) rotate(270deg);
+    box-shadow: -3px 0;
+}
+
+h2 .dragdrop-icon-transform, h3 .dragdrop-icon-transform {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+@keyframes c_blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.jl-snapshot-button-drag_drop.loading i {
+    animation: c_blinker 0.6s linear infinite;
+}
+
+.jl-snapshot-button-drag_drop.ready i {
+    color: #d9534f;
+}
+
+/*
+ * The default dz-drag-hover is primary green
+ */
+
+.snapshot-drag-drop-wrapper .dropzone.dz-drag-hover {
+    border-color: #dff0d8;
+    background: #dff0d8
+}
+
+/*
+ * Dropzone and preview area - fill the screen and the overlay
+ */
+.snapshot-drag-drop-wrapper.ccm-ui {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(11, 11, 11, 0.9);
+    z-index: 3000;
+    /*overflow-y:scroll;  TODO - TEST OVERFLOW MANY IMAGES. TEST SMALL SCREEN ESC->CLOSE */
+    display: none;
+}
+
+.snapshot-drag-drop-wrapper.loading {
+    display: none;
+}
+
+.snapshot-drag-drop-wrapper.ready {
+    display: flex;
+}
+
+.snapshot-drag-drop-wrapper.paused {
+    display: none;
+}
+
+
+html.snapshot-drag-drop-no-overflow {
+    overflow: hidden;
+}
+
+.snapshot-drag-drop-wrapper .snapshot-drag-drop-repeater {
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+/* TOOLBAR */
+.snapshot-drag-drop-wrapper .snapshot-drag-drop-repeater .toolbar {
+    display: none;
+}
+
+.snapshot-drag-drop-wrapper.ready .snapshot-drag-drop-repeater .toolbar {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    display: block;
+    padding: 4px;
+    border-radius: 3px;
+    background-color: rgba(221, 226, 231, 0.7);
+    border-color: rgba(65, 77, 89, 0.7);
+}
+
+.snapshot-drag-drop-wrapper .snapshot-drag-drop-repeater .toolbar .btn {
+    border-radius: 2px;
+    padding: 6px 12px;
+}
+
+.snapshot-drag-drop-wrapper .snapshot-drag-drop-repeater .toolbar .upload_files {
+    display: none;
+}
+
+.snapshot-drag-drop-wrapper.queue-processing-immediate .snapshot-drag-drop-repeater .toolbar .upload_files {
+    display: none;
+}
+
+.snapshot-drag-drop-wrapper.queue-processing-command .snapshot-drag-drop-repeater .toolbar .upload_files {
+    display: inline-block;
+}
+
+
+.snapshot-drag-drop-wrapper .snapshot-drag-drop-repeater .drag-drop-area {
+    width: 100vw;
+    min-height: 100vh;
+    border: 2px dashed rgba(0, 153, 255, 1.0);
+}
+
+.snapshot-drag-drop-wrapper .snapshot-drag-drop-repeater .drag-drop-area .dz-message h2 {
+    color: rgba(255, 255, 255, 0.8);
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+@keyframes darg_drop_uploading {
+    0% {
+        transform: scale(1);
+        opacity: 100%
+    }
+    50% {
+        transform: scale(0.9);
+        opacity: 10%
+    }
+    100% {
+        transform: scale(1);
+        opacity: 100%;
+    }
+}
+
+.snapshot-drag-drop-wrapper.snapshot-uploading .snapshot-preview.dz-processing:not(.snapshot-ajax-done) {
+    animation-name: darg_drop_uploading;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+/*
+ * Default cursor over any preview - except on links
+ */
+
+.snapshot-drag-drop-wrapper .snapshot-preview {
+    cursor: default;
+}
+
+/*
+ * Make thumbnails larger so there is room for a small dialog for title and description
+ and so they don't need to be cropped.
+ */
+.snapshot-drag-drop-wrapper .dropzone .snapshot-preview.dz-preview .dz-details {
+    width: 250px;
+    height: 256px;
+}
+
+.snapshot-drag-drop-wrapper .dropzone .snapshot-preview.dz-preview.dz-image-preview .dz-details img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 250px;
+    height: 250px;
+    max-height: 250px;
+    max-width: 250px;
+    object-fit: scale-down;
+}
+
+.snapshot-drag-drop-wrapper .dropzone .snapshot-preview.dz-preview .dz-progress {
+    top: 256px;
+}
+
+/*
+ * Error message container and icon
+ */
+.snapshot-drag-drop-wrapper .dropzone .snapshot-preview.dz-preview .snapshot-error-message {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 8px 10px;
+    min-width: 100%;
+    max-width: 100%;
+    height: 250px;
+    display: block;
+    opacity: 0;
+}
+
+.snapshot-drag-drop-wrapper .dropzone .dz-preview.dz-error:hover .snapshot-error-message {
+    opacity: 1;
+}
+
+.snapshot-drag-drop-wrapper .dropzone .dz-complete .dz-success-mark span,
+.snapshot-drag-drop-wrapper .dropzone .dz-error .dz-error-mark span {
+    display: block;
+}
+
+.snapshot-drag-drop-wrapper .dz-preview.dz-error:hover .dz-error-mark,
+.snapshot-drag-drop-wrapper .dropzone .dz-error .dz-error-mark {
+    opacity: 1;
+    display: block;
+}
+
+/*
+ * Success icon
+ */
+
+.snapshot-drag-drop-wrapper .dropzone .dz-complete .dz-success-mark,
+.snapshot-drag-drop-wrapper .dz-preview.dz-success:hover .dz-success-mark {
+    display: block;
+    opacity: 1;
+}
+
+.snapshot-drag-drop-wrapper .dropzone .dz-error .dz-success-mark {
+    display: none;
+}
+
+/*
+ * These are used for filenames and titles. We don't want any theme bleed corrupting the case because
+ * users want to see accurate representation of the names and titles or they will assume mistakes.
+ */
+.snapshot-drag-drop-wrapper .dz-preview h5, .snapshot-drag-drop-wrapper .dz-preview h5 {
+    text-transform: none;
+}
+
+/*
+ * Pending icon on/off
+ */
+.snapshot-drag-drop-wrapper .dz-preview .snapshot-pending-mark {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    text-align: center;
+    right: -10px;
+    top: -10px;
+    color: #3f9edc;
+    transition: opacity .4s ease-in-out;
+}
+
+.snapshot-drag-drop-wrapper .dz-preview.dz-processing .snapshot-pending-mark {
+    display: none;
+}
+
+
+/*
+ * Remove/cancel link. Shown before upload attempted, but hidden while
+ * editing
+ */
+.snapshot-drag-drop-wrapper .dz-preview .snapshot-remove {
+    position: absolute;
+    right: 3px;
+}
+
+.snapshot-drag-drop-wrapper .dz-preview.snapshot-editing .snapshot-remove {
+    display: none;
+}
+
+
+/*
+ * Edit controls toggle and form shown
+ */
+
+.snapshot-drag-drop-wrapper .dz-preview .snapshot-pre-edit-controls {
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    padding: 3px;
+    border-radius: 2px;
+    background-color: rgba(221, 226, 231, 0.7);
+    border-color: rgba(65, 77, 89, 0.7);
+}
+
+.snapshot-drag-drop-wrapper .dz-preview .snapshot-pre-edit.snapshot-pre-edit-image {
+    display: none;
+}
+
+.snapshot-drag-drop-wrapper .dz-preview .snapshot-pre-edit,
+.snapshot-drag-drop-wrapper .dz-preview.type-image-jpeg .snapshot-pre-edit.snapshot-pre-edit-image,
+.snapshot-drag-drop-wrapper .dz-preview.type-image-jpg .snapshot-pre-edit.snapshot-pre-edit-image,
+.snapshot-drag-drop-wrapper .dz-preview.type-image-png .snapshot-pre-edit.snapshot-pre-edit-image {
+    display: inline-block;
+}
+
+.snapshot-drag-drop-wrapper .snapshot_control {
+    padding: 2px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+.snapshot-drag-drop-wrapper .dz-preview.dz-processing .snapshot-pre-edit,
+.snapshot-drag-drop-wrapper .dz-preview.snapshot-editing .snapshot-pre-edit {
+    display: none;
+}
+
+.snapshot-drag-drop-wrapper .snapshot-pre-edit-info {
+    margin-right: 3px;
+}
+
+.snapshot-drag-drop-wrapper .dz-preview .snapshot-pre-edit-close,
+.snapshot-drag-drop-wrapper .dz-preview.dz-processing.snapshot-editing .snapshot-pre-edit-close {
+    display: none;
+}
+
+
+.snapshot-drag-drop-wrapper .dz-preview.snapshot-editing .snapshot-pre-edit-close {
+    display: inline-block;
+}
+
+
+.snapshot-drag-drop-wrapper .dz-preview .snapshot-pre-edit-form {
+    display: none;
+    opacity: 0.5;
+}
+
+.snapshot-drag-drop-wrapper .dz-preview.snapshot-editing .snapshot-pre-edit-form {
+    display: block;
+}
+
+.snapshot-drag-drop-wrapper .dz-preview.snapshot-editing .snapshot-pre-edit-form:hover {
+    opacity: 0.9;
+}
+
+.snapshot-drag-drop-wrapper .dropzone .snapshot-preview.dz-preview.snapshot-editing .snapshot-error-message {
+    display: none;
+}
+
+.snapshot-drag-drop-wrapper .dz-preview .snapshot-pre-edit-form textarea {
+    height: 160px;
+    resize: none;
+}
+
+
+/*
+ * IMAGE EDITOR
+ */
+
+.snapshot-drag-drop-wrapper .image-edit-container {
+    display: none;
+}
+
+/*
+ * None of the standard buttons
+ */
+.snapshot-drag-drop-wrapper .image-edit-container .tui-image-editor-header .tui-image-editor-header-logo,
+.snapshot-drag-drop-wrapper .image-edit-container .tui-image-editor-header .tui-image-editor-download-btn,
+.snapshot-drag-drop-wrapper .image-edit-container .tui-image-editor-header .tui-image-editor-load-btn,
+.snapshot-drag-drop-wrapper .image-edit-container .tui-image-editor-header div:first-child {
+    display: none;
+}
+
+.snapshot-drag-drop-wrapper.image_editing .image-edit-container {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.snapshot-drag-drop-wrapper .image-edit-container .tui-image-editor-controls li.snapshot-editor-cancel,
+.snapshot-drag-drop-wrapper .image-edit-container .tui-image-editor-controls li.snapshot-editor-done {
+    padding-top: 0;
+    vertical-align: middle;
+}
+
+.snapshot-drag-drop-wrapper .image-edit-container .tui-image-editor-controls .btn.snapshot-editor-done,
+.snapshot-drag-drop-wrapper .image-edit-container .tui-image-editor-controls .btn.snapshot-editor-cancel {
+    border-radius: 2px;
+    padding: 6px 12px;
+}
+
+/*
+ * Now need top space for help menu bar
+ */
+.snapshot-drag-drop-wrapper .image-edit-container .tui-image-editor-main {
+    top: 45px;
+}
+
+.snapshot-drag-drop-wrapper .tui-image-editor-container .tui-image-editor-help-menu {
+    background-color: #151515;
+}
+
+.snapshot-drag-drop-wrapper .tui-image-editor-container .tui-image-editor-help-menu.top {
+    top: 0;
+}
+
+/*
+ * Not that relevant as most small mobiles don't support
+ * drag-drops!
+ *
+ * A little bit of usability improvement for the image editor
+ * on small screens.
+ * Get the toolbars to wrap
+ * Have a larger window with scroll to enable users to find
+ * off-screen buttons
+ */
+
+@media screen and (max-width: 768px) {
+    .snapshot-drag-drop-wrapper .tui-image-editor-container {
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+
+    .snapshot-drag-drop-wrapper .tui-image-editor-container .tui-image-editor-controls ul.tui-image-editor-menu {
+        white-space: normal;
+    }
+
+    .snapshot-drag-drop-wrapper .tui-image-editor-container .tui-image-editor-controls ul.tui-image-editor-menu li:after {
+        content: "\200B";
+    }
+
+    .snapshot-drag-drop-wrapper .tui-image-editor-container .tui-image-editor-menu > .tui-image-editor-item {
+        padding: 7px 2px 3px;
+    }
+
+    .snapshot-drag-drop-wrapper .tui-image-editor-container .tui-image-editor-main-container ul.tui-image-editor-submenu-item {
+        white-space: normal;
+    }
+
+    .snapshot-drag-drop-wrapper .tui-image-editor-container .tui-image-editor-main-container ul.tui-image-editor-submenu-item li {
+        display: inline-flex;
+    }
+
+    .snapshot-drag-drop-wrapper .tui-image-editor-container .tui-image-editor-main-container ul.tui-image-editor-submenu-item li:after {
+        content: "\200B";
+    }
+
+    .snapshot-drag-drop-wrapper .tui-image-editor-container .tui-image-editor-main-container .tui-image-editor-button:after {
+        content: "\200B";
+    }
+}
+
+
+/*
+ * To enable v8 styling to continue working with v9 code
+ */
+.snapshot-drag-drop-wrapper .badge {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.snapshot-drag-drop-wrapper .badge.label-success {
+    background-color: #5cb85c;
+}
+
+.snapshot-drag-drop-wrapper .badge.label-warning {
+    background-color: #f0ad4e;
+}
+
+.snapshot-drag-drop-wrapper .badge.label-danger {
+    background-color: #d9534f;
+}
+
+.snapshot-drag-drop-wrapper .badge.label-info {
+    background-color: #5bc0de;
+}
+
+.snapshot-drag-drop-wrapper .badge.label-default { /* default === secondary */
+    background-color: #6c757d;
+}
+
+.snapshot-drag-drop-wrapper.badge.label-primary {
+    background-color: #3f9edc;
+}
+
+.mfp-zoom-in .mfp-with-anim{opacity:0;transform:scale(.8);transition:all .2s ease-in-out}.mfp-zoom-in.mfp-bg{opacity:0;transition:all .3s ease-out}.mfp-zoom-in.mfp-ready .mfp-with-anim{opacity:1;transform:scale(1)}.mfp-zoom-in.mfp-ready.mfp-bg{opacity:.8}.mfp-zoom-in.mfp-removing .mfp-with-anim{opacity:0;transform:scale(.8)}.mfp-zoom-in.mfp-removing.mfp-bg{opacity:0}.mfp-fade.mfp-bg{opacity:0;transition:all .15s ease-out}.mfp-fade.mfp-bg.mfp-ready{opacity:.8}.mfp-fade.mfp-bg.mfp-removing{opacity:0}.mfp-fade.mfp-wrap .mfp-content{opacity:0;transition:all .15s ease-out}.mfp-fade.mfp-wrap.mfp-ready .mfp-content{opacity:1}.mfp-fade.mfp-wrap.mfp-removing .mfp-content{opacity:0}.mfp-bg{background:#0b0b0b;filter:alpha(opacity=80);opacity:.8;overflow:hidden;z-index:2100}.mfp-bg,.mfp-wrap{height:100%;left:0;position:fixed;top:0;width:100%}.mfp-wrap{-webkit-backface-visibility:hidden;outline:none!important;z-index:2200}.mfp-container{box-sizing:border-box;height:100%;left:0;padding:0 8px;position:absolute;text-align:center;top:0;width:100%}.mfp-container:before{content:"";display:inline-block;height:100%;vertical-align:middle}.mfp-align-top .mfp-container:before{display:none}.mfp-content{display:inline-block;margin:0 auto;position:relative;text-align:left;vertical-align:middle;z-index:2400}.mfp-ajax-holder .mfp-content,.mfp-inline-holder .mfp-content{cursor:auto;width:100%}.mfp-ajax-cur{cursor:progress}.mfp-zoom-out-cur,.mfp-zoom-out-cur .mfp-image-holder .mfp-close{cursor:zoom-out}.mfp-zoom{cursor:pointer;cursor:zoom-in}.mfp-auto-cursor .mfp-content{cursor:auto}.mfp-arrow,.mfp-close,.mfp-counter,.mfp-preloader{-webkit-user-select:none;-moz-user-select:none;user-select:none}.mfp-loading.mfp-figure{display:none}.mfp-hide{display:none!important}.mfp-preloader{color:#ccc;left:8px;margin-top:-.8em;position:absolute;right:8px;text-align:center;top:50%;width:auto;z-index:2300}.mfp-preloader a{color:#ccc}.mfp-preloader a:hover{color:#fff}.mfp-s-error .mfp-content,.mfp-s-ready .mfp-preloader{display:none}button.mfp-arrow,button.mfp-close{-webkit-appearance:none;background:transparent;border:0;box-shadow:none;cursor:pointer;display:block;outline:none;overflow:visible;padding:0;touch-action:manipulation;z-index:2400}button::-moz-focus-inner{border:0;padding:0}.mfp-close{color:#fff;font-family:Arial,Baskerville,monospace;font-size:28px;font-style:normal;height:44px;line-height:44px;opacity:.65;padding:0 0 18px 10px;position:absolute;right:0;text-align:center;text-decoration:none;top:0;width:44px}.mfp-close:focus,.mfp-close:hover{opacity:1}.mfp-close:active{top:1px}.mfp-close-btn-in .mfp-close{color:#333}.mfp-iframe-holder .mfp-close,.mfp-image-holder .mfp-close{color:#fff;padding-right:6px;right:-6px;text-align:right;width:100%}.mfp-counter{color:#ccc;font-size:12px;line-height:18px;position:absolute;right:0;top:0;white-space:nowrap}.mfp-arrow{-webkit-tap-highlight-color:rgba(0,0,0,0);height:110px;margin:-55px 0 0;opacity:.65;padding:0;position:absolute;top:50%;width:90px}.mfp-arrow:active{margin-top:-54px}.mfp-arrow:focus,.mfp-arrow:hover{opacity:1}.mfp-arrow:after,.mfp-arrow:before{border:inset transparent;content:"";display:block;height:0;left:0;margin-left:35px;margin-top:35px;position:absolute;top:0;width:0}.mfp-arrow:after{border-bottom-width:13px;border-top-width:13px;top:8px}.mfp-arrow:before{border-bottom-width:21px;border-top-width:21px;opacity:.7}.mfp-arrow-left{left:0}.mfp-arrow-left:after{border-right:17px solid #fff;margin-left:31px}.mfp-arrow-left:before{border-right:27px solid #3f3f3f;margin-left:25px}.mfp-arrow-right{right:0}.mfp-arrow-right:after{border-left:17px solid #fff;margin-left:39px}.mfp-arrow-right:before{border-left:27px solid #3f3f3f}.mfp-iframe-holder{padding-bottom:40px;padding-top:40px}.mfp-iframe-holder .mfp-content{line-height:0;max-width:900px;width:100%}.mfp-iframe-holder .mfp-close{top:-40px}.mfp-iframe-scaler{height:0;overflow:hidden;padding-top:56.25%;width:100%}.mfp-iframe-scaler iframe{background:#000;box-shadow:0 0 8px rgba(0,0,0,.6);display:block;height:100%;left:0;position:absolute;top:0;width:100%}img.mfp-img{box-sizing:border-box;display:block;height:auto;margin:0 auto;max-width:100%;padding:40px 0;width:auto}.mfp-figure,img.mfp-img{line-height:0}.mfp-figure:after{background:#444;bottom:40px;box-shadow:0 0 8px rgba(0,0,0,.6);content:"";display:block;height:auto;left:0;position:absolute;right:0;top:40px;width:auto;z-index:-1}.mfp-figure small{color:#bdbdbd;display:block;font-size:12px;line-height:14px}.mfp-figure figure{margin:0}.mfp-bottom-bar{cursor:auto;left:0;margin-top:-36px;position:absolute;top:100%;width:100%}.mfp-title{word-wrap:break-word;color:#f3f3f3;line-height:18px;padding-right:36px;text-align:left}.mfp-image-holder .mfp-content{max-width:100%}.mfp-gallery .mfp-image-holder .mfp-figure{cursor:pointer}@media screen and (max-height:300px),screen and (max-width:800px)and (orientation:landscape){.mfp-img-mobile .mfp-image-holder{padding-left:0;padding-right:0}.mfp-img-mobile img.mfp-img{padding:0}.mfp-img-mobile .mfp-figure:after{bottom:0;top:0}.mfp-img-mobile .mfp-figure small{display:inline;margin-left:5px}.mfp-img-mobile .mfp-bottom-bar{background:rgba(0,0,0,.6);bottom:0;box-sizing:border-box;margin:0;padding:3px 5px;position:fixed;top:auto}.mfp-img-mobile .mfp-bottom-bar:empty{padding:0}.mfp-img-mobile .mfp-counter{right:5px;top:3px}.mfp-img-mobile .mfp-close{background:rgba(0,0,0,.6);height:35px;line-height:35px;padding:0;position:fixed;right:0;text-align:center;top:0;width:35px}}@media (max-width:900px){.mfp-arrow{transform:scale(.75)}.mfp-arrow-left{transform-origin:0}.mfp-arrow-right{transform-origin:100%}.mfp-container{padding-left:6px;padding-right:6px}}div.ccm-lightbox-popup-white{background-color:#fff;border-radius:10px;margin:0 auto;max-width:600px;padding:20px 60px 20px 20px;position:relative}.ccm-block-gallery a{position:relative}.ccm-block-gallery .ccm-block-gallery-image-overlay,.ccm-block-gallery .ccm-block-gallery-image-overlay-color,.ccm-block-gallery .ccm-block-gallery-image-overlay-text{height:100%;left:0;position:absolute;top:0;width:100%}.ccm-block-gallery .ccm-block-gallery-image-overlay{opacity:0;transition:opacity .3s}.ccm-block-gallery .ccm-block-gallery-image-overlay-color{background-color:rgba(13,110,253,.8)}.ccm-block-gallery .ccm-block-gallery-image-overlay-text{align-items:center;color:#fff;display:flex;flex-direction:column;font-weight:700;justify-content:center}.ccm-block-gallery .ccm-block-gallery-image{cursor:pointer;overflow:hidden;padding-top:calc(3.125rem + 22.5vw);position:relative;width:100%}@media(min-width:1200px){.ccm-block-gallery .ccm-block-gallery-image{padding-top:20rem}}.ccm-block-gallery img{bottom:-9999px;height:100%;left:-9999px;margin:auto;-o-object-fit:cover;object-fit:cover;position:absolute;right:-9999px;top:-9999px;width:100%}.ccm-block-gallery a:hover .ccm-block-gallery-image-overlay{opacity:1}/*! http://responsiveslides.com v1.55 by @viljamis */.rslides{list-style:none;margin:0;overflow:hidden;padding:0;position:relative;width:100%}.rslides>li{backface-visibility:hidden;display:none;left:0;margin-bottom:0!important;position:absolute;top:0;width:100%}.rslides>li:first-child{display:block;float:left;position:relative}.rslides img{border:0;display:block;float:left;height:auto;width:100%}.rslides_nav{-webkit-tap-highlight-color:rgba(0,0,0,0);background:transparent url("data:image/gif;base64,R0lGODlhTAA9AMQAABAQEDAwMO/v78/Pz7+/v39/f6+vr1BQUCAgIGBgYJ+fn0BAQN/f33BwcI+Pj////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABMAD0AAAXkICSOZGmeaKqubOu+cCzPdG3feK7vfO//wKBwSCwaj8ikcslsOp/QqHRKrVqv2Fog4NsiAYTHY8ALPwiAImAgFi90gfY4PVTIyTuzWDEsyAUIPAACcgVBCXIPbz1xcgk/AYRthj8Nf1yCkmIGQnZtAnQ6eg8MoT9rcgQ7jW2YQqxirjeDcg5Efp+mNweJj0G8cgc9uGICsjyRhT+eYqU+qG2cp2zRPsxzQbSTPJafga+aD984CImLQ4itOuVtvkULBgTCOwcGBvNZ+fr7/P3+/wADChxIsKDBgwgTKlzIsKFDKSEAADs=") no-repeat 0 0;height:61px;left:0;margin-top:-45px;opacity:.7;overflow:hidden;position:absolute;text-decoration:none;top:50%;width:38px;z-index:99}.rslides_tabs{padding-bottom:10px;padding-left:0;padding-top:0}.rslides_tabs li{display:inline-block;list-style-type:none;margin-right:5px}.rslides_tabs li.rslides_here a{background:#333}.rslides_tabs li a{background:#ccccc9;border-radius:30px;display:inline-block;height:15px;margin-right:10px;overflow:hidden;text-indent:-9999px;width:15px}.rslides_nav.next{background-position:100% 0;left:auto;right:0}/*! http://responsiveslides.com v1.54 by @viljamis */.ccm-image-slider{position:relative}.ccm-image-slider-text{clear:both;padding-top:1rem}.ccm-image-slider-title{margin-bottom:1rem}.rslides{margin:0 auto}a.mega-link-overlay{height:100%;left:0;position:absolute;width:100%;z-index:20}div.ccm-block-hero-image{min-height:50vh;position:relative}div.ccm-block-hero-image div.ccm-block-hero-image-cover,div.ccm-block-hero-image div.ccm-block-hero-image-text{height:50vh;left:0;position:absolute;top:0;width:100%}div.ccm-block-hero-image div.ccm-block-hero-image-text{align-items:center;display:flex;flex-direction:column;justify-content:center}div.ccm-block-hero-image div.ccm-block-hero-image-cover{z-index:2}div.ccm-block-hero-image div.ccm-block-hero-image-text{z-index:3}div.ccm-block-hero-image div.ccm-block-hero-image-image{background-position:50%;background-size:cover;height:50vh;z-index:1}
+
+
+.ccm-block-share-this-page ul.list-inline{display:inline-block;margin:0;padding:0}.ccm-block-share-this-page ul.list-inline li{display:inline-block;list-style-type:none;margin-right:10px;padding:0}.ccm-block-share-this-page svg{max-height:13px}.ccm-block-social-links ul.list-inline{display:inline-block;margin:0;padding:0}.ccm-block-social-links ul.list-inline li{display:inline-block;list-style-type:none;margin-right:10px;padding:0}.ccm-block-social-links svg{max-height:13px}
+
+
