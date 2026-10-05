@@ -2,6 +2,12 @@
 
 Source for the SDS-branded Housing Condition Claims website, exported from the current saved project (version 41).
 
+## Full SDS replacement plan
+
+The proposed replacement of the current SDS website must preserve original published wording, URLs and metadata. See [SDS_MIGRATION_PLAN.md](docs/SDS_MIGRATION_PLAN.md) for the phased scope, Git synchronisation workflow, required source export and production acceptance checks.
+
+This plan is proposed work; the content migration and production cutover have not yet been performed.
+
 ## Project structure
 
 - `src/`: page templates, CSS, structured page content and image assets.
