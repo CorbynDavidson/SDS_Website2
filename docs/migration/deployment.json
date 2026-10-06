@@ -132,7 +132,7 @@
     "productionDnsChanged": false,
     "productionReleaseReady": false
   },
-  "currentlyDeployedRelease": "headerCardsAndLocations",
+  "currentlyDeployedRelease": "reviewsPage",
   "layoutCorrections": {
     "versionNumber": 49,
     "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_c199c3e18214819187efa28ccd0653f9",
@@ -288,5 +288,35 @@
     "browserVisualAuditComplete": false,
     "productionDnsChanged": false,
     "productionReleaseReady": false
+  },
+  "reviewsPage": {
+    "versionNumber": 53,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_53686e7c02e081919262e830dcb8ef2d",
+    "sourceCommit": "e0fb09e90a87cb25e74520835fc96b598a5edde5",
+    "githubCommit": "924e815e227e2647706c90f699d9a99d9f1eed84",
+    "deploymentId": "appgdep_6ac46d110c508191b5643a35edf98f20",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T03:38:17.707656+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "validation": {
+      "githubRunId": 37409807243,
+      "conclusion": "success",
+      "sourceMirrorFiles": 14,
+      "allMatched": true
+    }
+  },
+  "productionSeoPreparation": {
+    "codeConfigured": true,
+    "productionOrigin": "https://www.sds-solicitors.com",
+    "dnsCutoverPerformed": false,
+    "runtimeReleaseMode": "review",
+    "capturedRoutes": 296,
+    "canonicalSitemapUrls": 251,
+    "globalLegalServiceTemplates": 305,
+    "permanentRedirects": 286,
+    "historicalInventoryComplete": false,
+    "browserVisualAuditComplete": false,
+    "reviewPublicationStatus": "pending"
   }
 }

@@ -16,8 +16,8 @@ parser.add_argument('--origin', required=True)
 parser.add_argument('--output', default='build/hosted-assets-verification.json')
 args = parser.parse_args()
 origin = args.origin.rstrip('/')
-if urlsplit(origin).scheme != 'https' or urlsplit(origin).hostname not in {'housingconditionclaims.org', 'www.housingconditionclaims.org'}:
-    raise SystemExit('Use the configured HTTPS review origin.')
+if urlsplit(origin).scheme != 'https' or not urlsplit(origin).hostname:
+    raise SystemExit('Use the explicit HTTPS deployment origin.')
 assets = json.loads((root / 'build/data.json').read_text())['assets']
 
 def verify(item):

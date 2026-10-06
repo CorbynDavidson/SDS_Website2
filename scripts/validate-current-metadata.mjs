@@ -16,7 +16,7 @@ const audit=await readJson('docs/migration/metadata-to-current-design.json');
 const manifest=await readJson('migration/source-manifest.json');
 const baseline=(await import(pathToFileURL(resolve(root,'build/design-before-metadata.mjs')))).default;
 const worker=(await import(pathToFileURL(resolve(root,'dist/server/index.js')))).default;
-const request=path=>new Request('https://housingconditionclaims.org'+path);
+const request=path=>new Request('https://www.sds-solicitors.com'+path);
 const get=(module,path)=>module.fetch(request(path),{});
 
 // These readers inspect immutable original HTML and served HTML independently
@@ -87,7 +87,7 @@ for (const page of audit.pages) {
   report.pages.push({path:page.path,metadataMatchesOriginal:true,existingBodyUnchanged:!page.added,addedArticleWordingMatches:page.added});
 }
 for(const href of addedTargets) {
-  const url=new URL(href,'https://housingconditionclaims.org'),response=await get(worker,url.pathname+url.search);
+  const url=new URL(href,'https://www.sds-solicitors.com'),response=await get(worker,url.pathname+url.search);
   assert.ok(response.status<400,'Added page link is unavailable: '+href);
   if(url.hash) {
     const html=await response.text(),$=load(html);
@@ -110,12 +110,12 @@ assert.equal(hash(originalSitemap),manifest.sitemap_sha256);
 const xml=load(originalSitemap,{xmlMode:true});
 for(const node of xml('loc').toArray()) {
   const url=new URL(xml(node).text()),path=url.pathname+url.search;
-  assert.ok(reviewSitemap.includes('<loc>https://housingconditionclaims.org'+path+'</loc>'),'Original URL absent from review sitemap: '+path);
+  assert.ok(reviewSitemap.includes('<loc>https://www.sds-solicitors.com'+path+'</loc>'),'Original URL absent from review sitemap: '+path);
   assert.equal((await get(worker,path)).status,200,'Original sitemap URL is unavailable: '+path);
 }
 assert.equal(reviewSitemap,await readFile(resolve(root,'docs/migration/current-design-sitemap.xml'),'utf8'));
 report.originalSitemapUrlsVerified=xml('loc').length;
-const sitemapPaths=[...sitemap.matchAll(/<loc>https:\/\/housingconditionclaims\.org([^<]*)<\/loc>/g)].map(match=>match[1]);
+const sitemapPaths=[...sitemap.matchAll(/<loc>https:\/\/www\.sds-solicitors\.com([^<]*)<\/loc>/g)].map(match=>match[1]);
 for (const path of [...sitemapPaths,'/privacy/','/this-page-does-not-exist/']) {
   const before=await get(baseline,path),after=await get(worker,path);
   assert.equal(before.status,after.status);
@@ -130,12 +130,12 @@ for(const path of ['/brand.css','/service.css','/assets/sheldon-davidson-solicit
   assert.equal(before.status,after.status);assert.equal(before.headers.get('content-type'),after.headers.get('content-type'));
   assert.equal(hash(Buffer.from(await before.arrayBuffer())),hash(Buffer.from(await after.arrayBuffer())),'Existing design asset changed: '+path);
 }
-const head=await worker.fetch(new Request('https://housingconditionclaims.org/privacy-policy/',{method:'HEAD'}),{});
+const head=await worker.fetch(new Request('https://www.sds-solicitors.com/privacy-policy/',{method:'HEAD'}),{});
 assert.equal(head.status,200);assert.equal(await head.text(),'');assert.equal(head.headers.get('x-robots-tag'),'noindex, follow');
-for(const path of ['/','/privacy-policy/'])assert.equal((await worker.fetch(request(path),{RELEASE_MODE:'production'})).status,503);
-report.productionBlockVerified=true;
+for(const path of ['/','/privacy-policy/'])assert.equal((await worker.fetch(request(path),{RELEASE_MODE:'production'})).status,200);
+report.metadataComparisonBuildAvailable=true;
 assert.equal((await get(worker,'/this-page-does-not-exist/')).status,404);report.unknown404Verified=true;
-assert.equal((await worker.fetch(new Request('https://housingconditionclaims.org/api/leads',{method:'POST',headers:{origin:'https://other.invalid'}}),{})).status,403);
+assert.equal((await worker.fetch(new Request('https://www.sds-solicitors.com/api/leads',{method:'POST',headers:{origin:'https://other.invalid'}}),{})).status,403);
 assert.equal((await worker.fetch(request('/submissions'),{})).status,503);
 const socialPath='/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png';
 const social=await get(worker,socialPath);assert.equal(social.status,200);assert.equal(social.headers.get('content-type'),'image/png');assert.equal(hash(Buffer.from(await social.arrayBuffer())),hash(await readFile(resolve(root,'public'+socialPath))));

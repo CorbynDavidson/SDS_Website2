@@ -1,0 +1,200 @@
+{
+  "checkedOn": "2026-10-06",
+  "productionOrigin": "https://www.sds-solicitors.com",
+  "redirects": {
+    "/personal-injury/": "/",
+    "/serious-injury/": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/medical-negligence/": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/medical-negligence-claims/": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/clinical-negligence/": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/road-bike-accident-claims/": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/road-traffic-accidents/": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/road-traffic-accident-claims/": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/personal-injury": "/",
+    "/medical-negligence": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/road-bike-accident-claims": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/serious-injury-claims/child-injury/": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/medical-negligence-claims/misdiagnosis/": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/medical-negligence-claims/misdiagnosis/missed-fracture/": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/road-bike-accident-claims/multiple-vehicle-accidents/": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/accidents-work-claims/": "/about-us/sds-solicitors-discontinued-legal-services/",
+    "/injury-claim-calculator/leg-injury/": "/housing-disrepair-claims/compensation-calculator/"
+  },
+  "gone": [
+    "/serious-injury-claims/electrocution-claims/",
+    "/about-us/case-studies/spinal-cord-compression-delayed-diagnosis-claim-london/",
+    "/about-us/news/playground-injury-claims-who-fault/"
+  ],
+  "liveEvidence": [
+    {
+      "path": "/personal-injury/",
+      "status": 301,
+      "location": "/"
+    },
+    {
+      "path": "/personal-injury-claims/",
+      "status": 404,
+      "location": null
+    },
+    {
+      "path": "/serious-injury/",
+      "status": 301,
+      "location": "/serious-injury-claims/"
+    },
+    {
+      "path": "/serious-injury-claims/",
+      "status": 404,
+      "location": null
+    },
+    {
+      "path": "/medical-negligence/",
+      "status": 301,
+      "location": "/medical-negligence-claims/"
+    },
+    {
+      "path": "/medical-negligence-claims/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/clinical-negligence/",
+      "status": 301,
+      "location": "/medical-negligence-claims/"
+    },
+    {
+      "path": "/road-bike-accident-claims/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/road-traffic-accidents/",
+      "status": 301,
+      "location": "/road-bike-accident-claims/"
+    },
+    {
+      "path": "/road-traffic-accident-claims/",
+      "status": 301,
+      "location": "/road-bike-accident-claims/"
+    },
+    {
+      "path": "/personal-injury",
+      "status": 301,
+      "location": "/"
+    },
+    {
+      "path": "/medical-negligence",
+      "status": 301,
+      "location": "/medical-negligence-claims/"
+    },
+    {
+      "path": "/road-bike-accident-claims",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/injury-claims/",
+      "status": 404,
+      "location": null
+    },
+    {
+      "path": "/serious-injury-claims/child-injury/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/serious-injury-claims/electrocution-claims/",
+      "status": 410,
+      "location": null
+    },
+    {
+      "path": "/medical-negligence-claims/misdiagnosis/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/medical-negligence-claims/misdiagnosis/missed-fracture/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/road-bike-accident-claims/multiple-vehicle-accidents/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/accidents-work-claims/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/injury-claim-calculator/leg-injury/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/housing-disrepair-claims/compensation-calculator/"
+    },
+    {
+      "path": "/about-us/case-studies/spinal-cord-compression-delayed-diagnosis-claim-london/",
+      "status": 410,
+      "location": null
+    },
+    {
+      "path": "/about-us/news/playground-injury-claims-who-fault/",
+      "status": 410,
+      "location": null
+    }
+  ],
+  "historicalInventoryComplete": false,
+  "inventoryStillRequired": [
+    "Google Search Console indexed URLs",
+    "old server redirect configuration",
+    "backlink and historical request logs"
+  ],
+  "prefixRedirects": [
+    {
+      "prefix": "/medical-negligence-claims",
+      "target": "/about-us/sds-solicitors-discontinued-legal-services/",
+      "reason": "Preserve the current live service-family 301"
+    },
+    {
+      "prefix": "/road-bike-accident-claims",
+      "target": "/about-us/sds-solicitors-discontinued-legal-services/",
+      "reason": "Preserve the current live service-family 301"
+    },
+    {
+      "prefix": "/accidents-work-claims",
+      "target": "/about-us/sds-solicitors-discontinued-legal-services/",
+      "reason": "Preserve the current live service-family 301"
+    }
+  ],
+  "prefixEvidence": [
+    {
+      "path": "/medical-negligence-claims/surgical-errors/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/medical-negligence-claims/seo-migration-route-probe/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/road-bike-accident-claims/car-accidents/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/road-bike-accident-claims/seo-migration-route-probe/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/accidents-work-claims/slips-trips/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/"
+    },
+    {
+      "path": "/serious-injury-claims/seo-migration-route-probe/",
+      "status": 404,
+      "location": null
+    }
+  ]
+}

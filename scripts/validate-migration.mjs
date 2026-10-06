@@ -32,7 +32,7 @@ for(const record of manifest.pages){
     assert.equal(bodyText(served),bodyText(raw.toString()),'Served wording changed');
     assert.deepEqual(metadata(served),metadata(raw.toString()),'Served metadata changed');
     assert(!production.headers.has('x-robots-tag'),'Production page unexpectedly noindex');
-    const review=await worker.fetch(new Request('https://housingconditionclaims.org'+path),{RELEASE_MODE:'review'});
+    const review=await worker.fetch(new Request('https://www.sds-solicitors.com'+path),{RELEASE_MODE:'review'});
     assert.equal(review.status,record.status);
     assert.match(review.headers.get('x-robots-tag'),/noindex/);
     const reviewHtml=await review.text();
@@ -45,7 +45,7 @@ for(const record of manifest.pages){
       const href=original(a).attr('href');
       try {const u=new URL(href,record.url);if(/^(www\.)?sds-solicitors\.com$/.test(u.hostname)&&u.pathname!=='/')links.add(u.pathname+u.search);else if(u.protocol==='https:')externalIntegrations.add(u.origin);}catch{}
     });
-    pages.push({originalUrl:record.url,reviewUrl:'https://housingconditionclaims.org'+path,path,status:record.status,title:metadata(raw.toString()).title,originalSha256:record.sha256,wordingSha256:sha256(bodyText(raw.toString())),contentFile:page.contentFile,metadataFile:page.seoFile,wordingMatches:true,metadataMatches:true});
+    pages.push({originalUrl:record.url,reviewUrl:'https://www.sds-solicitors.com'+path,path,status:record.status,title:metadata(raw.toString()).title,originalSha256:record.sha256,wordingSha256:sha256(bodyText(raw.toString())),contentFile:page.contentFile,metadataFile:page.seoFile,wordingMatches:true,metadataMatches:true});
   }catch(error){errors.push({url:record.url,error:error.message});}
 }
 for(const asset of manifest.assets.filter(a=>a.file)){
@@ -61,9 +61,9 @@ const missingLinks=[...links].filter(path=>{
   const u=new URL(path,'https://www.sds-solicitors.com'),variant=u.pathname.endsWith('/')?u.pathname.slice(0,-1):u.pathname+'/';
   return !data.pages[path]&&!data.pages[u.pathname]&&!data.pages[variant]&&!data.assets[u.pathname]&&!['/search','/search/'].includes(u.pathname)&&!u.pathname.startsWith('/index.php');
 });
-assert.equal((await worker.fetch(new Request('https://housingconditionclaims.org/__migration_404_check__'),{})).status,404,'Generic fallback');
-assert.equal((await worker.fetch(new Request('https://housingconditionclaims.org/api/editor/session'),{AUTH_PROVIDER:'sites'})).status,401,'Anonymous API access');
-assert.equal((await worker.fetch(new Request('https://housingconditionclaims.org/submissions'),{AUTH_PROVIDER:'sites'})).status,302,'Anonymous submission access');
+assert.equal((await worker.fetch(new Request('https://www.sds-solicitors.com/__migration_404_check__'),{})).status,404,'Generic fallback');
+assert.equal((await worker.fetch(new Request('https://www.sds-solicitors.com/api/editor/session'),{AUTH_PROVIDER:'sites'})).status,401,'Anonymous API access');
+assert.equal((await worker.fetch(new Request('https://www.sds-solicitors.com/submissions'),{AUTH_PROVIDER:'sites'})).status,302,'Anonymous submission access');
 const pendingProductionGates=Object.entries(releaseGates).filter(([,value])=>value!==true).map(([key])=>key);
 const contentMigrationReady=errors.length===0&&missingLinks.length===0;
 const report={sourceCapturedAt:manifest.completed_at,sitemapPages:manifest.sitemap_url_count,capturedRoutes:pages.length,wordingMatches:pages.length,metadataMatches:pages.length,forms:Object.keys(data.forms).length,capturedAssets:manifest.assets.filter(a=>a.file).length,originalMissingAssets:manifest.assets.filter(a=>!a.file),missingInternalLinks:missingLinks,externalIntegrationOrigins:[...externalIntegrations].sort(),errors,pages,contentMigrationReady,pendingProductionGates,releaseReady:contentMigrationReady&&pendingProductionGates.length===0};

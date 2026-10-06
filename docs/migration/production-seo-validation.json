@@ -1,0 +1,21 @@
+{
+  "productionOrigin": "https://www.sds-solicitors.com",
+  "capturedRoutesVerified": 296,
+  "allPublicBuildRoutesVerified": 305,
+  "originalSitemapUrlsVerified": 248,
+  "productionSitemapUrlsVerified": 251,
+  "legalServiceSchemasVerified": 305,
+  "disrepairServiceSchemasVerified": 168,
+  "permanentRedirectsVerified": 286,
+  "knownNonHousingRoutesVerified": 25,
+  "internalAbsoluteLinksVerified": 18637,
+  "reviewNoindexVerified": true,
+  "productionRobotsVerified": true,
+  "privateRoutesNoindexVerified": true,
+  "termsExactWordingVerified": true,
+  "claimCtaDestinationPreserved": true,
+  "wizardFormsConsistent": true,
+  "sharedRoundedPanelsVerified": true,
+  "historicalInventoryComplete": false,
+  "claimCtasVerified": 32
+}

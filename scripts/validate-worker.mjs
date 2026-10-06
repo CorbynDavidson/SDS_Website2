@@ -19,7 +19,7 @@ assert.equal(new Set(team.map((person) => person.slug)).size, team.length, "Team
 assert.equal(team[1]?.slug, "victoria-mccormack", "Victoria McCormack should appear directly after the Managing Director");
 assert.equal(newsArticles.length, 10, "The news hub should contain ten substantive articles");
 assert.equal(new Set(newsArticles.map((article) => article.slug)).size, newsArticles.length, "News article slugs must be unique");
-const fetchPath = (path) => worker.default.fetch(new Request(`https://housingconditionclaims.org${path}`), {});
+const fetchPath = (path) => worker.default.fetch(new Request(`https://www.sds-solicitors.com${path}`), {});
 const indexablePaths = [
   "/",
   "/faqs/",
@@ -53,7 +53,7 @@ for (const path of indexablePaths) {
   if (!hasOriginalMetadata(path)) {
     assert.match(html, /<meta name="description" content="[^"]+">/, `${path} needs a meta description`);
     assert.match(html, /<meta name="robots" content="index,follow">/, `${path} should be indexable`);
-    assert.ok(html.includes(`<link rel="canonical" href="https://housingconditionclaims.org${path}">`), `${path} has the wrong canonical`);
+    assert.ok(html.includes(`<link rel="canonical" href="https://www.sds-solicitors.com${path}">`), `${path} has the wrong canonical`);
     assert.match(html, /application\/ld\+json/, `${path} needs structured data`);
   }
   assert.ok(html.includes('src="/assets/sheldon-davidson-solicitors-logo.png"'), `${path} should use the current Sheldon Davidson Solicitors logo`);
@@ -84,7 +84,7 @@ for (const target of internalTargets) {
 const sitemapResponse = await fetchPath("/sitemap.xml");
 assert.equal(sitemapResponse.status, 200);
 const sitemap = await sitemapResponse.text();
-for (const path of indexablePaths) assert.ok(sitemap.includes(`<loc>https://housingconditionclaims.org${path}</loc>`), `${path} is missing from the sitemap`);
+for (const path of indexablePaths) assert.ok(sitemap.includes(`<loc>https://www.sds-solicitors.com${path}</loc>`), `${path} is missing from the sitemap`);
 assert.ok(sitemap.includes("<lastmod>2026-09-23</lastmod>"), "Sitemap lastmod is out of date");
 assert.ok(!sitemap.includes("/submissions"), "Protected submissions must not appear in the sitemap");
 
@@ -100,7 +100,7 @@ for (const person of team) {
   assert.equal(photoResponse.headers.get("content-type"), "image/webp", `${person.name}'s image should be WebP`);
   assert.ok((await photoResponse.arrayBuffer()).byteLength > 1000, `${person.name}'s image should not be empty`);
   const profileHtml = htmlByPath.get(`/about-us/our-people/${person.slug}/`);
-  if (!hasOriginalMetadata(`/about-us/our-people/${person.slug}/`)) assert.ok(profileHtml.includes(`"image":"https://housingconditionclaims.org/assets/team/${person.image}"`), `${person.name}'s Person schema should use a valid image URL`);
+  if (!hasOriginalMetadata(`/about-us/our-people/${person.slug}/`)) assert.ok(profileHtml.includes(`"image":"https://www.sds-solicitors.com/assets/team/${person.image}"`), `${person.name}'s Person schema should use a valid image URL`);
 }
 
 const homeHtml = htmlByPath.get("/");
@@ -155,7 +155,7 @@ for (const article of newsArticles) {
 
 const oldProfile = await fetchPath("/our-experts/sheldon-davidson");
 assert.equal(oldProfile.status, 301);
-assert.equal(oldProfile.headers.get("location"), "https://housingconditionclaims.org/about-us/our-people/sheldon-davidson/");
+assert.equal(oldProfile.headers.get("location"), "https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/");
 
 const missing = await fetchPath("/this-page-does-not-exist/");
 assert.equal(missing.status, 404);

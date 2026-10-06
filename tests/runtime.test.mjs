@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 import { createWorker } from '../worker/runtime.mjs';
 import { localD1 } from '../scripts/lib/local-d1.mjs';
 const root=resolve(import.meta.dirname,'..'),data=JSON.parse(await readFile(resolve(root,'build/data.json'),'utf8'));
-const origin='https://housingconditionclaims.org',owner='corbyn.davidson@hotmail.com';
+const origin='https://www.sds-solicitors.com',owner='corbyn.davidson@hotmail.com';
 const base={RELEASE_MODE:'review',AUTH_PROVIDER:'sites',RATE_LIMIT_SECRET:'test-only-salt-for-local-tests'};
 const common=Object.values(data.forms).find(form=>form.originalId==='12007');
 const validFields=definition=>Object.fromEntries(definition.fields.map(field=>[field.name,field.options.length?(field.options.find(o=>o.value)?.value||''):/email/i.test(field.type)?'migration-test@example.invalid':field.type==='tel'?'01615550100':/postcode/i.test(field.label)?'M1 1AA':'Migration verification']));

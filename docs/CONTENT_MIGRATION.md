@@ -30,7 +30,7 @@ Seven original schemas use the tested `/api/forms/<key>` handlers. D1 stores lab
 
 ## Production status
 
-The review site remains noindex and production mode returns 503 until the release gates are signed off. This release does not switch SDS DNS, change email records, configure a CRM, enable production tracking or claim a completed browser/mobile audit. Original missing media/links remain explicit in the reports. See `HANDOVER.md` and `config/release-gates.json` for the remaining work.
+The review site remains noindex. Production mode now serves public pages successfully and permits indexation on the SDS primary hosts; the previous runtime 503 block is removed. This release does not switch SDS DNS, change email records, configure a CRM, enable production tracking or claim a completed browser/mobile audit. Original missing media/links remain explicit in the reports. See `HANDOVER.md` and `config/release-gates.json` for the remaining work.
 
 ## Published release
 
@@ -93,3 +93,5 @@ The exact public LinkedIn post, its original JPEG, the ReviewSolicitors profile 
 The original full-page review feed is embedded without loading its shared vendor script into the site. Its resize messages are accepted only from the expected ReviewSolicitors origin and iframe. Four verified review excerpts/summaries remain readable until the feed loads, including when external content is blocked. The homepage testimonial markup and controls are reused without changing that homepage section. The recognition graphic retains the figures as posted, with a short exact excerpt and a link to the complete post.
 
 The Reviews H1 is now “Reviews” and its browser/SEO title is “Reviews | Sheldon Davidson Solicitors”. This single requested title adjustment and the new Reviews content are explicit exceptions to immutable-source parity. Other captured metadata, shared design, page wording and release controls remain unchanged. `docs/migration/reviews-validation.json` records the targeted checks alongside the existing 296-route validation. Browser visual sign-off remains outstanding.
+
+The production SEO update preserves original title/description wording, with the previously authorised Reviews title correction. URL values are fully qualified under SDS, sharing images are absolute, and global legal/service JSON-LD is added. Exact duplicate routes use 301s; filtered listings with different wording retain their route and original canonical. All live sitemap targets are tested as 200 or one 301 followed by 200. See [PRODUCTION_SEO.md](PRODUCTION_SEO.md).

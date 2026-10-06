@@ -1,7 +1,6 @@
 {
   "productionOrigin": "https://www.sds-solicitors.com",
-  "reviewOrigin": "https://housingconditionclaims.org",
-  "defaultReleaseMode": "review",
+  "defaultReleaseMode": "production",
   "sourceManifest": "migration/source-manifest.json",
   "contentDirectory": "src/content/sds",
   "preserveOriginalCopy": true,
@@ -10,5 +9,6 @@
   ],
   "repository": "CorbynDavidson/SDS_Website2",
   "repositoryBranch": "main",
-  "assetSourceRef": "98d0b6c6b76de56e66b1094dc9636210acea6ea2"
+  "assetSourceRef": "98d0b6c6b76de56e66b1094dc9636210acea6ea2",
+  "socialImage": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
 }

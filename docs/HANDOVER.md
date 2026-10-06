@@ -4,12 +4,12 @@ Prepared 6 October 2026. Production remains **https://www.sds-solicitors.com**; 
 
 ## Implemented
 
-- All **296 captured routes** have original primary page content and SEO titles/meta/canonicals/JSON-LD. The review sitemap includes all 248 original sitemap URLs and retained new-design routes.
+- All **296 captured routes** have original primary page content and SEO titles/meta/canonicals/JSON-LD. All 248 live legacy sitemap URLs are mapped and tested. The production sitemap contains 251 self-canonical URLs, including nine retained design routes.
 - Original paragraphs, headings, lists, FAQs, article/profile media and form labels/options are compared with immutable raw captures. Shared navigation, fonts, CSS, logo, footer and homepage carousels use the approved design. Shared source staff modals/navigation are not copied as article content.
 - The directory retains its 24 listed people; all 25 captured profile paths are available. Articles and pagination retain original content.
 - Seven original form schemas use prepared D1 queries, validation, CSRF/honeypot protection, durable limits and idempotent requests. Private evidence uses R2. Owner-only submissions/CSV/private downloads include earlier `enquiries`; authenticated drafts are active on migrated pages.
 - Available original media are packaged under `dist/client` with checksum-addressed Worker URLs that enforce correct MIME types. The generated content validation verifies used media bytes/types locally. Earlier hosted MIME failures remain historical evidence; a full fresh hosted-media audit is not claimed here.
-- Normal `npm run check` verifies current served copy, original SEO, approved styles/shared components, media/links, noindex and production blocking, then runs thirteen meaningful backend tests. GitHub CI uses the same commands.
+- Normal `npm run check` verifies current served copy, original SEO, approved styles/shared components, media/links, review noindex and production indexability/redirects/schema, then runs thirteen meaningful backend tests. GitHub CI uses the same commands.
 - Corresponding generated content, SEO baselines, route indexes, build adapter and audit reports are committed. Secrets and submissions never enter the public repository.
 
 See [CONTENT_MIGRATION.md](CONTENT_MIGRATION.md) and `migration/content-validation.json` for the selected release. The metadata-only reports and full-document CMS candidate reports describe earlier releases.
@@ -32,7 +32,7 @@ These are recorded as `false` in [../config/release-gates.json](../config/releas
 
 Twelve original resource URLs already returned **404** during capture; all are recorded, with URL/status, in the source inventory and coverage report. They include `news-bg.jpg` and legacy Concrete UI images. Available original resources are preserved byte-for-byte. No replacement file is invented for an unavailable original.
 
-Some original complaints links resolve to `/complaints/www.…` and the old site responds 200. These captured legacy responses are retained for exact migration. Check their intended external destinations with SDS before correcting link targets; this does not authorise changing the complaints wording.
+Some original complaints links resolve to `/complaints/www.…` and the old site responds 200. Their exact duplicate content now redirects once to the original canonical complaints page. Check their intended external destinations with SDS before correcting link targets; this does not authorise changing the complaints wording.
 
 ## Start here
 
@@ -47,3 +47,9 @@ npm run dev
 Node **24** is required. Public media are in `public/`; immutable original captures in `migration/source-pages/`; original SEO in `src/seo/sds/pages/`; source article/form content in `src/content/sds/`; generated current page content in `src/content/current-design/`. Build with `scripts/build-content-current-design.mjs`. Form/admin persistence is implemented by `worker/runtime.mjs` and delegated to by the current Worker.
 
 Read [DEPLOYMENT.md](DEPLOYMENT.md), [ENQUIRIES.md](ENQUIRIES.md), [EDITOR_WORKFLOW.md](EDITOR_WORKFLOW.md), [DATA_OPERATIONS.md](DATA_OPERATIONS.md), [QA.md](QA.md), [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) and [ROLLBACK.md](ROLLBACK.md). Publication evidence is recorded in `docs/migration/deployment.json` after a confirmed deployment.
+
+## Production SEO preparation
+
+See [PRODUCTION_SEO.md](PRODUCTION_SEO.md), `migration/production-url-map.csv`, `migration/production-routing.json` and `migration/production-seo-validation.json`. The code preserves current discontinued-service redirects for injury/negligence/RTA routes; it does not advertise those services as accepting new claims. The complete historic Search Console/backlink/server-log inventory remains outstanding.
+
+Terms of Business uses the exact live wording checked on 6 October, including headings, lists and tables. Claim pages retain their legacy URLs and all five-step fields; duplicate CMS form IDs and empty wrapper borders have been corrected. Shared rounded light-grey panels align with the 1240px header wrapper. Browser/device sign-off is still pending.

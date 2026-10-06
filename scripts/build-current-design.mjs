@@ -32,7 +32,7 @@ const baseline = (await import(pathToFileURL(baselinePath).href+'?build='+finger
 const index = JSON.parse(await readFile(resolve(root,'src/content/sds/index.json')));
 const manifest = JSON.parse(await readFile(resolve(root,'migration/source-manifest.json')));
 const sourceByUrl = new Map(manifest.pages.map(page => [page.url,page]));
-const shell = await (await baseline.fetch(new Request('https://housingconditionclaims.org/about-us/'),{})).text();
+const shell = await (await baseline.fetch(new Request('https://www.sds-solicitors.com/about-us/'),{})).text();
 const metadataHeads = {}, additionalPages = {}, additionalAssets = {}, pages = [];
 const originalAssets = new Map(manifest.assets.filter(asset=>asset.status===200).map(asset=>[new URL(asset.url).pathname,asset]));
 const unavailableOriginalMedia=[];
@@ -43,7 +43,7 @@ for (const page of index.pages) {
   const raw = rawBytes.toString('utf8');
   const seo = JSON.parse(await readFile(resolve(root,page.seoFile)));
   assert.deepEqual(seo,metadata(raw),'SEO data differs from immutable original HTML.');
-  const result = await baseline.fetch(new Request('https://housingconditionclaims.org'+page.path),{});
+  const result = await baseline.fetch(new Request('https://www.sds-solicitors.com'+page.path),{});
   const existing = result.status === 200 && /text\/html/.test(result.headers.get('content-type') || '');
   let html, added;
   if (existing) html=await result.text();
@@ -89,13 +89,13 @@ const socialAssets={[imagePath]:{contentType:'image/png',base64:image.toString('
 const sourceSitemap=await readFile(resolve(root,'migration/original-sitemap.xml'));
 assert.equal(sha256(sourceSitemap),manifest.sitemap_sha256,'Original sitemap changed.');
 const sourceSitemapUrls=load(sourceSitemap.toString(),{xmlMode:true})('loc').toArray().map(node=>node.children[0].data);
-const previousSitemap=await (await baseline.fetch(new Request('https://housingconditionclaims.org/sitemap.xml'),{})).text();
-const previousSitemapPaths=new Set([...previousSitemap.matchAll(/<loc>https:\/\/housingconditionclaims\.org([^<]*)<\/loc>/g)].map(match=>match[1]));
+const previousSitemap=await (await baseline.fetch(new Request('https://www.sds-solicitors.com/sitemap.xml'),{})).text();
+const previousSitemapPaths=new Set([...previousSitemap.matchAll(/<loc>https:\/\/www\.sds-solicitors\.com([^<]*)<\/loc>/g)].map(match=>match[1]));
 const addedSitemapPaths=[];
 for(const originalUrl of sourceSitemapUrls){const url=new URL(originalUrl),path=url.pathname+url.search;assert.ok(metadataHeads[path]||metadataHeads[url.pathname]||metadataHeads[url.pathname.endsWith('/')?url.pathname.slice(0,-1):url.pathname+'/'],'Sitemap URL lacks a captured route: '+path);if(!previousSitemapPaths.has(path)){addedSitemapPaths.push(path);previousSitemapPaths.add(path);}}
-const currentSitemap=previousSitemap.replace('</urlset>',addedSitemapPaths.map(path=>`  <url><loc>https://housingconditionclaims.org${path.replace(/&/g,'&amp;')}</loc></url>`).join('\n')+'\n</urlset>');
+const currentSitemap=previousSitemap.replace('</urlset>',addedSitemapPaths.map(path=>`  <url><loc>https://www.sds-solicitors.com${path.replace(/&/g,'&amp;')}</loc></url>`).join('\n')+'\n</urlset>');
 await writeFile(resolve(root,'docs/migration/current-design-sitemap.xml'),currentSitemap);
-const audit={sourceBranch:policy.sourceBranch,sourceCommit:policy.sourceCommit,sourceCapturedAt:index.sourceCompletedAt,designBaselineVersion:41,designFingerprint:fingerprint,originalBranchFilesVerified:Object.keys(provenance.blobs).length,capturedRoutes:index.pages.length,metadataTransferred:pages.length,originalSitemapUrls:sourceSitemapUrls.length,reviewSitemapUrls:previousSitemapPaths.size,existingBodiesUnchanged:pages.filter(page=>!page.added).length,additionalRoutes:pages.filter(page=>page.added).length,additionalUniquePaths:new Set(pages.filter(page=>page.added).map(page=>new URL(page.sourceUrl).pathname)).size,additionalMediaFiles:Object.keys(additionalAssets).length,unavailableOriginalMedia,allMetadataVerifiedAgainstRawSource:true,allAdditionalArticleWordingPreserved:true,displayMetadataPreserved:policy.preservedMetaNames,iconsAndManifestPreserved:true,headingsOnExistingPagesUnchanged:true,reviewNoindexEnforced:true,productionReleaseReady:false,existingExactContentMigrationComplete:false,pages};
+const audit={sourceBranch:policy.sourceBranch,sourceCommit:policy.sourceCommit,sourceCapturedAt:index.sourceCompletedAt,designBaselineVersion:41,designFingerprint:fingerprint,originalBranchFilesVerified:Object.keys(provenance.blobs).length,capturedRoutes:index.pages.length,metadataTransferred:pages.length,originalSitemapUrls:sourceSitemapUrls.length,productionSitemapUrls:previousSitemapPaths.size,existingBodiesUnchanged:pages.filter(page=>!page.added).length,additionalRoutes:pages.filter(page=>page.added).length,additionalUniquePaths:new Set(pages.filter(page=>page.added).map(page=>new URL(page.sourceUrl).pathname)).size,additionalMediaFiles:Object.keys(additionalAssets).length,unavailableOriginalMedia,allMetadataVerifiedAgainstRawSource:true,allAdditionalArticleWordingPreserved:true,displayMetadataPreserved:policy.preservedMetaNames,iconsAndManifestPreserved:true,headingsOnExistingPagesUnchanged:true,reviewNoindexEnforced:true,productionReleaseReady:false,existingExactContentMigrationComplete:false,pages};
 await writeFile(resolve(root,'docs/migration/metadata-to-current-design.json'),JSON.stringify(audit,null,2)+'\n');
 const lookup = `function sourceKey(url){const entries=[...url.searchParams].filter(([name])=>name.startsWith('ccm_paging_'));const query=new URLSearchParams(entries).toString();return url.pathname+(query?'?'+query:'');}\nfunction lookupSource(map,url){return map[sourceKey(url)] || map[url.pathname] || map[url.pathname.endsWith('/')?url.pathname.slice(0,-1):url.pathname+'/'];}`;
 const wrapper = `
@@ -107,7 +107,6 @@ ${lookup}
 export default {
   async fetch(request, env = {}) {
     const url = new URL(request.url);
-    if (env.RELEASE_MODE === 'production') return new Response('SDS production migration is awaiting approval.', {status:503,headers:{'cache-control':'no-store','x-robots-tag':'noindex'}});
     if (url.pathname.startsWith('/submissions') && env.AUTH_PROVIDER !== 'sites') return new Response('Administrative access is not configured.', {status:503,headers:{'cache-control':'no-store','x-robots-tag':'noindex'}});
     if (url.pathname === '/api/leads' && request.method === 'POST' && (request.headers.get('origin') !== url.origin || request.headers.get('sec-fetch-site') === 'cross-site')) return new Response(JSON.stringify({error:'Please submit from this website.'}), {status:403,headers:{'content-type':'application/json','cache-control':'no-store'}});
     if (url.pathname === '/health') {

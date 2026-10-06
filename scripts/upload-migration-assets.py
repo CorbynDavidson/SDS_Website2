@@ -8,7 +8,7 @@ from urllib.error import HTTPError
 root=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--origin',required=True);args=parser.parse_args()
 origin=args.origin.rstrip('/')
-if urlsplit(origin).scheme!='https' or urlsplit(origin).hostname not in {'housingconditionclaims.org','www.housingconditionclaims.org'}: raise SystemExit('Use the configured HTTPS review origin.')
+if urlsplit(origin).scheme!='https' or not urlsplit(origin).hostname or urlsplit(origin).hostname in {'www.sds-solicitors.com','sds-solicitors.com'}: raise SystemExit('Use an explicit HTTPS review origin; production asset import is disabled.')
 token=json.loads(sys.stdin.readline())['token']
 data=json.loads((root/'build/data.json').read_text())
 assets={path:asset for path,asset in data['assets'].items() if not asset.get('base64')}

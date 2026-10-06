@@ -19,7 +19,7 @@ const worker=(await import(pathToFileURL(resolve(root,'dist/server/index.js'))))
 const data=await readJson('build/data.json');
 const reviewsContent=await readJson('src/reviews-page.json');
 const DB=await localD1();
-const origin='https://housingconditionclaims.org';
+const origin='https://www.sds-solicitors.com';
 const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'review',RATE_LIMIT_SECRET:'local-validation-only',ASSETS:{async fetch(request){const path=new URL(request.url).pathname;if(!data.assets[path])return new Response('Missing',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':'application/octet-stream'}});}}};
 const fetchPage=(module,path)=>module.fetch(new Request(origin+path),env);
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
@@ -67,11 +67,22 @@ function blocks({copy:$,root}){const result={};root.find('p,h1,h2,h3,h4,h5,h6,su
 const seoMeta=attrs=>!('charset'in attrs)&&!('http-equiv'in attrs)&&!policy.preservedMetaNames.includes((attrs.name||'').toLowerCase());
 const seoLink=attrs=>(attrs.rel||'').toLowerCase().split(/\s+/).some(rel=>['canonical','alternate'].includes(rel));
 function seo(html){const $=load(html,{scriptingEnabled:false});return {title:$('head title').text(),meta:$('head meta').toArray().filter(n=>seoMeta(n.attribs)).map(n=>({...n.attribs})),links:$('head link').toArray().filter(n=>seoLink(n.attribs)).map(n=>({...n.attribs})),structuredData:$('script[type="application/ld+json"]').toArray().map(n=>$(n).text())};}
+function displayFragment(html,path){
+ const $=load(html,{scriptingEnabled:false});
+ for(const node of $('a[href],link[href]').toArray()){
+   if(/^(mailto:|tel:|javascript:|data:)/i.test(node.attribs.href))continue;
+   const url=new URL(node.attribs.href,origin+path);
+   if(url.origin!==origin)continue;
+   url.pathname=data.routes.redirects[url.pathname]||url.pathname;
+   $(node).attr('href',url.href);
+ }
+ return $.html();
+}
 function styles(html){const $=load(html,{scriptingEnabled:false,sourceCodeLocationInfo:true});return $('head style:not(#sds-content-design):not(#sds-layout-adjustments),head link').toArray().filter(n=>n.tagName==='style'||!seoLink(n.attribs)).map(n=>html.slice(n.sourceCodeLocation.startOffset,n.sourceCodeLocation.endOffset));}
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const removedBannerHashes=manifest.assets.filter(a=>/\/(housing-disrepair-blue|housing-disrepair-estate-banner)\.webp$/.test(new URL(a.url).pathname)).map(a=>a.sha256);
 const layoutAudit={bannerRemovalRoutesVerified:0,standardFormsUsingHomepageCard:0,benefitRowsVerified:0,processRowsVerified:0,twoColumnDisrepairGridsVerified:0,centredLocationTeamRoutesVerified:0,duplicateLocationProfileCardsRemoved:0,wizardCardsVerified:0,layoutCssMatchesGitFile:true,singleEnquiryWidgetRoutesVerified:0,secondaryEnquiryWidgetsRemoved:0,primaryFormFieldsPreserved:0,welcomeMessageCarouselVerified:false,fallbackLayoutsVerified:0};
-const audit={sourceCommit:provenance.commit,sourceFilesVerified:0,routesVerified:0,originalParagraphsAndHeadingsVerified:0,metadataRoutesVerified:0,approvedStyleRoutesVerified:0,approvedHeaderFooterRoutesVerified:0,internalLinksVerified:0,mediaVerified:0,originalUnavailableLinks:[],unavailableOriginalMedia:report.unavailableOriginalMedia,formKeys:[],homepageCarouselsVerified:false,sourceDirectoryProfiles:0,productionBlockVerified:false,reviewNoindexVerified:true,ownerProtectedAdministrationVerified:false,browserVisualAuditComplete:false,pages:[]};
+const audit={sourceCommit:provenance.commit,sourceFilesVerified:0,routesVerified:0,originalParagraphsAndHeadingsVerified:0,metadataRoutesVerified:0,approvedStyleRoutesVerified:0,approvedHeaderFooterRoutesVerified:0,internalLinksVerified:0,mediaVerified:0,originalUnavailableLinks:[],unavailableOriginalMedia:report.unavailableOriginalMedia,formKeys:[],homepageCarouselsVerified:false,sourceDirectoryProfiles:0,productionIndexationVerified:false,reviewNoindexVerified:true,ownerProtectedAdministrationVerified:false,browserVisualAuditComplete:false,pages:[]};
 const media=new Set(),links=new Set(),forms=new Set();
 const reviewsAudit={titleCorrected:false,homepageTestimonialsPreserved:false,verifiedFallbackReviews:0,officialWidgetConfigured:false,sourceLinksVerified:false,originalRecognitionImageVerified:false};
 for(const [path,sha]of Object.entries(provenance.blobs)){const bytes=await readFile(resolve(root,path));assert.equal(createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),sha,'Pinned source changed: '+path);audit.sourceFilesVerified++;}
@@ -110,7 +121,11 @@ for(const page of report.pages){
  }
  const expectedSeo=seo(raw);
  if(page.path===reviewsContent.path)expectedSeo.title='Reviews | Sheldon Davidson Solicitors';
- assert.deepEqual(seo(html),expectedSeo,'Original SEO differs: '+page.path);audit.metadataRoutesVerified++;
+ const currentSeo=seo(html);assert.equal(currentSeo.title,expectedSeo.title,'Original title differs: '+page.path);
+ // Original non-URL SEO wording is unchanged. Production URLs, Twitter
+ // additions and schemas are checked by the independent production audit.
+ for(const meta of expectedSeo.meta){const key=meta.name||meta.property;if(['og:url','og:image','og:image:url','og:image:secure_url','twitter:url','twitter:image','twitter:image:src'].includes(key))continue;assert.ok(currentSeo.meta.some(value=>JSON.stringify(value)===JSON.stringify(meta)),'Original metadata wording differs: '+page.path+' '+key);}
+ audit.metadataRoutesVerified++;
  if(page.path===reviewsContent.path){
    assert.equal($('main h1').text(),'Reviews');assert.ok(!$('head title').text().includes('::'));reviewsAudit.titleCorrected=true;
    const home=load(await(await fetchPage(worker,'/')).text());assert.equal($('section.testimonials').html(),home('section.testimonials').html());
@@ -127,7 +142,7 @@ for(const page of report.pages){
    const team=$('[data-source-location-team]');assert.equal(team.length,1);
    assert.deepEqual(team.find('.source-person-name').toArray().map(n=>normalise($(n).text())),['Sheldon Davidson','Victoria McCormack']);
    assert.equal($('main .team-card').length,2,'Duplicate profile cards remain on All Locations.');
-   const added=team.find('.team-card').last();assert.equal(added.find('a[href="/about-us/our-people/victoria-mccormack"]').length,1);
+   const added=team.find('.team-card').last();assert.equal(added.find('a[href="https://www.sds-solicitors.com/about-us/our-people/victoria-mccormack/"]').length,1);
    assert.equal(added.find('img').attr('src'),'/assets/sds-source/'+sourceAssets.get(new URL(victoriaSource.find('img').attr('src')).pathname).sha256+'.webp');
    assert.ok(team.closest('.team-section').nextAll('.source-copy-section').find('blockquote').length,'Original review must follow the retained team.');
    layoutAudit.centredLocationTeamRoutesVerified++;layoutAudit.duplicateLocationProfileCardsRemoved+=originalCopy.removedProfileCards;
@@ -146,13 +161,13 @@ for(const page of report.pages){
  assert.deepEqual(blocks(currentCopy),blocks(originalCopy),'Paragraph, heading, list or form-label wording differs: '+page.path);
  audit.originalParagraphsAndHeadingsVerified+=Object.values(blocks(originalCopy)).reduce((a,b)=>a+b,0);
  assert.equal($('main h1').length,1,'Expected one main heading: '+page.path);
- assert.deepEqual(styles(html),styles(before),'Approved fonts/CSS changed: '+page.path);audit.approvedStyleRoutesVerified++;
- for(const selector of ['body > nav','body > footer','.topbar'])assert.equal($(selector).html(),b(selector).html(),'Approved shared design changed: '+selector+' '+page.path);
+ assert.deepEqual(styles(html).map(value=>displayFragment(value,page.path)),styles(before).map(value=>displayFragment(value,page.path)),'Approved fonts/CSS changed: '+page.path);audit.approvedStyleRoutesVerified++;
+ for(const selector of ['body > nav','body > footer','.topbar'])assert.equal(displayFragment($(selector).html(),page.path),displayFragment(b(selector).html(),page.path),'Approved shared design changed: '+selector+' '+page.path);
  audit.approvedHeaderFooterRoutesVerified++;
  assert.equal(html.match(/<main\b[\s\S]*?<\/main>/i)[0]+'\n',await readFile(resolve(root,page.contentFile),'utf8'),'Corresponding Git content differs: '+page.path);
  assert.ok(!html.includes('href="/sds-theme.css"'),'Old CMS stylesheet must not be loaded.');assert.ok(!html.includes('hcc-page-copy-v3:'),'Browser-local editor must be removed.');
  for(const n of $('main [data-source-copy] img[src]').toArray())if(n.attribs.src.startsWith('/'))media.add(n.attribs.src);
- for(const n of $('main [data-source-copy] a[href]').toArray())if(n.attribs.href.startsWith('/'))links.add(n.attribs.href);
+ for(const n of $('main [data-source-copy] a[href]').toArray())if(n.attribs.href.startsWith(origin))links.add(n.attribs.href);
  for(const n of $('form[data-sds-form]').toArray()){forms.add(n.attribs['data-sds-form']);assert.ok(data.forms[n.attribs['data-sds-form']]);}
  if(page.path==='/'){
    for(const selector of ['.rights-slide','.testimonial-slide'])assert.equal($(selector).length,b(selector).length,'Approved homepage carousel changed: '+selector);
@@ -165,8 +180,8 @@ for(const page of report.pages){
    retained.attr('aria-label',b('#aboutCarousel').attr('aria-label'));
    retained.find('.about-slide').each((i,n)=>$(n).attr('aria-label',b('.about-slide').eq(i).attr('aria-label')));
    for(const selector of ['.about-count > span','.about-prev','.about-next']){const old=b('#aboutCarousel').find(selector),now=retained.find(selector);if(selector.includes('span'))now.html(old.html());else now.attr('aria-label',old.attr('aria-label'));}
-   assert.equal(retained.html(),b('#aboutCarousel').html(),'Existing team carousel content or controls changed.');assert.equal($('#testimonialCarousel').html(),b('#testimonialCarousel').html());
-   for(const selector of ['.rights-controls','.reviews-widget'])assert.equal($(selector).html(),b(selector).html());
+   assert.equal(displayFragment(retained.html(),page.path),displayFragment(b('#aboutCarousel').html(),page.path),'Existing team carousel content or controls changed.');assert.equal(displayFragment($('#testimonialCarousel').html(),page.path),displayFragment(b('#testimonialCarousel').html(),page.path));
+   for(const selector of ['.rights-controls','.reviews-widget'])assert.equal(displayFragment($(selector).html(),page.path),displayFragment(b(selector).html(),page.path));
    assert.ok(html.includes('const showSlide=')&&html.includes('const showAbout=')&&html.includes('const showTestimonial='));assert.ok(!html.includes('const editableSelector='));
    audit.homepageCarouselsVerified=true;
    layoutAudit.welcomeMessageCarouselVerified=true;
@@ -187,7 +202,7 @@ for(const href of links){const url=new URL(href,origin);const r=await fetchPage(
  }audit.internalLinksVerified++;}
 for(const path of ['/submissions','/submissions.csv','/editor','/api/editor/session']){const r=await fetchPage(worker,path);assert.equal(r.status,path.startsWith('/api/')?401:302);assert.match(r.headers.get('cache-control'),/no-store/);}
 audit.ownerProtectedAdministrationVerified=true;
-assert.equal((await worker.fetch(new Request('https://www.sds-solicitors.com/'),{...env,RELEASE_MODE:'production'})).status,503);audit.productionBlockVerified=true;
+const production=await worker.fetch(new Request(origin+'/'),{...env,RELEASE_MODE:'production'});assert.equal(production.status,200);assert.ok(!production.headers.has('x-robots-tag'));audit.productionIndexationVerified=true;
 assert.equal((await fetchPage(worker,'/this-page-does-not-exist/')).status,404);
 audit.formKeys=[...forms];assert.deepEqual(data.forms,await readJson('src/content/sds/forms.json'),'All original submission handlers must remain available.');
 for(const path of ['/damp-and-mould-claims','/broken-heating-and-hot-water-claims']){

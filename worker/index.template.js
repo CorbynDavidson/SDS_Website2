@@ -29,7 +29,7 @@ const sitemapPaths = [...new Set(["/", "/faqs/", ...Object.keys(servicePages).ma
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sitemapPaths.map((path) => `  <url>
-    <loc>https://housingconditionclaims.org${path}</loc>
+    <loc>https://www.sds-solicitors.com${path}</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>${path === "/" ? "1.0" : path === "/housing-disrepair/" || path === "/housing-disrepair-claims/" ? "0.9" : path.includes("/case-studies/") || path.includes("/our-people/") ? "0.7" : "0.8"}</priority>
@@ -40,7 +40,7 @@ Allow: /
 Disallow: /submissions
 Disallow: /submissions.csv
 
-Sitemap: https://housingconditionclaims.org/sitemap.xml
+Sitemap: https://www.sds-solicitors.com/sitemap.xml
 `;
 
 const json = (body, status = 200) => new Response(JSON.stringify(body), {

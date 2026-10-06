@@ -8,6 +8,8 @@ import {load} from 'cheerio';
 import {sha256,normaliseText} from './lib/html.mjs';
 import {cleanContent,extractContent,renderContentPage,withContentRuntime} from './lib/current-design-content.mjs';
 import {addReviewsPage} from './lib/reviews-page.mjs';
+import {applyProductionSeo,productionUrl,productionSitemap} from './lib/production-seo.mjs';
+import {createProductionRouting} from '../worker/production-routing.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
@@ -26,10 +28,23 @@ const manifest=await readJson('migration/source-manifest.json');
 const policy=await readJson('config/metadata-migration.json');
 const config=await readJson('config/site.json');
 const reviewsContent=await readJson('src/reviews-page.json');
-const reviewsHomeHtml=await (await approved.fetch(new Request(config.reviewOrigin+'/'),{})).text();
+const reviewsHomeHtml=await (await approved.fetch(new Request(config.productionOrigin+'/'),{})).text();
 const forms=await readJson('src/content/sds/forms.json');
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
+const legacyRouting=await readJson('config/legacy-routing.json');
+const redirects={...legacyRouting.redirects};
+const sourceText=new Map();
+for(const page of index.pages){const original=sourceByUrl.get(page.sourceUrl);sourceText.set(page.path,extractContent(gunzipSync(await readFile(resolve(root,original.source_file))).toString('utf8')).text);}
+for(const page of index.pages){
+  const seo=await readJson(page.seoFile),canonical=seo.links.find(link=>link.rel==='canonical')?.href;
+  if(!canonical)continue;
+  const target=new URL(canonical),targetPath=target.pathname+target.search;
+  // Filtered listings with different content retain their route and original
+  // canonical. Only exact duplicate content is consolidated by a 301.
+  if(target.pathname!==page.path.split('?')[0]&&!target.search&&sourceText.get(targetPath)===sourceText.get(page.path))redirects[page.path.split('?')[0]]=targetPath;
+}
+const routeData={redirects,gone:legacyRouting.gone,prefixRedirects:legacyRouting.prefixRedirects||[]};
 const typeByExtension={'.svg':'image/svg+xml','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.gif':'image/gif','.pdf':'application/pdf','.mp4':'video/mp4','.woff':'font/woff','.woff2':'font/woff2','.ttf':'font/ttf','.ico':'image/x-icon','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const mediaUrls={},mediaSources={},assets={};
 for(const asset of manifest.assets.filter(a=>a.status===200&&a.file)) {
@@ -58,7 +73,7 @@ for(const page of index.pages) {
   const classes=$('.ccm-page').first().attr('class')||'';
   const family=/page-type-person\b/.test(classes)?'person':classes.match(/page-template-([^\s]+)/)?.[1]||'full';
   const cleaned=cleanContent(imported,{origin:index.sourceOrigin,mediaUrls,path:page.path,locationProfileCard});
-  const base=await (await approved.fetch(new Request(config.reviewOrigin+page.path),{})).text();
+  const base=await (await approved.fetch(new Request(config.productionOrigin+page.path),{})).text();
   const seo=await readJson(page.seoFile);
   const rendered=renderContentPage(base,cleaned,{path:page.path,family,title:seo.title.split('|')[0].trim()});
   if(page.path.replace(/\/+$/,'')===reviewsContent.path.replace(/\/+$/,''))rendered.html=addReviewsPage(rendered.html,{content:reviewsContent,homeHtml:reviewsHomeHtml});
@@ -74,6 +89,7 @@ for(const page of index.pages) {
   });
   html=html.replace(/<div id="siteEditor"[\s\S]*?<\/div>/g,'');
   html=html.replace(/<div class="site-editor" id="siteEditor"[\s\S]*?<\/div>/g,'').replace(/<div class="editor-bar" id="editorBar"[\s\S]*?<\/div>/g,'');
+  html=applyProductionSeo(html,{config,path:page.path,redirects});
   const digest=sha256(page.sourceUrl).slice(0,24);
   const contentFile='src/content/current-design/pages/'+digest+'.html';
   const content=html.match(/<main\b[\s\S]*?<\/main>/i)[0];
@@ -85,7 +101,39 @@ for(const page of index.pages) {
   for(const node of source.root.find('img[src]').toArray()) {const url=new URL(node.attribs.src,index.sourceOrigin);if(url.origin===index.sourceOrigin&&!mediaUrls[url.pathname])unavailableMedia.push({page:page.path,url:url.href});}
   records.push({path:page.path,sourceUrl:page.sourceUrl,sourceSha256:original.sha256,seoFile:page.seoFile,contentFile,family,originalCopySha256:sha256(source.text),renderedMainSha256:sha256(content),metadataTransferred:true,contentTransferred:true});
 }
-const data={config,pages,forms,assets,sourceCapturedAt:manifest.completed_at,sitemap:await readFile(resolve(root,'docs/migration/current-design-sitemap.xml'),'utf8'),robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
+const legacySitemap=load(await readFile(resolve(root,'migration/original-sitemap.xml'),'utf8'),{xmlMode:true});
+const designSitemap=load(await readFile(resolve(root,'docs/migration/current-design-sitemap.xml'),'utf8'),{xmlMode:true});
+const sitemapUrls=[];
+const fallbackRoutes=[];
+for(const url of designSitemap('loc').toArray().map(node=>designSitemap(node).text())){
+  const path=new URL(url).pathname;
+  if(pages[path]||pages[path.replace(/\/$/,'')])continue;
+  const response=await approved.fetch(new Request(config.productionOrigin+path),{});
+  if(response.status!==200||!response.headers.get('content-type')?.includes('text/html'))continue;
+  const html=applyProductionSeo((await response.text()).replace('</head>','<style id="sds-layout-adjustments">'+layoutCss+'</style></head>'),{config,path,redirects});
+  pages[path]={gzip:gzipSync(Buffer.from(html),{level:9}).toString('base64'),status:200,sha256:sha256(html)};fallbackRoutes.push(path);
+  if(!/noindex/i.test(load(html)('meta[name="robots"]').attr('content')||''))sitemapUrls.push(productionUrl(url,{origin:config.productionOrigin,path,redirects}));
+}
+for(const page of index.pages){
+  if(page.path.includes('?')||redirects[page.path])continue;
+  const seo=await readJson(page.seoFile);
+  if(seo.meta.some(meta=>meta.name==='robots'&&/noindex/i.test(meta.content)))continue;
+  const canonical=seo.links.find(link=>link.rel==='canonical')?.href||config.productionOrigin+page.path;
+  const url=productionUrl(canonical,{origin:config.productionOrigin,path:page.path,redirects});
+  if(new URL(url).pathname===page.path)sitemapUrls.push(url);
+}
+for(const path of Object.keys(pages)){if(path!=='/'&&path.endsWith('/'))redirects[path.slice(0,-1)]??=path;}
+for(const [path,destination] of Object.entries(redirects)){
+  let target=destination;const seen=new Set([path]);
+  while(redirects[target]&&!seen.has(target)){seen.add(target);target=redirects[target];}
+  if(target===path)delete redirects[path];else redirects[path]=target;
+}
+const sitemap=productionSitemap(sitemapUrls,config.productionOrigin);
+await writeFile(resolve(root,'docs/migration/current-design-sitemap.xml'),sitemap);
+await writeFile(resolve(root,'public/sitemap.xml'),sitemap);
+await writeFile(resolve(root,'public/robots.txt'),createProductionRouting(config,routeData).robots(new URL(config.productionOrigin),{RELEASE_MODE:'production'}));
+const routingRuntime=(await readFile(resolve(root,'worker/production-routing.mjs'),'utf8')).replace('export function createProductionRouting','function createProductionRouting');
+const data={config,pages,forms,assets,routes:routeData,sourceCapturedAt:manifest.completed_at,sitemap,robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
 const fallbackLayoutHead='<style id="sds-layout-adjustments">'+layoutCss+'</style>';
 const backendRuntime=(await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace('export function createWorker','function createWorker');
 data.releaseFingerprint=sha256(backendRuntime+JSON.stringify(data));
@@ -95,13 +143,15 @@ const wrapper=`
 const contentData=${JSON.stringify(data)};
 const contentMedia=${JSON.stringify(mediaSources)};
 const contentBackend=(()=>{${backendRuntime}\nreturn createWorker(contentData);})();
+${routingRuntime}
+const productionRouting=createProductionRouting(contentData.config,contentData.routes);
 const contentPageCache=new Map();
 function contentKey(url){const entries=[...url.searchParams].filter(([name])=>name.startsWith('ccm_paging_'));const query=new URLSearchParams(entries).toString();return url.pathname+(query?'?'+query:'');}
 function contentLookup(url){return contentData.pages[contentKey(url)]?contentKey(url):contentData.pages[url.pathname]?url.pathname:contentData.pages[url.pathname.endsWith('/')?url.pathname.slice(0,-1):url.pathname+'/']?(url.pathname.endsWith('/')?url.pathname.slice(0,-1):url.pathname+'/'):null;}
 async function contentHtml(key){if(!contentPageCache.has(key)){const bytes=Uint8Array.from(atob(contentData.pages[key].gzip),c=>c.charCodeAt(0));const html=await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();if(contentPageCache.size>12)contentPageCache.delete(contentPageCache.keys().next().value);contentPageCache.set(key,html);}return contentPageCache.get(key);}
 export default {async fetch(request,env={},ctx={}){
   const url=new URL(request.url);
-  if(env.RELEASE_MODE==='production')return new Response('SDS production migration is awaiting approval.',{status:503,headers:{'cache-control':'no-store','x-robots-tag':'noindex'}});
+  const redirect=productionRouting.redirect(url,env);if(redirect)return productionRouting.finish(redirect,url,env,request.method==='HEAD');
   const head=request.method==='HEAD',get=head||request.method==='GET';let response;
   if(get&&contentMedia[url.pathname]){
     const asset=contentMedia[url.pathname];const headers={'content-type':asset.type,'cache-control':'public, max-age=604800','etag':'"'+asset.sha256+'"'};
@@ -111,24 +161,29 @@ export default {async fetch(request,env={},ctx={}){
       else if(env.ASSETS){const original=await env.ASSETS.fetch(new Request(new URL(asset.sourcePath,request.url),{headers:request.headers}));response=new Response(original.body,{status:original.status,headers});}
       else response=new Response('Source asset unavailable',{status:503,headers});
     }
-  }else if(get&&contentData.assets[url.pathname]?.base64)response=await contentBackend.fetch(request,env,ctx);
+  }else if(get&&contentData.assets[url.pathname])response=await contentBackend.fetch(request,env,ctx);
   else if(get&&contentLookup(url))response=new Response(await contentHtml(contentLookup(url)),{headers:{'content-type':'text/html; charset=utf-8','cache-control':url.searchParams.has('edit')?'no-store':'public, max-age=300'}});
   else if(url.pathname==='/sitemap.xml'&&get)response=new Response(contentData.sitemap,{headers:{'content-type':'application/xml; charset=utf-8'}});
-  else if(url.pathname==='/robots.txt'&&get)response=new Response('User-agent: *\\nAllow: /\\n\\nSitemap: '+contentData.config.reviewOrigin+'/sitemap.xml\\n',{headers:{'content-type':'text/plain; charset=utf-8'}});
+  else if(url.pathname==='/robots.txt'&&get)response=new Response(productionRouting.robots(url,env),{headers:{'content-type':'text/plain; charset=utf-8','cache-control':'public, max-age=300'}});
+  else if(get&&contentData.routes.gone.includes(url.pathname))response=new Response('This page is no longer available.',{status:410,headers:{'content-type':'text/plain; charset=utf-8'}});
   else if(url.pathname==='/health'||url.pathname.startsWith('/api/forms/')||url.pathname.startsWith('/api/editor/')||url.pathname==='/editor'||url.pathname.startsWith('/submissions'))response=await contentBackend.fetch(request,env,ctx);
   else {if(url.pathname==='/api/leads'&&request.method==='POST'&&(request.headers.get('origin')!==url.origin||request.headers.get('sec-fetch-site')==='cross-site'))return Response.json({error:'Please submit from this website.'},{status:403});response=await approvedDesignWorker.fetch(head?new Request(request.url,{headers:request.headers}):request,env,ctx);
     if(get&&response.status===200&&response.headers.get('content-type')?.includes('text/html'))response=new Response((await response.text()).replace('</head>',${JSON.stringify(fallbackLayoutHead)}+'</head>'),response);
   }
-  const result=new Response(head?null:response.body,response);result.headers.set('x-robots-tag','noindex, follow');result.headers.set('x-content-type-options','nosniff');result.headers.set('referrer-policy','strict-origin-when-cross-origin');return result;
+  return productionRouting.finish(response,url,env,head);
 }};
 `;
 await writeFile(target,originalDesign.replace('export default {','const approvedDesignWorker = {')+wrapper);
 // Package exact original media; hashed Worker routes enforce MIME types even
 // when a hosting platform labels a WebP as application/octet-stream.
 await cp(resolve(root,'public'),resolve(root,'dist/client'),{recursive:true});
-const report={sourceCommit:policy.sourceCommit,sourceBranch:policy.sourceBranch,sourceCapturedAt:index.sourceCompletedAt,designBaselineVersion:41,designFingerprint:policy.designFingerprint,capturedRoutes:records.length,contentTransferred:records.length,metadataTransferred:records.length,originalMediaFiles:Object.keys(mediaUrls).length,unavailableOriginalMedia:unavailableMedia,originalWordingPreserved:true,approvedStylesPreserved:true,approvedHeaderFooterPreserved:true,homepageCarouselsPreserved:true,formCount:Object.keys(forms).length,reviewNoindexEnforced:true,productionReleaseReady:false,pages:records};
+const report={sourceCommit:policy.sourceCommit,sourceBranch:policy.sourceBranch,sourceCapturedAt:index.sourceCompletedAt,designBaselineVersion:41,designFingerprint:policy.designFingerprint,capturedRoutes:records.length,contentTransferred:records.length,metadataTransferred:records.length,originalMediaFiles:Object.keys(mediaUrls).length,unavailableOriginalMedia:unavailableMedia,originalWordingPreserved:true,approvedStylesPreserved:true,approvedHeaderFooterPreserved:true,homepageCarouselsPreserved:true,formCount:Object.keys(forms).length,reviewNoindexEnforced:true,productionSeoConfigured:true,productionReleaseReady:false,pages:records};
 await writeFile(resolve(root,'src/content/current-design/index.json'),JSON.stringify({sourceCommit:policy.sourceCommit,designBaselineVersion:41,pages:records},null,2)+'\n');
 await writeFile(resolve(root,'docs/migration/content-to-current-design.json'),JSON.stringify(report,null,2)+'\n');
 const compiled=await readFile(target);
 await writeFile(resolve(root,'docs/design-build.json'),JSON.stringify({designBaselineVersion:41,designFingerprint:policy.designFingerprint,contentRoutes:records.length,metadataRoutes:records.length,formCount:Object.keys(forms).length,workerGzipBytes:gzipSync(compiled).length,releaseMode:'review',exactSdsMigrationActive:true,productionReleaseReady:false},null,2)+'\n');
 console.log('Original SDS content and SEO rendered on '+records.length+' routes using the approved design.');
+const mappings=index.pages.map(page=>({legacyUrl:page.sourceUrl,productionUrl:productionUrl(page.sourceUrl,{origin:config.productionOrigin,path:page.path,redirects}),status:redirects[page.path.split('?')[0]]||/ccm_paging_.*=1(?:&|$)/.test(page.path)?301:200}));
+await writeFile(resolve(root,'docs/migration/production-routing.json'),JSON.stringify({productionOrigin:config.productionOrigin,originalSitemapUrls:legacySitemap('loc').length,capturedRoutes:records.length,fallbackRoutes,sitemapUrls:new Set(sitemapUrls).size,redirects,prefixRedirects:routeData.prefixRedirects,gone:routeData.gone,legacyMappings:mappings},null,2)+'\n');
+const csvCell=value=>'"'+String(value).replaceAll('"','""')+'"';
+await writeFile(resolve(root,'docs/migration/production-url-map.csv'),'Legacy URL,Production URL,Status\n'+mappings.map(row=>[row.legacyUrl,row.productionUrl,row.status].map(csvCell).join(',')).join('\n')+'\n');
