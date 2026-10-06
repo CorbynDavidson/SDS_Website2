@@ -1,0 +1,15 @@
+{
+  "selectedOn": "2026-10-06",
+  "selection": "Retain original SDS content and legacy SDS URLs in the approved design.",
+  "redirects": {
+    "/damp-and-mould-claims/": "/housing-disrepair/damp-and-mould-claims/",
+    "/leaking-roof-and-water-damage-claims/": "/housing-disrepair/roof-gutter-claims/",
+    "/broken-heating-and-hot-water-claims/": "/housing-disrepair/boiler-heating-claims/",
+    "/pest-infestation-claims/": "/housing-disrepair/vermin-from-disrepair-claims/",
+    "/unsafe-electrics-housing-claims/": "/housing-disrepair/electrical-faults-claims/",
+    "/structural-damage-and-cracks/": "/housing-disrepair/brickwork-claims/",
+    "/council-housing-disrepair-claims/": "/housing-disrepair-claims/council-housing/",
+    "/housing-association-disrepair-claims/": "/housing-disrepair/housing-associations/"
+  },
+  "retainedStandaloneRoutes": ["/faqs/"]
+}

@@ -1,0 +1,72 @@
+{
+  "selectedOn": "2026-10-06",
+  "selection": "Retain original SDS content and legacy SDS URLs in the approved design.",
+  "retiredPagesVerified": 8,
+  "redirectVariantsVerified": 16,
+  "redirectResponsesVerified": 160,
+  "internalLinksToRetiredPages": 0,
+  "originalIndexableSitemapUrlsRetained": 242,
+  "originalNoindexUrlsExcluded": [
+    "https://www.sds-solicitors.com/contact-us/medical-negligence-confirmation/",
+    "https://www.sds-solicitors.com/contact-us/personal-injury-confirmation/",
+    "https://www.sds-solicitors.com/contact-us/thank-you/",
+    "https://www.sds-solicitors.com/contact-us/compensation-calculator-confirmation/",
+    "https://www.sds-solicitors.com/contact-us/housing-disrepair-confirmation/",
+    "https://www.sds-solicitors.com/contact-us/housing-disrepair-enquiries-stands/"
+  ],
+  "retainedStandaloneRoutes": [
+    "/faqs/"
+  ],
+  "mappings": [
+    {
+      "retiredPath": "/damp-and-mould-claims/",
+      "retainedSdsPath": "/housing-disrepair/damp-and-mould-claims/",
+      "title": "Damp & Mould Claim Solicitors | No Win No Fee | SDS",
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/damp-and-mould-claims/"
+    },
+    {
+      "retiredPath": "/leaking-roof-and-water-damage-claims/",
+      "retainedSdsPath": "/housing-disrepair/roof-gutter-claims/",
+      "title": "Roofing Disrepair & Gutter Leak Disrepair Claims | SDS",
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/roof-gutter-claims/"
+    },
+    {
+      "retiredPath": "/broken-heating-and-hot-water-claims/",
+      "retainedSdsPath": "/housing-disrepair/boiler-heating-claims/",
+      "title": "Heating System & Defective Boiler Disrepair Claims | SDS",
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/boiler-heating-claims/"
+    },
+    {
+      "retiredPath": "/pest-infestation-claims/",
+      "retainedSdsPath": "/housing-disrepair/vermin-from-disrepair-claims/",
+      "title": "Pest & Vermin Infestation Compensation Claims | SDS Solicitors",
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/vermin-from-disrepair-claims/"
+    },
+    {
+      "retiredPath": "/unsafe-electrics-housing-claims/",
+      "retainedSdsPath": "/housing-disrepair/electrical-faults-claims/",
+      "title": "Faulty Electrics | Housing Disrepair Experts | SDS",
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/electrical-faults-claims/"
+    },
+    {
+      "retiredPath": "/structural-damage-and-cracks/",
+      "retainedSdsPath": "/housing-disrepair/brickwork-claims/",
+      "title": "Damaged Brickwork & Structural Disrepair Claims | SDS",
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/brickwork-claims/"
+    },
+    {
+      "retiredPath": "/council-housing-disrepair-claims/",
+      "retainedSdsPath": "/housing-disrepair-claims/council-housing/",
+      "title": "Council House Disrepair Claim | HLPA Accredited | SDS",
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair-claims/council-housing/"
+    },
+    {
+      "retiredPath": "/housing-association-disrepair-claims/",
+      "retainedSdsPath": "/housing-disrepair/housing-associations/",
+      "title": "Housing Association Repairs Compensation | SDS",
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/"
+    }
+  ],
+  "sitemapUrlsVerified": 243,
+  "originalSitemapUrlsRemainAvailable": 248
+}

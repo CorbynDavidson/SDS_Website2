@@ -40,7 +40,14 @@ const panelPath=path=>path.split('?')[0].replace(/\/+$/,'')+'/';
 const hasEnquiryPanel=path=>panelPath(path).startsWith(enquiryPanelScope.locationPrefix)||panelTypes.has(panelPath(path));
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
 const legacyRouting=await readJson('config/legacy-routing.json');
-const redirects={...legacyRouting.redirects};
+const consolidation=await readJson('config/page-consolidation.json');
+const consolidations={};
+for(const [path,destination] of Object.entries(consolidation.redirects)){
+  assert.ok(!index.pages.some(page=>page.path===path),'Cannot retire an original SDS route: '+path);
+  assert.ok(index.pages.some(page=>page.path===destination),'Missing original SDS destination: '+destination);
+  consolidations[path]=destination;consolidations[path.slice(0,-1)]=destination;
+}
+const redirects={...legacyRouting.redirects,...consolidations};
 const sourceText=new Map();
 for(const page of index.pages){const original=sourceByUrl.get(page.sourceUrl);sourceText.set(page.path,extractContent(gunzipSync(await readFile(resolve(root,original.source_file))).toString('utf8')).text);}
 for(const page of index.pages){
@@ -51,7 +58,7 @@ for(const page of index.pages){
   // canonical. Only exact duplicate content is consolidated by a 301.
   if(target.pathname!==page.path.split('?')[0]&&!target.search&&sourceText.get(targetPath)===sourceText.get(page.path))redirects[page.path.split('?')[0]]=targetPath;
 }
-const routeData={redirects,gone:legacyRouting.gone,prefixRedirects:legacyRouting.prefixRedirects||[]};
+const routeData={redirects,consolidations,gone:legacyRouting.gone,prefixRedirects:legacyRouting.prefixRedirects||[]};
 const typeByExtension={'.svg':'image/svg+xml','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.gif':'image/gif','.pdf':'application/pdf','.mp4':'video/mp4','.woff':'font/woff','.woff2':'font/woff2','.ttf':'font/ttf','.ico':'image/x-icon','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const mediaUrls={},mediaSources={},assets={};
 for(const asset of manifest.assets.filter(a=>a.status===200&&a.file)) {
@@ -116,6 +123,7 @@ const sitemapUrls=[];
 const fallbackRoutes=[];
 for(const url of designSitemap('loc').toArray().map(node=>designSitemap(node).text())){
   const path=new URL(url).pathname;
+  if(consolidations[path])continue;
   if(pages[path]||pages[path.replace(/\/$/,'')])continue;
   const response=await approved.fetch(new Request(config.productionOrigin+path),{});
   if(response.status!==200||!response.headers.get('content-type')?.includes('text/html'))continue;
@@ -195,6 +203,6 @@ const compiled=await readFile(target);
 await writeFile(resolve(root,'docs/design-build.json'),JSON.stringify({designBaselineVersion:41,designFingerprint:policy.designFingerprint,contentRoutes:records.length,metadataRoutes:records.length,formCount:Object.keys(forms).length,workerGzipBytes:gzipSync(compiled).length,releaseMode:'review',exactSdsMigrationActive:true,productionReleaseReady:false},null,2)+'\n');
 console.log('Original SDS content and SEO rendered on '+records.length+' routes using the approved design.');
 const mappings=index.pages.map(page=>({legacyUrl:page.sourceUrl,productionUrl:productionUrl(page.sourceUrl,{origin:config.productionOrigin,path:page.path,redirects}),status:redirects[page.path.split('?')[0]]||/ccm_paging_.*=1(?:&|$)/.test(page.path)?301:200}));
-await writeFile(resolve(root,'docs/migration/production-routing.json'),JSON.stringify({productionOrigin:config.productionOrigin,originalSitemapUrls:legacySitemap('loc').length,capturedRoutes:records.length,fallbackRoutes,sitemapUrls:new Set(sitemapUrls).size,redirects,prefixRedirects:routeData.prefixRedirects,gone:routeData.gone,legacyMappings:mappings},null,2)+'\n');
+await writeFile(resolve(root,'docs/migration/production-routing.json'),JSON.stringify({productionOrigin:config.productionOrigin,originalSitemapUrls:legacySitemap('loc').length,capturedRoutes:records.length,fallbackRoutes,consolidatedDesignRoutes:consolidation.redirects,retainedStandaloneRoutes:consolidation.retainedStandaloneRoutes,sitemapUrls:new Set(sitemapUrls).size,redirects,prefixRedirects:routeData.prefixRedirects,gone:routeData.gone,legacyMappings:mappings},null,2)+'\n');
 const csvCell=value=>'"'+String(value).replaceAll('"','""')+'"';
 await writeFile(resolve(root,'docs/migration/production-url-map.csv'),'Legacy URL,Production URL,Status\n'+mappings.map(row=>[row.legacyUrl,row.productionUrl,row.status].map(csvCell).join(',')).join('\n')+'\n');

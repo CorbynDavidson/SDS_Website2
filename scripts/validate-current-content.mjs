@@ -205,7 +205,7 @@ audit.ownerProtectedAdministrationVerified=true;
 const production=await worker.fetch(new Request(origin+'/'),{...env,RELEASE_MODE:'production'});assert.equal(production.status,200);assert.ok(!production.headers.has('x-robots-tag'));audit.productionIndexationVerified=true;
 assert.equal((await fetchPage(worker,'/this-page-does-not-exist/')).status,404);
 audit.formKeys=[...forms];assert.deepEqual(data.forms,await readJson('src/content/sds/forms.json'),'All original submission handlers must remain available.');
-for(const path of ['/damp-and-mould-claims','/broken-heating-and-hot-water-claims']){
+for(const path of (await readJson('config/page-consolidation.json')).retainedStandaloneRoutes){
  const response=await fetchPage(worker,path);assert.equal(response.status,200,'Existing additional page unavailable: '+path);
  const $=load(await response.text());assert.equal($('#sds-layout-adjustments').text(),layoutCss,'Additional page must share header spacing and layout rules: '+path);assert.ok($('main form').length<=1,'Additional page has repeated forms: '+path);layoutAudit.fallbackLayoutsVerified++;
 }

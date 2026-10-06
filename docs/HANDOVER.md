@@ -4,7 +4,8 @@ Prepared 6 October 2026. Production remains **https://www.sds-solicitors.com**; 
 
 ## Implemented
 
-- All **296 captured routes** have original primary page content and SEO titles/meta/canonicals/JSON-LD. All 248 live legacy sitemap URLs are mapped and tested. The production sitemap contains 251 self-canonical URLs, including nine retained design routes.
+- All **296 captured routes** have original primary page content and SEO titles/meta/canonicals/JSON-LD. All 248 live legacy sitemap URLs remain available and are tested. The production sitemap contains 243 self-canonical URLs: 242 indexable SDS originals plus FAQs. The six original noindex utility URLs remain available outside the sitemap.
+- Eight additional claims pages are retired with single-hop 301s to their original SDS-content counterparts. Both slash variants redirect on production and review; review redirects stay on the website being viewed. Internal links point directly to retained SDS URLs. `config/page-consolidation.json` records the owner's selection; [PRODUCTION_SEO.md](PRODUCTION_SEO.md) gives the exact mapping and `migration/page-consolidation-validation.json` verifies it. Original wording, metadata, approved design and other original service pages are preserved.
 - Original paragraphs, headings, lists, FAQs, article/profile media and form labels/options are compared with immutable raw captures. Shared navigation, fonts, CSS, logo, footer and homepage carousels use the approved design. Shared source staff modals/navigation are not copied as article content.
 - The directory retains its 24 listed people; all 25 captured profile paths are available. Articles and pagination retain original content.
 - Seven original form schemas use prepared D1 queries, validation, CSRF/honeypot protection, durable limits and idempotent requests. Private evidence uses R2. Owner-only submissions/CSV/private downloads include earlier `enquiries`; authenticated drafts are active on migrated pages.

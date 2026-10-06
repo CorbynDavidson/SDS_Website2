@@ -23,6 +23,8 @@ const panelTypes=new Set(panelScope.disrepairTypePaths);
 const panelGuides=new Set(panelScope.housingGuidePaths);
 const panelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
 const termsCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
+const consolidation=await readJson('config/page-consolidation.json');
+const consolidationAudit={selectedOn:consolidation.selectedOn,selection:consolidation.selection,retiredPagesVerified:0,redirectVariantsVerified:0,redirectResponsesVerified:0,internalLinksToRetiredPages:0,originalIndexableSitemapUrlsRetained:0,originalNoindexUrlsExcluded:[],retainedStandaloneRoutes:consolidation.retainedStandaloneRoutes,mappings:[]};
 const report={productionOrigin:origin,capturedRoutesVerified:0,allPublicBuildRoutesVerified:0,originalSitemapUrlsVerified:0,productionSitemapUrlsVerified:0,legalServiceSchemasVerified:0,disrepairServiceSchemasVerified:0,permanentRedirectsVerified:0,knownNonHousingRoutesVerified:0,internalAbsoluteLinksVerified:0,reviewNoindexVerified:false,productionRobotsVerified:false,privateRoutesNoindexVerified:false,termsExactWordingVerified:false,claimCtaDestinationPreserved:false,wizardFormsConsistent:false,sharedRoundedPanelsVerified:false,historicalInventoryComplete:false};
 report.sameOriginHeadResourcesVerified=0;report.reviewStylesheetLinksVerified=0;report.approvedStylesheetAssetsVerified=0;
 report.roundedEnquiryPanelsVerified=0;report.locationEnquiryPanelsVerified=0;report.disrepairTypeEnquiryPanelsVerified=0;report.housingGuideEnquiryPanelsVerified=0;report.otherPagesWithoutEnquiryPanelChangesVerified=0;
@@ -58,6 +60,7 @@ for(const [path,page] of Object.entries(data.pages)){
   if(path.startsWith('/housing-disrepair')){assert.ok(graph.some(node=>node['@type']==='Service'&&node.provider?.['@id']===origin+'/#corporation'),path);report.disrepairServiceSchemasVerified++;}
   for(const node of $('a[href]').toArray()){
     const href=node.attribs.href;if(/^(?:#|\/)(?!\/)/.test(href))throw new Error('Internal link is not absolute: '+path+' '+href);
+    if(href.startsWith(origin+'/'))assert.ok(!data.routes.consolidations[new URL(href).pathname],'Internal link still targets a retired design page: '+path+' '+href);
     if(href.startsWith(origin+'/'))report.internalAbsoluteLinksVerified++;
   }
   for(const node of $('head link[href]').toArray()){
@@ -104,6 +107,53 @@ for(const node of originalSitemap('loc').toArray()){
 const sitemapResponse=await request(origin+'/sitemap.xml');assert.equal(sitemapResponse.status,200);assert.ok(!sitemapResponse.headers.has('x-robots-tag'));
 const sitemap=load(await sitemapResponse.text(),{xmlMode:true}),urls=sitemap('loc').toArray().map(node=>sitemap(node).text());assert.equal(urls.length,new Set(urls).size);
 for(const url of urls){assert.equal(new URL(url).origin,origin);const response=await request(url);assert.equal(response.status,200,'Sitemap target redirects/errors: '+url);const $=load(await response.text());assert.equal($('link[rel=canonical]').attr('href'),url,'Sitemap target is not self-canonical: '+url);assert.ok(!/noindex/i.test($('meta[name=robots]').attr('content')||''));report.productionSitemapUrlsVerified++;}
+const originalIndexable=[];
+for(const node of originalSitemap('loc').toArray()){
+  const url=originalSitemap(node).text(),path=new URL(url).pathname;
+  assert.equal((await request(url)).status,200,'An original sitemap URL was retired: '+url);
+  const $=load(gunzipSync(Buffer.from(data.pages[path].gzip,'base64')).toString());
+  if(/noindex/i.test($('meta[name=robots]').attr('content')||'')){
+    assert.ok(!urls.includes(url),'Noindex utility page appears in sitemap: '+url);consolidationAudit.originalNoindexUrlsExcluded.push(url);
+  }else{
+    assert.equal($('link[rel=canonical]').attr('href'),url,'Original sitemap canonical changed: '+url);
+    originalIndexable.push(url);
+  }
+}
+assert.deepEqual([...urls].sort(),[...originalIndexable,...consolidation.retainedStandaloneRoutes.map(path=>origin+path)].sort(),'Sitemap must contain exactly the indexable original SDS URLs plus FAQs');
+consolidationAudit.originalIndexableSitemapUrlsRetained=originalIndexable.length;
+assert.equal(originalIndexable.length,242);assert.equal(consolidationAudit.originalNoindexUrlsExcluded.length,6);
+const expectedConsolidations={};
+for(const [path,destination] of Object.entries(consolidation.redirects)){
+  assert.ok(!data.pages[path]&&!data.pages[path.slice(0,-1)],'Retired alternative still has a compiled public template: '+path);
+  assert.ok(index.pages.some(page=>page.path===destination),'Destination does not contain original SDS content: '+destination);
+  assert.ok(urls.includes(origin+destination),'Destination missing from sitemap: '+destination);
+  assert.ok(!urls.includes(origin+path),'Retired page is still in sitemap: '+path);
+  for(const variant of [path,path.slice(0,-1)]){
+    expectedConsolidations[variant]=destination;
+    for(const [host,release] of [[origin,'production'],['http://sds-solicitors.com','production'],[origin,'review'],[review,'production'],[review,'review']]){
+      const hostEnv={...env,RELEASE_MODE:release};
+      const targetHost=host==='http://sds-solicitors.com'?origin:host;
+      const query='?utm_source=consolidation&utm_campaign=sds%20launch&ref=partner';
+      for(const method of ['GET','HEAD']){
+        const response=await worker.fetch(new Request(host+variant+query,{method}),hostEnv);
+        assert.equal(response.status,301,host+variant+' '+release+' '+method);
+        assert.equal(response.headers.get('location'),targetHost+destination+query,'Wrong host, chain or lost query: '+host+variant);
+        if(method==='HEAD')assert.equal(await response.text(),'');
+        const next=await worker.fetch(new Request(response.headers.get('location')),hostEnv);assert.equal(next.status,200,'Redirect destination is unavailable: '+variant);
+        if(release==='review'||host===review)assert.match(response.headers.get('x-robots-tag'),/noindex/);
+        const $=load(await next.text());assert.equal($('link[rel=canonical]').attr('href'),origin+destination);
+        consolidationAudit.redirectResponsesVerified++;
+      }
+    }
+    consolidationAudit.redirectVariantsVerified++;
+  }
+  const $=load(gunzipSync(Buffer.from(data.pages[destination].gzip,'base64')).toString());
+  consolidationAudit.mappings.push({retiredPath:path,retainedSdsPath:destination,title:$('head title').text(),canonical:origin+destination});
+  consolidationAudit.retiredPagesVerified++;
+}
+assert.deepEqual(data.routes.consolidations,expectedConsolidations);assert.equal(consolidationAudit.retiredPagesVerified,8);
+consolidationAudit.sitemapUrlsVerified=urls.length;consolidationAudit.originalSitemapUrlsRemainAvailable=report.originalSitemapUrlsVerified;
+report.pageConsolidationVerified=true;report.consolidatedDesignPagesVerified=consolidationAudit.retiredPagesVerified;report.consolidationRedirectResponsesVerified=consolidationAudit.redirectResponsesVerified;
 for(const [path,target] of Object.entries(data.routes.redirects)){
   const response=await request(origin+path+'?utm_source=migration');assert.equal(response.status,301,path);
   assert.equal(response.headers.get('location'),origin+target+'?utm_source=migration',path);
@@ -152,4 +202,4 @@ for(const [path,expectedHash] of Object.entries(presentation.stylesheetHashes)){
 }
 assert.ok(report.reviewStylesheetLinksVerified>=report.allPublicBuildRoutesVerified);
 report.reviewStylesheetsLoadFromCurrentBuild=true;
-await DB.close();await writeFile(resolve(root,'docs/migration/production-seo-validation.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
+await DB.close();await writeFile(resolve(root,'docs/migration/page-consolidation-validation.json'),JSON.stringify(consolidationAudit,null,2)+'\n');await writeFile(resolve(root,'docs/migration/production-seo-validation.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

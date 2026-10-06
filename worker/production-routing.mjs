@@ -5,9 +5,14 @@ export function createProductionRouting(config,routes){
   const mode=(url,env)=>primaryHosts.has(url.hostname)&&(env.RELEASE_MODE||config.defaultReleaseMode)==='production'?'production':'review';
   const privatePath=url=>/^\/(?:api(?:\/|$)|submissions(?:[./]|$)|editor(?:\/|$)|health(?:\/|$)|signin-with-chatgpt|signout-with-chatgpt|staging(?:\/|$)|preview(?:\/|$)|_preview(?:\/|$)|build(?:\/|$))/.test(url.pathname)||url.searchParams.has('edit');
   const redirect=(url,env)=>{
-    if(mode(url,env)!=='production')return null;
-    const target=new URL(url.href);target.protocol='https:';target.host=production.host;
-    target.pathname=routes.redirects[url.pathname]||routes.prefixRedirects?.find(rule=>url.pathname===rule.prefix||url.pathname.startsWith(rule.prefix+'/'))?.target||url.pathname;
+    const isProduction=mode(url,env)==='production';
+    // The selected design alternatives are retired on every host. Review
+    // redirects stay on the current origin so reviewers see the new design.
+    const consolidation=routes.consolidations?.[url.pathname];
+    if(!isProduction&&!consolidation)return null;
+    const target=new URL(url.href);
+    if(isProduction){target.protocol='https:';target.host=production.host;}
+    target.pathname=isProduction?(routes.redirects[url.pathname]||routes.prefixRedirects?.find(rule=>url.pathname===rule.prefix||url.pathname.startsWith(rule.prefix+'/'))?.target||url.pathname):consolidation;
     // Page-one pagination is the unpaginated page; retain page two and all
     // unrelated query parameters (including campaign tracking parameters).
     for(const [name,value] of target.searchParams)if(name.startsWith('ccm_paging_')&&value==='1')target.searchParams.delete(name);

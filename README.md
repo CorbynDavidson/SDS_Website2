@@ -10,7 +10,9 @@ Version 51 gives team sections a generous rounded frame and extends the secondar
 
 Version 52 removes aerial estate banners, vertically centres the header, gives the claims steps a horizontal desktop layout and the disrepair image cards two columns, and keeps one centred Sheldon/Victoria pair on All Locations. Original wording and SEO remain, with the requested duplicate-card removal and original Victoria directory card addition explicitly verified.
 
-The build maps all 248 live legacy sitemap URLs to preserved routes or tested single-hop 301s. The production sitemap contains 251 self-canonical, indexable URLs. All seven original enquiry schemas use the tested D1/R2 handlers; protected administration includes new and earlier enquiries. Operational launch checks remain pending, including browser/mobile review, CMS eligibility rules, lead routing, consent/tracking and domain cutover.
+The build preserves all 248 live legacy sitemap URLs. The production sitemap contains 243 self-canonical, indexable URLs: the 242 indexable original SDS pages plus FAQs. The six original noindex utility pages remain available outside the sitemap. Eight alternative claims pages now redirect directly to their original SDS-content counterparts on review and production hosts, including non-slash URLs; navigation links use the retained SDS URLs. The approved design and original wording are preserved. See [the selected mapping](config/page-consolidation.json) and [its verification](docs/migration/page-consolidation-validation.json).
+
+All seven original enquiry schemas use the tested D1/R2 handlers; protected administration includes new and earlier enquiries. Operational launch checks remain pending, including browser/mobile review, CMS eligibility rules, lead routing, consent/tracking and domain cutover.
 
 Version 53 adds verified ReviewSolicitors/Google links and examples, the homepage testimonial carousel, and the original LinkedIn recognition graphic to Reviews, with the corrected title.
 

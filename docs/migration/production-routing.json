@@ -3,17 +3,22 @@
   "originalSitemapUrls": 248,
   "capturedRoutes": 296,
   "fallbackRoutes": [
-    "/faqs/",
-    "/damp-and-mould-claims/",
-    "/leaking-roof-and-water-damage-claims/",
-    "/broken-heating-and-hot-water-claims/",
-    "/pest-infestation-claims/",
-    "/unsafe-electrics-housing-claims/",
-    "/structural-damage-and-cracks/",
-    "/council-housing-disrepair-claims/",
-    "/housing-association-disrepair-claims/"
+    "/faqs/"
   ],
-  "sitemapUrls": 251,
+  "consolidatedDesignRoutes": {
+    "/damp-and-mould-claims/": "/housing-disrepair/damp-and-mould-claims/",
+    "/leaking-roof-and-water-damage-claims/": "/housing-disrepair/roof-gutter-claims/",
+    "/broken-heating-and-hot-water-claims/": "/housing-disrepair/boiler-heating-claims/",
+    "/pest-infestation-claims/": "/housing-disrepair/vermin-from-disrepair-claims/",
+    "/unsafe-electrics-housing-claims/": "/housing-disrepair/electrical-faults-claims/",
+    "/structural-damage-and-cracks/": "/housing-disrepair/brickwork-claims/",
+    "/council-housing-disrepair-claims/": "/housing-disrepair-claims/council-housing/",
+    "/housing-association-disrepair-claims/": "/housing-disrepair/housing-associations/"
+  },
+  "retainedStandaloneRoutes": [
+    "/faqs/"
+  ],
+  "sitemapUrls": 243,
   "redirects": {
     "/personal-injury/": "/",
     "/serious-injury/": "/about-us/sds-solicitors-discontinued-legal-services/",
@@ -32,6 +37,22 @@
     "/road-bike-accident-claims/multiple-vehicle-accidents/": "/about-us/sds-solicitors-discontinued-legal-services/",
     "/accidents-work-claims/": "/about-us/sds-solicitors-discontinued-legal-services/",
     "/injury-claim-calculator/leg-injury/": "/housing-disrepair-claims/compensation-calculator/",
+    "/damp-and-mould-claims/": "/housing-disrepair/damp-and-mould-claims/",
+    "/damp-and-mould-claims": "/housing-disrepair/damp-and-mould-claims/",
+    "/leaking-roof-and-water-damage-claims/": "/housing-disrepair/roof-gutter-claims/",
+    "/leaking-roof-and-water-damage-claims": "/housing-disrepair/roof-gutter-claims/",
+    "/broken-heating-and-hot-water-claims/": "/housing-disrepair/boiler-heating-claims/",
+    "/broken-heating-and-hot-water-claims": "/housing-disrepair/boiler-heating-claims/",
+    "/pest-infestation-claims/": "/housing-disrepair/vermin-from-disrepair-claims/",
+    "/pest-infestation-claims": "/housing-disrepair/vermin-from-disrepair-claims/",
+    "/unsafe-electrics-housing-claims/": "/housing-disrepair/electrical-faults-claims/",
+    "/unsafe-electrics-housing-claims": "/housing-disrepair/electrical-faults-claims/",
+    "/structural-damage-and-cracks/": "/housing-disrepair/brickwork-claims/",
+    "/structural-damage-and-cracks": "/housing-disrepair/brickwork-claims/",
+    "/council-housing-disrepair-claims/": "/housing-disrepair-claims/council-housing/",
+    "/council-housing-disrepair-claims": "/housing-disrepair-claims/council-housing/",
+    "/housing-association-disrepair-claims/": "/housing-disrepair/housing-associations/",
+    "/housing-association-disrepair-claims": "/housing-disrepair/housing-associations/",
     "/about-us/careers": "/about-us/careers/",
     "/about-us/complaints": "/about-us/complaints/",
     "/about-us/cookies": "/about-us/cookies/",
@@ -292,15 +313,7 @@
     "/flooding-water-damage-claims": "/housing-disrepair/flooding-water-damage-claims/",
     "/housing-disrepair/leaks-plumbing-drainage-claims": "/housing-disrepair/plumbing-drainage-claims/",
     "/privacy-policy": "/about-us/privacy-policy/",
-    "/faqs": "/faqs/",
-    "/damp-and-mould-claims": "/damp-and-mould-claims/",
-    "/leaking-roof-and-water-damage-claims": "/leaking-roof-and-water-damage-claims/",
-    "/broken-heating-and-hot-water-claims": "/broken-heating-and-hot-water-claims/",
-    "/pest-infestation-claims": "/pest-infestation-claims/",
-    "/unsafe-electrics-housing-claims": "/unsafe-electrics-housing-claims/",
-    "/structural-damage-and-cracks": "/structural-damage-and-cracks/",
-    "/council-housing-disrepair-claims": "/council-housing-disrepair-claims/",
-    "/housing-association-disrepair-claims": "/housing-association-disrepair-claims/"
+    "/faqs": "/faqs/"
   },
   "prefixRedirects": [
     {
