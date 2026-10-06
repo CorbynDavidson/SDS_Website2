@@ -12,16 +12,16 @@ The review should establish whether the design, technical implementation and mig
 
 | Item | Review reference |
 |---|---|
-| Live review website | https://housingconditionclaims.org/ — **published version 75** |
-| Code baseline | [GitHub revision b39181072b1318c130c29cde0d24f28639b77082](https://github.com/CorbynDavidson/SDS_Website2/tree/b39181072b1318c130c29cde0d24f28639b77082) |
-| Deployed source reference | Sites commit `e536abdf5e98548ccb7393500bac2c5b7d03a658` |
+| Live review website | https://housingconditionclaims.org/ — **published version 76** |
+| Code baseline | [GitHub revision 7c9febf49162544cd0c2f8be66ade5c870cb1dde](https://github.com/CorbynDavidson/SDS_Website2/tree/7c9febf49162544cd0c2f8be66ade5c870cb1dde) |
+| Deployed source reference | Sites commit `0680198d43eab8bade6a6a6af67021ae697ebcfa` |
 | Intended production domain | **https://www.sds-solicitors.com/** |
 | Existing production website | https://www.sds-solicitors.com/ |
 | Owner editor entry | https://housingconditionclaims.org/?edit=1 |
 | URL inventory | Supplied `SDS_URL_Migration_Map.xlsx`; see the version qualification in the appendix |
-| Production sitemap | [Repository sitemap at the code baseline](https://github.com/CorbynDavidson/SDS_Website2/blob/b39181072b1318c130c29cde0d24f28639b77082/sitemap.xml) |
+| Production sitemap | [Repository sitemap at the code baseline](https://github.com/CorbynDavidson/SDS_Website2/blob/7c9febf49162544cd0c2f8be66ade5c870cb1dde/sitemap.xml) |
 
-Please report findings against version 75 and the pinned code revision, rather than a moving `main` branch. This sync includes the latest implementation, tests and review controls. Agree and record a new baseline if implementation changes during the review.
+Please report findings against version 76 and the pinned code revision, rather than a moving `main` branch. This sync includes the production-only 410 plan and its validation. Agree and record a new baseline if implementation changes during the review.
 
 Housing Condition Claims is the **review hostname for the SDS replacement**, not the intended final primary domain. Canonicals, sharing URLs, schema and the launch sitemap deliberately identify SDS. If the business instead wants a separate Housing Condition Claims production website, resolve that strategy before recommending a migration or domain cutover.
 
@@ -74,7 +74,7 @@ The editor is currently owner-only. Sharing its URL does not grant agency editin
 
 The agency should own the SEO/development assessment, recommendations and proposed implementation plan. SDS should supply account access, approve firm/service content and confirm lead-follow-up ownership. The original CMS administrator should supply private form rules. The developer/domain owner should verify hosting, backups, TLS, cutover and rollback arrangements.
 
-The migration inventory has **23 unresolved historical URLs**, and account-level reconciliation remains outstanding. Lead routing, measurement, real-device/accessibility/performance sign-off, backup/restore and production-domain readiness also remain pending. Assign named owners and deadlines in the returned issue register.
+The migration inventory has **23 provisional production-only 410 routes pending SEO sign-off**, and account-level reconciliation remains outstanding. Lead routing, measurement, real-device/accessibility/performance sign-off, backup/restore and production-domain readiness also remain pending. Assign named owners and deadlines in the returned issue register.
 
 Please do not switch DNS, enable production indexing, alter the current SDS site, grant additional editor access or send real test enquiries as part of the assessment. Agree any synthetic submission destinations and implementation work separately. Keep the review site on the fixed baseline while findings are gathered.
 
@@ -86,7 +86,7 @@ Review settings remain `RELEASE_MODE=review`, `INDEXING_DISABLED=true`. Public r
 
 Version 70 repairs the obsolete `/faqs` homepage redirect, provides the approved trust bar on all 325 public templates, keeps review-page links on the current review origin, improves editor sign-in/error feedback and applies two recorded homepage proofreading corrections. Immutable source captures are retained.
 
-Checks cover all 325 compiled public templates, approved copy exceptions, source hashes, SEO, routing, sitemap, assets and backend security/persistence. Local checks cover all 325 templates; 31 JavaScript and two Python SEO tests passed for version 75. GitHub Actions must also validate this new baseline; the earlier baseline's result is historical. These are not a fresh live crawl, physical-device test or accessibility certification. Earlier version-specific hosted/browser evidence remains historical.
+Checks cover all 325 compiled public templates, approved copy exceptions, source hashes, SEO, routing, sitemap, assets and backend security/persistence. Local checks cover all 325 templates; 31 JavaScript and two Python SEO tests passed for version 76. GitHub Actions must also validate this new baseline; the earlier baseline's result is historical. These are not a fresh live crawl, physical-device test or accessibility certification. Earlier version-specific hosted/browser evidence remains historical.
 
 ### Versions 71–75: validation and indexing updates
 
@@ -96,7 +96,15 @@ The same-origin `POST /api/contact-check` endpoint has origin/CSRF protection an
 
 Automated tests cover browser handlers, server enforcement, provider outcomes and failure handling. Provider responses were mocked; successful live outbound DNS/Postcodes.io lookups have not yet been verified. The agency should verify these on the deployed site using approved synthetic details.
 
-Version 75 applies `noindex, nofollow` in the HTTP header and explicit HTML robots/Googlebot tags across all 325 public templates. Public crawling remains allowed so Google can read noindex. Existing search results may persist until recrawl; the Search Console property owner should request temporary prefix removal if prompt suppression is needed. No Search Console removal has been submitted.
+Version 75 applies `noindex, nofollow` in the HTTP header and explicit HTML robots/Googlebot tags across all 325 public templates. Public crawling remains allowed so Google can read noindex. Existing search results may persist until recrawl; the Search Console property owner should request temporary prefix removal if prompt suppression is needed. An entire-site temporary removal request was submitted in Search Console on 6 October 2026; check its current status in that account.
+
+### Version 76: provisional 410 routes at SDS cutover
+
+The 23 exact paths listed in the workbook’s **Needs Review** sheet are in [production-retirements.json](../config/production-retirements.json). They return `410 Gone` without a redirect only on the SDS hostname with `RELEASE_MODE=production`. The current Housing Condition Claims review host and SDS review mode retain their existing 404 responses; this deployment did not switch the existing SDS site or DNS.
+
+The compiled Worker audit verified GET and HEAD on both SDS host variants, all 23 unchanged review responses, sitemap exclusion, and the 325 existing public templates. The workbook’s original HTTP and new HTTP columns remain historical version-66 observations; the added **410 Cutover Plan** sheet identifies the future rule separately.
+
+Before cutover, agency SEO should review Search Console traffic, backlinks and historic redirect destinations for each URL. Where a valuable relevant replacement exists, choose a 301 instead and update the exact-path configuration and workbook. These are provisional decisions, not evidence that the original SDS site has started returning 410.
 
 ### URL inventory and rebuilding
 
@@ -109,7 +117,7 @@ npm ci --ignore-scripts
 npm run check
 ```
 
-This regenerates the reviewed pages and reports, including `docs/migration/production-routing.json`. Compare the resulting build with published version 75. The production sitemap intentionally contains SDS URLs and is also available at `public/sitemap.xml` and the review host's `/sitemap.xml`.
+This regenerates the reviewed pages and reports, including `docs/migration/production-routing.json`. Compare the resulting build with published version 76. The production sitemap intentionally contains SDS URLs and is also available at `public/sitemap.xml` and the review host's `/sitemap.xml`.
 
 ### Further reference
 
