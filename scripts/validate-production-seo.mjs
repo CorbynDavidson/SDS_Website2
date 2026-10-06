@@ -17,10 +17,28 @@ const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'production',ASSETS:{async fetc
 const request=(url,method='GET')=>worker.fetch(new Request(url,{method}),env);
 const flatten=value=>Array.isArray(value)?value.flatMap(flatten):value&&typeof value==='object'?[value,...Object.values(value).flatMap(flatten)]:[];
 const stylesheetRequests=new Set();
+const panelScope=await readJson('config/enquiry-panel.json');
+const panelTypes=new Set(panelScope.disrepairTypePaths);
+const panelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
 const report={productionOrigin:origin,capturedRoutesVerified:0,allPublicBuildRoutesVerified:0,originalSitemapUrlsVerified:0,productionSitemapUrlsVerified:0,legalServiceSchemasVerified:0,disrepairServiceSchemasVerified:0,permanentRedirectsVerified:0,knownNonHousingRoutesVerified:0,internalAbsoluteLinksVerified:0,reviewNoindexVerified:false,productionRobotsVerified:false,privateRoutesNoindexVerified:false,termsExactWordingVerified:false,claimCtaDestinationPreserved:false,wizardFormsConsistent:false,sharedRoundedPanelsVerified:false,historicalInventoryComplete:false};
 report.sameOriginHeadResourcesVerified=0;report.reviewStylesheetLinksVerified=0;report.approvedStylesheetAssetsVerified=0;
+report.roundedEnquiryPanelsVerified=0;report.locationEnquiryPanelsVerified=0;report.disrepairTypeEnquiryPanelsVerified=0;report.otherPagesWithoutEnquiryPanelChangesVerified=0;
 for(const [path,page] of Object.entries(data.pages)){
   const html=gunzipSync(Buffer.from(page.gzip,'base64')).toString(),$=load(html);
+  const normalPath=path.split('?')[0].replace(/\/+$/,'')+'/';
+  const locationPanel=normalPath.startsWith(panelScope.locationPrefix),typePanel=panelTypes.has(normalPath);
+  if(locationPanel||typePanel){
+    assert.equal($('main > header.service-hero.source-enquiry-panel').length,1,'Missing rounded enquiry section: '+path);
+    assert.equal($('#sds-enquiry-panel').text(),panelCss,path);
+    assert.equal($('main > .source-enquiry-panel h1').length,1,path);
+    assert.equal($('main > .source-enquiry-panel > .wrap.service-hero-grid').length,1,'Existing two-column layout changed: '+path);
+    for(const node of $('main [data-source-enquiry]').toArray())assert.equal($(node).closest('.source-enquiry-panel').length,1,'Form is outside rounded section: '+path);
+    report.roundedEnquiryPanelsVerified++;
+    if(locationPanel)report.locationEnquiryPanelsVerified++;else report.disrepairTypeEnquiryPanelsVerified++;
+  }else{
+    assert.equal($('.source-enquiry-panel,#sds-enquiry-panel').length,0,'Unrequested page framing: '+path);
+    report.otherPagesWithoutEnquiryPanelChangesVerified++;
+  }
   assert.ok(!/housingconditionclaims\.org|https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?|https?:\/\/[^/]+\.chatgpt\.site/i.test(html),'Non-production reference: '+path);
   assert.equal($('head link[rel=canonical]').length,1,path);
   const canonical=$('head link[rel=canonical]').attr('href');assert.equal(new URL(canonical).origin,origin);

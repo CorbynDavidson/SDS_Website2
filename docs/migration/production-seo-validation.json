@@ -20,6 +20,10 @@
   "sameOriginHeadResourcesVerified": 608,
   "reviewStylesheetLinksVerified": 608,
   "approvedStylesheetAssetsVerified": 2,
+  "roundedEnquiryPanelsVerified": 147,
+  "locationEnquiryPanelsVerified": 120,
+  "disrepairTypeEnquiryPanelsVerified": 27,
+  "otherPagesWithoutEnquiryPanelChangesVerified": 158,
   "claimCtasVerified": 32,
   "approvedVersion53DesignRestored": true,
   "reviewStylesheetsLoadFromCurrentBuild": true

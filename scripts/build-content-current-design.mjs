@@ -10,6 +10,7 @@ import {cleanContent,extractContent,renderContentPage,withContentRuntime} from '
 import {addReviewsPage} from './lib/reviews-page.mjs';
 import {applyProductionSeo,productionUrl,productionSitemap} from './lib/production-seo.mjs';
 import {createProductionRouting} from '../worker/production-routing.mjs';
+import {addEnquiryPanel} from './lib/enquiry-panel.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
@@ -31,6 +32,11 @@ const reviewsContent=await readJson('src/reviews-page.json');
 const reviewsHomeHtml=await (await approved.fetch(new Request(config.productionOrigin+'/'),{})).text();
 const forms=await readJson('src/content/sds/forms.json');
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
+const enquiryPanelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
+const enquiryPanelScope=await readJson('config/enquiry-panel.json');
+const panelTypes=new Set(enquiryPanelScope.disrepairTypePaths);
+const panelPath=path=>path.split('?')[0].replace(/\/+$/,'')+'/';
+const hasEnquiryPanel=path=>panelPath(path).startsWith(enquiryPanelScope.locationPrefix)||panelTypes.has(panelPath(path));
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
 const legacyRouting=await readJson('config/legacy-routing.json');
 const redirects={...legacyRouting.redirects};
@@ -89,6 +95,7 @@ for(const page of index.pages) {
   });
   html=html.replace(/<div id="siteEditor"[\s\S]*?<\/div>/g,'');
   html=html.replace(/<div class="site-editor" id="siteEditor"[\s\S]*?<\/div>/g,'').replace(/<div class="editor-bar" id="editorBar"[\s\S]*?<\/div>/g,'');
+  if(hasEnquiryPanel(page.path))html=addEnquiryPanel(html,enquiryPanelCss);
   html=applyProductionSeo(html,{config,path:page.path,redirects});
   const digest=sha256(page.sourceUrl).slice(0,24);
   const contentFile='src/content/current-design/pages/'+digest+'.html';
@@ -110,7 +117,9 @@ for(const url of designSitemap('loc').toArray().map(node=>designSitemap(node).te
   if(pages[path]||pages[path.replace(/\/$/,'')])continue;
   const response=await approved.fetch(new Request(config.productionOrigin+path),{});
   if(response.status!==200||!response.headers.get('content-type')?.includes('text/html'))continue;
-  const html=applyProductionSeo((await response.text()).replace('</head>','<style id="sds-layout-adjustments">'+layoutCss+'</style></head>'),{config,path,redirects});
+  let html=(await response.text()).replace('</head>','<style id="sds-layout-adjustments">'+layoutCss+'</style></head>');
+  if(hasEnquiryPanel(path))html=addEnquiryPanel(html,enquiryPanelCss);
+  html=applyProductionSeo(html,{config,path,redirects});
   pages[path]={gzip:gzipSync(Buffer.from(html),{level:9}).toString('base64'),status:200,sha256:sha256(html)};fallbackRoutes.push(path);
   if(!/noindex/i.test(load(html)('meta[name="robots"]').attr('content')||''))sitemapUrls.push(productionUrl(url,{origin:config.productionOrigin,path,redirects}));
 }
