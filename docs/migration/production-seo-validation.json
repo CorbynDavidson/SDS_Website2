@@ -15,7 +15,8 @@
   "termsExactWordingVerified": true,
   "claimCtaDestinationPreserved": true,
   "wizardFormsConsistent": true,
-  "sharedRoundedPanelsVerified": true,
+  "sharedRoundedPanelsVerified": false,
   "historicalInventoryComplete": false,
-  "claimCtasVerified": 32
+  "claimCtasVerified": 32,
+  "approvedVersion53DesignRestored": true
 }

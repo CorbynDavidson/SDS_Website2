@@ -346,5 +346,14 @@
       "inlineScriptsParsed": 909,
       "sharingImageAndLogoVerified": true
     }
+  },
+  "designReversion": {
+    "requestedOn": "2026-10-06",
+    "visualTargetVersion": 53,
+    "productionSeoAndRoutingRetained": true,
+    "originalWordingRetained": true,
+    "formRepairsRetained": true,
+    "rejectedGlobalPanelLayoutVersion": 54,
+    "publicationStatus": "pending"
   }
 }

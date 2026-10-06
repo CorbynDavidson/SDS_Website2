@@ -3,17 +3,6 @@
 body > nav.nav { min-height: 156px; height: auto; padding-top: 32px; padding-bottom: 32px; align-items: center; }
 body > main { padding-top: 0; }
 body .hero.rights-hero.wrap { width: min(1240px, calc(100% - 64px)); margin-left: auto; margin-right: auto; }
-/* One outer frame uses the same width as the logo/navigation wrapper. */
-body > main > :is(.service-hero, .profile-hero, .faq-hero) { width: min(1240px, calc(100% - 64px)); margin: 0 auto 32px; padding: clamp(28px,4vw,48px); border: 1px solid #d8e5e9; border-radius: 32px; background: #eff7f8; color: #032b4c; }
-body > main > :is(.service-hero, .profile-hero, .faq-hero) > .wrap { width: 100%; margin: 0; }
-body > main > :is(.service-hero, .profile-hero, .faq-hero) .service-hero-grid { gap: clamp(28px,4vw,56px); }
-body > main > :is(.service-hero, .profile-hero, .faq-hero) .sds-source-copy { color: inherit; }
-body > main > :is(.service-band, .service-process) { width: min(1240px, calc(100% - 64px)); margin: 32px auto 48px; padding: clamp(24px,4vw,48px); border: 1px solid #d8e5e9; border-radius: 32px; background: #eff7f8; color: #032b4c; }
-body > main > :is(.service-band, .service-process) > .wrap { width: 100%; margin: 0; }
-body .hero.rights-hero.wrap { border: 1px solid #d8e5e9; border-radius: 32px; background: #eff7f8; }
-body > main > section.wrap:not(.hero):not(.ticker),
-.sds-content-page > .source-copy-section,
-.sds-content-page > .news-article > .wrap { margin-top: 32px; margin-bottom: 48px; padding: clamp(24px,4vw,48px); border: 1px solid #d8e5e9; border-radius: 32px; background: #eff7f8; }
 .sds-content-page .team-section.wrap.source-copy-section {
   margin-top: 32px;
   margin-bottom: 48px;
@@ -116,25 +105,6 @@ body > main > section.wrap:not(.hero):not(.ticker),
 .source-wizard-card { padding: 22px; border-radius: 24px; background: #f4f9fa; color: #032b4c; box-shadow: 0 24px 70px rgba(0, 0, 0, .14); }
 .source-wizard-card .source-form { margin: 0; padding: 0; border: 0; background: transparent; }
 .source-wizard-card .form-reform-control { min-width: 0; }
-.sds-source-copy .source-wizard-card [form]:not(input):not(select):not(textarea):not(button) { width: auto; padding: 0; border: 0; border-radius: 0; background: transparent; }
-.source-wizard-card .sds-honeypot { display: none !important; }
-.source-wizard-card fieldset { min-width: 0; margin: 24px 0 0; padding: 0; border: 0; }
-.source-wizard-card legend { padding: 0; font-weight: 800; }
-.source-wizard-card .source-form-field { margin: 0 0 18px; }
-.source-wizard-card .source-form-field > label { display: block; margin: 0 0 8px; font-size: .9rem; font-weight: 700; }
-.source-wizard-card .form-check-group { display: grid; gap: 10px; margin-top: 12px; }
-.source-wizard-card .form-check-group > div { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid #cad1dc; border-radius: 10px; background: #fff; }
-.source-wizard-card .form-check-group label { flex: 1; margin: 0; line-height: 1.5; }
-.sds-source-copy .source-wizard-card :is(input:not([type=radio]):not([type=checkbox]):not([type=hidden]),select,textarea) { padding: 10px 11px; border: 1px solid #cad1dc; border-radius: 10px; background: #fff; color: #032b4c; font: 500 1rem "DM Sans", sans-serif; }
-.source-wizard-card button { width: 100%; border: 0; background: #efb400; color: #032b4c; font: 800 1rem/1.4 "DM Sans", sans-serif; }
-.source-wizard-card :is(input,select,textarea,button):focus-visible { outline: 3px solid #008b8c; outline-offset: 3px; }
-.sds-source-copy .source-wizard-card [hidden] { display: none !important; }
-.sds-legal-page .source-copy-section { margin-top: 32px; margin-bottom: 48px; padding: clamp(24px,4vw,48px); border: 1px solid #d8e5e9; border-radius: 32px; background: #f4f9fa; }
-.sds-legal-page .sds-source-copy { max-width: 80ch; margin: 0 auto; overflow-wrap: anywhere; }
-.sds-legal-page .sds-source-copy h2 { font-size: clamp(1.4rem,2vw,1.8rem); line-height: 1.35; }
-.sds-legal-page .sds-source-copy table { display: block; width: 100%; overflow-x: auto; border-collapse: collapse; font-size: .95rem; line-height: 1.55; }
-.sds-legal-page .sds-source-copy :is(th,td) { min-width: 100px; padding: 14px; border: 1px solid #d8e5e9; text-align: left; vertical-align: top; }
-.sds-legal-page .sds-source-copy th { background: #e7f5f4; color: #032b4c; }
 .source-wizard-card label { color: #032b4c; }
 .source-wizard-card button { min-height: 44px; border-radius: 10px; }
 .source-wizard-card [data-sds-status] { padding: 12px; border-radius: 10px; background: #e7f5f4; }
@@ -149,7 +119,10 @@ body > main > section.wrap:not(.hero):not(.ticker),
 @media (max-width: 760px) {
   body > nav.nav { min-height: 144px; }
   body .hero.rights-hero.wrap { width: calc(100% - 36px); }
-  body > main > :is(.service-hero, .profile-hero, .faq-hero, .service-band, .service-process) { width: calc(100% - 36px); padding: 28px 20px; border-radius: 24px; }
+}
+@media (min-width: 901px) and (max-width: 1439px) {
+  /* Keep the fixed review tab clear of the enquiry card on smaller laptops. */
+  body .hero.rights-hero.wrap { width: calc(100% - 148px); margin-left: 32px; margin-right: auto; }
 }
 @media (max-width: 620px) {
   .sds-content-page .team-section.wrap.source-copy-section { padding: 24px 20px; border-radius: 24px; margin-top: 24px; margin-bottom: 32px; }
@@ -164,3 +137,8 @@ body > main > section.wrap:not(.hero):not(.ticker),
   .reviews-recognition { padding: 24px 20px; border-radius: 24px; }
 }
 @media (max-width: 480px) { .sds-source-copy .source-process { grid-template-columns: minmax(0, 1fr); } }
+
+/* Keep the form repair; restore the approved version-53 page design above. */
+.sds-source-copy .source-wizard-card [form]:not(input):not(select):not(textarea):not(button) { width: auto; padding: 0; border: 0; border-radius: 0; background: transparent; }
+.source-wizard-card .sds-honeypot { display: none !important; }
+.sds-source-copy .source-wizard-card [hidden] { display: none !important; }

@@ -3,6 +3,7 @@ import {readFile,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {gunzipSync} from 'node:zlib';
+import {createHash} from 'node:crypto';
 import {load} from 'cheerio';
 import {localD1} from './lib/local-d1.mjs';
 
@@ -90,5 +91,5 @@ assert.ok(enquiry('#sds-content-controls').text().includes('[class*="hide_when_"
 let ctas=0;
 for(const page of Object.values(data.pages)){const $=load(gunzipSync(Buffer.from(page.gzip,'base64')).toString());for(const node of $('a[href]').toArray())if(/^(?:CLAIM NOW|START YOUR CLAIM NOW)$/i.test($(node).text().trim())){assert.equal(new URL(node.attribs.href).pathname,'/housing-disrepair-enquiries/');ctas++;}}
 assert.ok(ctas>0);report.claimCtaDestinationPreserved=true;report.claimCtasVerified=ctas;
-const css=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');assert.ok(css.includes('width: min(1240px, calc(100% - 64px))'));assert.ok(css.includes('border-radius: 32px; background: #eff7f8'));report.sharedRoundedPanelsVerified=true;
+const css=await readFile(resolve(root,'src/current-content-layout.css'),'utf8'),presentation=await readJson('config/presentation-baseline.json');const approvedCss=css.slice(0,css.indexOf(presentation.repairMarker)-1);assert.equal(createHash('sha256').update(approvedCss).digest('hex'),presentation.layoutSha256,'Version-53 visual stylesheet changed');report.sharedRoundedPanelsVerified=false;report.approvedVersion53DesignRestored=true;
 await DB.close();await writeFile(resolve(root,'docs/migration/production-seo-validation.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
