@@ -1,6 +1,8 @@
 # SDS website migration
 
-Replacement for https://www.sds-solicitors.com. Review: https://housingconditionclaims.org (noindex).
+Migration candidate for https://www.sds-solicitors.com. Review host: https://housingconditionclaims.org.
+
+The user rejected the migration's visual layout on 6 October 2026 and requested the design from before migration. The review site has been restored to version 41. This branch preserves the exact-content migration groundwork; it must be adapted to the approved previous design before deployment. It is not the currently deployed website. See [design restoration](docs/DESIGN_RESTORATION.md).
 
 The active build preserves the original SDS wording, published URLs and metadata across the authoritative 248-page sitemap plus linked routes and pagination. [Developer handover](docs/HANDOVER.md) explains implementation, evidence and remaining production gates.
 

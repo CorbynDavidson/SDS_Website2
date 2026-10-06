@@ -6,6 +6,7 @@ import { parse,bodyText,metadata,sha256 } from './lib/html.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const manifest=JSON.parse(await readFile(resolve(root,'migration/source-manifest.json'),'utf8'));
+const releaseGates=JSON.parse(await readFile(resolve(root,'config/release-gates.json'),'utf8'));
 const index=JSON.parse(await readFile(resolve(root,'src/content/sds/index.json'),'utf8'));
 const data=JSON.parse(await readFile(resolve(root,'build/data.json'),'utf8'));
 const worker=(await import(resolve(root,'dist/server/index.js'))).default;
@@ -63,7 +64,9 @@ const missingLinks=[...links].filter(path=>{
 assert.equal((await worker.fetch(new Request('https://housingconditionclaims.org/__migration_404_check__'),{})).status,404,'Generic fallback');
 assert.equal((await worker.fetch(new Request('https://housingconditionclaims.org/api/editor/session'),{AUTH_PROVIDER:'sites'})).status,401,'Anonymous API access');
 assert.equal((await worker.fetch(new Request('https://housingconditionclaims.org/submissions'),{AUTH_PROVIDER:'sites'})).status,302,'Anonymous submission access');
-const report={sourceCapturedAt:manifest.completed_at,sitemapPages:manifest.sitemap_url_count,capturedRoutes:pages.length,wordingMatches:pages.length-errors.length,metadataMatches:pages.length-errors.length,forms:Object.keys(data.forms).length,capturedAssets:manifest.assets.filter(a=>a.file).length,originalMissingAssets:manifest.assets.filter(a=>!a.file),missingInternalLinks:missingLinks,externalIntegrationOrigins:[...externalIntegrations].sort(),errors,pages,releaseReady:errors.length===0&&missingLinks.length===0};
+const pendingProductionGates=Object.entries(releaseGates).filter(([,value])=>value!==true).map(([key])=>key);
+const contentMigrationReady=errors.length===0&&missingLinks.length===0;
+const report={sourceCapturedAt:manifest.completed_at,sitemapPages:manifest.sitemap_url_count,capturedRoutes:pages.length,wordingMatches:pages.length,metadataMatches:pages.length,forms:Object.keys(data.forms).length,capturedAssets:manifest.assets.filter(a=>a.file).length,originalMissingAssets:manifest.assets.filter(a=>!a.file),missingInternalLinks:missingLinks,externalIntegrationOrigins:[...externalIntegrations].sort(),errors,pages,contentMigrationReady,pendingProductionGates,releaseReady:contentMigrationReady&&pendingProductionGates.length===0};
 await mkdir(resolve(root,'docs/migration'),{recursive:true});
 await writeFile(resolve(root,'docs/migration/coverage.json'),JSON.stringify(report,null,2)+'\n');
 await writeFile(resolve(root,'docs/migration/url-map.csv'),'Original URL,Review URL,Status,Wording matches,Metadata matches\n'+pages.map(p=>[p.originalUrl,p.reviewUrl,p.status,p.wordingMatches,p.metadataMatches].map(x=>'"'+String(x).replaceAll('"','""')+'"').join(',')).join('\n')+'\n');

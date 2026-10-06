@@ -1,6 +1,6 @@
 # SDS migration handover
 
-Prepared 6 October 2026. Production origin remains **https://www.sds-solicitors.com**. **https://housingconditionclaims.org** is the review deployment and is noindex. Production DNS has not been changed.
+Prepared 6 October 2026. Production origin remains **https://www.sds-solicitors.com**. Production DNS has not been changed. The user requested restoration of the design from before migration; the review site was rolled back to version 41. The implementation below describes the retained migration candidate, not the restored live site's content or handlers. Refit the original content into the approved version-41 design before releasing it. See [DESIGN_RESTORATION.md](DESIGN_RESTORATION.md).
 
 ## Implemented
 
@@ -10,6 +10,8 @@ Prepared 6 October 2026. Production origin remains **https://www.sds-solicitors.
 - `npm run validate` compares compiled and served production HTML with immutable raw captures for every route. Review responses are separately checked for noindex and disabled analytics. Unknown routes return a real 404.
 - Seven original form schemas have replacement handlers, prepared D1 queries, validation, CSRF/honeypot protection, durable rate limits and idempotent submission keys. Earlier `enquiries` records remain available.
 - Private evidence files use R2; enquiry records and drafts use D1. The submissions view, CSV and evidence downloads require an allowlisted authenticated owner. Portable hosting verifies signed Cloudflare Access JWTs.
+- All available original media are packaged with the Worker under `dist/client`; the shared theme/runtime/logo also have an embedded fallback. Hosted byte/hash verification is recorded in [migration/assets-verification.json](migration/assets-verification.json).
+- All 269 hosted asset responses matched their expected bytes and SHA-256 during candidate verification. Only 111 passed the additional content-type check; the host returned generic MIME types for WebP, fonts and an extensionless JSON resource. The complete report retains these failures. This delivery issue must be resolved before the candidate is released again.
 - Thirteen meaningful backend tests cover the original schemas, persistence, invalid submissions, duplicate requests, spam controls, owner access, legacy data, escaping, CSV safety, drafts, private files and JWT verification.
 - GitHub capture/import automation commits captured content and generated audit files after checks pass. Push/PR validation builds and verifies the site. Secrets and submissions are never stored in the public repository.
 

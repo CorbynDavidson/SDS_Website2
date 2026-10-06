@@ -3951,5 +3951,15 @@
       "metadataMatches": true
     }
   ],
-  "releaseReady": true
+  "contentMigrationReady": true,
+  "pendingProductionGates": [
+    "originalWizardRulesVerified",
+    "leadFollowUpRoutingVerified",
+    "analyticsAndConsentVerified",
+    "searchConsoleInventoryReviewed",
+    "productionBackupAndRestoreVerified",
+    "mobileAndAccessibilityReviewSignedOff",
+    "productionDomainAndRollbackConfirmed"
+  ],
+  "releaseReady": false
 }

@@ -1,6 +1,6 @@
 # SDS website replacement: migration and production-readiness plan
 
-Status: proposed implementation scope. This document records the preparation plan; the website content migration and production cutover have not yet been performed.
+Status: historical agreed implementation scope. The public content migration and review deployment are now implemented; see [HANDOVER.md](HANDOVER.md) and the generated migration reports for current evidence and outstanding gates. The production SDS domain cutover has not been performed. The baseline and proposed phases below preserve the original planning record.
 
 ## Goal and source of truth
 
@@ -159,4 +159,3 @@ Acceptance: complete source coverage; no unexplained wording/metadata difference
 A complete export of published SDS pages, metadata and media is the most reliable starting point. A full raw HTML crawl is an alternative if all relevant pages are accessible. The current public retrieval attempts have been inconsistent, so completeness must be checked rather than assumed.
 
 The host/CMS integration, original tracking settings, Search Console/analytics URL data and any existing enquiry-data transfer requirements must also be confirmed. Work on repository checks, structured import support and documentation can proceed while these inputs are collected.
-

@@ -6,7 +6,7 @@ The capture uses the live Concrete CMS sitemap, visits every published sitemap U
 
 No CMS credentials or client enquiry records are read. Captured HTML may contain the original public form's short-lived anonymous anti-spam/CSRF values; the importer removes these CMS-dependent values from the replacement forms.
 
-The source manifest explicitly records unavailable URLs and assets. A capture with unresolved resources is not a completed migration. Confirmation and administrative URLs retain the source indexing behaviour rather than being made indexable automatically.
+The source manifest explicitly records unavailable URLs and assets. Unresolved original pages or failed resources other than verified original 404s block the migration checks. Twelve resource URLs already returned 404 on the original site; those remain documented source issues and are not counted as captured media. Confirmation and administrative URLs retain the source indexing behaviour rather than being made indexable automatically.
 
 To request a fresh capture in GitHub, change the request identifier in `migration/capture-request.json` and commit it, or run the Capture original SDS source workflow manually. The workflow commits the capture, assets and inventory back to `main` with the repository's GitHub Actions credential. It does not change the production domain or deploy a website.
 

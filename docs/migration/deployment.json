@@ -1,0 +1,32 @@
+{
+  "reviewOrigin": "https://housingconditionclaims.org",
+  "productionOrigin": "https://www.sds-solicitors.com",
+  "productionDnsChanged": false,
+  "activeDesignBaseline": {
+    "versionNumber": 41,
+    "sourceCommit": "f241782af256486d1523a2fb4c8d70a410d8e7a4",
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_e9a96fb99a0881918dac9f2fc76fcc36"
+  },
+  "restoration": {
+    "deploymentId": "appgdep_6ac444866e648191979b6aff974483f0",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T00:45:21.917064+00:00"
+  },
+  "migrationCandidate": {
+    "versionNumber": 45,
+    "sourceCommit": "4f081b94598d5944c07d40687eef871d3f0cb7c4",
+    "deploymentId": "appgdep_6ac44423544081919dfa75418f1bb399",
+    "status": "succeeded",
+    "releaseFingerprint": "4aa0ac08cc4201e6416a7ec6bcd4823c05560907140333d7dbba61c2bfa6bc71",
+    "designAccepted": false,
+    "currentlyDeployed": false,
+    "contentRoutes": 296,
+    "sitemapUrls": 248,
+    "backendTestsPassed": 13
+  },
+  "migrationBranch": "migration/exact-sds-content",
+  "migrationContentIntegrationIntoApprovedDesignComplete": false,
+  "productionReleaseReady": false,
+  "browserRecheckCompleted": false,
+  "browserRecheckBlocker": "Automatic approval review service was at capacity."
+}

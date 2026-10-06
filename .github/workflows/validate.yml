@@ -1,7 +1,7 @@
 name: Validate SDS migration
 on:
   push:
-    branches: [main]
+    branches: [main, 'migration/**']
   pull_request:
 permissions:
   contents: read

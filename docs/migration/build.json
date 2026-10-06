@@ -1,9 +1,10 @@
 {
+  "releaseFingerprint": "4aa0ac08cc4201e6416a7ec6bcd4823c05560907140333d7dbba61c2bfa6bc71",
   "pageCount": 296,
   "formCount": 7,
   "assetCount": 269,
   "assetBytes": 29769595,
-  "workerBytes": 7030075,
-  "workerGzipBytes": 5119931,
+  "workerBytes": 7028529,
+  "workerGzipBytes": 5119707,
   "sourceCapturedAt": "2026-10-06T00:09:24.566076+00:00"
 }

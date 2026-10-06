@@ -121,17 +121,17 @@ test('Review pages are noindex with analytics disabled; production metadata is r
  const production=await worker.fetch(new Request('https://www.sds-solicitors.com/'),{...env,RELEASE_MODE:'production'});assert(!production.headers.has('x-robots-tag'));assert((await production.text()).includes('G-LXZNMKDHL7'));
  assert.equal((await worker.fetch(new Request(origin+'/__unknown__/'),env)).status,404);
  assert.equal((await worker.fetch(new Request(origin+'/',{method:'HEAD'}),env)).status,200);
- const health=await worker.fetch(new Request(origin+'/health'),env);assert.equal(health.status,200);assert.equal((await health.json()).databaseReady,true);
+ const health=await worker.fetch(new Request(origin+'/health'),env);assert.equal(health.status,200);const healthData=await health.json();assert.equal(healthData.databaseReady,true);assert.equal(healthData.releaseFingerprint,data.releaseFingerprint);assert.match(healthData.releaseFingerprint,/^[a-f0-9]{64}$/);
 });
 
-test('Batched media import fetches only pinned repository files and verifies R2 bytes',async t=>{
- const{worker,env}=await fixture(t);env.MIGRATION_UPLOAD_TOKEN='test-migration-secret-with-at-least-32-characters';
- const paths=Object.keys(data.assets).filter(path=>!data.assets[path].base64).slice(0,2),objects=new Map();
- env.ASSET_STORAGE={async put(key,value,options){objects.set(key,{value,options});},async head(key){const o=objects.get(key);return o?{size:o.value.byteLength,customMetadata:o.options.customMetadata}:null;}};
- const originalFetch=globalThis.fetch;
- globalThis.fetch=async url=>{const prefix='https://raw.githubusercontent.com/'+data.config.repository+'/'+data.config.assetSourceRef+'/public';assert(url.startsWith(prefix));const path=decodeURI(url.slice(prefix.length));assert(paths.includes(path));return new Response(await readFile(resolve(root,'public'+path)));};t.after(()=>globalThis.fetch=originalFetch);
- const request=next=>new Request(origin+'/api/migration/assets',{method:'POST',headers:{authorization:'Bearer '+env.MIGRATION_UPLOAD_TOKEN,'content-type':'application/json'},body:JSON.stringify({paths:next})});
- const result=await worker.fetch(request(paths),env);assert.equal(result.status,200,await result.clone().text());assert.equal((await result.json()).assets.length,2);assert.equal(objects.size,2);
- assert.equal((await worker.fetch(request(['/not-declared']),env)).status,400);
- assert.equal((await worker.fetch(request(Array(11).fill(paths[0])),env)).status,400);
+test('Bundled media is served with release hashes; an empty static binding does not hide embedded or R2 assets',async t=>{
+ const{worker,env}=await fixture(t),path=Object.keys(data.assets).find(path=>!data.assets[path].base64),asset=data.assets[path],bytes=await readFile(resolve(root,'public'+path));
+ env.ASSETS={async fetch(request){assert.equal(new URL(request.url).pathname,path);return new Response(bytes,{headers:{'content-type':'application/octet-stream'}});}};
+ let response=await worker.fetch(new Request(origin+path),env);
+ assert.equal(response.status,200);assert.deepEqual(Buffer.from(await response.arrayBuffer()),bytes);assert.equal(response.headers.get('etag'),'"'+asset.sha256+'"');assert.equal(response.headers.get('content-type'),asset.type);
+ env.ASSETS={async fetch(){return new Response('Missing static asset',{status:404});}};
+ response=await worker.fetch(new Request(origin+'/sds-theme.css'),env);assert.equal(response.status,200);assert.equal(await response.text(),await readFile(resolve(root,'public/sds-theme.css'),'utf8'));
+ env.ASSET_STORAGE={async get(key){assert.equal(key,'public-assets/'+asset.sha256);return{body:bytes,size:bytes.length};}};
+ response=await worker.fetch(new Request(origin+path),env);assert.equal(response.status,200);assert.deepEqual(Buffer.from(await response.arrayBuffer()),bytes);
+ assert.equal((await worker.fetch(new Request(origin+path,{headers:{'if-none-match':'"'+asset.sha256+'"'}}),env)).status,304);
 });

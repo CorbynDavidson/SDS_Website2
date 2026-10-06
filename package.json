@@ -7,7 +7,7 @@
     "preview": "node scripts/dev.mjs",
     "import:sds": "node scripts/import-sds-content.mjs",
     "build": "node scripts/build-sds-worker.mjs",
-    "build:sites": "node scripts/build-sds-worker.mjs --sites",
+    "build:sites": "node scripts/build-sds-worker.mjs",
     "validate": "node scripts/validate-migration.mjs",
     "test": "node --test tests/*.test.mjs",
     "check": "npm run build && npm run validate && npm test",

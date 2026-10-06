@@ -18,6 +18,7 @@ const sourceTypes = new Map(manifest.assets.filter(a => a.file).map(a => [new UR
 const assets = {};
 async function walk(directory) {
   for (const entry of await readdir(directory, {withFileTypes:true})) {
+    if (directory === resolve(root,'public') && ['_headers','_redirects'].includes(entry.name)) continue;
     const file = resolve(directory,entry.name);
     if (entry.isDirectory()) await walk(file);
     else {
@@ -33,6 +34,8 @@ const data = {config,pages,forms,assets,sourceCapturedAt:manifest.completed_at,
   sitemap:await readFile(resolve(root,'migration/original-sitemap.xml'),'utf8'),
   robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
 const runtime = (await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace('export function createWorker','function createWorker');
+data.staticHeadersSha256 = sha256(await readFile(resolve(root,'public/_headers')));
+data.releaseFingerprint = sha256(runtime + JSON.stringify(data));
 const output = runtime + '\nconst data = ' + JSON.stringify(data) + ';\nexport default createWorker(data);\n';
 const gzipBytes = gzipSync(output).length;
 if (gzipBytes > 9 * 1024 * 1024) throw new Error('Worker exceeds the release size budget: ' + gzipBytes);
@@ -41,7 +44,7 @@ await mkdir(resolve(root,'dist/server'),{recursive:true});
 await writeFile(resolve(root,'dist/server/index.js'),output);
 await mkdir(resolve(root,'build'),{recursive:true});
 await writeFile(resolve(root,'build/data.json'),JSON.stringify(data));
-if (!process.argv.includes('--sites')) await cp(resolve(root,'public'),resolve(root,'dist/client'),{recursive:true});
+await cp(resolve(root,'public'),resolve(root,'dist/client'),{recursive:true});
 await mkdir(resolve(root,'docs/migration'),{recursive:true});
-await writeFile(resolve(root,'docs/migration/build.json'),JSON.stringify({pageCount:index.pages.length,formCount:Object.keys(forms).length,assetCount:Object.keys(assets).length,assetBytes:Object.values(assets).reduce((a,b)=>a+b.bytes,0),workerBytes:Buffer.byteLength(output),workerGzipBytes:gzipBytes,sourceCapturedAt:manifest.completed_at},null,2)+'\n');
+await writeFile(resolve(root,'docs/migration/build.json'),JSON.stringify({releaseFingerprint:data.releaseFingerprint,pageCount:index.pages.length,formCount:Object.keys(forms).length,assetCount:Object.keys(assets).length,assetBytes:Object.values(assets).reduce((a,b)=>a+b.bytes,0),workerBytes:Buffer.byteLength(output),workerGzipBytes:gzipBytes,sourceCapturedAt:manifest.completed_at},null,2)+'\n');
 console.log('Built SDS Worker: '+index.pages.length+' original pages, '+Object.keys(forms).length+' forms, '+Object.keys(assets).length+' assets; '+(gzipBytes/1048576).toFixed(2)+' MiB compressed.');

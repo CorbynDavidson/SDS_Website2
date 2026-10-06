@@ -1,0 +1,25 @@
+# Static assets can bypass the application Worker. Keep their MIME types explicit.
+/*.webp
+  Content-Type: image/webp
+
+/*.woff2
+  Content-Type: font/woff2
+
+/*.woff
+  Content-Type: font/woff
+
+/*.ttf
+  Content-Type: font/ttf
+
+/*.eot
+  Content-Type: application/vnd.ms-fontobject
+
+https://housingconditionclaims.org/*
+  X-Robots-Tag: noindex, follow
+
+https://www.housingconditionclaims.org/*
+  X-Robots-Tag: noindex, follow
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
