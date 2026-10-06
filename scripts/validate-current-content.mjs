@@ -43,7 +43,10 @@ function blocks({copy:$,root}){const result={};root.find('p,h1,h2,h3,h4,h5,h6,su
 const seoMeta=attrs=>!('charset'in attrs)&&!('http-equiv'in attrs)&&!policy.preservedMetaNames.includes((attrs.name||'').toLowerCase());
 const seoLink=attrs=>(attrs.rel||'').toLowerCase().split(/\s+/).some(rel=>['canonical','alternate'].includes(rel));
 function seo(html){const $=load(html,{scriptingEnabled:false});return {title:$('head title').text(),meta:$('head meta').toArray().filter(n=>seoMeta(n.attribs)).map(n=>({...n.attribs})),links:$('head link').toArray().filter(n=>seoLink(n.attribs)).map(n=>({...n.attribs})),structuredData:$('script[type="application/ld+json"]').toArray().map(n=>$(n).text())};}
-function styles(html){const $=load(html,{scriptingEnabled:false,sourceCodeLocationInfo:true});return $('head style:not(#sds-content-design),head link').toArray().filter(n=>n.tagName==='style'||!seoLink(n.attribs)).map(n=>html.slice(n.sourceCodeLocation.startOffset,n.sourceCodeLocation.endOffset));}
+function styles(html){const $=load(html,{scriptingEnabled:false,sourceCodeLocationInfo:true});return $('head style:not(#sds-content-design):not(#sds-layout-adjustments),head link').toArray().filter(n=>n.tagName==='style'||!seoLink(n.attribs)).map(n=>html.slice(n.sourceCodeLocation.startOffset,n.sourceCodeLocation.endOffset));}
+const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
+const removedBannerHashes=manifest.assets.filter(a=>new URL(a.url).pathname.endsWith('/housing-disrepair-blue.webp')).map(a=>a.sha256);
+const layoutAudit={bannerRemovalRoutesVerified:0,standardFormsUsingHomepageCard:0,benefitRowsVerified:0,wizardCardsVerified:0,layoutCssMatchesGitFile:true};
 const audit={sourceCommit:provenance.commit,sourceFilesVerified:0,routesVerified:0,originalParagraphsAndHeadingsVerified:0,metadataRoutesVerified:0,approvedStyleRoutesVerified:0,approvedHeaderFooterRoutesVerified:0,internalLinksVerified:0,mediaVerified:0,originalUnavailableLinks:[],unavailableOriginalMedia:report.unavailableOriginalMedia,formKeys:[],homepageCarouselsVerified:false,sourceDirectoryProfiles:0,productionBlockVerified:false,reviewNoindexVerified:true,ownerProtectedAdministrationVerified:false,browserVisualAuditComplete:false,pages:[]};
 const media=new Set(),links=new Set(),forms=new Set();
 for(const [path,sha]of Object.entries(provenance.blobs)){const bytes=await readFile(resolve(root,path));assert.equal(createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),sha,'Pinned source changed: '+path);audit.sourceFilesVerified++;}
@@ -52,6 +55,23 @@ for(const page of report.pages){
  const original=sourceByUrl.get(page.sourceUrl),bytes=gunzipSync(await readFile(resolve(root,original.source_file)));assert.equal(hash(bytes),original.sha256);
  const raw=bytes.toString('utf8'),response=await fetchPage(worker,page.path);assert.equal(response.status,200,page.path);assert.equal(response.headers.get('x-robots-tag'),'noindex, follow');
  const html=await response.text(),$=load(html,{scriptingEnabled:false}),before=await(await fetchPage(baseline,page.path)).text(),b=load(before,{scriptingEnabled:false});
+ assert.equal($('#sds-layout-adjustments').text(),layoutCss,'Layout CSS differs from its Git file: '+page.path);
+ for(const n of $('img[src],source[srcset]').toArray())assert.ok(!removedBannerHashes.some(sha=>Object.values(n.attribs).some(value=>value.includes(sha)))&&!Object.values(n.attribs).some(value=>value.includes('/housing-disrepair-blue.webp')),'Removed wall/switch banner remains: '+page.path);
+ layoutAudit.bannerRemovalRoutesVerified++;
+ if(page.path!=='/')for(const n of $('form[data-sds-form]:not([data-sds-wizard])').toArray()){
+   assert.ok($(n).hasClass('callback')&&$(n).hasClass('page-callback'),'Page form must use the homepage card: '+page.path);
+   for(const field of $(n).find('.source-form-field').toArray())assert.ok($(field).parent().hasClass('form-grid'),'Page form field lacks the shared grid: '+page.path);
+   layoutAudit.standardFormsUsingHomepageCard++;
+ }
+ const originalDom=load(raw),sourceFeatures=originalDom('.ccm-block-feature-item h3').toArray().map(n=>normalise(originalDom(n).text()));
+ if(sourceFeatures.includes('Your Home Will Be Repaired')&&sourceFeatures.includes('SRA Regulated Solicitors')){
+   const row=$('[data-source-benefits]').first();assert.equal(row.children('[data-source-benefit]').length,4,'Benefits must use a four-item row: '+page.path);
+   assert.deepEqual(row.find('h3').toArray().map(n=>normalise($(n).text())),['Your Home Will Be Repaired','Compensation Paid','No Win No Fee','SRA Regulated Solicitors']);layoutAudit.benefitRowsVerified++;
+ }
+ for(const n of $('form[data-sds-wizard]').toArray()){
+   assert.equal($(n).closest('[data-source-wizard-card]').length,1,'Wizard lacks a consistent card: '+page.path);
+   assert.ok($(n).closest('[data-source-wizard-card]').find('.hide_when_2').length,'Wizard step display rules are missing: '+page.path);layoutAudit.wizardCardsVerified++;
+ }
  assert.deepEqual(seo(html),seo(raw),'Original SEO differs: '+page.path);audit.metadataRoutesVerified++;
  const originalCopy=originalContent(raw),currentCopy=migratedContent(html);
  assert.deepEqual(bag(currentCopy.root.text()),bag(originalCopy.root.text()),'Original visible copy differs: '+page.path);
@@ -94,4 +114,5 @@ assert.equal((await fetchPage(worker,'/this-page-does-not-exist/')).status,404);
 audit.formKeys=[...forms];assert.equal(forms.size,Object.keys(data.forms).length,'Every original form must appear on a migrated page.');
 await DB.close();
 await writeFile(resolve(root,'docs/migration/content-validation.json'),JSON.stringify(audit,null,2)+'\n');
+await writeFile(resolve(root,'docs/migration/layout-validation.json'),JSON.stringify(layoutAudit,null,2)+'\n');
 console.log('Validated '+audit.routesVerified+' original-content routes, '+audit.metadataRoutesVerified+' SEO titles/heads, '+audit.originalParagraphsAndHeadingsVerified+' copy blocks, '+audit.mediaVerified+' original media and '+audit.internalLinksVerified+' internal links; approved styles and carousel controls retained.');

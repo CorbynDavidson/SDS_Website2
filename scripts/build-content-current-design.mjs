@@ -20,6 +20,7 @@ const manifest=await readJson('migration/source-manifest.json');
 const policy=await readJson('config/metadata-migration.json');
 const config=await readJson('config/site.json');
 const forms=await readJson('src/content/sds/forms.json');
+const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
 const typeByExtension={'.svg':'image/svg+xml','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.gif':'image/gif','.pdf':'application/pdf','.mp4':'video/mp4','.woff':'font/woff','.woff2':'font/woff2','.ttf':'font/ttf','.ico':'image/x-icon','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const mediaUrls={},mediaSources={},assets={};
@@ -52,7 +53,7 @@ for(const page of index.pages) {
   const base=await (await approved.fetch(new Request(config.reviewOrigin+page.path),{})).text();
   const seo=await readJson(page.seoFile);
   const rendered=renderContentPage(base,cleaned,{path:page.path,family,title:seo.title.split('|')[0].trim()});
-  let html=withContentRuntime(rendered.html,runtime);
+  let html=withContentRuntime(rendered.html,runtime,layoutCss);
   // Retain carousel scripts; replace the old browser-local editor with the
   // owner-authenticated database draft editor already used by the migration.
   html=html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,script=>{

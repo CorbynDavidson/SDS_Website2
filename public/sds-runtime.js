@@ -3,8 +3,9 @@
   document.querySelectorAll('.ccm-form').forEach(form => form.classList.add('sds-floating-labels'));
   const associated = form => [...new Set([...form.querySelectorAll('input,select,textarea'), ...Array.from(document.querySelectorAll('[form]')).filter(e => e.getAttribute('form') === form.id && /^(INPUT|SELECT|TEXTAREA)$/.test(e.tagName))])];
   const status = (form, message, error = false) => {
-    let node = form.querySelector('[data-sds-status]');
-    if (!node) { node = document.createElement('p'); node.dataset.sdsStatus = ''; node.setAttribute('role', 'status'); node.setAttribute('aria-live', 'polite'); form.append(node); }
+    const container = form.dataset.sdsWizard ? form.closest('[data-source-wizard-card]') || form : form;
+    let node = container.querySelector('[data-sds-status]');
+    if (!node) { node = document.createElement('p'); node.dataset.sdsStatus = ''; node.setAttribute('role', 'status'); node.setAttribute('aria-live', 'polite'); container.append(node); }
     node.textContent = message; node.dataset.error = String(error); return node;
   };
   const fields = form => {

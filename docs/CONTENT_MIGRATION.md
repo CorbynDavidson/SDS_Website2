@@ -39,3 +39,11 @@ Published successfully as **Site version 48** at https://housingconditionclaims.
 Verification covered 296 original-content/SEO routes, 22,030 source copy blocks, 75 used original media files with correct local hashes/types, 155 internal links and thirteen backend tests. All seven schemas were also submitted through the compiled Worker against isolated local SQL, and the authenticated combined dashboard read them. No live personal records or notification systems were changed by those tests.
 
 The captured Hanane Chikhaoui profile has no visible primary content. Its route and original SEO are retained; no biography is invented. Review this legacy empty page before production.
+
+## Layout corrections after version 48
+
+The user requested removal of the wall/electrical-switch banner from every page, homepage-consistent styling for page forms, and horizontal placement of the four benefit icons/headings. The adapter removes both banner colour variants at every captured thumbnail size. The immutable source images/captures remain available for audit.
+
+Standard page forms use the homepage callback-card classes, visible labels, the same two-column field pattern and responsive single-column layout. Original field names, options, required states, submission actions and wording are preserved. Multi-step form cards keep their original step-display rules and show submission status outside the hidden step-one form. The four benefit items use four columns on desktop and two on narrower screens. Their original labels and icon files are unchanged.
+
+Shared layout CSS is maintained in `src/current-content-layout.css`; generated page files and `docs/migration/layout-validation.json` are refreshed by `npm run check`. Browser/mobile visual sign-off remains a separate launch gate.

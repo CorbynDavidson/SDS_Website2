@@ -26,6 +26,14 @@ export function extractContent(html,selectors=sourceRegions) {
 
 export function cleanContent(html,{origin,mediaUrls,path}) {
   const {copy:$,root}=extractContent(html);
+  // User-requested removal of both colour variants and every thumbnail size.
+  root.find('img[src]').each((_,node)=>{
+    if(new URL(node.attribs.src,origin).pathname.endsWith('/housing-disrepair-blue.webp')){
+      const picture=$(node).closest('picture'),target=picture.length?picture:$(node),parent=target.parent();
+      target.remove();
+      parent.contents().each((_,child)=>{if(child.type==='text'&&!child.data.trim())child.data=child.data.replace(/[ \t]+$/gm,'');});
+    }
+  });
   const grids=new Set(root.find('.kblog-index,.team-list').toArray());
   const cards=new Set(root.find('.kblog-post,.kpeople-member').toArray());
   const people=new Set(root.find('.kpeople-member').toArray());
@@ -34,6 +42,16 @@ export function cleanContent(html,{origin,mediaUrls,path}) {
   const names=new Set(root.find('.kpeople-name').toArray());
   const pagination=new Set(root.find('ul.pagination').toArray());
   const filterButtons=new Map(root.find('button[data-filter]').toArray().map(node=>[node,node.attribs['data-filter']]));
+  const benefitTitles=['Your Home Will Be Repaired','Compensation Paid','No Win No Fee','SRA Regulated Solicitors'];
+  root.find('.row').each((_,node)=>{
+    const row=$(node),items=row.find('.ccm-block-feature-item');
+    const columns=row.children().filter((_,child)=>$(child).find('.ccm-block-feature-item').length===1);
+    if(items.length!==4||columns.length!==4||!items.toArray().every((item,i)=>normaliseText($(item).find('h3').text())===benefitTitles[i]))return;
+    row.attr('data-source-benefits','');
+    columns.attr('data-source-benefit','');
+    items.find('.ccm-block-feature-item-inner').attr('data-source-benefit-card','');
+  });
+  root.find('.multi-step-form').attr('data-source-wizard-card','');
   root.find('.content-panel').attr('data-source-hero','');
   root.find('.kpeople-job-title,.kpeople-qualification').attr('data-source-profile-meta','');
   root.find('.form-group').addClass('source-form-field');
@@ -44,9 +62,14 @@ export function cleanContent(html,{origin,mediaUrls,path}) {
   root.find('*').each((_,node)=>{
     const oldClasses=(node.attribs.class||'').split(/\s+/);
     const retained=oldClasses.filter(name=>/^hide_when_[1-8]$/.test(name)||['form-reform-control','form-reform-checkbox-list','form-reform-radioset','source-form-field','sds-honeypot'].includes(name));
+    for(const name of oldClasses){const step=name.match(/_hide_when_([1-8])$/)?.[1];if(step&&!retained.includes('hide_when_'+step))retained.push('hide_when_'+step);}
     const specialisms=oldClasses.filter(name=>name.startsWith('specialism-'));
     for(const name of Object.keys(node.attribs))if(name==='class'||name==='style'||name.startsWith('on')||name==='data-open'||name.startsWith('data-bs-')||['data-sticky-container','data-sticky'].includes(name)||/^item(?:prop|scope|type)$/.test(name))$(node).removeAttr(name);
     if(retained.length)$(node).attr('class',retained.join(' '));
+    if('data-source-benefits'in node.attribs)$(node).addClass('source-benefits');
+    if('data-source-benefit'in node.attribs)$(node).addClass('source-benefit');
+    if('data-source-benefit-card'in node.attribs)$(node).addClass('source-benefit-card');
+    if('data-source-wizard-card'in node.attribs)$(node).addClass('source-wizard-card');
     if(grids.has(node))$(node).attr('class',oldClasses.includes('team-list')?'team-grid':'source-card-grid');
     if(cards.has(node))$(node).attr('class',people.has(node)?'team-card':'source-card');
     if(people.has(node)){node.tagName='article';$(node).attr('data-source-specialisms',specialisms.join(' '));if(specialisms.includes('specialism-management-team'))$(node).addClass('team-card-leadership');}
@@ -86,8 +109,29 @@ export const contentScript=`<script id="sds-content-controls">document.addEventL
 const fragment=html=>load('<div id="fragment">'+html+'</div>',{scriptingEnabled:false});
 function replaceMain(original,newMain) {return original.replace(/<main\b[\s\S]*?<\/main>/i,newMain);}
 
+function stylePageForms($,root) {
+  root.find('form[data-sds-form]:not([data-sds-wizard])').each((_,node)=>{
+    const form=$(node).addClass('callback source-form-widget page-callback');
+    const fields=form.find('.source-form-field');
+    // Preserve the order of questionnaire instructions between field groups.
+    for(const parent of new Set(fields.toArray().map(field=>field.parent))){
+      let grid;
+      for(const child of $(parent).children().toArray()){
+        if(!$(child).hasClass('source-form-field')){grid=null;continue;}
+        if(!grid){$(child).before('<div class="form-grid" data-source-fields></div>');grid=$(child).prev();}
+        $(child).addClass('field');
+        if($(child).find('textarea,input[type=radio],input[type=checkbox]').length)$(child).addClass('field-wide');
+        grid.append(child);
+      }
+    }
+    const intro=form.find('fieldset [role="group"] > div').first();
+    if(intro.find('p').length&&!intro.find('input,select,textarea').length)intro.addClass('callback-head');
+  });
+}
+
 export function renderContentPage(baseHtml,cleaned,{path,family,title}) {
   const source=fragment(cleaned.html),article=source('#fragment');
+  if(path!=='/')stylePageForms(source,article);
   const base=load(baseHtml,{scriptingEnabled:false});
   const heading=article.find('h1,h2').filter((_,node)=>!source(node).closest('form').length).first();
   const headingHtml=heading.length?heading.html():escape(title);
@@ -134,7 +178,7 @@ export function renderContentPage(baseHtml,cleaned,{path,family,title}) {
     const panel=banner.find('[data-source-hero]');
     if(panel.length){heroLead=panel.html();panel.remove();}
     const form=banner.find('form[data-sds-form]').first();
-    if(form.length){formPanel='<aside id="callback" class="service-check source-form-widget">'+sourceWrap(source.html(form))+'</aside>';form.remove();}
+    if(form.length){formPanel='<aside id="callback" class="source-form-panel">'+sourceWrap(source.html(form))+'</aside>';form.remove();}
     // Keep non-form banner material, including any image or supporting copy.
     if(banner.length&&!normaliseText(banner.text())&&!banner.find('img').length)banner.remove();
     const klass=family==='blog-entry'?'news-article-hero':'service-hero';
@@ -160,6 +204,6 @@ export function renderContentPage(baseHtml,cleaned,{path,family,title}) {
   return {html:replaceMain(baseHtml,mainHtml),family};
 }
 
-export function withContentRuntime(html,runtime) {
-  return html.replace('</head>',contentStyles+'</head>').replace('</body>','<script id="sds-forms-runtime">'+runtime+'</script>'+contentScript+'</body>');
+export function withContentRuntime(html,runtime,layoutCss='') {
+  return html.replace('</head>',contentStyles+(layoutCss?'<style id="sds-layout-adjustments">'+layoutCss+'</style>':'')+'</head>').replace('</body>','<script id="sds-forms-runtime">'+runtime+'</script>'+contentScript+'</body>');
 }
