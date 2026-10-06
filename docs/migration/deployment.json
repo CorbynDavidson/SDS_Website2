@@ -604,5 +604,54 @@
       "conclusion": "success",
       "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37419385876"
     }
+  },
+  "claimEnquiryFormAndSitemap": {
+    "versionNumber": 61,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_3a835fb5cd348191813932d1af788971",
+    "sourceCommit": "f8bc3704318d0b5c1aed4f37df03e9d2445f5731",
+    "githubCommit": "86ad46fda7f593a01654878753763e9ff006b852",
+    "deploymentId": "appgdep_6ac48c736ea88191adf6c5595d2817dd",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T05:52:14.964279+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "archive": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000866882109128d2df81cb1611",
+      "content_hash": "sha256:fe7056c1c6e2f901ee92a6cb92ef3876178aa79b004c48b4c4a4c6ea9572e278",
+      "size_bytes": 64911360,
+      "file_count": 280
+    },
+    "path": "/housing-disrepair-enquiries/",
+    "stylesheet": "src/claim-enquiry.css",
+    "preservedSteps": 5,
+    "formControlsPreserved": 35,
+    "originalMarkupPreserved": true,
+    "originalWordingAndMetadataPreserved": true,
+    "sharedSiteDesignPreserved": true,
+    "otherPublicTemplatesByteIdentical": 296,
+    "comparisonBaselineSourceCommit": "e06a44d8d10c8f5296b3b3043542c0d1675a15ca",
+    "repositorySitemapCopies": [
+      "sitemap.xml",
+      "public/sitemap.xml",
+      "docs/migration/current-design-sitemap.xml"
+    ],
+    "sitemapUrls": 243,
+    "sitemapSelectionUnchanged": true,
+    "formSchemasUnchanged": true,
+    "routingUnchanged": true,
+    "productionDnsChanged": false,
+    "backendTestsPassed": 13,
+    "browserVisualAuditComplete": false,
+    "sourceMirrorIntegrity": {
+      "verifiedFiles": 15,
+      "allMatched": true
+    },
+    "githubCi": {
+      "runId": 37420596093,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37420596093"
+    }
   }
 }
