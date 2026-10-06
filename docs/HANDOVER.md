@@ -2,12 +2,14 @@
 
 Prepared 6 October 2026. Production origin remains **https://www.sds-solicitors.com**. Production DNS has not been changed. The user requested restoration of the design from before migration; the review site was rolled back to version 41. The implementation below describes the retained migration candidate, not the restored live site's content or handlers. Refit the original content into the approved version-41 design before releasing it. See [DESIGN_RESTORATION.md](DESIGN_RESTORATION.md).
 
+The latest approved-design build now has original metadata on all 296 captured routes and 13 additional routes with original article wording. The existing 283 route bodies remain unchanged. The sitemap includes all 248 original URLs. [METADATA_MIGRATION.md](METADATA_MIGRATION.md) and its reports describe this current implementation; the seven-form handlers and whole-document parity below still describe the retained candidate.
+
 ## Implemented
 
 - The authoritative Concrete CMS sitemap contains **248 published URLs**. Raw anonymous HTML, original sitemap/robots, metadata, visible wording, forms and first-party media are captured in Git.
 - Additional linked URLs and original listing pagination are included. The precise totals and one-to-one original/review URL mapping are generated in [migration/coverage.json](migration/coverage.json) and [migration/url-map.csv](migration/url-map.csv).
 - Each imported page retains the original full content and metadata. Shared styling applies the new SDS colours/logo and responsive presentation. No text is rewritten, including existing spelling, heading levels and regulatory wording.
-- `npm run validate` compares compiled and served production HTML with immutable raw captures for every route. Review responses are separately checked for noindex and disabled analytics. Unknown routes return a real 404.
+- `npm run validate:migration` compares the retained candidate's compiled and served HTML with immutable raw captures for every route. Review responses are separately checked for noindex and disabled analytics. Unknown routes return a real 404. Normal `npm run validate` checks the approved design and metadata/additional articles.
 - Seven original form schemas have replacement handlers, prepared D1 queries, validation, CSRF/honeypot protection, durable rate limits and idempotent submission keys. Earlier `enquiries` records remain available.
 - Private evidence files use R2; enquiry records and drafts use D1. The submissions view, CSV and evidence downloads require an allowlisted authenticated owner. Portable hosting verifies signed Cloudflare Access JWTs.
 - All available original media are packaged with the Worker under `dist/client`; the shared theme/runtime/logo also have an embedded fallback. Hosted byte/hash verification is recorded in [migration/assets-verification.json](migration/assets-verification.json).
@@ -45,6 +47,6 @@ npm run check
 npm run dev
 ```
 
-Node **24** is required. Public media are in `public/`; editable page HTML in `src/content/sds/pages/`; original SEO baselines in `src/seo/sds/pages/`; original immutable raw HTML in `migration/source-pages/`. The runtime is `worker/runtime.mjs`. Old design source is retained in Git history/source files for reference; it is not the active build entrypoint.
+Node **24** is required. Public media are in `public/`; retained candidate HTML in `src/content/sds/pages/`; original SEO baselines in `src/seo/sds/pages/`; original immutable raw HTML in `migration/source-pages/`. The retained candidate runtime is `worker/runtime.mjs`; the current design builds from `worker/index.template.js` through `scripts/build-current-design.mjs`. Added current-design article HTML is in `src/content/design-additions/`.
 
 Read [DEPLOYMENT.md](DEPLOYMENT.md), [ENQUIRIES.md](ENQUIRIES.md), [EDITOR_WORKFLOW.md](EDITOR_WORKFLOW.md), [DATA_OPERATIONS.md](DATA_OPERATIONS.md), [QA.md](QA.md), [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) and [ROLLBACK.md](ROLLBACK.md). Publication evidence is recorded in `docs/migration/deployment.json` after a confirmed deployment.

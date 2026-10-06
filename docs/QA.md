@@ -2,7 +2,11 @@
 
 These results describe the retained migration candidate (versions 42–45). The user rejected its visual layout and the review site was restored to version 41. Do not attribute the candidate's exact-content coverage or new form handlers to that restored deployment.
 
-`npm run check` builds the Worker, runs independent raw-source parity checks and runs Node tests against the real additive SQL schema. The source baseline is compressed anonymous HTML, not text manufactured by the replacement builder.
+`npm run check:migration` builds the retained candidate, runs independent whole-document raw-source parity checks and runs Node tests against the real additive SQL schema. The source baseline is compressed anonymous HTML, not text manufactured by the replacement builder.
+
+## Current approved-design metadata and added pages
+
+Normal `npm run check` validates 296 original metadata routes, 283 unchanged existing bodies/styles/scripts, and 13 added routes using original article wording. It verifies all 248 original sitemap URLs, 53 added internal link targets, 12 original images with correct hashes/types, review noindex, production blocking and genuine unknown-route 404s. The current header/footer are used by added pages. Corresponding HTML and audit reports are regenerated in Git; see [METADATA_MIGRATION.md](METADATA_MIGRATION.md). Whole-document original-copy parity and the seven candidate form handlers are not claimed for the current design.
 
 The generated coverage report checks every captured route against its original wording, headings, title, meta attributes, canonical/alternate/icon links and structured-data strings. It verifies source/resource hashes and bytes, all 248 original sitemap URLs, mapped internal links, genuine unknown-route 404s, review noindex and disabled tracking, production metadata and replaced form actions. Existing source 404 assets remain visible in the report instead of being counted as successful captures.
 

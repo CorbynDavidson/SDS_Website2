@@ -6,6 +6,8 @@ The review site was restored to that saved version. The migration candidate is r
 
 Normal `main` builds must use the earlier `src/index.html`, `src/brand.css`, `src/service.css`, `scripts/build-worker.mjs` and `worker/index.template.js` design. Review protection may add response headers without altering these page bodies. The restored design's earlier content includes rewritten/generic routes; it does **not** constitute the completed exact-copy SDS migration.
 
+The authorised metadata pass now copies original SEO onto all 296 captured routes through a head-only overlay. It also adds the 13 previously missing routes using the current-design shell and original article wording. Existing bodies, styling and interactive scripts are unchanged. See [METADATA_MIGRATION.md](METADATA_MIGRATION.md).
+
 To continue the replacement, map the captured original wording and metadata into version 41's existing layouts. Preserve its header, colours, typography, rounded sections, carousels, cards and page templates. Do not substitute the old Concrete CMS layout or publish the rejected migration CSS. Re-run independent raw-source parity checks and obtain the outstanding browser/device sign-off before publication.
 
 Earlier `enquiries`, new migration submissions, drafts and private R2 evidence remain in their existing stores. Code rollback must not drop tables or erase submissions. The restored earlier submissions screen reads the legacy `enquiries` table; the migration candidate's new records are retained separately.

@@ -30,4 +30,7 @@ jobs:
             docs/migration/url-map.csv
             docs/migration/build.json
             docs/design-build.json
+            docs/migration/metadata-to-current-design.json
+            docs/migration/metadata-validation.json
+            docs/migration/current-design-sitemap.xml
           retention-days: 30

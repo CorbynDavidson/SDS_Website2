@@ -1,0 +1,1859 @@
+{
+  "sourceCommit": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
+  "sourceFilesVerified": 298,
+  "metadataRoutesVerified": 296,
+  "existingBodiesVerified": 283,
+  "addedArticleRoutesVerified": 13,
+  "unmappedDesignRoutesVerified": 11,
+  "displayStylesAndScriptsUnchanged": true,
+  "reviewNoindexVerified": true,
+  "productionBlockVerified": true,
+  "unknown404Verified": true,
+  "originalSourceIssues": [
+    {
+      "path": "/about-us/case-studies/topic/359/housing-disrepair/",
+      "issue": "Original malformed quoted meta name retained",
+      "attributes": {
+        "name": "”robots”",
+        "content": "”noindex,",
+        "follow”": ""
+      }
+    },
+    {
+      "path": "/about-us/news/topic/358/housing-disrepair/",
+      "issue": "Original malformed quoted meta name retained",
+      "attributes": {
+        "name": "”robots”",
+        "content": "”noindex,",
+        "follow”": ""
+      }
+    },
+    {
+      "path": "/about-us/news/topic/78/about-sds/",
+      "issue": "Original malformed quoted meta name retained",
+      "attributes": {
+        "name": "”robots”",
+        "content": "”noindex,",
+        "follow”": ""
+      }
+    },
+    {
+      "path": "/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=2",
+      "issue": "Original malformed quoted meta name retained",
+      "attributes": {
+        "name": "”robots”",
+        "content": "”noindex,",
+        "follow”": ""
+      }
+    },
+    {
+      "path": "/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=2",
+      "issue": "Original malformed quoted meta name retained",
+      "attributes": {
+        "name": "”robots”",
+        "content": "”noindex,",
+        "follow”": ""
+      }
+    },
+    {
+      "path": "/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=1",
+      "issue": "Original malformed quoted meta name retained",
+      "attributes": {
+        "name": "”robots”",
+        "content": "”noindex,",
+        "follow”": ""
+      }
+    },
+    {
+      "path": "/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=1",
+      "issue": "Original malformed quoted meta name retained",
+      "attributes": {
+        "name": "”robots”",
+        "content": "”noindex,",
+        "follow”": ""
+      }
+    }
+  ],
+  "pages": [
+    {
+      "path": "/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/careers/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/compensation-for-tenant-after-leaks-and-guttering-led-to-severe-damp-and-mould/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/compensation-for-tenant-after-roof-leak-and-widespread-damp/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/compensation-recovered-following-persistent-leak-and-worsening-damp/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/damp-mould-and-unsafe-electrics-ignored-until-legal-action-was-taken/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/elderly-tenant-wins-settlement-after-months-without-hot-water/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/family-wins-boiler-claim-after-years-of-missed-repairs-and-stress/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/multiple-defects-and-serious-damp-in-sheffield-home/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/persistent-bathroom-leak-and-water-damage/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/severe-flooring-defects-and-pest-infestation/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/severe-pest-infestation-and-lack-of-heating/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/tenant-wins-settlement-after-unsafe-flat-damages-mental-health/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/tenant-with-children-wins-settlement-after-years-of-disrepair/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/tenant-with-respiratory-illness-wins-mould-claim-after-years-of-neglect/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/vulnerable-tenant-wins-settlement-after-living-without-heating/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/client-questionnaire/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/complaints/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/cookies/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/better-bake-macmillan/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/can-you-sue-your-landlord-unsafe-living-conditions/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/coffee-morning-success-sheldon-davidson-solicitors/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/damp-mould-and-heating-compensation-claims-how-much-could-you-claim/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/final-update-marathon/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/getting-muddy-charity/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/how-defend-against-landlord-making-false-damage-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/how-long-can-landlord-leave-you-without-heat/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/how-long-does-housing-disrepair-claim-take/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/london-marathon/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/olympic-torch/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/phase-1-of-the-renters-rights-act-2026/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/social-housing-rent-increases-in-2026/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/spot-the-early-signs-of-housing-disrepair-before-it-gets-worse/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/what-the-2026-changes-to-awaabs-law-mean-for-tenants/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/what-to-do-when-your-landlord-keeps-delaying/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/why-holding-landlords-accountable-really-matters/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/why-sheldon-davidson-solicitors-different/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/alison-sherlock/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/angela-brewis/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/blake-davidson/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/brian-tyrie/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/corbyn-lewis/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/daisy-kerins/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/dominique-stansfield/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/emma-farrington/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/hanane-chikhaoui/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/hayley-garnet/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/janine-watson/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/jen-schofield/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/kaneesha-zendera/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/karen-holt/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/kate-sherlock/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/katie-morgan/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/lauren-davies/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/michael-haycock/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/milena-bologan/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/modupe-somoye/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/moyin-ajidagba/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/sheldon-davidson/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/victoria-mccormack/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/william-webb/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/yulie-wagman/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/privacy-policy/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/reviews/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/sds-solicitors-discontinued-legal-services/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/terms-business/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/contact-us/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/contact-us/compensation-calculator-confirmation/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/contact-us/housing-disrepair-confirmation/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/contact-us/housing-disrepair-enquiries-stands/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/contact-us/medical-negligence-confirmation/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/contact-us/personal-injury-confirmation/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/contact-us/thank-you/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair-claims/compensation-calculator/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair-claims/council-housing/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair-claims/housing-condition-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair-claims/managing-your-claim/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair-claims/pre-action-protocol/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair-claims/private-landlord/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair-claims/social-housing/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair-claims/tenant-rights-landlord-obligations/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair-enquiries/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/bathroom-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/boiler-heating-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/brickwork-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/crumbling-plaster/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/damp-and-mould-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/dangerous-wiring-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/defective-sanitaryware/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/electrical-faults-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/flooding-water-damage-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/gas-appliance-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/berneslai/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/blackpool-coastal-housing/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/bromford-housing/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/clarion-housing-group/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/great-places-housing-group/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/guinness-partnership/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/hanover-housing-association/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/housing-21/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/london-and-quadrant-housing-trust/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/midland-heart/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/orbit-group/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/peabody-group/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/riverside-housing/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/sanctuary-housing/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/southern-housing-group/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/thirteen-group/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/insect-infestation-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/kitchen-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/barnsley/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/basildon/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/basingstoke/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/bath/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/bedford/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/birkenhead/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/birmingham/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/blackburn/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/blackpool/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/bolton/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/bootle/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/bradford/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/brighton/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/bristol/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/burnley/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/canterbury/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/carlisle/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/chelmsford/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/cheltenham/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/chester/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/chesterfield/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/chichester/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/colchester/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/coventry/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/crawley/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/darlington/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/derby/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/doncaster/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/dover/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/dudley/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/durham/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/exeter/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/folkestone/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/gateshead/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/gillingham/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/gloucester/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/great-yarmouth/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/grimsby/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/harlow/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/hartlepool/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/hastings/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/hereford/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/huddersfield/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/hull/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/ipswich/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/kettering/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/lancaster/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/leeds/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/leicester/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/lincoln/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/liverpool/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/barking/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/brent/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/camden/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/croydon/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/ealing/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/enfield/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/fulham/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/greenwich/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/hackney/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/hammersmith/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/haringey/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/havering/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/hounslow/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/islington/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/lambeth/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/lewisham/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/newham/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/redbridge/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/southwark/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/tower-hamlets/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/waltham-forest/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/london/wandsworth/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/lowestoft/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/luton/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/maidstone/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/manchester/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/margate/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/middlesbrough/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/milton-keynes/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/newcastle/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/northampton/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/norwich/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/nottingham/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/nuneaton/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/oldham/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/peterborough/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/plymouth/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/portsmouth/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/preston/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/reading/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/rochdale/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/rotherham/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/salford/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/sandwell/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/scunthorpe/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/sheffield/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/shrewsbury/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/slough/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/southampton/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/southend-sea/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/stevenage/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/stockport/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/stoke-trent/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/sunderland/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/swindon/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/tameside/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/telford/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/truro/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/wakefield/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/walsall/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/warrington/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/watford/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/wigan/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/wolverhampton/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/worcester/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/worthing/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/locations/york/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/plumbing-drainage-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/roof-gutter-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/spray-foam-insulation-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/unsafe-flooring-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/vermin-from-disrepair-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/windows-doors-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/referral-bonus-scheme/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/referral-bonus-scheme/family-and-friends-bonus-terms-and-conditions/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/careers",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/topic/359/housing-disrepair/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    },
+    {
+      "path": "/about-us/complaints",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/cookies",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/topic/358/housing-disrepair/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    },
+    {
+      "path": "/about-us/news/topic/78/about-sds/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    },
+    {
+      "path": "/about-us/our-people/alison-sherlock",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/angela-brewis",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/blake-davidson",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/brian-tyrie",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/corbyn-lewis",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/daisy-kerins",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/dominique-stansfield",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/emma-farrington",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/hayley-garnet",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/janine-watson",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/jen-schofield",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/kaneesha-zendera",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/karen-holt",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/kate-sherlock",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/katie-morgan",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/lauren-davies",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/michael-haycock",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/milena-bologan",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/modupe-somoye",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/moyin-ajidagba",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/sheldon-davidson",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/victoria-mccormack",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/william-webb",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/our-people/yulie-wagman",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/privacy-policy",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/complaints/www.legalombudsman.org.uk",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    },
+    {
+      "path": "/complaints/www.ombudsman-services.org",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    },
+    {
+      "path": "/complaints/www.small-claims-mediation.co.uk",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    },
+    {
+      "path": "/contact-us",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/flooding-water-damage-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    },
+    {
+      "path": "/housing-disrepair",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/housing-disrepair/leaks-plumbing-drainage-claims/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    },
+    {
+      "path": "/privacy-policy/",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    },
+    {
+      "path": "/about-us/case-studies/?ccm_paging_p_b2385=2",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=2",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    },
+    {
+      "path": "/about-us/news/?ccm_paging_p_b1269=2",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=2",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    },
+    {
+      "path": "/about-us/case-studies/?ccm_paging_p_b2385=1",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=1",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    },
+    {
+      "path": "/about-us/news/?ccm_paging_p_b1269=1",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": true,
+      "addedArticleWordingMatches": false
+    },
+    {
+      "path": "/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=1",
+      "metadataMatchesOriginal": true,
+      "existingBodyUnchanged": false,
+      "addedArticleWordingMatches": true
+    }
+  ],
+  "addedInternalLinksVerified": 53,
+  "addedImagesVerified": 12,
+  "originalSitemapUrlsVerified": 248,
+  "socialImageVerified": true
+}

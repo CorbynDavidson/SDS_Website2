@@ -8,6 +8,8 @@ Use Node 24, `npm ci --ignore-scripts`, `npm run check`, then `npm run dev`. The
 
 `npm run build` creates `dist/server/index.js` with the earlier embedded public assets. Keep `src/index.html`, `src/brand.css`, `src/service.css` and the existing templates as the visual baseline. The wrapper adds noindex response headers and `/health`, without changing page bodies. The health response identifies design baseline 41, its fingerprint, database readiness and `exactSdsMigrationActive: false`. It blocks production mode because this restored build does not implement the complete exact-copy SDS migration.
 
+The metadata overlay now adds original SEO to all 296 captured routes and supplies the 13 missing routes with original article wording in the current-design shell. Existing page bodies and display fragments remain byte-identical. `/health` also identifies the metadata source commit and route counts. The sitemap includes the original 248 URLs. Details and generated verification are in [METADATA_MIGRATION.md](METADATA_MIGRATION.md).
+
 Review hosting remains the existing Sites project in `.openai/hosting.json`. Preserve bindings `DB` and `ASSET_STORAGE`; applied additive migrations and stored enquiries/evidence must remain intact. Runtime values are `RELEASE_MODE=review`, `AUTH_PROVIDER=sites`, the configured owner and secret `RATE_LIMIT_SECRET`. The temporary migration upload credential was removed.
 
 Run checks, push the exact source through the Sites source workflow, package that commit, save a version and deploy to the existing audience. Record successful version/deployment provenance. GitHub is the developer source mirror and CI; it does not imply unattended Sites publication.

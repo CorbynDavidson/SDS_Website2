@@ -8,7 +8,7 @@
     "import:sds": "node scripts/import-sds-content.mjs",
     "build": "node scripts/build-current-design.mjs",
     "build:sites": "node scripts/build-current-design.mjs",
-    "validate": "node scripts/validate-worker.mjs",
+    "validate": "node scripts/validate-worker.mjs && node scripts/validate-current-metadata.mjs",
     "test": "node --test tests/*.test.mjs",
     "check": "npm run build && npm run validate",
     "build:migration": "node scripts/build-sds-worker.mjs",

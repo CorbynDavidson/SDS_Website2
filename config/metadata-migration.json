@@ -1,0 +1,17 @@
+{
+  "sourceCommit": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
+  "sourceBranch": "migration/exact-sds-content",
+  "designBaselineVersion": 41,
+  "designFingerprint": "2da595d289a7b7e054cf3b1ed123a9eea1b8737e601769421c6c2d03d7309bc6",
+  "preservedMetaNames": [
+    "viewport", "format-detection", "generator", "theme-color",
+    "msapplication-tileimage", "msapplication-tilecolor", "color-scheme"
+  ],
+  "preserveCharsetAndHttpEquiv": true,
+  "copiedLinkRelations": ["canonical", "alternate"],
+  "preserveIconsAndManifest": true,
+  "copyHeadings": false,
+  "preserveMissingOriginalSeoFields": true,
+  "requireReviewNoindex": true,
+  "allowProduction": false
+}

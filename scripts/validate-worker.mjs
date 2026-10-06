@@ -36,6 +36,9 @@ const indexablePaths = [
   ...newsArticles.map((article) => `/about-us/news/${article.slug}/`),
 ];
 const htmlByPath = new Map();
+const metadataAudit = JSON.parse(await readFile(resolve(import.meta.dirname, '../docs/migration/metadata-to-current-design.json'), 'utf8'));
+const originalMetadataPaths = new Set(metadataAudit.pages.map(page => new URL(page.sourceUrl).pathname.replace(/\/$/, '') || '/'));
+const hasOriginalMetadata = path => originalMetadataPaths.has(path.replace(/\/$/, '') || '/');
 
 for (const path of indexablePaths) {
   const response = await fetchPath(path);
@@ -44,10 +47,15 @@ for (const path of indexablePaths) {
   const html = await response.text();
   assert.ok(!html.includes(">undefined<") && !html.includes('"undefined"'), `${path} contains an undefined value`);
   assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, `${path} should contain one h1`);
-  assert.match(html, /<meta name="description" content="[^"]+">/, `${path} needs a meta description`);
-  assert.match(html, /<meta name="robots" content="index,follow">/, `${path} should be indexable`);
-  assert.ok(html.includes(`<link rel="canonical" href="https://housingconditionclaims.org${path}">`), `${path} has the wrong canonical`);
-  assert.match(html, /application\/ld\+json/, `${path} needs structured data`);
+  assert.equal(response.headers.get('x-robots-tag'), 'noindex, follow', `${path} must retain review noindex`);
+  // Source-mapped SEO is verified independently against the raw capture by
+  // validate-current-metadata.mjs, including fields absent on the original.
+  if (!hasOriginalMetadata(path)) {
+    assert.match(html, /<meta name="description" content="[^"]+">/, `${path} needs a meta description`);
+    assert.match(html, /<meta name="robots" content="index,follow">/, `${path} should be indexable`);
+    assert.ok(html.includes(`<link rel="canonical" href="https://housingconditionclaims.org${path}">`), `${path} has the wrong canonical`);
+    assert.match(html, /application\/ld\+json/, `${path} needs structured data`);
+  }
   assert.ok(html.includes('src="/assets/sheldon-davidson-solicitors-logo.png"'), `${path} should use the current Sheldon Davidson Solicitors logo`);
   assert.ok(html.includes('alt="Sheldon Davidson Solicitors"'), `${path} should describe the logo accurately`);
   assert.ok(!html.includes("housing-condition-claims-logo.png"), `${path} should not reference the retired logo asset`);
@@ -92,7 +100,7 @@ for (const person of team) {
   assert.equal(photoResponse.headers.get("content-type"), "image/webp", `${person.name}'s image should be WebP`);
   assert.ok((await photoResponse.arrayBuffer()).byteLength > 1000, `${person.name}'s image should not be empty`);
   const profileHtml = htmlByPath.get(`/about-us/our-people/${person.slug}/`);
-  assert.ok(profileHtml.includes(`"image":"https://housingconditionclaims.org/assets/team/${person.image}"`), `${person.name}'s Person schema should use a valid image URL`);
+  if (!hasOriginalMetadata(`/about-us/our-people/${person.slug}/`)) assert.ok(profileHtml.includes(`"image":"https://housingconditionclaims.org/assets/team/${person.image}"`), `${person.name}'s Person schema should use a valid image URL`);
 }
 
 const homeHtml = htmlByPath.get("/");
@@ -139,7 +147,7 @@ assert.equal((newsIndexHtml.match(/<article class="news-card/g) || []).length, n
 for (const article of newsArticles) {
   const path = `/about-us/news/${article.slug}/`;
   const html = htmlByPath.get(path);
-  assert.ok(html.includes('"@type":"NewsArticle"'), `${path} needs NewsArticle structured data`);
+  if (!hasOriginalMetadata(path)) assert.ok(html.includes('"@type":"NewsArticle"'), `${path} needs NewsArticle structured data`);
   assert.ok(html.includes("Publication context"), `${path} needs the legal-information and source note`);
   assert.ok(html.includes(article.sourceUrl), `${path} should link to its original SDS publication`);
   assert.ok((html.match(/<h2(?:\s|>)/g) || []).length >= 3, `${path} should contain substantive article sections`);
@@ -153,4 +161,4 @@ const missing = await fetchPath("/this-page-does-not-exist/");
 assert.equal(missing.status, 404);
 assert.match(await missing.text(), /noindex,follow/);
 
-console.log(`Worker validation passed: ${indexablePaths.length} indexable content pages, ${internalTargets.size} internal targets, sitemap, redirects, assets and 404 response`);
+console.log(`Design validation passed: ${indexablePaths.length} content pages, ${internalTargets.size} internal targets, sitemap, redirects, assets and 404 response`);
