@@ -24,10 +24,15 @@ const fetchPage=(module,path)=>module.fetch(new Request(origin+path),env);
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
 const importedByPath=new Map((await readJson('src/content/sds/index.json')).pages.map(page=>[page.path,page]));
 const sourceAssets=new Map(manifest.assets.filter(a=>a.status===200).map(a=>[new URL(a.url).pathname,a]));
+const directorySource=sourceByUrl.get('https://www.sds-solicitors.com/about-us/our-people/');
+const directoryRaw=load(gunzipSync(await readFile(resolve(root,directorySource.source_file))).toString('utf8'),{scriptingEnabled:false});
+const victoriaSource=directoryRaw('.team-list > .kpeople-member').filter((_,node)=>normalise(directoryRaw(node).find('.kpeople-name').text())==='Victoria McCormack');
+assert.equal(victoriaSource.length,1);
+const victoriaCard=directoryRaw.html(victoriaSource);
 const selectors=['#banner .banner-container','#top','#central','#wide','#wrapper > .cms-container:not(#call)','#wrapper > .ccm-custom-style-container','#wrapper > .kreviews'];
 const exclude='script,style,noscript,template,.side-content,.sidebar,.sticky-container,.modal,.kpeople-modal,[data-sds-tracking],.ccm-block-express-form .alert-success';
 // This reader works from captured HTML, independently of the page adapter.
-function originalContent(raw){
+function originalContent(raw,path=''){
  const $=load(raw,{scriptingEnabled:false}),chosen=$(selectors.join(','));
  const nodes=chosen.toArray().filter(node=>!chosen.toArray().some(parent=>parent!==node&&$(node).parents().toArray().includes(parent)));
  const copy=load('<div id="original"></div>',{scriptingEnabled:false});for(const node of nodes)copy('#original').append($.html(node)+'\n');
@@ -45,7 +50,15 @@ function originalContent(raw){
    if(!copy(node).parents('#original').length)continue;
    widget(copy(node)).remove();removedFormWidgets++;
  }
- return {copy,root,primary,removedFormWidgets};
+ let removedProfileCards=0;
+ if(path.replace(/\/+$/,'')==='/housing-disrepair/locations'){
+   const profiles=root.find('.kpeople-member').filter((_,node)=>normalise(copy(node).find('.kpeople-name').text())==='Sheldon Davidson');
+   assert.equal(profiles.length,2,'Captured All Locations profile structure changed.');
+   removedProfileCards=profiles.length-1;
+   profiles.slice(1).remove();
+   root.append(victoriaCard);
+ }
+ return {copy,root,primary,removedFormWidgets,removedProfileCards};
 }
 function migratedContent(html){const $=load(html,{scriptingEnabled:false});const chosen=$('main [data-source-copy]'),nodes=chosen.toArray().filter(node=>!$(node).parents('[data-source-copy]').length);const copy=load('<div id="rendered"></div>',{scriptingEnabled:false});for(const node of nodes)copy('#rendered').append($.html(node)+'\n');copy('script,style,noscript,template').remove();return {copy,root:copy('#rendered')};}
 function bag(text){const result={};for(const word of normalise(text).match(/\p{L}+|\p{N}+|[^\p{L}\p{N}\s]/gu)||[])result[word]=(result[word]||0)+1;return result;}
@@ -55,8 +68,8 @@ const seoLink=attrs=>(attrs.rel||'').toLowerCase().split(/\s+/).some(rel=>['cano
 function seo(html){const $=load(html,{scriptingEnabled:false});return {title:$('head title').text(),meta:$('head meta').toArray().filter(n=>seoMeta(n.attribs)).map(n=>({...n.attribs})),links:$('head link').toArray().filter(n=>seoLink(n.attribs)).map(n=>({...n.attribs})),structuredData:$('script[type="application/ld+json"]').toArray().map(n=>$(n).text())};}
 function styles(html){const $=load(html,{scriptingEnabled:false,sourceCodeLocationInfo:true});return $('head style:not(#sds-content-design):not(#sds-layout-adjustments),head link').toArray().filter(n=>n.tagName==='style'||!seoLink(n.attribs)).map(n=>html.slice(n.sourceCodeLocation.startOffset,n.sourceCodeLocation.endOffset));}
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
-const removedBannerHashes=manifest.assets.filter(a=>new URL(a.url).pathname.endsWith('/housing-disrepair-blue.webp')).map(a=>a.sha256);
-const layoutAudit={bannerRemovalRoutesVerified:0,standardFormsUsingHomepageCard:0,benefitRowsVerified:0,wizardCardsVerified:0,layoutCssMatchesGitFile:true,singleEnquiryWidgetRoutesVerified:0,secondaryEnquiryWidgetsRemoved:0,primaryFormFieldsPreserved:0,welcomeMessageCarouselVerified:false,fallbackLayoutsVerified:0};
+const removedBannerHashes=manifest.assets.filter(a=>/\/(housing-disrepair-blue|housing-disrepair-estate-banner)\.webp$/.test(new URL(a.url).pathname)).map(a=>a.sha256);
+const layoutAudit={bannerRemovalRoutesVerified:0,standardFormsUsingHomepageCard:0,benefitRowsVerified:0,processRowsVerified:0,twoColumnDisrepairGridsVerified:0,centredLocationTeamRoutesVerified:0,duplicateLocationProfileCardsRemoved:0,wizardCardsVerified:0,layoutCssMatchesGitFile:true,singleEnquiryWidgetRoutesVerified:0,secondaryEnquiryWidgetsRemoved:0,primaryFormFieldsPreserved:0,welcomeMessageCarouselVerified:false,fallbackLayoutsVerified:0};
 const audit={sourceCommit:provenance.commit,sourceFilesVerified:0,routesVerified:0,originalParagraphsAndHeadingsVerified:0,metadataRoutesVerified:0,approvedStyleRoutesVerified:0,approvedHeaderFooterRoutesVerified:0,internalLinksVerified:0,mediaVerified:0,originalUnavailableLinks:[],unavailableOriginalMedia:report.unavailableOriginalMedia,formKeys:[],homepageCarouselsVerified:false,sourceDirectoryProfiles:0,productionBlockVerified:false,reviewNoindexVerified:true,ownerProtectedAdministrationVerified:false,browserVisualAuditComplete:false,pages:[]};
 const media=new Set(),links=new Set(),forms=new Set();
 for(const [path,sha]of Object.entries(provenance.blobs)){const bytes=await readFile(resolve(root,path));assert.equal(createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),sha,'Pinned source changed: '+path);audit.sourceFilesVerified++;}
@@ -66,7 +79,7 @@ for(const page of report.pages){
  const raw=bytes.toString('utf8'),response=await fetchPage(worker,page.path);assert.equal(response.status,200,page.path);assert.equal(response.headers.get('x-robots-tag'),'noindex, follow');
  const html=await response.text(),$=load(html,{scriptingEnabled:false}),before=await(await fetchPage(baseline,page.path)).text(),b=load(before,{scriptingEnabled:false});
  assert.equal($('#sds-layout-adjustments').text(),layoutCss,'Layout CSS differs from its Git file: '+page.path);
- for(const n of $('img[src],source[srcset]').toArray())assert.ok(!removedBannerHashes.some(sha=>Object.values(n.attribs).some(value=>value.includes(sha)))&&!Object.values(n.attribs).some(value=>value.includes('/housing-disrepair-blue.webp')),'Removed wall/switch banner remains: '+page.path);
+ for(const n of $('img[src],source[srcset]').toArray())assert.ok(!removedBannerHashes.some(sha=>Object.values(n.attribs).some(value=>value.includes(sha)))&&!Object.values(n.attribs).some(value=>/\/(housing-disrepair-blue|housing-disrepair-estate-banner)\.webp/.test(value)),'Removed wall/switch or estate banner remains: '+page.path);
  layoutAudit.bannerRemovalRoutesVerified++;
  if(page.path!=='/')for(const n of $('form[data-sds-form]:not([data-sds-wizard])').toArray()){
    assert.ok($(n).hasClass('callback')&&$(n).hasClass('page-callback'),'Page form must use the homepage card: '+page.path);
@@ -78,12 +91,32 @@ for(const page of report.pages){
    const row=$('[data-source-benefits]').first();assert.equal(row.children('[data-source-benefit]').length,4,'Benefits must use a four-item row: '+page.path);
    assert.deepEqual(row.find('h3').toArray().map(n=>normalise($(n).text())),['Your Home Will Be Repaired','Compensation Paid','No Win No Fee','SRA Regulated Solicitors']);layoutAudit.benefitRowsVerified++;
  }
+ const processTitles=['Eligibility Check','Initial Consultation','Expert Surveyor','Repairs & Compensation'];
+ if(originalDom('h3').toArray().some(n=>normalise(originalDom(n).text())==='Eligibility Check')){
+   const row=$('[data-source-process]');assert.equal(row.length,1);assert.equal(row.children('[data-source-process-step]').length,4);
+   assert.deepEqual(row.find('h3').toArray().map(n=>normalise($(n).text())),processTitles);layoutAudit.processRowsVerified++;
+ }
+ if(originalDom('p').toArray().some(n=>normalise(originalDom(n).text())==='Mould is a common issue in disrepair claims.')){
+   const sourceCard=originalDom('p').filter((_,n)=>normalise(originalDom(n).text())==='Mould is a common issue in disrepair claims.').first().closest('.card');
+   const sourceTitles=sourceCard.parent().children('.card').find('h3').toArray().map(n=>normalise(originalDom(n).text()));
+   const grid=$('[data-source-disrepair-grid]');assert.equal(grid.length,1);assert.equal(grid.children('[data-source-disrepair-card]').length,sourceTitles.length);
+   assert.deepEqual(grid.find('h3').toArray().map(n=>normalise($(n).text())),sourceTitles);layoutAudit.twoColumnDisrepairGridsVerified++;
+ }
  for(const n of $('form[data-sds-wizard]').toArray()){
    assert.equal($(n).closest('[data-source-wizard-card]').length,1,'Wizard lacks a consistent card: '+page.path);
    assert.ok($(n).closest('[data-source-wizard-card]').find('.hide_when_2').length,'Wizard step display rules are missing: '+page.path);layoutAudit.wizardCardsVerified++;
  }
  assert.deepEqual(seo(html),seo(raw),'Original SEO differs: '+page.path);audit.metadataRoutesVerified++;
- const originalCopy=originalContent(raw),currentCopy=migratedContent(html);
+ const originalCopy=originalContent(raw,page.path),currentCopy=migratedContent(html);
+ if(page.path.replace(/\/+$/,'')==='/housing-disrepair/locations'){
+   const team=$('[data-source-location-team]');assert.equal(team.length,1);
+   assert.deepEqual(team.find('.source-person-name').toArray().map(n=>normalise($(n).text())),['Sheldon Davidson','Victoria McCormack']);
+   assert.equal($('main .team-card').length,2,'Duplicate profile cards remain on All Locations.');
+   const added=team.find('.team-card').last();assert.equal(added.find('a[href="/about-us/our-people/victoria-mccormack"]').length,1);
+   assert.equal(added.find('img').attr('src'),'/assets/sds-source/'+sourceAssets.get(new URL(victoriaSource.find('img').attr('src')).pathname).sha256+'.webp');
+   assert.ok(team.closest('.team-section').nextAll('.source-copy-section').find('blockquote').length,'Original review must follow the retained team.');
+   layoutAudit.centredLocationTeamRoutesVerified++;layoutAudit.duplicateLocationProfileCardsRemoved+=originalCopy.removedProfileCards;
+ }
  const primary=$('main [data-source-enquiry]');
  assert.equal(primary.length,originalCopy.primary?1:0,'Expected exactly one original enquiry widget: '+page.path);
  for(const form of $('main form[data-sds-form]').toArray())assert.equal($(form).closest('[data-source-enquiry]').length,1,'Secondary enquiry form remains: '+page.path);

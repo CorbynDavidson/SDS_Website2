@@ -1,5 +1,7 @@
 /* Shared presentation corrections requested after the original-copy migration. */
-body > main { padding-top: 48px; }
+/* Share the former lower gap equally above and below the header contents. */
+body > nav.nav { min-height: 156px; height: auto; padding-top: 32px; padding-bottom: 32px; align-items: center; }
+body > main { padding-top: 0; }
 body .hero.rights-hero.wrap { width: min(1240px, calc(100% - 64px)); margin-left: auto; margin-right: auto; }
 .sds-content-page .team-section.wrap.source-copy-section {
   margin-top: 32px;
@@ -62,6 +64,22 @@ body .hero.rights-hero.wrap { width: min(1240px, calc(100% - 64px)); margin-left
 .source-benefit-card { display: grid; grid-template-rows: 72px auto; justify-items: center; gap: 18px; text-align: center; }
 .sds-source-copy .source-benefit-card img { width: 72px; height: 72px; max-width: 72px; margin: 0; border-radius: 0; object-fit: contain; }
 .sds-source-copy .source-benefit-card h3 { margin: 0; font-size: clamp(1.05rem, 1.8vw, 1.3rem); line-height: 1.4; }
+.sds-source-copy .source-process { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; align-items: start; }
+.source-process-step { min-width: 0; }
+.source-process-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.sds-source-copy .source-process-card img { width: 72px; height: 72px; margin: 0 0 20px; border-radius: 0; object-fit: contain; }
+.sds-source-copy .source-process-card h3 { margin: 0; font-size: 1.3rem; line-height: 1.4; }
+.sds-source-copy .source-process-card p { margin: 14px 0 0; line-height: 1.65; }
+.sds-source-copy .source-disrepair-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; align-items: start; }
+.source-disrepair-card { min-width: 0; }
+.sds-source-copy .source-disrepair-card img { width: 100%; aspect-ratio: 500 / 264; object-fit: cover; margin: 0; }
+.sds-source-copy .source-disrepair-card h3 { margin: 18px 0 10px; font-size: 1.35rem; line-height: 1.4; }
+.sds-source-copy .source-disrepair-card p { margin: 0 0 14px; line-height: 1.65; }
+.sds-source-copy .source-location-team { display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); justify-content: center; gap: 28px; width: 100%; margin: 32px auto 0; }
+.sds-source-copy .source-location-team .team-card-photo { padding: 0; align-items: stretch; }
+.sds-source-copy .source-location-team .team-card-photo img { min-height: 0; height: 100%; aspect-ratio: 1; }
+.sds-source-copy .source-location-team .team-card-copy { flex: 1; padding: 22px; }
+.sds-source-copy .source-location-team .contact-buttons { flex-direction: row; align-items: center; padding: 0 22px 22px; }
 .source-wizard-card { padding: 22px; border-radius: 24px; background: #f4f9fa; color: #032b4c; box-shadow: 0 24px 70px rgba(0, 0, 0, .14); }
 .source-wizard-card .source-form { margin: 0; padding: 0; border: 0; background: transparent; }
 .source-wizard-card .form-reform-control { min-width: 0; }
@@ -71,8 +89,11 @@ body .hero.rights-hero.wrap { width: min(1240px, calc(100% - 64px)); margin-left
 .page-callback [data-error="true"], .source-wizard-card [data-error="true"] { color: #841f14; background: #ffe0dc; }
 @media (max-width: 900px) {
   .sds-source-copy .source-benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sds-source-copy .source-process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+@media (max-width: 1100px) { body > nav.nav { min-height: 152px; } }
 @media (max-width: 760px) {
+  body > nav.nav { min-height: 144px; }
   body .hero.rights-hero.wrap { width: calc(100% - 36px); }
 }
 @media (min-width: 901px) and (max-width: 1439px) {
@@ -84,4 +105,8 @@ body .hero.rights-hero.wrap { width: min(1240px, calc(100% - 64px)); margin-left
   .page-callback .form-grid { grid-template-columns: minmax(0, 1fr); }
   .page-callback.callback, .source-wizard-card { padding: 24px 18px; }
   .sds-source-copy .source-benefits { gap: 24px 16px; }
+  .sds-source-copy .source-disrepair-grid { gap: 24px 16px; }
+  .sds-source-copy .source-disrepair-card h3 { font-size: 1.1rem; }
+  .sds-source-copy .source-location-team { grid-template-columns: minmax(0, 320px); }
 }
+@media (max-width: 480px) { .sds-source-copy .source-process { grid-template-columns: minmax(0, 1fr); } }

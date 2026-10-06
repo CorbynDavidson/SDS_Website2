@@ -24,7 +24,7 @@ export function extractContent(html,selectors=sourceRegions) {
   return {copy:container,root:container('#source-content'),text:normaliseText(container('#source-content').text())};
 }
 
-export function cleanContent(html,{origin,mediaUrls,path}) {
+export function cleanContent(html,{origin,mediaUrls,path,locationProfileCard=''}) {
   const {copy:$,root}=extractContent(html);
   // Keep the first enquiry widget. A multi-step questionnaire is one widget,
   // even when its source contains a separate submit form for each step.
@@ -39,12 +39,25 @@ export function cleanContent(html,{origin,mediaUrls,path}) {
   }
   // User-requested removal of both colour variants and every thumbnail size.
   root.find('img[src]').each((_,node)=>{
-    if(new URL(node.attribs.src,origin).pathname.endsWith('/housing-disrepair-blue.webp')){
+    if(/\/(housing-disrepair-blue|housing-disrepair-estate-banner)\.webp$/.test(new URL(node.attribs.src,origin).pathname)){
       const picture=$(node).closest('picture'),target=picture.length?picture:$(node),parent=target.parent();
       target.remove();
       parent.contents().each((_,child)=>{if(child.type==='text'&&!child.data.trim())child.data=child.data.replace(/[ \t]+$/gm,'');});
     }
   });
+  // The All Locations overview keeps its original team introduction and first
+  // Sheldon card, with Victoria's captured directory card beside it. Drop only
+  // the repeated Sheldon cards left behind by the removed lower enquiry form.
+  if(path.replace(/\/+$/,'')==='/housing-disrepair/locations'){
+    const profiles=root.find('.kpeople-member').filter((_,node)=>normaliseText($(node).find('.kpeople-name').text())==='Sheldon Davidson');
+    const first=profiles.first(),grid=first.closest('.team-list');
+    profiles.slice(1).remove();
+    if(grid.length){
+      if(!locationProfileCard)throw new Error('The original Victoria directory card is required for All Locations.');
+      grid.attr('data-source-location-team','').append(locationProfileCard);
+      grid.find('.contact-buttons').attr('data-source-person-contact','');
+    }
+  }
   const grids=new Set(root.find('.kblog-index,.team-list').toArray());
   const cards=new Set(root.find('.kblog-post,.kpeople-member').toArray());
   const people=new Set(root.find('.kpeople-member').toArray());
@@ -61,6 +74,18 @@ export function cleanContent(html,{origin,mediaUrls,path}) {
     row.attr('data-source-benefits','');
     columns.attr('data-source-benefit','');
     items.find('.ccm-block-feature-item-inner').attr('data-source-benefit-card','');
+  });
+  const processTitles=['Eligibility Check','Initial Consultation','Expert Surveyor','Repairs & Compensation'];
+  root.find('.row').each((_,node)=>{
+    const row=$(node),columns=row.children(),cards=columns.find('.card');
+    if(columns.length!==4||cards.length!==4||!cards.toArray().every((card,i)=>normaliseText($(card).find('h3').text())===processTitles[i]))return;
+    row.attr('data-source-process','');columns.attr('data-source-process-step','');cards.attr('data-source-process-card','');
+  });
+  root.find('.swiper-wrapper').each((_,node)=>{
+    const grid=$(node),cards=grid.children('.card');
+    // Captured pages use several original heading variants for these cards.
+    if(cards.length<4||!cards.find('p').toArray().some(p=>normaliseText($(p).text())==='Mould is a common issue in disrepair claims.'))return;
+    grid.attr('data-source-disrepair-grid','');cards.attr('data-source-disrepair-card','');
   });
   root.find('.multi-step-form').attr('data-source-wizard-card','');
   root.find('.content-panel').attr('data-source-hero','');
@@ -82,7 +107,14 @@ export function cleanContent(html,{origin,mediaUrls,path}) {
     if('data-source-benefit-card'in node.attribs)$(node).addClass('source-benefit-card');
     if('data-source-wizard-card'in node.attribs)$(node).addClass('source-wizard-card');
     if('data-source-enquiry'in node.attribs)$(node).addClass('source-enquiry');
+    if('data-source-process'in node.attribs)$(node).addClass('source-process');
+    if('data-source-process-step'in node.attribs)$(node).addClass('source-process-step');
+    if('data-source-process-card'in node.attribs)$(node).addClass('source-process-card');
+    if('data-source-disrepair-grid'in node.attribs)$(node).addClass('source-disrepair-grid');
+    if('data-source-disrepair-card'in node.attribs)$(node).addClass('source-disrepair-card');
+    if('data-source-person-contact'in node.attribs)$(node).addClass('contact-buttons');
     if(grids.has(node))$(node).attr('class',oldClasses.includes('team-list')?'team-grid':'source-card-grid');
+    if('data-source-location-team'in node.attribs)$(node).addClass('source-location-team');
     if(cards.has(node))$(node).attr('class',people.has(node)?'team-card':'source-card');
     if(people.has(node)){node.tagName='article';$(node).attr('data-source-specialisms',specialisms.join(' '));if(specialisms.includes('specialism-management-team'))$(node).addClass('team-card-leadership');}
     if(personImages.has(node))$(node).attr('class','team-card-photo');
