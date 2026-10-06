@@ -28,5 +28,31 @@
   "migrationContentIntegrationIntoApprovedDesignComplete": false,
   "productionReleaseReady": false,
   "browserRecheckCompleted": false,
-  "browserRecheckBlocker": "Automatic approval review service was at capacity."
+  "browserRecheckBlocker": "Automatic approval review service was at capacity.",
+  "activeReviewRelease": {
+    "versionNumber": 46,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_168e616b8e5c8191a952ad455b18e967",
+    "sourceCommit": "73719df9dc92e9d0ebb5b6c3bdd0896ad6072c02",
+    "deploymentId": "appgdep_6ac447591460819183ce9969fdd9a579",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T00:57:19.410259+00:00",
+    "designBaselineVersion": 41,
+    "reviewNoindexEnforced": true
+  },
+  "githubImplementationCommit": "ffd41643d2c66e7f2e0160ee1d3c53ca57d4d5f5",
+  "githubMigrationCheckpoint": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
+  "validation": {
+    "currentDesign": {
+      "githubRunId": 37396458394,
+      "conclusion": "success",
+      "validatedContentPages": 80,
+      "internalTargets": 124
+    },
+    "migrationCandidate": {
+      "githubRunId": 37395928386,
+      "conclusion": "success",
+      "backendTests": 13,
+      "capturedRoutes": 296
+    }
+  }
 }
