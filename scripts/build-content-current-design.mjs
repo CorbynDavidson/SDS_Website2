@@ -16,6 +16,8 @@ import {addLocationDirectory} from './lib/location-directory.mjs';
 import {addResourceNavigation} from './lib/resource-navigation.mjs';
 import {addQuestionnairePanel} from './lib/questionnaire-panel.mjs';
 import {migrationInputs} from './lib/migration-inputs.mjs';
+import {correctReviewCopy,addSharedTrustBar} from './lib/review-readiness.mjs';
+import {addEditableCopy} from './lib/editable-copy.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
@@ -32,6 +34,7 @@ assert.equal(victoria.length,1,'Expected one original Victoria directory card.')
 const locationProfileCard=directoryContent.html(victoria);
 const policy=await readJson('config/metadata-migration.json');
 const config=await readJson('config/site.json');
+const reviewReadiness=await readJson('config/review-readiness.json');
 const reviewsContent=await readJson('src/reviews-page.json');
 const reviewsHomeHtml=await (await approved.fetch(new Request(config.productionOrigin+'/'),{})).text();
 const claimEnquiry=await readJson('config/claim-enquiry.json');
@@ -60,7 +63,7 @@ for(const [path,destination] of Object.entries(consolidation.redirects)){
   assert.ok(index.pages.some(page=>page.path===destination),'Missing original SDS destination: '+destination);
   consolidations[path]=destination;consolidations[path.slice(0,-1)]=destination;
 }
-const redirects={...legacyRouting.redirects,...consolidations};
+const redirects={...legacyRouting.redirects,...consolidations,...reviewReadiness.redirectOverrides};
 const sourceText=new Map();
 for(const page of index.pages){const original=sourceByUrl.get(page.sourceUrl);sourceText.set(page.path,extractContent(gunzipSync(await readFile(resolve(root,original.source_file))).toString('utf8')).text);}
 for(const page of index.pages){
@@ -130,7 +133,10 @@ for(const page of index.pages) {
   if(panelPath(page.path)===locationDirectory.path)html=addLocationDirectory(html,{directory:locationDirectory,origin:config.productionOrigin,css:locationDirectoryCss});
   if(panelPath(page.path)===resourceNavigation.questionnairePath)html=addQuestionnairePanel(html,questionnaireCss);
   html=addResourceNavigation(html,{policy:resourceNavigation,origin:config.productionOrigin});
+  html=correctReviewCopy(html,{path:page.path,policy:reviewReadiness});
+  html=addSharedTrustBar(html,reviewsHomeHtml);
   html=applyProductionSeo(html,{config,path:page.path,redirects});
+  html=addEditableCopy(html,runtime);
   const digest=sha256(page.sourceUrl).slice(0,24);
   const contentFile='src/content/current-design/pages/'+digest+'.html';
   const content=html.match(/<main\b[\s\S]*?<\/main>/i)[0];
@@ -155,7 +161,9 @@ for(const url of designSitemap('loc').toArray().map(node=>designSitemap(node).te
   let html=(await response.text()).replace('</head>','<style id="sds-layout-adjustments">'+layoutCss+'</style></head>');
   if(hasEnquiryPanel(path))html=addEnquiryPanel(html,enquiryPanelCss);
   html=addResourceNavigation(html,{policy:resourceNavigation,origin:config.productionOrigin});
+  html=addSharedTrustBar(html,reviewsHomeHtml);
   html=applyProductionSeo(html,{config,path,redirects});
+  html=addEditableCopy(html,runtime);
   pages[path]={gzip:gzipSync(Buffer.from(html),{level:9}).toString('base64'),status:200,sha256:sha256(html)};fallbackRoutes.push(path);
   if(!/noindex/i.test(load(html)('meta[name="robots"]').attr('content')||''))sitemapUrls.push(productionUrl(url,{origin:config.productionOrigin,path,redirects}));
 }
@@ -234,7 +242,7 @@ for(const [path,asset] of Object.entries(assets)){
   await cp(resolve(root,'public'+path),destination);
   await rm(resolve(root,'dist/client'+path),{force:true});
 }
-const report={sourceCommit:policy.sourceCommit,sourceBranch:policy.sourceBranch,sourceCapturedAt:index.sourceCompletedAt,designBaselineVersion:41,designFingerprint:policy.designFingerprint,capturedRoutes:records.length,contentTransferred:records.length,metadataTransferred:records.length,originalMediaFiles:Object.keys(mediaUrls).length,unavailableOriginalMedia:unavailableMedia,originalWordingPreserved:false,originalNonFormWordingPreserved:true,approvedFormPresentationOverrides:[claimEnquiry],approvedStylesPreserved:true,approvedHeaderFooterPreserved:true,homepageCarouselsPreserved:true,formCount:Object.keys(forms).length,reviewNoindexEnforced:true,productionSeoConfigured:true,productionReleaseReady:false,pages:records};
+const report={sourceCommit:policy.sourceCommit,sourceBranch:policy.sourceBranch,sourceCapturedAt:index.sourceCompletedAt,designBaselineVersion:41,designFingerprint:policy.designFingerprint,capturedRoutes:records.length,contentTransferred:records.length,metadataTransferred:records.length,originalMediaFiles:Object.keys(mediaUrls).length,unavailableOriginalMedia:unavailableMedia,originalWordingPreserved:false,originalNonFormWordingPreserved:false,approvedCopyCorrections:reviewReadiness.copyCorrections,approvedFormPresentationOverrides:[claimEnquiry],approvedStylesPreserved:true,approvedHeaderFooterPreserved:true,homepageCarouselsPreserved:true,formCount:Object.keys(forms).length,reviewNoindexEnforced:true,productionSeoConfigured:true,productionReleaseReady:false,pages:records};
 report.locationDirectory={path:locationDirectory.path,heading:locationDirectory.heading,links:locationDirectory.links.length,originalLocationUrlsPreserved:true};
 report.resourceNavigation={links:resourceNavigation.links,questionnairePath:resourceNavigation.questionnairePath,questionnaireWordingAndFieldsPreserved:true};
 await writeFile(resolve(root,'src/content/current-design/index.json'),JSON.stringify({sourceCommit:policy.sourceCommit,designBaselineVersion:41,pages:records},null,2)+'\n');

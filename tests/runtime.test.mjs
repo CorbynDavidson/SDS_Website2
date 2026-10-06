@@ -88,6 +88,21 @@ test('Owner-only administration blocks anonymous, other users and missing auth c
  assert.equal((await worker.fetch(admin('/submissions'),{...env,AUTH_PROVIDER:undefined})).status,503);
  assert.equal((await worker.fetch(admin('/api/editor/session'),env)).status,200);
 });
+test('All-wording drafts persist text changes with owner protection and unchanged public copy',async t=>{
+ const{worker,env}=await fixture(t);
+ const published=await(await worker.fetch(new Request(origin+'/'),env)).text();
+ const draft=await(await worker.fetch(admin('/api/editor/draft?path=/'),env)).json();
+ const request=copy=>new Request(origin+'/api/editor/draft',{method:'POST',headers:{'content-type':'application/json',origin,'oai-authenticated-user-email':owner},body:JSON.stringify({path:'/',baseSha256:draft.baseSha256,copy})});
+ const copy={'copy-0001':'Updated navigation','copy-0020':'<img src=x onerror=alert(1)>','copy-0030':''};
+ assert.equal((await worker.fetch(request(copy),env)).status,200);
+ const saved=await(await createWorker(data).fetch(admin('/api/editor/draft?path=/'),env)).json();
+ assert.deepEqual(JSON.parse(saved.draft.body_html),{version:2,copy});
+ assert.equal(await(await worker.fetch(new Request(origin+'/'),env)).text(),published);
+ for(const invalid of[[],{'bad-id':'bad'},{'copy-0001':42}])assert.equal((await worker.fetch(request(invalid),env)).status,400);
+ const index=await(await worker.fetch(admin('/editor'),env)).text();
+ assert.ok(index.includes('All wording'));
+ for(const path of Object.keys(data.pages))assert.ok(index.includes(path.replaceAll('&','&amp;').replaceAll('"','&quot;')),'Page missing from editor: '+path);
+});
 test('Legacy enquiries remain readable, HTML is escaped and CSV formula values are neutralised',async t=>{
  const{worker,env,DB}=await fixture(t);
  await DB.prepare('INSERT INTO enquiries(full_name,email,phone,postcode,disrepair_type) VALUES(?,?,?,?,?)').bind('=HYPERLINK("https://attacker.invalid")','migration-test@example.invalid','01615550100','M1 1AA','Mould/Damp').run();

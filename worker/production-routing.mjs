@@ -2,6 +2,7 @@
 export function createProductionRouting(config,routes){
   const production=new URL(config.productionOrigin);
   const primaryHosts=new Set([production.hostname,production.hostname.replace(/^www\./,'')]);
+  const indexingDisabled=env=>String(env.INDEXING_DISABLED||'').toLowerCase()==='true';
   const mode=(url,env)=>primaryHosts.has(url.hostname)&&(env.RELEASE_MODE||config.defaultReleaseMode)==='production'?'production':'review';
   const privatePath=url=>/^\/(?:api(?:\/|$)|submissions(?:[./]|$)|editor(?:\/|$)|health(?:\/|$)|signin-with-chatgpt|signout-with-chatgpt|staging(?:\/|$)|preview(?:\/|$)|_preview(?:\/|$)|build(?:\/|$))/.test(url.pathname)||url.searchParams.has('edit');
   const redirect=(url,env)=>{
@@ -19,27 +20,24 @@ export function createProductionRouting(config,routes){
     if(target.href!==url.href)return Response.redirect(target.href,301);
     return null;
   };
-  const robots=(url,env)=>mode(url,env)==='review'?'User-agent: *\nDisallow: /\n':
+  // Crawlers must be able to fetch public pages to read the temporary noindex.
+  const robots=(url,env)=>mode(url,env)==='review'&&!indexingDisabled(env)?'User-agent: *\nDisallow: /\n':
     'User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /submissions\nDisallow: /editor\nDisallow: /health\nDisallow: /*?edit=\nDisallow: /*&edit=\nDisallow: /staging/\nDisallow: /preview/\nDisallow: /_preview/\nDisallow: /build/\nDisallow: /signin-with-chatgpt\nDisallow: /signout-with-chatgpt\n\nSitemap: '+config.productionOrigin+'/sitemap.xml\n';
   const publicHtml=(html,url)=>{
     if(url.origin===production.origin)return html;
-    // Terms and directory links must open this build, including without
-    // JavaScript or in a new tab. Keep SEO URLs on the production domain.
-    const terms=production.origin+'/about-us/terms-business/';
-    const local=new URL('/about-us/terms-business/',url).href;
+    // All page links open this build, including without JavaScript, with
+    // modifier clicks or in a new tab. SEO metadata still identifies SDS.
     return html.replace(/<a\b[^>]*>/gi,tag=>tag.replace(/(\bhref\s*=\s*)(["'])(.*?)\2/i,(attribute,prefix,quote,href)=>{
-      if(/\sdata-location-link(?:\s|=|>)/i.test(tag)&&href.startsWith(production.origin+'/housing-disrepair/locations/'))return prefix+quote+url.origin+href.slice(production.origin.length)+quote;
-      if(/\sdata-resource-link(?:\s|=|>)/i.test(tag)&&href.startsWith(production.origin+'/about-us/'))return prefix+quote+url.origin+href.slice(production.origin.length)+quote;
-      if(href===terms||href===terms.slice(0,-1))return prefix+quote+local+quote;
-      if(href.startsWith(terms+'?')||href.startsWith(terms+'#'))return prefix+quote+local+href.slice(terms.length)+quote;
+      if(href===production.origin||href.startsWith(production.origin+'/'))return prefix+quote+url.origin+href.slice(production.origin.length)+quote;
       return attribute;
     }));
   };
   const finish=(response,url,env,head=false)=>{
     const result=new Response(head?null:response.body,response);
     if(privatePath(url)||response.status>=400)result.headers.set('x-robots-tag','noindex, nofollow');
-    else if(mode(url,env)==='review')result.headers.set('x-robots-tag','noindex, follow');
+    else if(indexingDisabled(env)||mode(url,env)==='review')result.headers.set('x-robots-tag','noindex, follow');
     else result.headers.delete('x-robots-tag');
+    if(indexingDisabled(env)&&url.pathname==='/robots.txt')result.headers.set('cache-control','no-store');
     result.headers.set('x-content-type-options','nosniff');result.headers.set('referrer-policy','strict-origin-when-cross-origin');
     return result;
   };

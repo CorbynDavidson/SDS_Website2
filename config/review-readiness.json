@@ -1,0 +1,11 @@
+{
+  "approvedOn": "2026-10-06",
+  "scope": "Owner-authorised preparation for agency SEO and development review",
+  "redirectOverrides": { "/faqs": "/faqs/" },
+  "copyCorrections": [
+    { "path": "/", "before": "commited", "after": "committed" },
+    { "path": "/", "before": "comprises Some", "after": "comprises some" }
+  ],
+  "preserveImmutableCaptures": true,
+  "preserveProductionMetadata": true
+}

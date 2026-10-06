@@ -1,5 +1,7 @@
 # SDS migration handover
 
+**Current review entry point:** [Agency review](AGENCY_REVIEW.md) and [editor workflow](EDITOR_WORKFLOW.md). Later changes add the shared trust bar to every public template, repair the non-slash FAQ alias, keep all review links on the review origin, and permit two recorded homepage proofreading corrections. Older exact-wording and hosted-check statements below describe their original release unless explicitly revalidated in current reports. Production gates remain incomplete.
+
 Prepared 6 October 2026. Production remains **https://www.sds-solicitors.com**; DNS has not changed. The current review release fits original SDS wording and SEO into the approved version-41 design. The rejected CMS layout remains an archived research baseline.
 
 ## Implemented

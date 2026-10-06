@@ -1,5 +1,9 @@
 # SDS website
 
+## Current agency review
+
+Start with [Agency review brief](docs/AGENCY_REVIEW.md). Review remains noindex; the intended production domain is `www.sds-solicitors.com`. FAQ navigation, shared trust-bar coverage, server-side review navigation and editor feedback are checked on all 325 public templates. Two scoped homepage proofreading corrections are recorded separately from immutable captures. Saving an editor draft does not publish. Production gates remain pending. Earlier version-specific evidence below is historical.
+
 [XML sitemap](sitemap.xml) · [Published sitemap source](public/sitemap.xml)
 
 The homepage scenario carousel now reserves enough height for every mobile slide and places its controls below the complete text and repair links. The existing stacked-hero breakpoint is retained; desktop dimensions, colours, typography and layout match the pre-change browser measurements. Native previous/next interactions and layout checks covered all ten slides at 320px and 390px, plus all slide layouts at 430px, 760px and 844px. This was tested in Chrome with fixed-width frames, not on a physical iOS Safari device. Evidence is in [mobile carousel QA](docs/migration/mobile-carousel-qa-2026-10-06.json).

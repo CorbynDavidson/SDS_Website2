@@ -150,6 +150,14 @@ for(const page of report.pages){
    const imageBytes=Buffer.from(await image.arrayBuffer());assert.equal(hash(imageBytes),reviewsContent.recognition.imageSha256);assert.equal(hash(await readFile(resolve(root,'public'+reviewsContent.recognition.imagePath))),reviewsContent.recognition.imageSha256);reviewsAudit.originalRecognitionImageVerified=true;
  }
  const originalCopy=originalContent(raw,page.path),currentCopy=migratedContent(html);
+ const copyPolicy=JSON.parse(await readFile(resolve(root,'config/review-readiness.json'),'utf8'));
+ const corrections=copyPolicy.copyCorrections.filter(rule=>rule.path===page.path);
+ function correctExpected(node){
+   if(node.type==='text'&&!originalCopy.copy(node).parent().closest('form,script,style,template').length)
+     for(const rule of corrections)node.data=node.data.replaceAll(rule.before,rule.after);
+   for(const child of node.children||[])correctExpected(child);
+ }
+ if(corrections.length)correctExpected(originalCopy.root[0]);
  if(page.path.replace(/\/+$/,'')==='/housing-disrepair/locations'){
    const team=$('[data-source-location-team]');assert.equal(team.length,1);
    assert.deepEqual(team.find('.source-person-name').toArray().map(n=>normalise($(n).text())),['Sheldon Davidson','Victoria McCormack']);
@@ -200,7 +208,7 @@ for(const page of report.pages){
    layoutAudit.welcomeMessageCarouselVerified=true;
  }
  if(page.path==='/about-us/our-people/'){const originalDirectory=load(raw);const expected=originalDirectory('.team-list .kpeople-member').length;assert.equal($('.team-grid .team-card').length,expected);assert.equal($('.team-card-leadership').length,2);audit.sourceDirectoryProfiles=expected;}
- audit.routesVerified++;audit.pages.push({path:page.path,copyMatchesOriginal:!originalCopy.formPresentationOverride,copyMatchesApprovedFormAndOriginalPage:true,formPresentationOverride:originalCopy.formPresentationOverride||false,paragraphsAndHeadingsMatch:true,seoMatchesOriginal:true,approvedStylesAndSharedDesignPreserved:true});
+ audit.routesVerified++;audit.pages.push({path:page.path,copyMatchesOriginal:!originalCopy.formPresentationOverride&&!corrections.length,copyMatchesApprovedFormAndOriginalPage:true,formPresentationOverride:originalCopy.formPresentationOverride||false,approvedCopyCorrections:corrections,paragraphsAndHeadingsMatch:true,seoMatchesOriginal:true,approvedStylesAndSharedDesignPreserved:true});
 }
 for(const path of media){
  const source=path.match(/\/([a-f0-9]{64})\./)?.[1];

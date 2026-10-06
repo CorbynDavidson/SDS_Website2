@@ -1,5 +1,7 @@
 # SDS primary-domain migration
 
+For the latest review scope and known launch gaps, start with [Agency review](AGENCY_REVIEW.md). The obsolete `/faqs` homepage redirect is now overridden to `/faqs/`; review navigation is server-side on the current review origin. Production metadata remains SDS-based. Two recorded homepage copy corrections are permitted separately from immutable captures. Earlier version-specific claims below remain historical migration evidence.
+
 Production origin: **https://www.sds-solicitors.com**. This release prepares the code and publishes the review build. It does not change SDS DNS or the current primary-domain hosting.
 
 ## Implemented and verified

@@ -89,44 +89,136 @@
   }, true);
 
   async function initialiseEditor() {
-    if (new URL(location.href).searchParams.get('edit') !== '1') return;
-    const response = await fetch('/api/editor/session', { credentials: 'same-origin' });
-    if (response.status === 401) { location.assign('/signin-with-chatgpt?return_to=' + encodeURIComponent(location.pathname + '?edit=1')); return; }
-    if (!response.ok) return;
-    const session = await response.json();
-    const draftResponse = await fetch('/api/editor/draft?path=' + encodeURIComponent(location.pathname), { credentials: 'same-origin' });
-    if (!draftResponse.ok) return;
-    const draftInfo = await draftResponse.json();
+    const pageUrl = new URL(location.href);
+    if (pageUrl.searchParams.get('edit') !== '1') return;
+    const paging = [...pageUrl.searchParams].filter(([name]) => name.startsWith('ccm_paging_'));
+    const path = location.pathname + (paging.length ? '?' + new URLSearchParams(paging) : '');
     const bar = document.createElement('div'); bar.className = 'sds-editor-bar'; bar.dataset.editorUi = '';
-    const message = document.createElement('span'); message.textContent = session.copyFrozen ? 'Original SDS wording is protected. Save a draft for review.' : 'Changes need a reviewed GitHub commit to publish.'; bar.append(message);
-    const editable = [...document.querySelectorAll('#banner .content-panel h1,#banner .content-panel h2,#banner .content-panel p,#central h1,#central h2,#central h3,#central h4,#central p,#central li,#wide h2,#wide h3,#wide p')].filter(e => !e.closest('form') && !e.querySelector('h1,h2,h3,p,li'));
-    editable.forEach(e => { e.dataset.sdsEditable = 'true'; e.setAttribute('contenteditable', 'true'); });
+    const message = document.createElement('span'); message.setAttribute('role', 'status'); message.setAttribute('aria-live', 'polite'); bar.append(message);
+    message.textContent = 'Opening the secure editor…';
+    const initialStyle = document.createElement('style'); initialStyle.dataset.editorUi = '';
+    initialStyle.textContent = '.sds-editor-bar{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:10000;display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:16px;border-radius:14px;background:#032b4c;color:#fff;box-sizing:border-box;width:min(1000px,calc(100% - 24px));max-height:35vh;overflow:auto;font:16px/1.5 system-ui}.sds-editor-bar a{color:#fff}.sds-editor-bar span{flex:1;min-width:180px}';
+    document.head.append(initialStyle);
+    document.body.append(bar);
+    const response = await fetch('/api/editor/session', { credentials: 'same-origin' });
+    if (response.status === 401) {
+      message.textContent = 'Sign in with the website owner’s account to edit. Drafts are private until published.';
+      const login = document.createElement('a'); login.href = '/signin-with-chatgpt?return_to=' + encodeURIComponent(location.pathname + location.search); login.textContent = 'Sign in to edit'; bar.append(login); return;
+    }
+    if (!response.ok) { message.textContent = response.status === 403 ? 'This editor is available to the website owner.' : 'The editor is temporarily unavailable. Please reload.'; return; }
+    const draftResponse = await fetch('/api/editor/draft?path=' + encodeURIComponent(path), { credentials: 'same-origin' });
+    if (!draftResponse.ok) { message.textContent = 'This page could not be opened for editing. Please reload.'; return; }
+    const draftInfo = await draftResponse.json();
+    const excluded = 'script,style,noscript,template,svg,math,iframe,form,input,select,textarea,option,[form],.callback,.source-form-widget,[data-source-wizard-card],[data-editor-ui],[data-sds-status],.about-count,.testimonial-count,sds-copy';
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const texts = [];
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      if (/[\p{L}\p{N}]/u.test(node.textContent) && !node.parentElement.closest(excluded)) texts.push(node);
+    }
+    const editable = texts.map((node, index) => {
+      const copy = document.createElement('sds-copy'); copy.dataset.sdsCopyId = 'copy-' + String(index + 1).padStart(4, '0'); copy.textContent = node.textContent; node.replaceWith(copy); return copy;
+    });
+    const editorStyle = document.createElement('style'); editorStyle.dataset.editorUi = ''; editorStyle.textContent = 'sds-copy{display:contents}body.sds-editing sds-copy[contenteditable]{display:inline;outline:1px dashed #008b8c;outline-offset:3px;cursor:text}body.sds-editing sds-copy:focus{outline:2px solid #008b8c;background:#008b8c18}.sds-wording-panel{position:fixed;inset:12px 12px 110px auto;z-index:10001;width:min(390px,calc(100vw - 24px));background:#fff;color:#032b4c;border:1px solid #b9cdd5;border-radius:12px;box-shadow:0 12px 50px #032b4c30;padding:16px;box-sizing:border-box;overflow:auto;font:16px/1.5 system-ui}.sds-wording-panel[hidden]{display:none}.sds-wording-panel label{display:block;margin:16px 0 6px;font-size:14px}.sds-wording-panel input,.sds-wording-panel textarea{box-sizing:border-box;width:100%;font:16px/1.5 system-ui;border:1px solid #b9cdd5;border-radius:6px;padding:8px}.sds-wording-panel textarea{min-height:74px;resize:vertical}.sds-editor-bar{box-sizing:border-box;width:min(1000px,calc(100% - 24px));max-height:35vh;overflow:auto}.sds-editor-bar a{color:#fff}.sds-editor-bar button,.sds-editor-bar a{font:14px/1.5 system-ui}.sds-editor-bar span{flex:1;min-width:180px}body.sds-editing{padding-bottom:160px!important}@media(max-width:620px){.sds-editor-bar{bottom:8px;padding:12px;gap:8px}.sds-wording-panel{bottom:180px}}'; document.head.append(editorStyle);
+    const originals = new Map(editable.map(node => [node.dataset.sdsCopyId, node.textContent]));
+    let dirty = false;
+    let restored = false;
+    if (draftInfo.draft && draftInfo.draft.base_sha256 === draftInfo.baseSha256) {
+      try {
+        const saved = JSON.parse(draftInfo.draft.body_html);
+        if (saved.version === 2 && saved.copy) editable.forEach(node => {
+          const value = saved.copy[node.dataset.sdsCopyId];
+          if (typeof value === 'string') { node.textContent = value; restored = true; }
+        });
+      } catch { /* Earlier full-page drafts remain available through Saved draft. */ }
+    }
+    document.body.classList.add('sds-editing');
+    editable.forEach(node => { node.setAttribute('contenteditable', 'plaintext-only'); node.setAttribute('spellcheck', 'true'); node.tabIndex = 0; });
+    message.textContent = restored ? 'Saved draft loaded. Changes stay in your draft until published.' : 'Edit outlined text or open All wording. Save a draft when ready.';
+    if (draftInfo.draft && draftInfo.draft.base_sha256 !== draftInfo.baseSha256) message.textContent = 'The page has changed since your saved draft. Edit the current wording; the earlier draft is available below.';
+    const changed = () => { dirty = true; message.textContent = 'Unsaved wording changes.'; };
+    document.addEventListener('input', event => { if (event.target.closest('sds-copy[contenteditable]')) changed(); });
+    // Let ordinary text clicks place the caret. Only suppress link/button actions.
+    document.addEventListener('click', event => {
+      const node = event.target.closest('sds-copy[contenteditable]');
+      if (!node || event.altKey || !node.closest('a,button,summary,[role="button"]')) return;
+      event.preventDefault(); event.stopImmediatePropagation(); node.focus();
+      const selection = window.getSelection();
+      let range;
+      if (document.caretPositionFromPoint) {
+        const position = document.caretPositionFromPoint(event.clientX, event.clientY);
+        if (position && node.contains(position.offsetNode)) { range = document.createRange(); range.setStart(position.offsetNode, position.offset); range.collapse(true); }
+      } else if (document.caretRangeFromPoint) {
+        const position = document.caretRangeFromPoint(event.clientX, event.clientY);
+        if (position && node.contains(position.startContainer)) range = position;
+      }
+      if (!range) { range = document.createRange(); range.selectNodeContents(node); range.collapse(false); }
+      selection.removeAllRanges(); selection.addRange(range);
+    }, true);
+    // Plain text paste keeps the site's links, formatting and form structure intact.
+    document.addEventListener('paste', event => {
+      if (!event.target.closest('sds-copy[contenteditable]')) return;
+      event.preventDefault();
+      const selection = window.getSelection();
+      if (!selection.rangeCount) return;
+      const range = selection.getRangeAt(0); range.deleteContents();
+      const node = document.createTextNode(event.clipboardData.getData('text/plain')); range.insertNode(node); range.setStartAfter(node); range.collapse(true); selection.removeAllRanges(); selection.addRange(range); changed();
+    });
+    document.querySelectorAll('a[href]').forEach(link => {
+      const target = new URL(link.getAttribute('href'), location.href);
+      if (target.origin !== location.origin || /^\/(api|submissions|signin-with-chatgpt|signout-with-chatgpt)(\/|$)/.test(target.pathname)) return;
+      if (target.pathname === location.pathname && target.hash) return;
+      target.searchParams.set('edit', '1'); link.href = target.pathname + target.search + target.hash;
+    });
+    const copy = () => Object.fromEntries(editable.filter(node => node.textContent !== originals.get(node.dataset.sdsCopyId)).map(node => [node.dataset.sdsCopyId, node.textContent]));
     function snapshot() {
       const clone = document.body.cloneNode(true);
-      clone.querySelectorAll('[data-editor-ui],[data-sds-status]').forEach(e => e.remove());
-      clone.querySelectorAll('[data-sds-editable]').forEach(e => { e.removeAttribute('data-sds-editable'); e.removeAttribute('contenteditable'); });
-      // Form answers, uploaded files and error states are never included in the content draft.
-      clone.querySelectorAll('input:not([type=hidden]),textarea').forEach(e => { if (e.tagName === 'TEXTAREA') e.textContent = ''; else e.removeAttribute('value'); e.removeAttribute('checked'); });
+      clone.classList.remove('sds-editing');
+      clone.querySelectorAll('[data-editor-ui],[data-sds-status]').forEach(node => node.remove());
+      clone.querySelectorAll('[contenteditable]').forEach(node => { node.removeAttribute('contenteditable'); node.removeAttribute('spellcheck'); });
+      clone.querySelectorAll('input:not([type=hidden]),textarea').forEach(node => { if (node.tagName === 'TEXTAREA') node.textContent = ''; else node.removeAttribute('value'); node.removeAttribute('checked'); });
+      clone.querySelectorAll('a[href]').forEach(link => { const target = new URL(link.getAttribute('href'), location.href); if (target.origin === location.origin && target.searchParams.has('edit')) { target.searchParams.delete('edit'); link.setAttribute('href', target.pathname + target.search + target.hash); } });
       return clone.innerHTML;
     }
-    const save = document.createElement('button'); save.type = 'button'; save.textContent = 'Save draft';
-    save.onclick = async () => {
+    const button = (label, action) => { const node = document.createElement('button'); node.type = 'button'; node.textContent = label; node.onclick = action; bar.append(node); return node; };
+    const save = button('Save draft', async () => {
       save.disabled = true;
       try {
-        const result = await fetch('/api/editor/draft', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ path: location.pathname, baseSha256: draftInfo.baseSha256, bodyHtml: snapshot() }) });
-        const data = await result.json(); if (!result.ok) throw new Error(data.error); message.textContent = data.message;
-      } catch (error) { message.textContent = error.message || 'The draft could not be saved.'; }
+        const result = await fetch('/api/editor/draft', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ path, baseSha256: draftInfo.baseSha256, copy: copy() }) });
+        const data = await result.json(); if (!result.ok) throw new Error(data.error); dirty = false; message.textContent = 'Draft saved securely. It will load when you reopen this editor.';
+      } catch (error) { message.textContent = error.message || 'The draft could not be saved. Your changes are still here.'; }
       finally { save.disabled = false; }
-    }; bar.append(save);
-    const download = document.createElement('button'); download.type = 'button'; download.textContent = 'Download change request';
-    download.onclick = () => {
-      const blob = new Blob([JSON.stringify({ version: 1, path: location.pathname, baseSha256: draftInfo.baseSha256, bodyHtml: snapshot(), savedDraftUpdatedAt: draftInfo.draft?.updated_at || null }, null, 2)], { type: 'application/json' });
+    });
+    const panel = document.createElement('aside'); panel.className = 'sds-wording-panel'; panel.dataset.editorUi = ''; panel.hidden = true; panel.setAttribute('aria-label', 'All page wording');
+    const title = document.createElement('strong'); title.textContent = 'All page wording'; panel.append(title);
+    const searchLabel = document.createElement('label'); searchLabel.textContent = 'Find wording'; searchLabel.htmlFor = 'sds-copy-search'; panel.append(searchLabel);
+    const search = document.createElement('input'); search.id = 'sds-copy-search'; search.type = 'search'; panel.append(search);
+    const fields = [];
+    editable.forEach((node, i) => {
+      const row = document.createElement('div');
+      const label = document.createElement('label'); label.htmlFor = 'sds-copy-field-' + i;
+      const context = node.closest('.rights-slide,.about-slide,.testimonial-slide,header,nav,footer');
+      const slides = context && context.matches('.rights-slide,.about-slide,.testimonial-slide') ? [...context.parentElement.children].indexOf(context) + 1 : null;
+      label.textContent = (slides ? 'Slide ' + slides : context ? context.tagName.toLowerCase() : 'Page') + ' · ' + (i + 1);
+      const field = document.createElement('textarea'); field.id = label.htmlFor; field.value = node.textContent; field.oninput = () => { node.textContent = field.value; changed(); };
+      field.rows = Math.min(16, Math.max(4, Math.ceil(field.value.length / 60), field.value.split('\n').length + 1));
+      row.append(label, field); panel.append(row); fields.push({ node, field, row });
+    });
+    search.oninput = () => fields.forEach(({ node, row }) => { row.hidden = !node.textContent.toLowerCase().includes(search.value.toLowerCase()); });
+    const wording = button('All wording', () => { panel.hidden = !panel.hidden; wording.setAttribute('aria-expanded', String(!panel.hidden)); if (!panel.hidden) { fields.forEach(({ node, field }) => field.value = node.textContent); search.focus(); } }); wording.setAttribute('aria-expanded', 'false');
+    button('Download change request', () => {
+      const blob = new Blob([JSON.stringify({ version: 1, path, baseSha256: draftInfo.baseSha256, bodyHtml: snapshot(), savedDraftUpdatedAt: draftInfo.draft?.updated_at || null }, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = url; link.download = 'sds-page-change.json'; link.click(); URL.revokeObjectURL(url);
-      message.textContent = 'Change request downloaded. Apply it through the documented GitHub review workflow.';
-    }; bar.append(download);
+      message.textContent = 'Change request downloaded for publication.';
+    });
     const index = document.createElement('a'); index.href = '/editor'; index.textContent = 'All pages'; bar.append(index);
-    if (draftInfo.draft) { const info = document.createElement('a'); info.href = '/api/editor/draft?path=' + encodeURIComponent(location.pathname); info.textContent = 'Saved draft'; bar.append(info); }
-    document.body.append(bar);
+    if (draftInfo.draft) { const info = document.createElement('a'); info.href = '/api/editor/draft?path=' + encodeURIComponent(path); info.textContent = 'Saved draft'; bar.append(info); }
+    button('Done', () => { if (dirty && !confirm('Leave without saving your wording changes?')) return; dirty = false; pageUrl.searchParams.delete('edit'); location.assign(pageUrl.pathname + pageUrl.search + pageUrl.hash); });
+    window.addEventListener('beforeunload', event => { if (dirty) { event.preventDefault(); event.returnValue = ''; } });
+    document.body.append(panel);
   }
-  initialiseEditor().catch(() => {});
+  initialiseEditor().catch(() => {
+    const message = document.querySelector('.sds-editor-bar [role="status"]');
+    if (message) message.textContent = 'The editor could not connect. Please reload to try again.';
+  });
 })();
