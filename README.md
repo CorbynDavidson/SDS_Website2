@@ -1,50 +1,25 @@
-# SDS Housing Condition Claims
+# SDS website migration
 
-Source for the SDS-branded Housing Condition Claims website, exported from the current saved project (version 41).
+Replacement for https://www.sds-solicitors.com. Review: https://housingconditionclaims.org (noindex).
 
-## Full SDS replacement plan
+The active build preserves the original SDS wording, published URLs and metadata across the authoritative 248-page sitemap plus linked routes and pagination. [Developer handover](docs/HANDOVER.md) explains implementation, evidence and remaining production gates.
 
-The proposed replacement of the current SDS website must preserve original published wording, URLs and metadata. See [SDS_MIGRATION_PLAN.md](docs/SDS_MIGRATION_PLAN.md) for the phased scope, Git synchronisation workflow, required source export and production acceptance checks.
+## Development
 
-This plan is proposed work; the content migration and production cutover have not yet been performed.
-
-## Project structure
-
-- `src/`: page templates, CSS, structured page content and image assets.
-- `worker/`: Cloudflare Worker request handler template.
-- `scripts/`: Worker build and site validation utilities.
-- `db/`: enquiry database schema.
-- `drizzle/`: database migrations and migration metadata.
-- `.openai/hosting.json`: the existing Sites project and database binding configuration.
-
-## Build and validate
-
-Use Node.js 22 or later and npm.
+Requires Node 24.
 
 ```sh
-npm ci
-npm run build
-npm run validate
+npm ci --ignore-scripts
+npm run check
+npm run dev
 ```
 
-The build creates `dist/server/index.js`. The validation script checks the generated pages, internal links, assets, sitemap, redirects and missing-page response. It does not exercise a live enquiry database.
+The Worker build uses `worker/runtime.mjs`, imported original pages in `src/content/sds/`, source SEO in `src/seo/sds/`, shared presentation in `public/sds-theme.css` and D1/R2 runtime bindings. Captured raw originals and media are kept in Git; private submissions and secrets are not.
 
-`npm run db:generate` generates migrations after changes to the enquiry schema.
+[Coverage report](docs/migration/coverage.json) · [Original/review URL map](docs/migration/url-map.csv) · [Deployment](docs/DEPLOYMENT.md) · [Enquiries](docs/ENQUIRIES.md) · [Editing](docs/EDITOR_WORKFLOW.md) · [Launch gates](docs/LAUNCH_CHECKLIST.md) · [Rollback](docs/ROLLBACK.md)
 
-## Hosting and enquiries
+GitHub workflows capture/import public source and commit corresponding content/media/report files, then validate exact preservation and backend behaviour. The review deployment uses Sites. GitHub Pages alone cannot run the protected database/form handlers. Production DNS has not changed; the existing SDS domain remains the production canonical origin.
 
-This project currently runs as a Cloudflare Worker through its original Sites host. Saving the source to GitHub does not move or redeploy that website.
+## Migration proposal
 
-The enquiry form requires a Cloudflare D1 database bound as `DB`, with the migration in `drizzle/` applied. Database records and runtime credentials are not part of this repository.
-
-The submissions pages rely on authentication provided by the original Sites host. A different host must supply a trusted authentication integration before those pages are exposed. Keep the current host configuration when continuing to publish through Sites.
-
-The current source does not require dotenv variables. Do not commit credentials or local environment files.
-
-## Source provenance
-
-Original project: SDS Housing Condition Claims.
-
-Saved source commit: `f241782af256486d1523a2fb4c8d70a410d8e7a4`.
-
-Original application source is preserved. Installed dependencies, generated builds and older deployment archives are excluded from the export; repository documentation and ignore rules are added.
+The original accepted scope is recorded in [SDS_MIGRATION_PLAN.md](docs/SDS_MIGRATION_PLAN.md); use the handover and generated reports for current implementation status.

@@ -1,0 +1,11 @@
+{
+  "productionOrigin": "https://www.sds-solicitors.com",
+  "reviewOrigin": "https://housingconditionclaims.org",
+  "defaultReleaseMode": "review",
+  "sourceManifest": "migration/source-manifest.json",
+  "contentDirectory": "src/content/sds",
+  "preserveOriginalCopy": true,
+  "adminEmails": ["corbyn.davidson@hotmail.com"],
+  "repository": "CorbynDavidson/SDS_Website2",
+  "repositoryBranch": "main"
+}

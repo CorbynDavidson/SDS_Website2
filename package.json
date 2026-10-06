@@ -3,12 +3,22 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build-worker.mjs",
-    "validate": "node scripts/validate-worker.mjs",
-    "db:generate": "drizzle-kit generate"
+    "dev": "node scripts/dev.mjs",
+    "preview": "node scripts/dev.mjs",
+    "import:sds": "node scripts/import-sds-content.mjs",
+    "build": "node scripts/build-sds-worker.mjs",
+    "validate": "node scripts/validate-migration.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run build && npm run validate && npm test",
+    "db:generate": "drizzle-kit generate",
+    "capture:sds": "python scripts/capture-sds.py",
+    "publish:patch": "node scripts/apply-page-change.mjs"
   },
+  "engines": {"node": ">=24.0.0"},
   "devDependencies": {
+    "cheerio": "1.1.2",
     "drizzle-kit": "^0.31.4",
-    "drizzle-orm": "^0.44.5"
+    "drizzle-orm": "^0.44.5",
+    "wrangler": "4.147.0"
   }
 }

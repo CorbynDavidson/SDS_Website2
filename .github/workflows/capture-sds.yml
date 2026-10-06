@@ -25,25 +25,33 @@ jobs:
       - name: Install capture parser
         run: python -m pip install -r requirements-migration.txt
       - name: Capture published pages and first-party resources
-        run: python -u scripts/capture-sds.py --workers 4
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          request=json.loads(Path('migration/capture-request.json').read_text())
+          args=['python','-u','scripts/capture-sds.py','--workers','4']
+          if request.get('mode')=='resources-only': args.append('--resources-only')
+          subprocess.run(args,check=True)
+          PY
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install pinned development tools
+        run: npm install --ignore-scripts
+      - name: Import and verify exact source preservation
+        run: |
+          npm run import:sds
+          npm run check
       - name: Commit source records and media
         run: |
           git config user.name 'SDS migration automation'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add migration/source-pages migration/source-manifest.json migration/original-sitemap.xml migration/original-robots.txt public docs/migration/source-inventory.json
+          git add migration/source-pages migration/source-manifest.json migration/original-sitemap.xml migration/original-robots.txt public src/content/sds src/seo/sds docs/migration/source-inventory.json docs/migration/coverage.json docs/migration/url-map.csv docs/migration/build.json package-lock.json
           if ! git diff --cached --quiet; then
             git commit -m 'Capture published SDS pages, metadata and media'
             git push origin HEAD:main
           fi
-      - name: Verify capture completeness
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          data = json.loads(Path('migration/source-manifest.json').read_text())
-          assert data['complete'], 'Source capture has unresolved pages or resources; inspect source-inventory.json.'
-          print('Verified complete capture:', data['sitemap_url_count'], 'sitemap URLs')
-          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -54,5 +62,8 @@ jobs:
             migration/original-sitemap.xml
             migration/original-robots.txt
             public
-            docs/migration/source-inventory.json
+            src/content/sds
+            src/seo/sds
+            docs/migration
+            package-lock.json
           retention-days: 14

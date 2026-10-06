@@ -13,7 +13,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.parse import unquote, urljoin, urlsplit, urlunsplit
+from urllib.parse import unquote, urljoin, urlsplit, urlunsplit, parse_qsl, urlencode
 from urllib.request import Request, urlopen
 
 from lxml import etree, html
@@ -41,7 +41,8 @@ def canonical_url(url):
     if value.hostname not in HOSTS:
         return None
     # Preserve path case and trailing slash; remove ephemeral cache query strings.
-    return urlunsplit(('https', 'www.sds-solicitors.com', value.path or '/', '', ''))
+    query = urlencode([(k, v) for k, v in parse_qsl(value.query) if k.startswith('ccm_paging_p')])
+    return urlunsplit(('https', 'www.sds-solicitors.com', value.path or '/', query, ''))
 
 
 def safe_asset_path(url):
@@ -96,12 +97,18 @@ def describe_page(result):
                      for element in tree.xpath('//h1|//h2|//h3|//h4|//h5|//h6')],
     }
     resources = set()
-    for element in tree.xpath('//*[@src or @href or @srcset or @style or @poster]'):
+    for element in tree.xpath('//*[@src or @href or @srcset or @style or @poster or @*[local-name()="href"]] | //head/meta | //style'):
         values = []
         if element.tag in {'img', 'script', 'iframe', 'source', 'video', 'audio', 'input'}:
             values.extend([element.get('src'), element.get('poster')])
         if element.tag == 'link' and any(x in element.get('rel', '').lower() for x in ['stylesheet', 'icon', 'manifest']):
             values.append(element.get('href'))
+        if element.tag == 'use':
+            values.append(element.get('href') or element.get('{http://www.w3.org/1999/xlink}href'))
+        if element.tag == 'meta' and re.search('image', element.get('property', '') + element.get('name', ''), re.I):
+            values.append(element.get('content'))
+        if element.tag == 'style':
+            values.extend(re.findall(r'url\(\s*[\"\']?([^\)\"\']+)', element.text or ''))
         if element.tag == 'a' and re.search(r'\.(?:pdf|docx?|xlsx?|csv|zip|jpg|jpeg|png|webp|svg)(?:[?#]|$)', element.get('href', ''), re.I):
             values.append(element.get('href'))
         values.extend(item.strip().split(' ')[0] for item in element.get('srcset', '').split(',') if item.strip())
@@ -153,6 +160,7 @@ def main():
     parser.add_argument('--workers', type=int, default=4)
     parser.add_argument('--max-discovered-pages', type=int, default=100)
     parser.add_argument('--skip-assets', action='store_true')
+    parser.add_argument('--resources-only', action='store_true', help='Reuse captured pages and media; supplement resource discovery and pagination.')
     args = parser.parse_args()
     started = stamp()
     print('Retrieving original sitemap and robots...', flush=True)
@@ -168,14 +176,19 @@ def main():
     xml = etree.fromstring(sitemap['data'])
     seeds = sorted({canonical_url(url) for url in xml.xpath('//*[local-name()="loc"]/text()') if canonical_url(url)})
     print(f'Sitemap contains {len(seeds)} URLs.', flush=True)
+    previous = json.loads((source_dir / 'source-manifest.json').read_text()) if args.resources_only else None
     pages = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, min(args.workers, 6))) as pool:
-        for index, page in enumerate(pool.map(capture_page, seeds), 1):
+        if previous:
+            page_iterator = (describe_page(p | {'data': gzip.decompress((ROOT / p['source_file']).read_bytes())}) if p.get('source_file') else p for p in previous['pages'])
+        else:
+            page_iterator = pool.map(capture_page, seeds)
+        for index, page in enumerate(page_iterator, 1):
             pages.append(page)
             if index % 10 == 0 or page.get('error'):
                 print(f'Pages {index}/{len(seeds)}; latest {page["status"]} {page["url"]}', flush=True)
                 write_json(source_dir / 'capture-progress.json', {'started_at': started, 'pages': pages})
-        known = set(seeds)
+        known = {p['url'] for p in pages}
         discovered = sorted({link for p in pages for link in p.get('internal_links', []) if link not in known
                              and not re.search(r'\.(?:pdf|docx?|xlsx?|csv|zip|jpg|jpeg|png|webp|svg|css|js)$', urlsplit(link).path, re.I)
                              and not re.search(r'^/(?:index\.php|login|logout|dashboard|submit|ccm|application|concrete|packages)(?:/|$)', urlsplit(link).path)})
@@ -184,9 +197,29 @@ def main():
         for page in pool.map(capture_page, discovered[:args.max_discovered_pages]):
             pages.append(page)
             print(f'Discovered {page["status"]} {page["url"]}', flush=True)
-    assets = []
+        # Pagination links may appear only on the next listing page.
+        while len(discovered) < args.max_discovered_pages:
+            known = {p['url'] for p in pages}
+            more = sorted({link for p in pages for link in p.get('internal_links', []) if link not in known
+                           and not re.search(r'\.(?:pdf|docx?|xlsx?|csv|zip|jpg|jpeg|png|webp|svg|css|js)$', urlsplit(link).path, re.I)
+                           and not re.search(r'^/(?:index\.php|login|logout|dashboard|submit|ccm|application|concrete|packages)(?:/|$)', urlsplit(link).path)})
+            if not more:
+                break
+            allowance = args.max_discovered_pages - len(discovered)
+            discovered.extend(more)
+            for page in pool.map(capture_page, more[:allowance]):
+                pages.append(page)
+                print(f'Discovered {page["status"]} {page["url"]}', flush=True)
+    assets = list(previous['assets']) if previous else []
     pending = {url for p in pages for url in p.get('resources', [])}
-    seen = set()
+    seen = {a['url'] for a in assets}
+    for a in assets:
+        if a.get('file') and a['file'].endswith('.css'):
+            css = (ROOT / a['file']).read_text(errors='replace')
+            for value in re.findall(r'url\(\s*[\"\']?([^\)\"\']+)', css):
+                url = canonical_url(urljoin(a['url'], value.strip()))
+                if url and url not in seen:
+                    pending.add(url)
     if not args.skip_assets:
         with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, min(args.workers, 6))) as pool:
             while pending:
@@ -223,7 +256,7 @@ def main():
     write_json(source_dir / 'source-manifest.json', manifest)
     write_json(ROOT / 'docs/migration/source-inventory.json', {
         'source_origin': ORIGIN, 'captured_at': manifest['completed_at'], 'sitemap_pages': len(seeds),
-        'captured_pages': len(pages) - len(failures), 'discovered_pages': len(discovered),
+        'captured_pages': len(pages) - len(failures), 'discovered_pages': len(pages) - len(seeds),
         'captured_assets': len(assets) - len(asset_failures), 'asset_bytes': sum(a.get('bytes', 0) for a in assets),
         'unresolved_pages': failures, 'unresolved_assets': asset_failures, 'complete': manifest['complete']})
     print(json.dumps({key: manifest[key] for key in ['complete', 'sitemap_url_count', 'unresolved_pages', 'unresolved_assets']}))

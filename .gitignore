@@ -24,6 +24,10 @@ scratch/
 *.sqlite
 *.sqlite3
 *.db
+__pycache__/
+*.pyc
+.data/
+migration/capture-progress.json
 
 # Generated archives
 *.tar

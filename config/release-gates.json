@@ -1,0 +1,9 @@
+{
+  "originalWizardRulesVerified": false,
+  "leadFollowUpRoutingVerified": false,
+  "analyticsAndConsentVerified": false,
+  "searchConsoleInventoryReviewed": false,
+  "productionBackupAndRestoreVerified": false,
+  "mobileAndAccessibilityReviewSignedOff": false,
+  "productionDomainAndRollbackConfirmed": false
+}

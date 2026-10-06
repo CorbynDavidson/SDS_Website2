@@ -159,3 +159,4 @@ Acceptance: complete source coverage; no unexplained wording/metadata difference
 A complete export of published SDS pages, metadata and media is the most reliable starting point. A full raw HTML crawl is an alternative if all relevant pages are accessible. The current public retrieval attempts have been inconsistent, so completeness must be checked rather than assumed.
 
 The host/CMS integration, original tracking settings, Search Console/analytics URL data and any existing enquiry-data transfer requirements must also be confirmed. Work on repository checks, structured import support and documentation can proceed while these inputs are collected.
+

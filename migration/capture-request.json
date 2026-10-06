@@ -3,5 +3,7 @@
   "request": "full-exact-content-migration-2026-10-06",
   "preserve_wording": true,
   "preserve_metadata": true,
-  "preserve_url_paths": true
+  "preserve_url_paths": true,
+  "revision": 2,
+  "mode": "resources-only"
 }
