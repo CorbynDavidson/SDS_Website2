@@ -132,7 +132,7 @@
     "productionDnsChanged": false,
     "productionReleaseReady": false
   },
-  "currentlyDeployedRelease": "layoutCorrections",
+  "currentlyDeployedRelease": "welcomeAndForms",
   "layoutCorrections": {
     "versionNumber": 49,
     "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_c199c3e18214819187efa28ccd0653f9",
@@ -169,6 +169,47 @@
     },
     "browserVisualAuditComplete": false,
     "browserVisualAuditBlocker": "The required control-browser skill is unavailable in this execution environment.",
+    "productionDnsChanged": false,
+    "productionReleaseReady": false
+  },
+  "welcomeAndForms": {
+    "versionNumber": 50,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_0492b6c918188191880b3049c8ffbe32",
+    "sourceCommit": "c651e0e3dec5fe903f3b027beae4a4b5143c6f7b",
+    "githubCommit": "e389c9e77965ce6b0724af479db73758f95f9c16",
+    "deploymentId": "appgdep_6ac46388971881919e9984dae846aa6b",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T02:57:36.344362+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "archive": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000fdf082109f07fd2151af9ee8",
+      "content_hash": "sha256:3a1b71952b5ec639e6f4deb942aed8f52257e71fcdae501f2c013fbb6dea3894",
+      "size_bytes": 64122880,
+      "file_count": 277
+    },
+    "originalContentAndSeoRoutesVerified": 296,
+    "retainedCopyBlocksVerified": 20228,
+    "originalMediaVerifiedLocally": 73,
+    "internalLinksVerified": 155,
+    "singleEnquiryWidgetRoutesVerified": 296,
+    "secondaryEnquiryWidgetsRemoved": 172,
+    "primaryFormFieldsPreserved": 176,
+    "welcomeMessageCarouselVerified": true,
+    "fallbackLayoutsVerified": 2,
+    "headerGapCssPixels": 48,
+    "backendTestsPassed": 13,
+    "originalSubmissionHandlersRetained": 7,
+    "renderedEnquirySchemas": 6,
+    "githubFilesVerified": 306,
+    "githubAllChangedFilesMatch": true,
+    "githubCi": {
+      "id": 37406574783,
+      "conclusion": "success",
+      "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37406574783"
+    },
+    "browserVisualAuditComplete": false,
     "productionDnsChanged": false,
     "productionReleaseReady": false
   }
