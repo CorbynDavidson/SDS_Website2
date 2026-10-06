@@ -25,6 +25,11 @@
   "disrepairTypeEnquiryPanelsVerified": 27,
   "housingGuideEnquiryPanelsVerified": 8,
   "otherPagesWithoutEnquiryPanelChangesVerified": 150,
+  "reviewTermsLinksVerified": 66,
+  "termsOnlyStylesheetVerified": true,
+  "termsWordingCharacters": 44449,
+  "termsWordingSha256": "a2c68a66d5c6a3665951632724582b5a8f8460736544d09cdd6e519ad8b96ea0",
+  "termsTablesPreserved": 3,
   "claimCtasVerified": 32,
   "approvedVersion53DesignRestored": true,
   "reviewStylesheetsLoadFromCurrentBuild": true

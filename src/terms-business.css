@@ -1,0 +1,37 @@
+/* Terms of Business: reuse the approved site's colours, typography and framing. */
+.sds-legal-page > .service-hero {
+  width: min(1240px, calc(100% - 64px));
+  margin-inline: auto;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+}
+.sds-legal-page > .service-hero > .wrap {
+  width: calc(100% - 64px);
+  max-width: none;
+}
+.sds-legal-page > .source-copy-section {
+  min-width: 0;
+  margin-top: 32px;
+  margin-bottom: 64px;
+  padding: clamp(24px, 4vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #f4f9fa;
+}
+.sds-legal-page .sds-source-copy table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+@media (max-width: 760px) {
+  .sds-legal-page > .service-hero,
+  .sds-legal-page > .service-hero > .wrap,
+  .sds-legal-page > .source-copy-section {
+    width: calc(100% - 36px);
+  }
+  .sds-legal-page > .source-copy-section {
+    margin-bottom: 40px;
+    padding: 24px 20px;
+  }
+}

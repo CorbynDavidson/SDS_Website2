@@ -33,6 +33,7 @@ const reviewsHomeHtml=await (await approved.fetch(new Request(config.productionO
 const forms=await readJson('src/content/sds/forms.json');
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const enquiryPanelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
+const termsBusinessCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
 const enquiryPanelScope=await readJson('config/enquiry-panel.json');
 const panelTypes=new Set([...enquiryPanelScope.disrepairTypePaths,...enquiryPanelScope.housingGuidePaths]);
 const panelPath=path=>path.split('?')[0].replace(/\/+$/,'')+'/';
@@ -96,6 +97,7 @@ for(const page of index.pages) {
   html=html.replace(/<div id="siteEditor"[\s\S]*?<\/div>/g,'');
   html=html.replace(/<div class="site-editor" id="siteEditor"[\s\S]*?<\/div>/g,'').replace(/<div class="editor-bar" id="editorBar"[\s\S]*?<\/div>/g,'');
   if(hasEnquiryPanel(page.path))html=addEnquiryPanel(html,enquiryPanelCss);
+  if(panelPath(page.path)==='/about-us/terms-business/')html=html.replace('</head>','<style id="sds-terms-business">'+termsBusinessCss+'</style></head>');
   html=applyProductionSeo(html,{config,path:page.path,redirects});
   const digest=sha256(page.sourceUrl).slice(0,24);
   const contentFile='src/content/current-design/pages/'+digest+'.html';
@@ -171,13 +173,13 @@ export default {async fetch(request,env={},ctx={}){
       else response=new Response('Source asset unavailable',{status:503,headers});
     }
   }else if(get&&contentData.assets[url.pathname])response=await contentBackend.fetch(request,env,ctx);
-  else if(get&&contentLookup(url))response=new Response(await contentHtml(contentLookup(url)),{headers:{'content-type':'text/html; charset=utf-8','cache-control':url.searchParams.has('edit')?'no-store':'public, max-age=300'}});
+  else if(get&&contentLookup(url))response=new Response(productionRouting.publicHtml(await contentHtml(contentLookup(url)),url),{headers:{'content-type':'text/html; charset=utf-8','cache-control':url.searchParams.has('edit')?'no-store':'public, max-age=300'}});
   else if(url.pathname==='/sitemap.xml'&&get)response=new Response(contentData.sitemap,{headers:{'content-type':'application/xml; charset=utf-8'}});
   else if(url.pathname==='/robots.txt'&&get)response=new Response(productionRouting.robots(url,env),{headers:{'content-type':'text/plain; charset=utf-8','cache-control':'public, max-age=300'}});
   else if(get&&contentData.routes.gone.includes(url.pathname))response=new Response('This page is no longer available.',{status:410,headers:{'content-type':'text/plain; charset=utf-8'}});
   else if(url.pathname==='/health'||url.pathname.startsWith('/api/forms/')||url.pathname.startsWith('/api/editor/')||url.pathname==='/editor'||url.pathname.startsWith('/submissions'))response=await contentBackend.fetch(request,env,ctx);
   else {if(url.pathname==='/api/leads'&&request.method==='POST'&&(request.headers.get('origin')!==url.origin||request.headers.get('sec-fetch-site')==='cross-site'))return Response.json({error:'Please submit from this website.'},{status:403});response=await approvedDesignWorker.fetch(head?new Request(request.url,{headers:request.headers}):request,env,ctx);
-    if(get&&response.status===200&&response.headers.get('content-type')?.includes('text/html'))response=new Response((await response.text()).replace('</head>',${JSON.stringify(fallbackLayoutHead)}+'</head>'),response);
+    if(get&&response.status===200&&response.headers.get('content-type')?.includes('text/html'))response=new Response(productionRouting.publicHtml((await response.text()).replace('</head>',${JSON.stringify(fallbackLayoutHead)}+'</head>'),url),response);
   }
   return productionRouting.finish(response,url,env,head);
 }};

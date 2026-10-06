@@ -6,6 +6,7 @@ import {gunzipSync} from 'node:zlib';
 import {createHash} from 'node:crypto';
 import {load} from 'cheerio';
 import {localD1} from './lib/local-d1.mjs';
+import {extractContent} from './lib/current-design-content.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
@@ -21,12 +22,16 @@ const panelScope=await readJson('config/enquiry-panel.json');
 const panelTypes=new Set(panelScope.disrepairTypePaths);
 const panelGuides=new Set(panelScope.housingGuidePaths);
 const panelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
+const termsCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
 const report={productionOrigin:origin,capturedRoutesVerified:0,allPublicBuildRoutesVerified:0,originalSitemapUrlsVerified:0,productionSitemapUrlsVerified:0,legalServiceSchemasVerified:0,disrepairServiceSchemasVerified:0,permanentRedirectsVerified:0,knownNonHousingRoutesVerified:0,internalAbsoluteLinksVerified:0,reviewNoindexVerified:false,productionRobotsVerified:false,privateRoutesNoindexVerified:false,termsExactWordingVerified:false,claimCtaDestinationPreserved:false,wizardFormsConsistent:false,sharedRoundedPanelsVerified:false,historicalInventoryComplete:false};
 report.sameOriginHeadResourcesVerified=0;report.reviewStylesheetLinksVerified=0;report.approvedStylesheetAssetsVerified=0;
 report.roundedEnquiryPanelsVerified=0;report.locationEnquiryPanelsVerified=0;report.disrepairTypeEnquiryPanelsVerified=0;report.housingGuideEnquiryPanelsVerified=0;report.otherPagesWithoutEnquiryPanelChangesVerified=0;
+report.reviewTermsLinksVerified=0;report.termsOnlyStylesheetVerified=false;
 for(const [path,page] of Object.entries(data.pages)){
   const html=gunzipSync(Buffer.from(page.gzip,'base64')).toString(),$=load(html);
   const normalPath=path.split('?')[0].replace(/\/+$/,'')+'/';
+  if(normalPath==='/about-us/terms-business/')assert.equal($('#sds-terms-business').text(),termsCss,path);
+  else assert.equal($('#sds-terms-business').length,0,'Terms styling leaked to another page: '+path);
   const locationPanel=normalPath.startsWith(panelScope.locationPrefix),typePanel=panelTypes.has(normalPath),guidePanel=panelGuides.has(normalPath);
   if(locationPanel||typePanel||guidePanel){
     assert.equal($('main > header.service-hero.source-enquiry-panel').length,1,'Missing rounded enquiry section: '+path);
@@ -69,6 +74,15 @@ for(const [path,page] of Object.entries(data.pages)){
   assert.ok([200,301].includes(response.status),path+' '+response.status);
   assert.ok(!response.headers.has('x-robots-tag'),path);
   if(response.status===301){const next=await request(response.headers.get('location'));assert.equal(next.status,200,'Redirect chain/broken target: '+path);}
+  const reviewPage=load(await(await request(review+path)).text());
+  for(const node of reviewPage('a[href]').toArray()){
+    const target=new URL(node.attribs.href,review+path);
+    if(target.pathname.replace(/\/+$/,'')!=='/about-us/terms-business')continue;
+    assert.equal(target.origin,review,'Terms link opens the old website: '+path);
+    assert.equal(target.pathname,'/about-us/terms-business/');
+    report.reviewTermsLinksVerified++;
+  }
+  assert.equal(reviewPage('head link[rel=canonical]').attr('href'),canonical,'Review canonical changed: '+path);
   const head=await request(origin+path,'HEAD');assert.equal(head.status,response.status,path);assert.equal(await head.text(),'');
   report.allPublicBuildRoutesVerified++;
 }
@@ -113,10 +127,14 @@ for(const path of ['/submissions','/submissions.csv','/editor','/?edit=1','/stag
 const terms=$=>$('main [data-source-copy]').toArray().filter(node=>!$(node).parents('[data-source-copy]').length).map(node=>$(node).text().replace(/\s+/gu,' ').trim()).join(' ').replace(/\s+/g,' ').trim();
 const termPage=load(await(await request(origin+'/about-us/terms-business/')).text());assert.ok(termPage('main').hasClass('sds-legal-page'));
 const capturedTerms=index.pages.find(page=>page.path==='/about-us/terms-business/'),sourceTerms=load(await readFile(resolve(root,capturedTerms.contentFile),'utf8'));
+const exactTermsText=extractContent(await readFile(resolve(root,capturedTerms.contentFile),'utf8')).text;
 const oldText=sourceTerms('#banner,#top,#central,#wide,#wrapper > .cms-container:not(#call)').text().replace(/\s+/gu,' ').trim();
 // The full original-copy comparison in validate-current-content is independent
 // of presentation; this additionally verifies the legal-page style and tables.
-assert.ok(terms(termPage).startsWith('TERMS OF BUSINESS'));assert.ok(termPage('main table').length>=sourceTerms('#top table,#central table,#wide table').length);assert.ok(oldText.length>40000);report.termsExactWordingVerified=true;
+assert.equal(terms(termPage),exactTermsText,'Terms wording or order changed');
+assert.equal(termPage('main table').length,sourceTerms('#top table,#central table,#wide table').length,'Terms tables changed');
+assert.ok(oldText.length>40000);assert.ok(report.reviewTermsLinksVerified>0);report.termsExactWordingVerified=true;report.termsOnlyStylesheetVerified=true;
+report.termsWordingCharacters=exactTermsText.length;report.termsWordingSha256=createHash('sha256').update(exactTermsText).digest('hex');report.termsTablesPreserved=termPage('main table').length;
 const enquiry=load(await(await request(origin+'/housing-disrepair-enquiries/')).text());assert.equal(enquiry('[data-source-wizard-card]').length,1);assert.equal(enquiry('form[data-sds-wizard]').length,1);assert.equal(enquiry('form[data-sds-wizard]').attr('id'),'hdr_multi_step');assert.equal(enquiry('button[data-sds-wizard-button]').length,5);
 assert.ok(enquiry('#sds-content-controls').text().includes('[class*="hide_when_"]'));report.wizardFormsConsistent=true;
 let ctas=0;

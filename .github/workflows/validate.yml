@@ -37,6 +37,7 @@ jobs:
             docs/migration/content-validation.json
             docs/migration/layout-validation.json
             docs/migration/enquiry-panel-validation.json
+            docs/migration/terms-business-validation.json
             docs/migration/reviews-validation.json
             docs/migration/production-seo-validation.json
             docs/migration/production-routing.json

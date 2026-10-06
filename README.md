@@ -18,6 +18,8 @@ Location, disrepair-type and the eight Housing Guides introductory sections now 
 
 Version 54 prepares all metadata, sharing URLs and public internal links for `https://www.sds-solicitors.com`, adds global LegalService schema and disrepair Service schema, and applies tested Worker redirects and host-aware crawl controls. Terms of Business keeps the exact existing wording in the current design. Claim enquiry pages keep their migration URLs and all fields, with one form owner and shared styling. The user rejected the version-54 panel changes; the version-53 layout and colours are restored while keeping SEO and form fixes. No production DNS changes are included.
 
+Terms of Business is available at `/about-us/terms-business/` with the full original wording, all three tables and the approved site's rounded framing. Its links open the current website, including without JavaScript and in a new tab. The production canonical and SEO metadata remain on the original SDS URL. See [the exact-wording and design verification](docs/migration/terms-business-validation.json).
+
 The immutable originals and earlier CMS-layout candidate remain on [migration/exact-sds-content](https://github.com/CorbynDavidson/SDS_Website2/tree/migration/exact-sds-content). Its visual layout is not the selected design.
 
 ## Development
