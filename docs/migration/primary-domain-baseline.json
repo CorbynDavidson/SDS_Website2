@@ -1,0 +1,145 @@
+{
+  "checkedAt": "2026-10-06T07:45:04.657367+00:00",
+  "source": "Public DNS Google DoH; pre-cutover snapshot; no DNS writes",
+  "records": [
+    {
+      "host": "sds-solicitors.com",
+      "type": "A",
+      "status": 0,
+      "answers": [
+        {
+          "name": "sds-solicitors.com.",
+          "type": 1,
+          "TTL": 60,
+          "data": "82.145.55.47"
+        }
+      ]
+    },
+    {
+      "host": "sds-solicitors.com",
+      "type": "AAAA",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "host": "sds-solicitors.com",
+      "type": "CNAME",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "host": "sds-solicitors.com",
+      "type": "MX",
+      "status": 0,
+      "answers": [
+        {
+          "name": "sds-solicitors.com.",
+          "type": 15,
+          "TTL": 60,
+          "data": "0 sdssolicitors-com0i.mail.protection.outlook.com."
+        }
+      ]
+    },
+    {
+      "host": "sds-solicitors.com",
+      "type": "NS",
+      "status": 0,
+      "answers": [
+        {
+          "name": "sds-solicitors.com.",
+          "type": 2,
+          "TTL": 60,
+          "data": "ns0.ukfast.net."
+        },
+        {
+          "name": "sds-solicitors.com.",
+          "type": 2,
+          "TTL": 60,
+          "data": "ns1.ukfast.net."
+        }
+      ]
+    },
+    {
+      "host": "sds-solicitors.com",
+      "type": "CAA",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "host": "www.sds-solicitors.com",
+      "type": "A",
+      "status": 0,
+      "answers": [
+        {
+          "name": "www.sds-solicitors.com.",
+          "type": 1,
+          "TTL": 59,
+          "data": "82.145.55.47"
+        }
+      ]
+    },
+    {
+      "host": "www.sds-solicitors.com",
+      "type": "AAAA",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "host": "www.sds-solicitors.com",
+      "type": "CNAME",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "host": "www.sds-solicitors.com",
+      "type": "MX",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "host": "www.sds-solicitors.com",
+      "type": "NS",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "host": "www.sds-solicitors.com",
+      "type": "CAA",
+      "status": 0,
+      "answers": []
+    }
+  ],
+  "certificates": [
+    {
+      "host": "sds-solicitors.com",
+      "error": "gaierror"
+    },
+    {
+      "host": "www.sds-solicitors.com",
+      "error": "gaierror"
+    }
+  ],
+  "httpsChecks": [
+    {
+      "url": "http://sds-solicitors.com/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/"
+    },
+    {
+      "url": "http://www.sds-solicitors.com/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/"
+    },
+    {
+      "url": "https://sds-solicitors.com/",
+      "status": 301,
+      "location": "https://www.sds-solicitors.com/"
+    },
+    {
+      "url": "https://www.sds-solicitors.com/",
+      "status": 200,
+      "location": null
+    }
+  ],
+  "certificateInspectionLimitation": "Direct TCP certificate inspection was unavailable in this execution environment. HTTPS requests completed with normal TLS verification; no certificate checks were disabled."
+}

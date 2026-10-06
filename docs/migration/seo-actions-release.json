@@ -1,0 +1,31 @@
+{
+  "version": 65,
+  "sourceCommit": "61a334f6bd4ea35fc03a53ff304a311dd6c3a5f4",
+  "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_fccea53345bc8191b9b5997c9f75621c",
+  "deploymentId": "appgdep_6ac4b54941a08191a71445d9af37b1b3",
+  "deploymentStatus": "succeeded",
+  "environmentRevision": 2,
+  "releaseMode": "review",
+  "reviewOrigin": "https://housingconditionclaims.org",
+  "primaryDnsChanged": false,
+  "artifactVerification": {
+    "archive": "/workspace/scratch/4d61a0184e5e/sds-seo-actions-verified.tar",
+    "fileCount": 267,
+    "sha256": "84d2d4c95cd3a19f615d596b903a0dc07be8692c51f8ecb532debc691e07dee5",
+    "everyArchivedFileVerified": true,
+    "staticBypassRoutesExcluded": true,
+    "releaseFingerprint": "31cb86e9bb4f6de09a7a8860b982a4d011294372764ee5097ae78e73566bc14c"
+  },
+  "localValidation": {
+    "migratedContentRoutes": 324,
+    "publicTemplates": 325,
+    "productionSitemapUrls": 243,
+    "permanentRedirects": 579,
+    "retirementRedirects": 83,
+    "runtimeTests": 16,
+    "privateImportTests": 2
+  },
+  "livePageAndAssetAuditStatus": "running",
+  "verifiedGooglebot": false,
+  "performanceStatus": "PageSpeed API returned HTTP 429; Lighthouse/field Core Web Vitals pending"
+}

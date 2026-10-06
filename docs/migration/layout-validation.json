@@ -1,6 +1,6 @@
 {
-  "bannerRemovalRoutesVerified": 296,
-  "standardFormsUsingHomepageCard": 174,
+  "bannerRemovalRoutesVerified": 324,
+  "standardFormsUsingHomepageCard": 175,
   "benefitRowsVerified": 168,
   "processRowsVerified": 2,
   "twoColumnDisrepairGridsVerified": 125,
@@ -8,9 +8,9 @@
   "duplicateLocationProfileCardsRemoved": 1,
   "wizardCardsVerified": 1,
   "layoutCssMatchesGitFile": true,
-  "singleEnquiryWidgetRoutesVerified": 296,
+  "singleEnquiryWidgetRoutesVerified": 324,
   "secondaryEnquiryWidgetsRemoved": 172,
-  "primaryFormFieldsPreserved": 176,
+  "primaryFormFieldsPreserved": 177,
   "welcomeMessageCarouselVerified": true,
   "fallbackLayoutsVerified": 1
 }

@@ -4,7 +4,10 @@ import { gunzipSync } from 'node:zlib';
 import { parse, bodyText, metadata, sha256, normaliseText } from './lib/html.mjs';
 
 const root = resolve(import.meta.dirname, '..');
-const manifest = JSON.parse(await readFile(resolve(root, 'migration/source-manifest.json'), 'utf8'));
+const supplemental=process.argv.includes('--supplemental');
+const contentDirectory=supplemental?'src/content/supplemental':'src/content/sds';
+const seoDirectory=supplemental?'src/seo/supplemental':'src/seo/sds';
+const manifest = JSON.parse(await readFile(resolve(root, supplemental?'migration/supplemental-source-manifest.json':'migration/source-manifest.json'), 'utf8'));
 const records = [];
 const formDefinitions = {};
 const isTracking = value => /googletagmanager|google-analytics|gtag\(|ksrndkehqnwntyxlhgto|\$wc_|clarity\.ms|connect\.facebook|fbq\(|facebook\.com\/tr|cookieinformation|GTM-/i.test(value);
@@ -14,8 +17,8 @@ const localise = value => {
   return url.pathname + url.search + url.hash;
 };
 
-await mkdir(resolve(root, 'src/content/sds/pages'), { recursive: true });
-await mkdir(resolve(root, 'src/seo/sds/pages'), { recursive: true });
+await mkdir(resolve(root, contentDirectory+'/pages'), { recursive: true });
+await mkdir(resolve(root, seoDirectory+'/pages'), { recursive: true });
 for (const record of manifest.pages) {
   if (!record.source_file) continue;
   const raw = gunzipSync(await readFile(resolve(root, record.source_file))).toString('utf8');
@@ -107,13 +110,13 @@ for (const record of manifest.pages) {
   $('body').append('<script src="/sds-runtime.js" defer></script>');
   const html = $.html();
   if (bodyText(html) !== sourceText) throw new Error('Import changed original wording: ' + record.url);
-  const contentFile = 'src/content/sds/pages/' + digest + '.html';
-  const seoFile = 'src/seo/sds/pages/' + digest + '.json';
+  const contentFile = contentDirectory+'/pages/' + digest + '.html';
+  const seoFile = seoDirectory+'/pages/' + digest + '.json';
   await writeFile(resolve(root, contentFile), html);
   await writeFile(resolve(root, seoFile), JSON.stringify(originalMetadata, null, 2) + '\n');
   records.push({ path: sourcePath, sourceUrl: record.url, finalUrl: record.final_url, sourceSha256: record.sha256,
     contentFile, seoFile, originalTextSha256: sha256(sourceText), sourceStatus: record.status });
 }
-await writeFile(resolve(root, 'src/content/sds/index.json'), JSON.stringify({ sourceCompletedAt: manifest.completed_at, sourceOrigin: manifest.source_origin, pages: records }, null, 2) + '\n');
-await writeFile(resolve(root, 'src/content/sds/forms.json'), JSON.stringify(formDefinitions, null, 2) + '\n');
+await writeFile(resolve(root, contentDirectory+'/index.json'), JSON.stringify({ sourceCompletedAt: manifest.completed_at, sourceOrigin: manifest.source_origin, pages: records }, null, 2) + '\n');
+await writeFile(resolve(root, contentDirectory+'/forms.json'), JSON.stringify(formDefinitions, null, 2) + '\n');
 console.log('Imported original wording and metadata for ' + records.length + ' SDS pages; ' + Object.keys(formDefinitions).length + ' form definitions.');

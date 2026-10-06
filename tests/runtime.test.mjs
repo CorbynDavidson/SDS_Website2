@@ -13,6 +13,27 @@ const post=(definition,fields=validFields(definition),overrides={})=>new Request
 const admin=path=>new Request(origin+path,{headers:{'oai-authenticated-user-email':owner}});
 async function fixture(t){const DB=await localD1();t.after(()=>DB.close());return{worker:createWorker(data),env:{...base,DB},DB};}
 
+test('Captured asset routes override generic hosting MIME and retain GET, HEAD and ETag behavior',async()=>{
+ const [path,asset]=Object.entries(data.assets).find(([,a])=>a.storagePath&&a.type==='image/webp');
+ const requests=[],worker=createWorker(data),env={...base,ASSETS:{async fetch(request){requests.push(new URL(request.url).pathname);return new Response('verified image bytes',{headers:{'content-type':'application/octet-stream'}});}}};
+ const get=await worker.fetch(new Request(origin+path),env);
+ assert.equal(get.status,200);assert.equal(get.headers.get('content-type'),asset.type);assert.equal(await get.text(),'verified image bytes');
+ assert.equal(requests[0],asset.storagePath);assert.equal(get.headers.get('etag'),'"'+asset.sha256+'"');
+ const head=await worker.fetch(new Request(origin+path,{method:'HEAD'}),env);assert.equal(head.status,200);assert.equal(head.headers.get('content-type'),asset.type);assert.equal(await head.text(),'');
+ const cached=await worker.fetch(new Request(origin+path,{headers:{'if-none-match':get.headers.get('etag')}}),env);assert.equal(cached.status,304);assert.equal(requests.length,2);
+});
+
+test('The deployment contains exact captured bytes only at internal storage paths',async()=>{
+ for(const path of ['/robots.txt','/sitemap.xml'])await assert.rejects(readFile(resolve(root,'build/deployment-client'+path)),{code:'ENOENT'},path+' must execute host-aware crawl policy');
+ for(const [path,asset] of Object.entries(data.assets)){
+  if(!asset.storagePath)continue;
+  const stored=await readFile(resolve(root,'build/deployment-client'+asset.storagePath));
+  assert.equal(stored.length,asset.bytes,path);
+  assert.equal(await crypto.subtle.digest('SHA-256',stored).then(value=>Buffer.from(value).toString('hex')),asset.sha256,path);
+  await assert.rejects(readFile(resolve(root,'build/deployment-client'+path)),{code:'ENOENT'},path+' would bypass Worker MIME and domain policy');
+ }
+});
+
 test('Every original form schema accepts complete responses and persists labelled values',async t=>{
  const{worker,env,DB}=await fixture(t);
  for(const definition of Object.values(data.forms)){
@@ -133,7 +154,7 @@ test('Review pages are noindex with analytics disabled; production metadata is r
 
 test('Bundled media is served with release hashes; an empty static binding does not hide embedded or R2 assets',async t=>{
  const{worker,env}=await fixture(t),path=Object.keys(data.assets).find(path=>!data.assets[path].base64),asset=data.assets[path],bytes=await readFile(resolve(root,'public'+path));
- env.ASSETS={async fetch(request){assert.equal(new URL(request.url).pathname,path);return new Response(bytes,{headers:{'content-type':'application/octet-stream'}});}};
+ env.ASSETS={async fetch(request){assert.equal(new URL(request.url).pathname,asset.storagePath||path);return new Response(bytes,{headers:{'content-type':'application/octet-stream'}});}};
  let response=await worker.fetch(new Request(origin+path),env);
  assert.equal(response.status,200);assert.deepEqual(Buffer.from(await response.arrayBuffer()),bytes);assert.equal(response.headers.get('etag'),'"'+asset.sha256+'"');assert.equal(response.headers.get('content-type'),asset.type);
  env.ASSETS={async fetch(){return new Response('Missing static asset',{status:404});}};

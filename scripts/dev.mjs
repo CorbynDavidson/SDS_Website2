@@ -16,13 +16,27 @@ const ASSET_STORAGE = {
   async head(key){const o=fileObjects.get(key);return o?{size:o.bytes.length,customMetadata:o.customMetadata}:null;},
   async get(key){const o=fileObjects.get(key);return o?{body:o.bytes,size:o.bytes.length}:null;}
 };
-const ASSETS={async fetch(request){const path=new URL(request.url).pathname,asset=assetData.assets[path];if(!asset)return new Response('Not found',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':asset.type}});}};
+const storedAssets=new Map(Object.entries(assetData.assets).filter(([,asset])=>asset.storagePath).map(([path,asset])=>[asset.storagePath,{path,asset}]));
+const ASSETS={async fetch(request){const requested=new URL(request.url).pathname,stored=storedAssets.get(requested),path=stored?.path||requested,asset=stored?.asset||assetData.assets[path];if(!asset)return new Response('Not found',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':asset.type}});}};
 const env={DB,ASSETS,ASSET_STORAGE,RELEASE_MODE:'review',AUTH_PROVIDER:'sites',RATE_LIMIT_SECRET:randomBytes(32).toString('hex')};
 const argument=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1];};
 const port=Number(argument('--port')||process.env.PORT||4173),host=argument('--host')||'0.0.0.0';
 const server=createServer(async(req,res)=>{
   try {
     const origin='http://'+(req.headers.host||'localhost:'+port), headers=new Headers();
+    const previewUrl=new URL(req.url,origin);
+    // Development-only fixed-width frames exercise the real site's responsive
+    // CSS in the managed browser. This route is never included in the Worker.
+    if(previewUrl.pathname==='/_qa/viewport'){
+      const width=Number(previewUrl.searchParams.get('width'));
+      const path=previewUrl.searchParams.get('path')||'/';
+      if(![320,390,760,1280].includes(width)||!Object.hasOwn(assetData.pages||{},path)){
+        res.writeHead(400,{'content-type':'text/plain','x-robots-tag':'noindex, nofollow'});res.end('Choose a built public page and a supported width.');return;
+      }
+      const safe=path.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
+      res.writeHead(200,{'content-type':'text/html; charset=utf-8','x-robots-tag':'noindex, nofollow','cache-control':'no-store'});
+      res.end('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>SDS responsive QA</title><style>body{margin:0;background:#eee;font:14px sans-serif}p{margin:12px}iframe{display:block;border:0;margin:0 auto;background:white;width:'+width+'px;height:844px}</style><p>Development preview: '+width+'px</p><iframe id="sds-qa-frame" title="SDS responsive website preview" src="'+safe+'"></iframe></html>');return;
+    }
     for(const[key,value]of Object.entries(req.headers))if(value)headers.set(key,[].concat(value).join(', '));
     // Never simulate an owner identity on a shared development listener.
     headers.delete('oai-authenticated-user-email');headers.delete('oai-authenticated-user-id');

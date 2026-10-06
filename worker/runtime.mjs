@@ -282,7 +282,7 @@ export function createWorker(data) {
       if (request.headers.get('if-none-match') === headers.etag) return new Response(null, { status: 304, headers });
       if (asset.base64) return new Response(bytesFrom64(asset.base64), { headers });
       if (env.ASSETS) {
-        const response = await env.ASSETS.fetch(request);
+        const response = await env.ASSETS.fetch(asset.storagePath ? new Request(new URL(asset.storagePath,request.url),{headers:request.headers}) : request);
         if (response.ok) {
           const result = new Response(response.body, response);
           for (const [key, value] of Object.entries(headers)) result.headers.set(key, value);

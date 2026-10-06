@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFile,writeFile} from 'node:fs/promises';
+import {migrationInputs} from './lib/migration-inputs.mjs';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {gunzipSync} from 'node:zlib';
@@ -10,11 +11,12 @@ import {extractContent} from './lib/current-design-content.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
-const data=await readJson('build/data.json'),index=await readJson('src/content/sds/index.json');
+const data=await readJson('build/data.json'),{index}=await migrationInputs(root);
 const worker=(await import(pathToFileURL(resolve(root,'dist/server/index.js')).href)).default;
 const origin='https://www.sds-solicitors.com',review='https://review.sds-solicitors.com';
 const DB=await localD1();
-const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'production',ASSETS:{async fetch(request){const path=new URL(request.url).pathname;if(!data.assets[path])return new Response('Missing',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':data.assets[path].type}});}}};
+const storedAssets=new Map(Object.entries(data.assets).filter(([,asset])=>asset.storagePath).map(([path,asset])=>[asset.storagePath,{path,asset}]));
+const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'production',ASSETS:{async fetch(request){const requested=new URL(request.url).pathname,stored=storedAssets.get(requested),path=stored?.path||requested,asset=stored?.asset||data.assets[path];if(!asset)return new Response('Missing',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':asset.type}});}}};
 const request=(url,method='GET')=>worker.fetch(new Request(url,{method}),env);
 const flatten=value=>Array.isArray(value)?value.flatMap(flatten):value&&typeof value==='object'?[value,...Object.values(value).flatMap(flatten)]:[];
 const stylesheetRequests=new Set();
@@ -191,7 +193,7 @@ for(const host of [origin,'https://housingconditionclaims.org','https://sds-hous
     }
   }
 }
-assert.equal(resourceAudit.desktopExploreGroupsVerified,296);assert.equal(resourceAudit.mobileResourceGroupsVerified,1);assert.equal(resourceAudit.questionnaireTemplatesVerified,1);assert.equal(resourceAudit.otherTemplatesWithoutQuestionnaireStylesVerified,296);
+assert.equal(resourceAudit.desktopExploreGroupsVerified,index.pages.length);assert.equal(resourceAudit.mobileResourceGroupsVerified,1);assert.equal(resourceAudit.questionnaireTemplatesVerified,1);assert.equal(resourceAudit.otherTemplatesWithoutQuestionnaireStylesVerified,Object.keys(data.pages).length-1);
 report.resourceNavigationGroupsVerified=resourceAudit.desktopExploreGroupsVerified;
 report.reviewResourceLinksVerified=resourceAudit.reviewResourceLinksVerified;
 report.questionnaireOnlyLayoutVerified=true;
@@ -256,7 +258,10 @@ report.pageConsolidationVerified=true;report.consolidatedDesignPagesVerified=con
 for(const [path,target] of Object.entries(data.routes.redirects)){
   const response=await request(origin+path+'?utm_source=migration');assert.equal(response.status,301,path);
   assert.equal(response.headers.get('location'),origin+target+'?utm_source=migration',path);
-  assert.equal((await request(response.headers.get('location'))).status,200,path);report.permanentRedirectsVerified++;
+  const destinationStatus=(await request(response.headers.get('location'))).status;
+  assert.equal(destinationStatus,data.routes.gone.includes(target)?410:200,path);
+  if(destinationStatus===410)report.preservedRetirementRedirectsVerified=(report.preservedRetirementRedirectsVerified||0)+1;
+  report.permanentRedirectsVerified++;
 }
 const legacy=await readJson('config/legacy-routing.json');
 for(const route of [...legacy.liveEvidence,...legacy.prefixEvidence].filter(route=>route.status===301||route.status===410)){

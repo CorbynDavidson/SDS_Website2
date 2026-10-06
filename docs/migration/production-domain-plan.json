@@ -1,0 +1,54 @@
+{
+  "capturedAt": "2026-10-06T07:56:37.060Z",
+  "projectId": "appgprj_6ab2ddc9120881918f89e316c048a437",
+  "dnsChanged": false,
+  "releaseMode": "review",
+  "domains": [
+    {
+      "hostname": "sds-solicitors.com",
+      "id": "appgdom_6ac4a661516c819186613155c054d711",
+      "status": "pending",
+      "ssl_status": "initializing",
+      "cname_target": "custom-domains.chatgpt.site.",
+      "apex_proxy_ipv4_targets": [
+        "162.159.143.30",
+        "172.66.3.26"
+      ],
+      "validation_records": [
+        {
+          "record_type": "TXT",
+          "name": "_openai-site-verification.sds-solicitors.com",
+          "value": "openai-site-verification=g3Ls0mw4dMok4e4DjWMrKdXCpC7gK-8gd2doCf10eos"
+        },
+        {
+          "record_type": "TXT",
+          "name": "_cf-custom-hostname.sds-solicitors.com",
+          "value": "c4a56770-8f21-44c7-982c-214d167abae3"
+        }
+      ]
+    },
+    {
+      "hostname": "www.sds-solicitors.com",
+      "id": "appgdom_6ac4a4a62f60819189302e41c90061c6",
+      "status": "pending",
+      "ssl_status": "pending_validation",
+      "cname_target": "custom-domains.chatgpt.site.",
+      "apex_proxy_ipv4_targets": [
+        "162.159.143.30",
+        "172.66.3.26"
+      ],
+      "validation_records": [
+        {
+          "record_type": "TXT",
+          "name": "_openai-site-verification.www.sds-solicitors.com",
+          "value": "openai-site-verification=63LryPCN5_acBYJYJP8DQk9DVCe-gcF6ju8EuKHhg3c"
+        },
+        {
+          "record_type": "TXT",
+          "name": "_cf-custom-hostname.www.sds-solicitors.com",
+          "value": "d698ef04-9aa1-4dc7-afd0-fe9d507c6923"
+        }
+      ]
+    }
+  ]
+}

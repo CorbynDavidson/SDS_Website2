@@ -1,0 +1,117 @@
+{
+  "title": "News - SDS Solicitors",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Read the latest housing disrepair news and features from Sheldon Davidson - a successful law firm in Manchester which specialises in HDR cases."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=4"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"name\": \"News\",\n    \"url\": \"https://www.sds-solicitors.com/about-us/news/\",\n    \"headline\": \"Sheldon Davidson Solicitors News\",\n    \"inLanguage\": \"en-GB\",\n    \"description\": \"Read the latest housing disrepair news and features from Sheldon Davidson - a successful law firm in Manchester which specialises in HDR cases.\",\n    \"publisher\": {\n        \"name\": \"Sheldon Davidson Solicitors\"\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h2",
+      "text": "News"
+    },
+    {
+      "tag": "h1",
+      "text": "Sheldon Davidson Solicitors News"
+    },
+    {
+      "tag": "h2",
+      "text": "Can You Sue Your Landlord for Unsafe Living Conditions?"
+    },
+    {
+      "tag": "h2",
+      "text": "How to Defend Against a Landlord Making False Damage Claims"
+    },
+    {
+      "tag": "h2",
+      "text": "How Long Can a Landlord Leave You Without Heat?"
+    },
+    {
+      "tag": "h2",
+      "text": "Damp, Mould and Heating Compensation Claims: How Much Could You Claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "How Long Does a Housing Disrepair Claim Take?"
+    },
+    {
+      "tag": "h2",
+      "text": "Phase 1 of the Renters’ Rights Act May 1st 2026"
+    },
+    {
+      "tag": "h2",
+      "text": "The Renters Reform Bill: What It Means for Tenants in 2026 and Beyond"
+    },
+    {
+      "tag": "h2",
+      "text": "Social Housing Rent Increases in 2026"
+    },
+    {
+      "tag": "h2",
+      "text": "What the 2026 Changes to Awaabs Law Mean for Tenants"
+    },
+    {
+      "tag": "h2",
+      "text": "Spot the Early Signs of Housing Disrepair Before It Gets Worse"
+    },
+    {
+      "tag": "h5",
+      "text": "News by topic:"
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import { gunzipSync, gzipSync } from 'node:zlib';
 import { metadata, sha256 } from './lib/html.mjs';
 import { overlayHead, rawBody, designHeadFragments } from './lib/metadata-overlay.mjs';
 import { renderAdditionalPage, originalArticle } from './lib/additional-sds-pages.mjs';
+import {migrationInputs} from './lib/migration-inputs.mjs';
 import assert from 'node:assert/strict';
 import { load } from 'cheerio';
 
@@ -29,8 +30,7 @@ await mkdir(resolve(root,'src/content/design-additions'), {recursive:true});
 const baselinePath = resolve(root,'build/design-before-metadata.mjs');
 await writeFile(baselinePath, original);
 const baseline = (await import(pathToFileURL(baselinePath).href+'?build='+fingerprint)).default;
-const index = JSON.parse(await readFile(resolve(root,'src/content/sds/index.json')));
-const manifest = JSON.parse(await readFile(resolve(root,'migration/source-manifest.json')));
+const {index,manifest}=await migrationInputs(root);
 const sourceByUrl = new Map(manifest.pages.map(page => [page.url,page]));
 const shell = await (await baseline.fetch(new Request('https://www.sds-solicitors.com/about-us/'),{})).text();
 const metadataHeads = {}, additionalPages = {}, additionalAssets = {}, pages = [];

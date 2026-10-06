@@ -1,0 +1,291 @@
+{
+  "checkedAt": "2026-10-06T08:43:22.375Z",
+  "scope": "Managed Chrome using compiled review build with development-only 320/390/760/1280px same-origin frames. Not physical-device, full accessibility, verified Googlebot or Core Web Vitals certification.",
+  "observations": [
+    {
+      "path": "/housing-disrepair/locations/manchester/",
+      "width": 320,
+      "brokenImages": [],
+      "clientWidth": 305,
+      "formCount": 1,
+      "formTop": 885.921875,
+      "heading": "Compensation for Housing Disrepair in Manchester",
+      "headingTop": 315.375,
+      "scrollWidth": 331,
+      "unlabelled": []
+    },
+    {
+      "path": "/housing-disrepair/damp-and-mould-claims/",
+      "width": 390,
+      "brokenImages": [],
+      "clientWidth": 375,
+      "formCount": 1,
+      "formTop": 833.765625,
+      "heading": "Mould and Dampness",
+      "headingTop": 347.5,
+      "scrollWidth": 375,
+      "unlabelled": []
+    },
+    {
+      "path": "/housing-disrepair-enquiries/",
+      "width": 390,
+      "brokenImages": [],
+      "clientWidth": 375,
+      "formCount": 1,
+      "formTop": 452.5625,
+      "heading": "Housing Disrepair Enquiry",
+      "headingTop": 292.28125,
+      "scrollWidth": 375,
+      "unlabelled": []
+    },
+    {
+      "path": "/about-us/client-questionnaire/",
+      "width": 320,
+      "brokenImages": [],
+      "clientWidth": 305,
+      "formCount": 1,
+      "formTop": 584.515625,
+      "heading": "Client Feedback Questionnaire",
+      "headingTop": 293.375,
+      "scrollWidth": 305,
+      "unlabelled": []
+    },
+    {
+      "path": "/housing-disrepair/locations/manchester/",
+      "width": 320,
+      "brokenImages": [],
+      "clientWidth": 305,
+      "formCount": 1,
+      "formTop": 971.65625,
+      "heading": "Compensation for Housing Disrepair in Manchester",
+      "headingTop": 315.375,
+      "scrollWidth": 305,
+      "visibleNavButtons": [
+        "Explore"
+      ]
+    },
+    {
+      "path": "/about-us/client-questionnaire/",
+      "width": 320,
+      "brokenImages": [],
+      "clientWidth": 305,
+      "formCount": 1,
+      "formTop": 584.515625,
+      "heading": "Client Feedback Questionnaire",
+      "headingTop": 293.375,
+      "scrollWidth": 305,
+      "visibleNavButtons": [
+        "Explore"
+      ]
+    },
+    {
+      "path": "/about-us/terms-business/",
+      "width": 390,
+      "brokenImages": [],
+      "clientWidth": 375,
+      "formCount": 0,
+      "heading": "TERMS OF BUSINESS",
+      "headingTop": 292.28125,
+      "scrollWidth": 375,
+      "visibleNavButtons": [
+        "Explore"
+      ]
+    },
+    {
+      "path": "/about-us/our-people/",
+      "width": 390,
+      "brokenImages": [],
+      "clientWidth": 375,
+      "formCount": 0,
+      "heading": "Our People",
+      "headingTop": 347.5,
+      "scrollWidth": 375,
+      "visibleNavButtons": [
+        "Explore"
+      ]
+    },
+    {
+      "path": "/housing-disrepair/locations/",
+      "width": 760,
+      "brokenImages": [],
+      "clientWidth": 745,
+      "formCount": 1,
+      "formTop": 496.484375,
+      "heading": "Disrepair Claim Expert Legal Advice England",
+      "headingTop": 293.015625,
+      "scrollWidth": 745,
+      "visibleNavButtons": [
+        "Explore"
+      ]
+    },
+    {
+      "stage": "after-fixes",
+      "path": "/",
+      "width": 320,
+      "brokenImages": [],
+      "clientWidth": 305,
+      "formCount": 1,
+      "formTop": 832.375,
+      "heading": "Make a Claim Today",
+      "headingTop": 498.375,
+      "scrollWidth": 349,
+      "visibleNavButtons": [
+        "Menu"
+      ]
+    },
+    {
+      "stage": "after-fixes",
+      "path": "/",
+      "width": 390,
+      "brokenImages": [],
+      "clientWidth": 375,
+      "formCount": 1,
+      "formTop": 809.28125,
+      "heading": "Make a Claim Today",
+      "headingTop": 475.28125,
+      "scrollWidth": 375,
+      "visibleNavButtons": [
+        "Menu"
+      ]
+    },
+    {
+      "stage": "after-fixes",
+      "path": "/faqs/",
+      "width": 390,
+      "brokenImages": [],
+      "clientWidth": 375,
+      "formCount": 0,
+      "heading": "Housing disrepair FAQs.",
+      "headingTop": 335.78125,
+      "scrollWidth": 375,
+      "visibleNavButtons": []
+    },
+    {
+      "stage": "after-fixes",
+      "path": "/housing-disrepair-claims/tenant-rights-landlord-obligations/",
+      "width": 390,
+      "brokenImages": [],
+      "clientWidth": 375,
+      "formCount": 1,
+      "formTop": 841.796875,
+      "heading": "Tenant Rights on Housing Conditions",
+      "headingTop": 292.28125,
+      "scrollWidth": 375,
+      "visibleNavButtons": [
+        "Explore"
+      ]
+    },
+    {
+      "stage": "after-fixes",
+      "path": "/housing-disrepair/locations/manchester/",
+      "width": 1280,
+      "brokenImages": [],
+      "clientWidth": 1265,
+      "formCount": 1,
+      "formTop": 289.3125,
+      "heading": "Compensation for Housing Disrepair in Manchester",
+      "headingTop": 427.203125,
+      "scrollWidth": 1265,
+      "visibleNavButtons": [
+        "Explore"
+      ]
+    },
+    {
+      "stage": "interaction",
+      "path": "/housing-disrepair-enquiries/",
+      "width": 390,
+      "emptyFormRejected": true,
+      "focusAfterSubmit": "Full Name",
+      "focusAfterTab": "Email",
+      "publicEnquiryCreated": false
+    },
+    {
+      "stage": "after-final-fixes",
+      "path": "/",
+      "width": 320,
+      "brokenImages": [],
+      "clientWidth": 305,
+      "formCount": 1,
+      "formTop": 832.375,
+      "heading": "Make a Claim Today",
+      "headingTop": 498.375,
+      "scrollWidth": 349,
+      "visibleNavButtons": [
+        "Menu"
+      ]
+    },
+    {
+      "stage": "after-final-fixes",
+      "path": "/housing-disrepair/locations/manchester/",
+      "width": 320,
+      "brokenImages": [],
+      "clientWidth": 305,
+      "formCount": 1,
+      "formTop": 971.65625,
+      "heading": "Compensation for Housing Disrepair in Manchester",
+      "headingTop": 315.375,
+      "scrollWidth": 305,
+      "visibleNavButtons": [
+        "Explore"
+      ]
+    },
+    {
+      "stage": "after-final-fixes",
+      "path": "/about-us/client-questionnaire/",
+      "width": 1280,
+      "brokenImages": [],
+      "clientWidth": 1265,
+      "formCount": 1,
+      "formTop": 485.875,
+      "heading": "Client Feedback Questionnaire",
+      "headingTop": 289.3125,
+      "scrollWidth": 1265,
+      "visibleNavButtons": [
+        "Explore"
+      ]
+    },
+    {
+      "stage": "after-final-fixes-confirmed",
+      "path": "/",
+      "width": 320,
+      "brokenImages": [],
+      "clientWidth": 305,
+      "formCount": 1,
+      "heading": "Make a Claim Today",
+      "scrollWidth": 349
+    },
+    {
+      "stage": "final-release",
+      "path": "/",
+      "width": 320,
+      "brokenImages": [],
+      "clientWidth": 305,
+      "formCount": 1,
+      "heading": "Make a Claim Today",
+      "scrollWidth": 349
+    },
+    {
+      "stage": "final-release",
+      "path": "/about-us/news/topic/78/about-sds/",
+      "width": 390,
+      "brokenImages": [],
+      "clientWidth": 375,
+      "heading": "Sheldon Davidson Solicitors News",
+      "scrollWidth": 375
+    },
+    {
+      "stage": "final-release-verified",
+      "path": "/",
+      "width": 320,
+      "brokenImages": [],
+      "clientWidth": 305,
+      "formCount": 1,
+      "heading": "Make a Claim Today",
+      "scrollWidth": 305
+    }
+  ],
+  "limitations": [
+    "A guessed News topic URL failed QA wrapper validation; no public site failure was inferred.",
+    "Before-fix observations and intermediate checks are retained; final-release-verified records identify final checks."
+  ]
+}

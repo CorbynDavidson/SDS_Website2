@@ -1,5 +1,5 @@
 import {execFileSync} from 'node:child_process';
-import {readFile,writeFile,mkdir,cp} from 'node:fs/promises';
+import {readFile,writeFile,mkdir,cp,rm} from 'node:fs/promises';
 import {resolve,extname} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {gzipSync,gunzipSync} from 'node:zlib';
@@ -15,6 +15,7 @@ import {referenceCallback,replaceClaimEnquiry,callbackFormDefinitions} from './l
 import {addLocationDirectory} from './lib/location-directory.mjs';
 import {addResourceNavigation} from './lib/resource-navigation.mjs';
 import {addQuestionnairePanel} from './lib/questionnaire-panel.mjs';
+import {migrationInputs} from './lib/migration-inputs.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
@@ -23,19 +24,18 @@ const target=resolve(root,'dist/server/index.js');
 const metadataWorker=await readFile(target,'utf8');
 await writeFile(resolve(root,'build/design-before-content.mjs'),metadataWorker);
 const approved=(await import(pathToFileURL(resolve(root,'build/design-before-content.mjs')).href)).default;
-const index=await readJson('src/content/sds/index.json');
+const {index,manifest,forms:inputForms}=await migrationInputs(root);
 const directory=index.pages.find(page=>page.path==='/about-us/our-people/');
 const directoryContent=load(await readFile(resolve(root,directory.contentFile),'utf8'),{scriptingEnabled:false});
 const victoria=directoryContent('.team-list > .kpeople-member').filter((_,node)=>normaliseText(directoryContent(node).find('.kpeople-name').text())==='Victoria McCormack');
 assert.equal(victoria.length,1,'Expected one original Victoria directory card.');
 const locationProfileCard=directoryContent.html(victoria);
-const manifest=await readJson('migration/source-manifest.json');
 const policy=await readJson('config/metadata-migration.json');
 const config=await readJson('config/site.json');
 const reviewsContent=await readJson('src/reviews-page.json');
 const reviewsHomeHtml=await (await approved.fetch(new Request(config.productionOrigin+'/'),{})).text();
 const claimEnquiry=await readJson('config/claim-enquiry.json');
-const forms=callbackFormDefinitions(await readJson('src/content/sds/forms.json'),claimEnquiry);
+const forms=callbackFormDefinitions(inputForms,claimEnquiry);
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const enquiryPanelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
 const termsBusinessCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
@@ -50,6 +50,9 @@ const panelPath=path=>path.split('?')[0].replace(/\/+$/,'')+'/';
 const hasEnquiryPanel=path=>panelPath(path).startsWith(enquiryPanelScope.locationPrefix)||panelTypes.has(panelPath(path));
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
 const legacyRouting=await readJson('config/legacy-routing.json');
+const historicRouting=await readJson('config/historic-url-routing.json');
+legacyRouting.redirects={...legacyRouting.redirects,...historicRouting.redirects};
+legacyRouting.gone=[...new Set([...legacyRouting.gone,...historicRouting.gone])];
 const consolidation=await readJson('config/page-consolidation.json');
 const consolidations={};
 for(const [path,destination] of Object.entries(consolidation.redirects)){
@@ -77,7 +80,11 @@ for(const asset of manifest.assets.filter(a=>a.status===200&&a.file)) {
   const type=typeByExtension[extname(sourcePath).toLowerCase()]||asset.content_type||'application/octet-stream';
   const path='/assets/sds-source/'+asset.sha256+extname(sourcePath).toLowerCase();
   mediaUrls[sourcePath]=path;mediaSources[path]={sha256:asset.sha256,bytes:bytes.length,type,sourcePath};
-  assets[sourcePath]={sha256:asset.sha256,bytes:bytes.length,type};
+  // Put captured files behind their original Worker routes so static-first
+  // hosting cannot bypass the verified MIME, cache and host policy.
+  const storagePath='/_sds_assets/'+asset.sha256+extname(sourcePath).toLowerCase();
+  assets[sourcePath]={sha256:asset.sha256,bytes:bytes.length,type,storagePath};
+  mediaSources[path].storagePath=storagePath;
 }
 for(const path of ['/sds-theme.css','/sds-runtime.js','/assets/sheldon-davidson-solicitors-logo.png',reviewsContent.recognition.imagePath]){
   const bytes=await readFile(resolve(root,'public'+path));
@@ -197,7 +204,7 @@ export default {async fetch(request,env={},ctx={}){
     if(request.headers.get('if-none-match')===headers.etag)response=new Response(null,{status:304,headers});
     else {const object=env.ASSET_STORAGE?await env.ASSET_STORAGE.get('public-assets/'+asset.sha256):null;
       if(object)response=new Response(object.body,{headers});
-      else if(env.ASSETS){const original=await env.ASSETS.fetch(new Request(new URL(asset.sourcePath,request.url),{headers:request.headers}));response=new Response(original.body,{status:original.status,headers});}
+      else if(env.ASSETS){const original=await env.ASSETS.fetch(new Request(new URL(asset.storagePath||asset.sourcePath,request.url),{headers:request.headers}));response=new Response(original.body,{status:original.status,headers});}
       else response=new Response('Source asset unavailable',{status:503,headers});
     }
   }else if(get&&contentData.assets[url.pathname])response=await contentBackend.fetch(request,env,ctx);
@@ -216,6 +223,17 @@ await writeFile(target,originalDesign.replace('export default {','const approved
 // Package exact original media; hashed Worker routes enforce MIME types even
 // when a hosting platform labels a WebP as application/octet-stream.
 await cp(resolve(root,'public'),resolve(root,'dist/client'),{recursive:true});
+// Crawl controls depend on hostname and release mode; a static-first host
+// must execute the Worker instead of exposing production robots on review.
+await rm(resolve(root,'dist/client/robots.txt'),{force:true});
+await rm(resolve(root,'dist/client/sitemap.xml'),{force:true});
+for(const [path,asset] of Object.entries(assets)){
+  if(!asset.storagePath)continue;
+  const destination=resolve(root,'dist/client'+asset.storagePath);
+  await mkdir(resolve(destination,'..'),{recursive:true});
+  await cp(resolve(root,'public'+path),destination);
+  await rm(resolve(root,'dist/client'+path),{force:true});
+}
 const report={sourceCommit:policy.sourceCommit,sourceBranch:policy.sourceBranch,sourceCapturedAt:index.sourceCompletedAt,designBaselineVersion:41,designFingerprint:policy.designFingerprint,capturedRoutes:records.length,contentTransferred:records.length,metadataTransferred:records.length,originalMediaFiles:Object.keys(mediaUrls).length,unavailableOriginalMedia:unavailableMedia,originalWordingPreserved:false,originalNonFormWordingPreserved:true,approvedFormPresentationOverrides:[claimEnquiry],approvedStylesPreserved:true,approvedHeaderFooterPreserved:true,homepageCarouselsPreserved:true,formCount:Object.keys(forms).length,reviewNoindexEnforced:true,productionSeoConfigured:true,productionReleaseReady:false,pages:records};
 report.locationDirectory={path:locationDirectory.path,heading:locationDirectory.heading,links:locationDirectory.links.length,originalLocationUrlsPreserved:true};
 report.resourceNavigation={links:resourceNavigation.links,questionnairePath:resourceNavigation.questionnairePath,questionnaireWordingAndFieldsPreserved:true};

@@ -12,7 +12,7 @@ export function createProductionRouting(config,routes){
     if(!isProduction&&!consolidation)return null;
     const target=new URL(url.href);
     if(isProduction){target.protocol='https:';target.host=production.host;}
-    target.pathname=isProduction?(routes.redirects[url.pathname]||routes.prefixRedirects?.find(rule=>url.pathname===rule.prefix||url.pathname.startsWith(rule.prefix+'/'))?.target||url.pathname):consolidation;
+    target.pathname=isProduction?(routes.gone.includes(url.pathname)?url.pathname:(routes.redirects[url.pathname]||routes.prefixRedirects?.find(rule=>url.pathname===rule.prefix||url.pathname.startsWith(rule.prefix+'/'))?.target||url.pathname)):consolidation;
     // Page-one pagination is the unpaginated page; retain page two and all
     // unrelated query parameters (including campaign tracking parameters).
     for(const [name,value] of target.searchParams)if(name.startsWith('ccm_paging_')&&value==='1')target.searchParams.delete(name);

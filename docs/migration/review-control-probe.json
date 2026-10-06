@@ -1,0 +1,67 @@
+[
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "finalUrl": "https://housingconditionclaims.org/robots.txt",
+    "location": null,
+    "contentType": "text/plain; charset=utf-8",
+    "robots": "noindex, follow",
+    "cacheControl": "public, max-age=300",
+    "bytes": 26,
+    "elapsedMs": 10626,
+    "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1",
+    "controlBody": "User-agent: *\nDisallow: /\n"
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 200,
+    "finalUrl": "https://housingconditionclaims.org/sitemap.xml",
+    "location": null,
+    "contentType": "application/xml; charset=utf-8",
+    "robots": "noindex, follow",
+    "cacheControl": "",
+    "bytes": 24120,
+    "elapsedMs": 5957,
+    "sha256": "41fb0bf9fd382559c356251d86923c8c6c28c11cfccb5bf319c723e8aac28fb0",
+    "controlBody": null
+  },
+  {
+    "path": "/about-us/news/topic/78/about-sds/",
+    "status": 200,
+    "finalUrl": "https://housingconditionclaims.org/about-us/news/topic/78/about-sds/",
+    "location": null,
+    "contentType": "text/html; charset=utf-8",
+    "robots": "noindex, follow",
+    "cacheControl": "public, max-age=300",
+    "bytes": 51496,
+    "elapsedMs": 5723,
+    "sha256": "9232c2a6a4495bfe6511b31de480bd3f8440a4dd01f0c1173fce43e39a11c023",
+    "controlBody": null
+  },
+  {
+    "path": "/application/files/cache/thumbnails/1903x500px-fundraising-banner-384dec645a5b199cc782cd9888aa4894.webp",
+    "status": 200,
+    "finalUrl": "https://housingconditionclaims.org/application/files/cache/thumbnails/1903x500px-fundraising-banner-384dec645a5b199cc782cd9888aa4894.webp",
+    "location": null,
+    "contentType": "image/webp",
+    "robots": "noindex, follow",
+    "cacheControl": "public, max-age=86400",
+    "bytes": 4544,
+    "elapsedMs": 6084,
+    "sha256": "aca468f2cc0fc1c799833dd80c7b4d011027de7dabfe3cf29711b3b9b7cf0639",
+    "controlBody": null
+  },
+  {
+    "path": "/concrete/css/webfonts/fa-brands-400.woff2",
+    "status": 200,
+    "finalUrl": "https://housingconditionclaims.org/concrete/css/webfonts/fa-brands-400.woff2",
+    "location": null,
+    "contentType": "font/woff2",
+    "robots": "noindex, follow",
+    "cacheControl": "public, max-age=86400",
+    "bytes": 76736,
+    "elapsedMs": 5877,
+    "sha256": "8ea8791754915a898a3100e63e32978a6d1763be6df8e73a39d3a90d691cdeef",
+    "controlBody": null
+  }
+]

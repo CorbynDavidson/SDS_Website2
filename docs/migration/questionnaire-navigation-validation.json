@@ -17,13 +17,13 @@
       "path": "/about-us/cookies/"
     }
   ],
-  "desktopExploreGroupsVerified": 296,
+  "desktopExploreGroupsVerified": 324,
   "mobileResourceGroupsVerified": 1,
-  "reviewResourceLinksVerified": 1188,
+  "reviewResourceLinksVerified": 1300,
   "destinationResponsesVerified": 36,
   "questionnairePath": "/about-us/client-questionnaire/",
   "questionnaireTemplatesVerified": 1,
-  "otherTemplatesWithoutQuestionnaireStylesVerified": 296,
+  "otherTemplatesWithoutQuestionnaireStylesVerified": 324,
   "questionnaireTitleAndIntroductionAboveForm": true,
   "originalQuestionnaireWordingAndFieldsPreserved": true,
   "browserVisualAuditComplete": false

@@ -1,10 +1,10 @@
 {
   "designBaselineVersion": 41,
   "designFingerprint": "aef7bd06a1f3aa341ae97a2f80c3758c08fe754c3508bad23ccfa6eadd753ed8",
-  "contentRoutes": 296,
-  "metadataRoutes": 296,
+  "contentRoutes": 324,
+  "metadataRoutes": 324,
   "formCount": 7,
-  "workerGzipBytes": 22124141,
+  "workerGzipBytes": 22525309,
   "releaseMode": "review",
   "exactSdsMigrationActive": true,
   "productionReleaseReady": false

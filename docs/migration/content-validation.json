@@ -1,12 +1,12 @@
 {
   "sourceCommit": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
   "sourceFilesVerified": 298,
-  "routesVerified": 296,
-  "originalParagraphsAndHeadingsVerified": 20100,
-  "metadataRoutesVerified": 296,
-  "approvedStyleRoutesVerified": 296,
-  "approvedHeaderFooterRoutesVerified": 296,
-  "internalLinksVerified": 146,
+  "routesVerified": 324,
+  "originalParagraphsAndHeadingsVerified": 21257,
+  "metadataRoutesVerified": 324,
+  "approvedStyleRoutesVerified": 324,
+  "approvedHeaderFooterRoutesVerified": 324,
+  "internalLinksVerified": 160,
   "mediaVerified": 71,
   "originalUnavailableLinks": [],
   "unavailableOriginalMedia": [],
@@ -2682,6 +2682,258 @@
     },
     {
       "path": "/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=1",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/241/amputation/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/274/road-traffic/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/274/road-traffic/?ccm_paging_p_b2385=2",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/276/medical-negligence/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/289/cancer-negligence/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/81/head-injury-claims/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/83/neck-injury-claims/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/84/shoulder-injury-claims/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/85/back-injury-claims/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/87/hand-injury-claims/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/88/leg-injury-claims/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/89/foot-injury-claims/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/90/serious-injury-claims/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/case-studies/topic/91/minor-injury-claims/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/72/accidents-at-work/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/72/accidents-at-work/?ccm_paging_p_b1269=2",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/73/medical-negligence/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/73/medical-negligence/?ccm_paging_p_b1269=2",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/74/serious-injury/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/74/serious-injury/?ccm_paging_p_b1269=2",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/74/serious-injury/?ccm_paging_p_b1269=3",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/75/road-%26-bike/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/75/road-%26-bike/?ccm_paging_p_b1269=1",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/75/road-%26-bike/?ccm_paging_p_b1269=2",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/75/road-%26-bike/?ccm_paging_p_b1269=3",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/75/road-%26-bike/?ccm_paging_p_b1269=4",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/about-us/news/topic/76/injury-claims/",
+      "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
+      "paragraphsAndHeadingsMatch": true,
+      "seoMatchesOriginal": true,
+      "approvedStylesAndSharedDesignPreserved": true
+    },
+    {
+      "path": "/index.php/about-us/",
       "copyMatchesOriginal": true,
       "copyMatchesApprovedFormAndOriginalPage": true,
       "formPresentationOverride": false,

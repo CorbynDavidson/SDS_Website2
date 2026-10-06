@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-10-06T07:57:18.751528+00:00",
+  "api": "Google PageSpeed Insights v5",
+  "origin": "https://housingconditionclaims.org/",
+  "strategy": "mobile",
+  "httpStatus": 429,
+  "fieldCoreWebVitalsVerified": false,
+  "error": {
+    "code": 429,
+    "status": "RESOURCE_EXHAUSTED",
+    "message": "Google PageSpeed Insights API returned 429: available API quota exhausted. No Lighthouse or field CWV score was produced."
+  }
+}
