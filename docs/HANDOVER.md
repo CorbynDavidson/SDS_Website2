@@ -10,7 +10,7 @@ Prepared 6 October 2026. Production origin remains **https://www.sds-solicitors.
 - `npm run validate` compares compiled and served production HTML with immutable raw captures for every route. Review responses are separately checked for noindex and disabled analytics. Unknown routes return a real 404.
 - Seven original form schemas have replacement handlers, prepared D1 queries, validation, CSRF/honeypot protection, durable rate limits and idempotent submission keys. Earlier `enquiries` records remain available.
 - Private evidence files use R2; enquiry records and drafts use D1. The submissions view, CSV and evidence downloads require an allowlisted authenticated owner. Portable hosting verifies signed Cloudflare Access JWTs.
-- Twelve meaningful backend tests cover the original schemas, persistence, invalid submissions, duplicate requests, spam controls, owner access, legacy data, escaping, CSV safety, drafts, private files and JWT verification.
+- Thirteen meaningful backend tests cover the original schemas, persistence, invalid submissions, duplicate requests, spam controls, owner access, legacy data, escaping, CSV safety, drafts, private files and JWT verification.
 - GitHub capture/import automation commits captured content and generated audit files after checks pass. Push/PR validation builds and verifies the site. Secrets and submissions are never stored in the public repository.
 
 ## Remaining production gates

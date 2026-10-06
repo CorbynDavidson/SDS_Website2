@@ -123,3 +123,15 @@ test('Review pages are noindex with analytics disabled; production metadata is r
  assert.equal((await worker.fetch(new Request(origin+'/',{method:'HEAD'}),env)).status,200);
  const health=await worker.fetch(new Request(origin+'/health'),env);assert.equal(health.status,200);assert.equal((await health.json()).databaseReady,true);
 });
+
+test('Batched media import fetches only pinned repository files and verifies R2 bytes',async t=>{
+ const{worker,env}=await fixture(t);env.MIGRATION_UPLOAD_TOKEN='test-migration-secret-with-at-least-32-characters';
+ const paths=Object.keys(data.assets).filter(path=>!data.assets[path].base64).slice(0,2),objects=new Map();
+ env.ASSET_STORAGE={async put(key,value,options){objects.set(key,{value,options});},async head(key){const o=objects.get(key);return o?{size:o.value.byteLength,customMetadata:o.options.customMetadata}:null;}};
+ const originalFetch=globalThis.fetch;
+ globalThis.fetch=async url=>{const prefix='https://raw.githubusercontent.com/'+data.config.repository+'/'+data.config.assetSourceRef+'/public';assert(url.startsWith(prefix));const path=decodeURI(url.slice(prefix.length));assert(paths.includes(path));return new Response(await readFile(resolve(root,'public'+path)));};t.after(()=>globalThis.fetch=originalFetch);
+ const request=next=>new Request(origin+'/api/migration/assets',{method:'POST',headers:{authorization:'Bearer '+env.MIGRATION_UPLOAD_TOKEN,'content-type':'application/json'},body:JSON.stringify({paths:next})});
+ const result=await worker.fetch(request(paths),env);assert.equal(result.status,200,await result.clone().text());assert.equal((await result.json()).assets.length,2);assert.equal(objects.size,2);
+ assert.equal((await worker.fetch(request(['/not-declared']),env)).status,400);
+ assert.equal((await worker.fetch(request(Array(11).fill(paths[0])),env)).status,400);
+});

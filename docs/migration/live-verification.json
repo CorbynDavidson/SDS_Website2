@@ -1,0 +1,53 @@
+{
+  "reviewOrigin": "https://housingconditionclaims.org",
+  "allOriginalFormSchemasAccepted": true,
+  "schemas": [
+    {
+      "originalId": "12007",
+      "formKey": "d4ec9836d21b4cb3",
+      "httpStatus": 201,
+      "syntheticSubmissionId": 3
+    },
+    {
+      "originalId": "9998",
+      "formKey": "9c7f5147430d0487",
+      "httpStatus": 201,
+      "syntheticSubmissionId": 2
+    },
+    {
+      "originalId": "11369",
+      "formKey": "b3093dba8576c8ab",
+      "httpStatus": 201,
+      "syntheticSubmissionId": 5
+    },
+    {
+      "originalId": "11010",
+      "formKey": "07100587fed77416",
+      "httpStatus": 201,
+      "syntheticSubmissionId": 4
+    },
+    {
+      "originalId": "9848",
+      "formKey": "59564e3bd5db02a2",
+      "httpStatus": 201,
+      "syntheticSubmissionId": 6
+    },
+    {
+      "originalId": "hdr_multi_step",
+      "formKey": "3a264213698a28a7",
+      "httpStatus": 201,
+      "syntheticSubmissionId": 7
+    },
+    {
+      "originalId": "11026",
+      "formKey": "0ef9dced239c0212",
+      "httpStatus": 201,
+      "syntheticSubmissionId": 8
+    }
+  ],
+  "anonymousEditorApiStatus": 401,
+  "forgedOwnerHeaderStatus": 401,
+  "ownerBrowserFlowVerified": false,
+  "finalBrowserRecheckVerified": false,
+  "outgoingNotificationsConfigured": false
+}

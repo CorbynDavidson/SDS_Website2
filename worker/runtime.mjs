@@ -136,6 +136,30 @@ export function createWorker(data) {
       const expected = 'Bearer ' + env.MIGRATION_UPLOAD_TOKEN;
       if (await digest(request.headers.get('authorization') || '') !== await digest(expected)) return json({ error: 'Unauthorised.' }, 401);
       if (!env.ASSET_STORAGE) return json({ error: 'Asset storage unavailable.' }, 503);
+      if (request.method === 'POST') {
+        let payload; try { payload = await readPayload(request); } catch { return json({ error: 'Invalid asset batch.' }, 400); }
+        if (!Array.isArray(payload.paths) || payload.paths.length < 1 || payload.paths.length > 10 || !/^[a-f0-9]{40}$/.test(data.config.assetSourceRef || '')) return json({ error: 'Invalid asset batch or unpinned source.' }, 400);
+        for (const path of payload.paths) if (!data.assets[path] || data.assets[path].base64) return json({ error: 'Unknown migration asset.' }, 400);
+        const results = [];
+        for (let start = 0; start < payload.paths.length; start += 4) {
+          const batch = await Promise.all(payload.paths.slice(start, start + 4).map(async path => {
+            const asset = data.assets[path];
+            const sourceUrl = 'https://raw.githubusercontent.com/' + data.config.repository + '/' + data.config.assetSourceRef + '/public' + encodeURI(path);
+            const source = await fetch(sourceUrl, { redirect: 'error' });
+            if (!source.ok) throw new Error('Public asset source unavailable');
+            const bytes = await source.arrayBuffer();
+            const hash = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))).map(x => x.toString(16).padStart(2, '0')).join('');
+            if (bytes.byteLength !== asset.bytes || hash !== asset.sha256) throw new Error('Public asset source does not match release');
+            const key = 'public-assets/' + hash;
+            await env.ASSET_STORAGE.put(key, bytes, { httpMetadata: { contentType: asset.type }, customMetadata: { sha256: hash } });
+            const object = await env.ASSET_STORAGE.head(key);
+            if (!object || object.size !== asset.bytes || object.customMetadata?.sha256 !== hash) throw new Error('Asset verification failed');
+            return { path, present: true, sha256: hash, bytes: asset.bytes };
+          }));
+          results.push(...batch);
+        }
+        return json({ ok: true, assets: results, sourceRef: data.config.assetSourceRef });
+      }
       const path = url.searchParams.get('path'), asset = data.assets[path];
       if (!asset || asset.base64) return json({ error: 'Unknown migration asset.' }, 400);
       const key = 'public-assets/' + asset.sha256;

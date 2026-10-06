@@ -13,7 +13,7 @@ Use Node 24 and the committed lockfile: `npm ci --ignore-scripts`, `npm run chec
 1. Pass `npm run check` and inspect migration reports.
 2. Ensure runtime values `RELEASE_MODE=review`, `AUTH_PROVIDER=sites`, owner `ADMIN_EMAILS` and secret `RATE_LIMIT_SECRET` are set in Sites.
 3. Use `npm run build:sites` for the R2-backed Sites package; portable `npm run build` also creates static media output. Push the exact checkout through the Sites source workflow, package that commit, save a version and deploy it to the site's existing audience. Drizzle migrations run before Worker upload.
-4. For newly captured media, temporarily set secret `MIGRATION_UPLOAD_TOKEN` in review. Feed it over stdin to `python scripts/upload-migration-assets.py --origin https://housingconditionclaims.org`. Every upload is restricted to the release's declared path, size and SHA-256.
+4. For newly captured media, temporarily set secret `MIGRATION_UPLOAD_TOKEN` in review. Feed it over stdin to `python scripts/upload-migration-assets.py --origin https://housingconditionclaims.org --from-github`. Every upload is restricted to the release's declared path, size and SHA-256. Batch mode fetches only public files from the exact GitHub commit in `config/site.json` (`assetSourceRef`) and verifies the bytes plus R2 metadata. Update that ref only to an actual committed media snapshot when deliberately changing source assets.
 5. Verify all declared assets, remove `MIGRATION_UPLOAD_TOKEN`, and redeploy to apply the removal. The import endpoint is disabled without the secret and is always disabled in production mode.
 6. Confirm deployment status, database tables, controlled enquiry persistence and owner administration. Record the exact version/commit in deployment evidence.
 
