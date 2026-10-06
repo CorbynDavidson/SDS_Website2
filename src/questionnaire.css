@@ -1,0 +1,30 @@
+/* Client Questionnaire only: title and introduction above the original form. */
+.sds-questionnaire-page > .service-hero {
+  width: min(1240px, calc(100% - 64px));
+  margin: 0 auto 48px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+}
+.sds-questionnaire-page .service-hero > .wrap { width: calc(100% - 64px); }
+.sds-questionnaire-page .service-hero-grid {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+}
+.sds-questionnaire-page .service-hero h1 {
+  max-width: none;
+  margin: 0 0 20px;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.15;
+}
+.sds-questionnaire-page .source-form-panel { width: 100%; max-width: none; }
+.sds-questionnaire-page .page-callback.callback { padding: 0; box-shadow: none; }
+.sds-questionnaire-page .page-callback .form-grid { gap: 18px 24px; }
+.sds-questionnaire-page .page-callback .source-form-field label { font-size: 1rem; }
+.sds-questionnaire-page .page-callback :is(input:not([type=hidden]),select,textarea) { min-height: 44px; }
+.sds-questionnaire-page .page-callback button[type=submit] { margin-top: 24px; }
+@media (max-width: 760px) {
+  .sds-questionnaire-page > .service-hero { width: calc(100% - 36px); margin-bottom: 32px; }
+  .sds-questionnaire-page .service-hero > .wrap { width: calc(100% - 36px); }
+  .sds-questionnaire-page .service-hero-grid { gap: 20px; }
+}

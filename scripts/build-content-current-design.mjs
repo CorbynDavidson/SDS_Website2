@@ -13,6 +13,8 @@ import {createProductionRouting} from '../worker/production-routing.mjs';
 import {addEnquiryPanel} from './lib/enquiry-panel.mjs';
 import {referenceCallback,replaceClaimEnquiry,callbackFormDefinitions} from './lib/claim-enquiry.mjs';
 import {addLocationDirectory} from './lib/location-directory.mjs';
+import {addResourceNavigation} from './lib/resource-navigation.mjs';
+import {addQuestionnairePanel} from './lib/questionnaire-panel.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
@@ -40,6 +42,8 @@ const termsBusinessCss=await readFile(resolve(root,'src/terms-business.css'),'ut
 const claimEnquiryCss=await readFile(resolve(root,'src/claim-enquiry.css'),'utf8');
 const locationDirectory=await readJson('config/location-directory.json');
 const locationDirectoryCss=await readFile(resolve(root,'src/location-directory.css'),'utf8');
+const resourceNavigation=await readJson('config/resource-navigation.json');
+const questionnaireCss=await readFile(resolve(root,'src/questionnaire.css'),'utf8');
 const enquiryPanelScope=await readJson('config/enquiry-panel.json');
 const panelTypes=new Set([...enquiryPanelScope.disrepairTypePaths,...enquiryPanelScope.housingGuidePaths]);
 const panelPath=path=>path.split('?')[0].replace(/\/+$/,'')+'/';
@@ -117,6 +121,8 @@ for(const page of index.pages) {
   if(panelPath(page.path)==='/about-us/terms-business/')html=html.replace('</head>','<style id="sds-terms-business">'+termsBusinessCss+'</style></head>');
   if(panelPath(page.path)==='/housing-disrepair-enquiries/')html=html.replace('</head>','<style id="sds-claim-enquiry">'+claimEnquiryCss+'</style></head>');
   if(panelPath(page.path)===locationDirectory.path)html=addLocationDirectory(html,{directory:locationDirectory,origin:config.productionOrigin,css:locationDirectoryCss});
+  if(panelPath(page.path)===resourceNavigation.questionnairePath)html=addQuestionnairePanel(html,questionnaireCss);
+  html=addResourceNavigation(html,{policy:resourceNavigation,origin:config.productionOrigin});
   html=applyProductionSeo(html,{config,path:page.path,redirects});
   const digest=sha256(page.sourceUrl).slice(0,24);
   const contentFile='src/content/current-design/pages/'+digest+'.html';
@@ -141,6 +147,7 @@ for(const url of designSitemap('loc').toArray().map(node=>designSitemap(node).te
   if(response.status!==200||!response.headers.get('content-type')?.includes('text/html'))continue;
   let html=(await response.text()).replace('</head>','<style id="sds-layout-adjustments">'+layoutCss+'</style></head>');
   if(hasEnquiryPanel(path))html=addEnquiryPanel(html,enquiryPanelCss);
+  html=addResourceNavigation(html,{policy:resourceNavigation,origin:config.productionOrigin});
   html=applyProductionSeo(html,{config,path,redirects});
   pages[path]={gzip:gzipSync(Buffer.from(html),{level:9}).toString('base64'),status:200,sha256:sha256(html)};fallbackRoutes.push(path);
   if(!/noindex/i.test(load(html)('meta[name="robots"]').attr('content')||''))sitemapUrls.push(productionUrl(url,{origin:config.productionOrigin,path,redirects}));
@@ -211,6 +218,7 @@ await writeFile(target,originalDesign.replace('export default {','const approved
 await cp(resolve(root,'public'),resolve(root,'dist/client'),{recursive:true});
 const report={sourceCommit:policy.sourceCommit,sourceBranch:policy.sourceBranch,sourceCapturedAt:index.sourceCompletedAt,designBaselineVersion:41,designFingerprint:policy.designFingerprint,capturedRoutes:records.length,contentTransferred:records.length,metadataTransferred:records.length,originalMediaFiles:Object.keys(mediaUrls).length,unavailableOriginalMedia:unavailableMedia,originalWordingPreserved:false,originalNonFormWordingPreserved:true,approvedFormPresentationOverrides:[claimEnquiry],approvedStylesPreserved:true,approvedHeaderFooterPreserved:true,homepageCarouselsPreserved:true,formCount:Object.keys(forms).length,reviewNoindexEnforced:true,productionSeoConfigured:true,productionReleaseReady:false,pages:records};
 report.locationDirectory={path:locationDirectory.path,heading:locationDirectory.heading,links:locationDirectory.links.length,originalLocationUrlsPreserved:true};
+report.resourceNavigation={links:resourceNavigation.links,questionnairePath:resourceNavigation.questionnairePath,questionnaireWordingAndFieldsPreserved:true};
 await writeFile(resolve(root,'src/content/current-design/index.json'),JSON.stringify({sourceCommit:policy.sourceCommit,designBaselineVersion:41,pages:records},null,2)+'\n');
 await writeFile(resolve(root,'docs/migration/content-to-current-design.json'),JSON.stringify(report,null,2)+'\n');
 const compiled=await readFile(target);

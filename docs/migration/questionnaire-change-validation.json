@@ -1,0 +1,35 @@
+{
+  "baselineSource": "5acbb6098582ebb4ad8634164d6b2ed27ee06163",
+  "questionnairePath": "/about-us/client-questionnaire/",
+  "originalQuestionnaireTitlePreserved": true,
+  "questionnaireIntroductionAboveOriginalForm": true,
+  "originalQuestionnaireFormMarkupAndHandlerIdentical": true,
+  "otherMainTemplatesByteIdentical": 296,
+  "otherPagesUnchangedApartFromRequestedNavigation": 296,
+  "desktopExploreGroupsUpdated": 296,
+  "existingMobileMenuGroupsUpdated": 1,
+  "resourceLinks": [
+    {
+      "label": "Client questionnaire",
+      "path": "/about-us/client-questionnaire/"
+    },
+    {
+      "label": "Careers",
+      "path": "/about-us/careers/"
+    },
+    {
+      "label": "Privacy policy",
+      "path": "/about-us/privacy-policy/"
+    },
+    {
+      "label": "Cookies",
+      "path": "/about-us/cookies/"
+    }
+  ],
+  "allOriginalMetadataPreserved": true,
+  "allFormSchemasUnchanged": true,
+  "allOriginalStylesheetAssetsUnchanged": true,
+  "sitemapBytesUnchanged": true,
+  "routeConfigurationUnchanged": true,
+  "browserVisualAuditComplete": false
+}

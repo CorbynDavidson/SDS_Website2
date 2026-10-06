@@ -1,0 +1,30 @@
+{
+  "resourceLinks": [
+    {
+      "label": "Client questionnaire",
+      "path": "/about-us/client-questionnaire/"
+    },
+    {
+      "label": "Careers",
+      "path": "/about-us/careers/"
+    },
+    {
+      "label": "Privacy policy",
+      "path": "/about-us/privacy-policy/"
+    },
+    {
+      "label": "Cookies",
+      "path": "/about-us/cookies/"
+    }
+  ],
+  "desktopExploreGroupsVerified": 296,
+  "mobileResourceGroupsVerified": 1,
+  "reviewResourceLinksVerified": 1188,
+  "destinationResponsesVerified": 36,
+  "questionnairePath": "/about-us/client-questionnaire/",
+  "questionnaireTemplatesVerified": 1,
+  "otherTemplatesWithoutQuestionnaireStylesVerified": 296,
+  "questionnaireTitleAndIntroductionAboveForm": true,
+  "originalQuestionnaireWordingAndFieldsPreserved": true,
+  "browserVisualAuditComplete": false
+}

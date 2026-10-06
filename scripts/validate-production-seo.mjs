@@ -26,6 +26,9 @@ const termsCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
 const claimEnquiryCss=await readFile(resolve(root,'src/claim-enquiry.css'),'utf8');
 const locationDirectory=await readJson('config/location-directory.json');
 const locationDirectoryCss=await readFile(resolve(root,'src/location-directory.css'),'utf8');
+const resourceNavigation=await readJson('config/resource-navigation.json');
+const questionnaireCss=await readFile(resolve(root,'src/questionnaire.css'),'utf8');
+const resourceAudit={resourceLinks:resourceNavigation.links,desktopExploreGroupsVerified:0,mobileResourceGroupsVerified:0,reviewResourceLinksVerified:0,destinationResponsesVerified:0,questionnairePath:resourceNavigation.questionnairePath,questionnaireTemplatesVerified:0,otherTemplatesWithoutQuestionnaireStylesVerified:0,questionnaireTitleAndIntroductionAboveForm:true,originalQuestionnaireWordingAndFieldsPreserved:true,browserVisualAuditComplete:false};
 const directoryPaths=locationDirectory.links.map(link=>link.path);
 assert.equal(directoryPaths.length,119,'The selected directory must contain all 119 places.');
 assert.equal(new Set(directoryPaths).size,directoryPaths.length,'The locations directory contains duplicate URLs.');
@@ -41,6 +44,34 @@ report.claimEnquiryStyleTemplatesVerified=0;report.otherTemplatesWithoutClaimEnq
 for(const [path,page] of Object.entries(data.pages)){
   const html=gunzipSync(Buffer.from(page.gzip,'base64')).toString(),$=load(html);
   const normalPath=path.split('?')[0].replace(/\/+$/,'')+'/';
+  const menu=$('body > nav .nav-menu');
+  if(menu.length){
+    const heading=menu.find('.mega-panel strong').filter((_,node)=>$(node).text().trim()===resourceNavigation.heading);assert.equal(heading.length,1,path);
+    assert.deepEqual(heading.parent().children('a[data-resource-link]').toArray().map(node=>({label:$(node).text(),path:new URL(node.attribs.href).pathname})),resourceNavigation.links,'The four requested Explore links are missing or misplaced: '+path);
+    resourceAudit.desktopExploreGroupsVerified++;
+  }
+  const mobile=$('body > nav .mobile-menu');
+  if(mobile.length){
+    assert.equal(mobile.find('[data-resource-navigation-heading]').text(),resourceNavigation.heading);
+    assert.deepEqual(mobile.find('a[data-resource-link]').toArray().map(node=>({label:$(node).text(),path:new URL(node.attribs.href).pathname})),resourceNavigation.links,path);
+    resourceAudit.mobileResourceGroupsVerified++;
+  }
+  assert.equal($('[data-resource-link]').length,(menu.length+mobile.length)*resourceNavigation.links.length,'Extra resource links were introduced: '+path);
+  if(normalPath===resourceNavigation.questionnairePath){
+    assert.ok($('main').hasClass('sds-questionnaire-page'));
+    assert.equal($('#sds-questionnaire').text(),questionnaireCss);
+    const titleColumn=$('main > .service-hero > .service-hero-grid > div').first();
+    assert.equal(titleColumn.find('h1').text(),'Client Feedback Questionnaire');
+    assert.equal(titleColumn.find('form').length,0,'Questionnaire remains beside the title.');
+    assert.equal(titleColumn.next('.source-form-panel').find('form').length,1,'Questionnaire must follow the title and introduction.');
+    assert.equal(titleColumn.find('[data-source-region="central"] p').length,2,'Original introduction must appear above the form.');
+    assert.equal($('main > .source-copy-section').length,0,'The introduction remains duplicated below the questionnaire.');
+    assert.equal($('main form[data-sds-form="07100587fed77416"]').length,1);
+    resourceAudit.questionnaireTemplatesVerified++;
+  }else{
+    assert.equal($('.sds-questionnaire-page,#sds-questionnaire').length,0,'Questionnaire styling leaked to another page: '+path);
+    resourceAudit.otherTemplatesWithoutQuestionnaireStylesVerified++;
+  }
   if(normalPath==='/about-us/terms-business/')assert.equal($('#sds-terms-business').text(),termsCss,path);
   else assert.equal($('#sds-terms-business').length,0,'Terms styling leaked to another page: '+path);
   if(normalPath==='/housing-disrepair-enquiries/'){
@@ -109,6 +140,11 @@ for(const [path,page] of Object.entries(data.pages)){
   const reviewPage=load(await(await request(review+path)).text());
   for(const node of reviewPage('a[href]').toArray()){
     const target=new URL(node.attribs.href,review+path);
+    if('data-resource-link' in node.attribs){
+      assert.equal(target.origin,review,'New resource link opens the old website: '+path);
+      assert.ok(resourceNavigation.links.some(link=>link.path===target.pathname));
+      resourceAudit.reviewResourceLinksVerified++;
+    }
     if(target.pathname.replace(/\/+$/,'')!=='/about-us/terms-business')continue;
     assert.equal(target.origin,review,'Terms link opens the old website: '+path);
     assert.equal(target.pathname,'/about-us/terms-business/');
@@ -143,6 +179,22 @@ for(const host of [origin,review,'https://housingconditionclaims.org','https://s
 }
 report.locationDirectoryLinksVerified=directoryAudit.productionLinksVerified;
 report.reviewDirectoryLinksVerified=directoryAudit.reviewLinksVerified;
+for(const host of [origin,'https://housingconditionclaims.org','https://sds-housing-condition-claims.corbyn-davidson.chatgpt.site']){
+  for(const path of ['/',resourceNavigation.questionnairePath]){
+    const response=await request(host+path);assert.equal(response.status,200);
+    const $=load(await response.text());
+    for(const node of $('body > nav a[data-resource-link]').toArray()){
+      const target=new URL(node.attribs.href);assert.equal(target.origin,host,'Resource link must open the current design, including in a new tab.');
+      const destination=await request(target.href);assert.equal(destination.status,200);
+      const page=load(await destination.text());assert.equal(page('link[rel=canonical]').attr('href'),origin+target.pathname);
+      resourceAudit.destinationResponsesVerified++;
+    }
+  }
+}
+assert.equal(resourceAudit.desktopExploreGroupsVerified,296);assert.equal(resourceAudit.mobileResourceGroupsVerified,1);assert.equal(resourceAudit.questionnaireTemplatesVerified,1);assert.equal(resourceAudit.otherTemplatesWithoutQuestionnaireStylesVerified,296);
+report.resourceNavigationGroupsVerified=resourceAudit.desktopExploreGroupsVerified;
+report.reviewResourceLinksVerified=resourceAudit.reviewResourceLinksVerified;
+report.questionnaireOnlyLayoutVerified=true;
 const originalSitemap=load(await readFile(resolve(root,'migration/original-sitemap.xml'),'utf8'),{xmlMode:true});
 for(const node of originalSitemap('loc').toArray()){
   const url=originalSitemap(node).text(),response=await request(url);assert.ok([200,301].includes(response.status),url);
@@ -258,4 +310,5 @@ for(const [path,expectedHash] of Object.entries(presentation.stylesheetHashes)){
 assert.ok(report.reviewStylesheetLinksVerified>=report.allPublicBuildRoutesVerified);
 report.reviewStylesheetsLoadFromCurrentBuild=true;
 await writeFile(resolve(root,'docs/migration/location-directory-validation.json'),JSON.stringify(directoryAudit,null,2)+'\n');
+await writeFile(resolve(root,'docs/migration/questionnaire-navigation-validation.json'),JSON.stringify(resourceAudit,null,2)+'\n');
 await DB.close();await writeFile(resolve(root,'docs/migration/page-consolidation-validation.json'),JSON.stringify(consolidationAudit,null,2)+'\n');await writeFile(resolve(root,'docs/migration/production-seo-validation.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

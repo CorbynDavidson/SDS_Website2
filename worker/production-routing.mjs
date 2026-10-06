@@ -29,6 +29,7 @@ export function createProductionRouting(config,routes){
     const local=new URL('/about-us/terms-business/',url).href;
     return html.replace(/<a\b[^>]*>/gi,tag=>tag.replace(/(\bhref\s*=\s*)(["'])(.*?)\2/i,(attribute,prefix,quote,href)=>{
       if(/\sdata-location-link(?:\s|=|>)/i.test(tag)&&href.startsWith(production.origin+'/housing-disrepair/locations/'))return prefix+quote+url.origin+href.slice(production.origin.length)+quote;
+      if(/\sdata-resource-link(?:\s|=|>)/i.test(tag)&&href.startsWith(production.origin+'/about-us/'))return prefix+quote+url.origin+href.slice(production.origin.length)+quote;
       if(href===terms||href===terms.slice(0,-1))return prefix+quote+local+quote;
       if(href.startsWith(terms+'?')||href.startsWith(terms+'#'))return prefix+quote+local+href.slice(terms.length)+quote;
       return attribute;

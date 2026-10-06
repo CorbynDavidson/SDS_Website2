@@ -1,0 +1,23 @@
+{
+  "approvedOn": "2026-10-06",
+  "heading": "About & resources",
+  "questionnairePath": "/about-us/client-questionnaire/",
+  "links": [
+    {
+      "label": "Client questionnaire",
+      "path": "/about-us/client-questionnaire/"
+    },
+    {
+      "label": "Careers",
+      "path": "/about-us/careers/"
+    },
+    {
+      "label": "Privacy policy",
+      "path": "/about-us/privacy-policy/"
+    },
+    {
+      "label": "Cookies",
+      "path": "/about-us/cookies/"
+    }
+  ]
+}
