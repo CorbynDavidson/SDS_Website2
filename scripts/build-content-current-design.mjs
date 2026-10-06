@@ -12,6 +12,7 @@ import {applyProductionSeo,productionUrl,productionSitemap} from './lib/producti
 import {createProductionRouting} from '../worker/production-routing.mjs';
 import {addEnquiryPanel} from './lib/enquiry-panel.mjs';
 import {referenceCallback,replaceClaimEnquiry,callbackFormDefinitions} from './lib/claim-enquiry.mjs';
+import {addLocationDirectory} from './lib/location-directory.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
@@ -37,6 +38,8 @@ const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'u
 const enquiryPanelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
 const termsBusinessCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
 const claimEnquiryCss=await readFile(resolve(root,'src/claim-enquiry.css'),'utf8');
+const locationDirectory=await readJson('config/location-directory.json');
+const locationDirectoryCss=await readFile(resolve(root,'src/location-directory.css'),'utf8');
 const enquiryPanelScope=await readJson('config/enquiry-panel.json');
 const panelTypes=new Set([...enquiryPanelScope.disrepairTypePaths,...enquiryPanelScope.housingGuidePaths]);
 const panelPath=path=>path.split('?')[0].replace(/\/+$/,'')+'/';
@@ -113,6 +116,7 @@ for(const page of index.pages) {
   if(hasEnquiryPanel(page.path))html=addEnquiryPanel(html,enquiryPanelCss);
   if(panelPath(page.path)==='/about-us/terms-business/')html=html.replace('</head>','<style id="sds-terms-business">'+termsBusinessCss+'</style></head>');
   if(panelPath(page.path)==='/housing-disrepair-enquiries/')html=html.replace('</head>','<style id="sds-claim-enquiry">'+claimEnquiryCss+'</style></head>');
+  if(panelPath(page.path)===locationDirectory.path)html=addLocationDirectory(html,{directory:locationDirectory,origin:config.productionOrigin,css:locationDirectoryCss});
   html=applyProductionSeo(html,{config,path:page.path,redirects});
   const digest=sha256(page.sourceUrl).slice(0,24);
   const contentFile='src/content/current-design/pages/'+digest+'.html';
@@ -206,6 +210,7 @@ await writeFile(target,originalDesign.replace('export default {','const approved
 // when a hosting platform labels a WebP as application/octet-stream.
 await cp(resolve(root,'public'),resolve(root,'dist/client'),{recursive:true});
 const report={sourceCommit:policy.sourceCommit,sourceBranch:policy.sourceBranch,sourceCapturedAt:index.sourceCompletedAt,designBaselineVersion:41,designFingerprint:policy.designFingerprint,capturedRoutes:records.length,contentTransferred:records.length,metadataTransferred:records.length,originalMediaFiles:Object.keys(mediaUrls).length,unavailableOriginalMedia:unavailableMedia,originalWordingPreserved:false,originalNonFormWordingPreserved:true,approvedFormPresentationOverrides:[claimEnquiry],approvedStylesPreserved:true,approvedHeaderFooterPreserved:true,homepageCarouselsPreserved:true,formCount:Object.keys(forms).length,reviewNoindexEnforced:true,productionSeoConfigured:true,productionReleaseReady:false,pages:records};
+report.locationDirectory={path:locationDirectory.path,heading:locationDirectory.heading,links:locationDirectory.links.length,originalLocationUrlsPreserved:true};
 await writeFile(resolve(root,'src/content/current-design/index.json'),JSON.stringify({sourceCommit:policy.sourceCommit,designBaselineVersion:41,pages:records},null,2)+'\n');
 await writeFile(resolve(root,'docs/migration/content-to-current-design.json'),JSON.stringify(report,null,2)+'\n');
 const compiled=await readFile(target);

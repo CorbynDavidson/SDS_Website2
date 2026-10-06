@@ -1477,7 +1477,7 @@
       "contentFile": "src/content/current-design/pages/1e02d3b558e804aef06d8658.html",
       "family": "section-index",
       "originalCopySha256": "a1984b73f3594787cd5efd193da66bd03998bcff7507f6ff4f6d231e06e9f1df",
-      "renderedMainSha256": "b8043b8b7e71707b8a39ac11dd70575adc0333b1e75370275e7f99ec5b784da7",
+      "renderedMainSha256": "2932974e2ff3c3c6fceda95bf425d4af5089d2453f94f5539379549bf6315439",
       "metadataTransferred": true,
       "contentTransferred": true
     },
@@ -3581,5 +3581,11 @@
       "metadataTransferred": true,
       "contentTransferred": true
     }
-  ]
+  ],
+  "locationDirectory": {
+    "path": "/housing-disrepair/locations/",
+    "heading": "Areas we serve",
+    "links": 119,
+    "originalLocationUrlsPreserved": true
+  }
 }

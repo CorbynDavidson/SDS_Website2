@@ -23,11 +23,12 @@ export function createProductionRouting(config,routes){
     'User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /submissions\nDisallow: /editor\nDisallow: /health\nDisallow: /*?edit=\nDisallow: /*&edit=\nDisallow: /staging/\nDisallow: /preview/\nDisallow: /_preview/\nDisallow: /build/\nDisallow: /signin-with-chatgpt\nDisallow: /signout-with-chatgpt\n\nSitemap: '+config.productionOrigin+'/sitemap.xml\n';
   const publicHtml=(html,url)=>{
     if(url.origin===production.origin)return html;
-    // Terms links must open this build, including without JavaScript and in a
-    // new tab. Leave canonical, sharing and structured-data URLs on production.
+    // Terms and directory links must open this build, including without
+    // JavaScript or in a new tab. Keep SEO URLs on the production domain.
     const terms=production.origin+'/about-us/terms-business/';
     const local=new URL('/about-us/terms-business/',url).href;
     return html.replace(/<a\b[^>]*>/gi,tag=>tag.replace(/(\bhref\s*=\s*)(["'])(.*?)\2/i,(attribute,prefix,quote,href)=>{
+      if(/\sdata-location-link(?:\s|=|>)/i.test(tag)&&href.startsWith(production.origin+'/housing-disrepair/locations/'))return prefix+quote+url.origin+href.slice(production.origin.length)+quote;
       if(href===terms||href===terms.slice(0,-1))return prefix+quote+local+quote;
       if(href.startsWith(terms+'?')||href.startsWith(terms+'#'))return prefix+quote+local+href.slice(terms.length)+quote;
       return attribute;

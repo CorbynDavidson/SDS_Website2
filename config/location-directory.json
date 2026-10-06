@@ -1,0 +1,484 @@
+{
+  "approvedOn": "2026-10-06",
+  "path": "/housing-disrepair/locations/",
+  "heading": "Areas we serve",
+  "source": "Owner-supplied Pasted markdown.md: 119 original SDS location URLs.",
+  "links": [
+    {
+      "label": "Barking & Dagenham",
+      "path": "/housing-disrepair/locations/london/barking/"
+    },
+    {
+      "label": "Barnsley",
+      "path": "/housing-disrepair/locations/barnsley/"
+    },
+    {
+      "label": "Basildon",
+      "path": "/housing-disrepair/locations/basildon/"
+    },
+    {
+      "label": "Basingstoke",
+      "path": "/housing-disrepair/locations/basingstoke/"
+    },
+    {
+      "label": "Bath",
+      "path": "/housing-disrepair/locations/bath/"
+    },
+    {
+      "label": "Bedford",
+      "path": "/housing-disrepair/locations/bedford/"
+    },
+    {
+      "label": "Birkenhead",
+      "path": "/housing-disrepair/locations/birkenhead/"
+    },
+    {
+      "label": "Birmingham",
+      "path": "/housing-disrepair/locations/birmingham/"
+    },
+    {
+      "label": "Blackburn",
+      "path": "/housing-disrepair/locations/blackburn/"
+    },
+    {
+      "label": "Blackpool",
+      "path": "/housing-disrepair/locations/blackpool/"
+    },
+    {
+      "label": "Bolton",
+      "path": "/housing-disrepair/locations/bolton/"
+    },
+    {
+      "label": "Bootle",
+      "path": "/housing-disrepair/locations/bootle/"
+    },
+    {
+      "label": "Bradford",
+      "path": "/housing-disrepair/locations/bradford/"
+    },
+    {
+      "label": "Brent",
+      "path": "/housing-disrepair/locations/london/brent/"
+    },
+    {
+      "label": "Brighton",
+      "path": "/housing-disrepair/locations/brighton/"
+    },
+    {
+      "label": "Bristol",
+      "path": "/housing-disrepair/locations/bristol/"
+    },
+    {
+      "label": "Burnley",
+      "path": "/housing-disrepair/locations/burnley/"
+    },
+    {
+      "label": "Camden",
+      "path": "/housing-disrepair/locations/london/camden/"
+    },
+    {
+      "label": "Canterbury",
+      "path": "/housing-disrepair/locations/canterbury/"
+    },
+    {
+      "label": "Carlisle",
+      "path": "/housing-disrepair/locations/carlisle/"
+    },
+    {
+      "label": "Chelmsford",
+      "path": "/housing-disrepair/locations/chelmsford/"
+    },
+    {
+      "label": "Cheltenham",
+      "path": "/housing-disrepair/locations/cheltenham/"
+    },
+    {
+      "label": "Chester",
+      "path": "/housing-disrepair/locations/chester/"
+    },
+    {
+      "label": "Chesterfield",
+      "path": "/housing-disrepair/locations/chesterfield/"
+    },
+    {
+      "label": "Chichester",
+      "path": "/housing-disrepair/locations/chichester/"
+    },
+    {
+      "label": "Colchester",
+      "path": "/housing-disrepair/locations/colchester/"
+    },
+    {
+      "label": "Coventry",
+      "path": "/housing-disrepair/locations/coventry/"
+    },
+    {
+      "label": "Crawley",
+      "path": "/housing-disrepair/locations/crawley/"
+    },
+    {
+      "label": "Croydon",
+      "path": "/housing-disrepair/locations/london/croydon/"
+    },
+    {
+      "label": "Darlington",
+      "path": "/housing-disrepair/locations/darlington/"
+    },
+    {
+      "label": "Derby",
+      "path": "/housing-disrepair/locations/derby/"
+    },
+    {
+      "label": "Doncaster",
+      "path": "/housing-disrepair/locations/doncaster/"
+    },
+    {
+      "label": "Dover",
+      "path": "/housing-disrepair/locations/dover/"
+    },
+    {
+      "label": "Dudley",
+      "path": "/housing-disrepair/locations/dudley/"
+    },
+    {
+      "label": "Durham",
+      "path": "/housing-disrepair/locations/durham/"
+    },
+    {
+      "label": "Ealing",
+      "path": "/housing-disrepair/locations/london/ealing/"
+    },
+    {
+      "label": "Enfield",
+      "path": "/housing-disrepair/locations/london/enfield/"
+    },
+    {
+      "label": "Exeter",
+      "path": "/housing-disrepair/locations/exeter/"
+    },
+    {
+      "label": "Folkestone",
+      "path": "/housing-disrepair/locations/folkestone/"
+    },
+    {
+      "label": "Fulham",
+      "path": "/housing-disrepair/locations/london/fulham/"
+    },
+    {
+      "label": "Gateshead",
+      "path": "/housing-disrepair/locations/gateshead/"
+    },
+    {
+      "label": "Gillingham",
+      "path": "/housing-disrepair/locations/gillingham/"
+    },
+    {
+      "label": "Gloucester",
+      "path": "/housing-disrepair/locations/gloucester/"
+    },
+    {
+      "label": "Great Yarmouth",
+      "path": "/housing-disrepair/locations/great-yarmouth/"
+    },
+    {
+      "label": "Greenwich",
+      "path": "/housing-disrepair/locations/london/greenwich/"
+    },
+    {
+      "label": "Grimsby",
+      "path": "/housing-disrepair/locations/grimsby/"
+    },
+    {
+      "label": "Hackney",
+      "path": "/housing-disrepair/locations/london/hackney/"
+    },
+    {
+      "label": "Hammersmith",
+      "path": "/housing-disrepair/locations/london/hammersmith/"
+    },
+    {
+      "label": "Haringey",
+      "path": "/housing-disrepair/locations/london/haringey/"
+    },
+    {
+      "label": "Harlow",
+      "path": "/housing-disrepair/locations/harlow/"
+    },
+    {
+      "label": "Hartlepool",
+      "path": "/housing-disrepair/locations/hartlepool/"
+    },
+    {
+      "label": "Hastings",
+      "path": "/housing-disrepair/locations/hastings/"
+    },
+    {
+      "label": "Havering",
+      "path": "/housing-disrepair/locations/london/havering/"
+    },
+    {
+      "label": "Hereford",
+      "path": "/housing-disrepair/locations/hereford/"
+    },
+    {
+      "label": "Hounslow",
+      "path": "/housing-disrepair/locations/london/hounslow/"
+    },
+    {
+      "label": "Huddersfield",
+      "path": "/housing-disrepair/locations/huddersfield/"
+    },
+    {
+      "label": "Hull",
+      "path": "/housing-disrepair/locations/hull/"
+    },
+    {
+      "label": "Ipswich",
+      "path": "/housing-disrepair/locations/ipswich/"
+    },
+    {
+      "label": "Islington",
+      "path": "/housing-disrepair/locations/london/islington/"
+    },
+    {
+      "label": "Kettering",
+      "path": "/housing-disrepair/locations/kettering/"
+    },
+    {
+      "label": "Lambeth",
+      "path": "/housing-disrepair/locations/london/lambeth/"
+    },
+    {
+      "label": "Lancaster",
+      "path": "/housing-disrepair/locations/lancaster/"
+    },
+    {
+      "label": "Leeds",
+      "path": "/housing-disrepair/locations/leeds/"
+    },
+    {
+      "label": "Leicester",
+      "path": "/housing-disrepair/locations/leicester/"
+    },
+    {
+      "label": "Lewisham",
+      "path": "/housing-disrepair/locations/london/lewisham/"
+    },
+    {
+      "label": "Lincoln",
+      "path": "/housing-disrepair/locations/lincoln/"
+    },
+    {
+      "label": "Liverpool",
+      "path": "/housing-disrepair/locations/liverpool/"
+    },
+    {
+      "label": "London",
+      "path": "/housing-disrepair/locations/london/"
+    },
+    {
+      "label": "Lowestoft",
+      "path": "/housing-disrepair/locations/lowestoft/"
+    },
+    {
+      "label": "Luton",
+      "path": "/housing-disrepair/locations/luton/"
+    },
+    {
+      "label": "Maidstone",
+      "path": "/housing-disrepair/locations/maidstone/"
+    },
+    {
+      "label": "Manchester",
+      "path": "/housing-disrepair/locations/manchester/"
+    },
+    {
+      "label": "Margate",
+      "path": "/housing-disrepair/locations/margate/"
+    },
+    {
+      "label": "Middlesbrough",
+      "path": "/housing-disrepair/locations/middlesbrough/"
+    },
+    {
+      "label": "Milton Keynes",
+      "path": "/housing-disrepair/locations/milton-keynes/"
+    },
+    {
+      "label": "Newcastle",
+      "path": "/housing-disrepair/locations/newcastle/"
+    },
+    {
+      "label": "Newham",
+      "path": "/housing-disrepair/locations/london/newham/"
+    },
+    {
+      "label": "Northampton",
+      "path": "/housing-disrepair/locations/northampton/"
+    },
+    {
+      "label": "Norwich",
+      "path": "/housing-disrepair/locations/norwich/"
+    },
+    {
+      "label": "Nottingham",
+      "path": "/housing-disrepair/locations/nottingham/"
+    },
+    {
+      "label": "Nuneaton",
+      "path": "/housing-disrepair/locations/nuneaton/"
+    },
+    {
+      "label": "Oldham",
+      "path": "/housing-disrepair/locations/oldham/"
+    },
+    {
+      "label": "Peterborough",
+      "path": "/housing-disrepair/locations/peterborough/"
+    },
+    {
+      "label": "Plymouth",
+      "path": "/housing-disrepair/locations/plymouth/"
+    },
+    {
+      "label": "Portsmouth",
+      "path": "/housing-disrepair/locations/portsmouth/"
+    },
+    {
+      "label": "Preston",
+      "path": "/housing-disrepair/locations/preston/"
+    },
+    {
+      "label": "Reading",
+      "path": "/housing-disrepair/locations/reading/"
+    },
+    {
+      "label": "Redbridge",
+      "path": "/housing-disrepair/locations/london/redbridge/"
+    },
+    {
+      "label": "Rochdale",
+      "path": "/housing-disrepair/locations/rochdale/"
+    },
+    {
+      "label": "Rotherham",
+      "path": "/housing-disrepair/locations/rotherham/"
+    },
+    {
+      "label": "Salford",
+      "path": "/housing-disrepair/locations/salford/"
+    },
+    {
+      "label": "Sandwell",
+      "path": "/housing-disrepair/locations/sandwell/"
+    },
+    {
+      "label": "Scunthorpe",
+      "path": "/housing-disrepair/locations/scunthorpe/"
+    },
+    {
+      "label": "Sheffield",
+      "path": "/housing-disrepair/locations/sheffield/"
+    },
+    {
+      "label": "Shrewsbury",
+      "path": "/housing-disrepair/locations/shrewsbury/"
+    },
+    {
+      "label": "Slough",
+      "path": "/housing-disrepair/locations/slough/"
+    },
+    {
+      "label": "Southampton",
+      "path": "/housing-disrepair/locations/southampton/"
+    },
+    {
+      "label": "Southend on Sea",
+      "path": "/housing-disrepair/locations/southend-sea/"
+    },
+    {
+      "label": "Southwark",
+      "path": "/housing-disrepair/locations/london/southwark/"
+    },
+    {
+      "label": "Stevenage",
+      "path": "/housing-disrepair/locations/stevenage/"
+    },
+    {
+      "label": "Stockport",
+      "path": "/housing-disrepair/locations/stockport/"
+    },
+    {
+      "label": "Stoke on Trent",
+      "path": "/housing-disrepair/locations/stoke-trent/"
+    },
+    {
+      "label": "Sunderland",
+      "path": "/housing-disrepair/locations/sunderland/"
+    },
+    {
+      "label": "Swindon",
+      "path": "/housing-disrepair/locations/swindon/"
+    },
+    {
+      "label": "Tameside",
+      "path": "/housing-disrepair/locations/tameside/"
+    },
+    {
+      "label": "Telford",
+      "path": "/housing-disrepair/locations/telford/"
+    },
+    {
+      "label": "Tower Hamlets",
+      "path": "/housing-disrepair/locations/london/tower-hamlets/"
+    },
+    {
+      "label": "Truro",
+      "path": "/housing-disrepair/locations/truro/"
+    },
+    {
+      "label": "Wakefield",
+      "path": "/housing-disrepair/locations/wakefield/"
+    },
+    {
+      "label": "Walsall",
+      "path": "/housing-disrepair/locations/walsall/"
+    },
+    {
+      "label": "Waltham Forest",
+      "path": "/housing-disrepair/locations/london/waltham-forest/"
+    },
+    {
+      "label": "Wandsworth",
+      "path": "/housing-disrepair/locations/london/wandsworth/"
+    },
+    {
+      "label": "Warrington",
+      "path": "/housing-disrepair/locations/warrington/"
+    },
+    {
+      "label": "Watford",
+      "path": "/housing-disrepair/locations/watford/"
+    },
+    {
+      "label": "Wigan",
+      "path": "/housing-disrepair/locations/wigan/"
+    },
+    {
+      "label": "Wolverhampton",
+      "path": "/housing-disrepair/locations/wolverhampton/"
+    },
+    {
+      "label": "Worcester",
+      "path": "/housing-disrepair/locations/worcester/"
+    },
+    {
+      "label": "Worthing",
+      "path": "/housing-disrepair/locations/worthing/"
+    },
+    {
+      "label": "York",
+      "path": "/housing-disrepair/locations/york/"
+    }
+  ]
+}

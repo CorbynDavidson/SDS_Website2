@@ -1,0 +1,49 @@
+/* Locations directory: extend the approved site's rounded pale-grey sections. */
+.sds-location-directory {
+  width: min(1240px, calc(100% - 64px));
+  margin: 32px auto;
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #f4f9fa;
+  color: var(--ink, #032b4c);
+}
+.sds-location-directory h2 {
+  margin: 0 0 24px;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.25;
+}
+.sds-location-directory .sds-location-directory-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sds-location-directory li { min-width: 0; }
+.sds-location-directory a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 6px;
+  border-radius: 8px;
+  color: inherit;
+  font-size: 1rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sds-location-directory a:hover { background: #fff; }
+.sds-location-directory a:focus-visible { outline: 3px solid #efb400; outline-offset: 2px; }
+@media (max-width: 1000px) {
+  .sds-location-directory .sds-location-directory-links { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .sds-location-directory { width: calc(100% - 36px); padding: 24px 20px; }
+  .sds-location-directory .sds-location-directory-links { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 16px; }
+}
+@media (max-width: 480px) {
+  .sds-location-directory .sds-location-directory-links { grid-template-columns: minmax(0, 1fr); }
+}

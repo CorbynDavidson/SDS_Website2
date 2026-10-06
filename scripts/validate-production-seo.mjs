@@ -24,6 +24,13 @@ const panelGuides=new Set(panelScope.housingGuidePaths);
 const panelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
 const termsCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
 const claimEnquiryCss=await readFile(resolve(root,'src/claim-enquiry.css'),'utf8');
+const locationDirectory=await readJson('config/location-directory.json');
+const locationDirectoryCss=await readFile(resolve(root,'src/location-directory.css'),'utf8');
+const directoryPaths=locationDirectory.links.map(link=>link.path);
+assert.equal(directoryPaths.length,119,'The selected directory must contain all 119 places.');
+assert.equal(new Set(directoryPaths).size,directoryPaths.length,'The locations directory contains duplicate URLs.');
+assert.deepEqual([...directoryPaths].sort(),index.pages.filter(page=>page.path.startsWith(locationDirectory.path)&&page.path!==locationDirectory.path).map(page=>page.path).sort(),'The directory must cover every retained original location page.');
+const directoryAudit={path:locationDirectory.path,originalLocationUrlsVerified:directoryPaths.length,directoryTemplatesVerified:0,otherTemplatesWithoutDirectoryChangesVerified:0,productionLinksVerified:0,reviewLinksVerified:0,reviewLinksWorkWithoutJavaScript:true,metadataPreserved:true,browserVisualAuditComplete:false,links:[]};
 const consolidation=await readJson('config/page-consolidation.json');
 const consolidationAudit={selectedOn:consolidation.selectedOn,selection:consolidation.selection,retiredPagesVerified:0,redirectVariantsVerified:0,redirectResponsesVerified:0,internalLinksToRetiredPages:0,originalIndexableSitemapUrlsRetained:0,originalNoindexUrlsExcluded:[],retainedStandaloneRoutes:consolidation.retainedStandaloneRoutes,mappings:[]};
 const report={productionOrigin:origin,capturedRoutesVerified:0,allPublicBuildRoutesVerified:0,originalSitemapUrlsVerified:0,productionSitemapUrlsVerified:0,legalServiceSchemasVerified:0,disrepairServiceSchemasVerified:0,permanentRedirectsVerified:0,knownNonHousingRoutesVerified:0,internalAbsoluteLinksVerified:0,reviewNoindexVerified:false,productionRobotsVerified:false,privateRoutesNoindexVerified:false,termsExactWordingVerified:false,claimCtaDestinationPreserved:false,wizardFormsConsistent:false,sharedRoundedPanelsVerified:false,historicalInventoryComplete:false};
@@ -43,6 +50,20 @@ for(const [path,page] of Object.entries(data.pages)){
     assert.equal($('.sds-claim-enquiry,#sds-claim-enquiry').length,0,'Claim enquiry styling leaked to another page: '+path);report.otherTemplatesWithoutClaimEnquiryStylesVerified++;
   }
   const locationPanel=normalPath.startsWith(panelScope.locationPrefix),typePanel=panelTypes.has(normalPath),guidePanel=panelGuides.has(normalPath);
+  if(normalPath===locationDirectory.path){
+    const section=$('main > section[data-location-directory]');assert.equal(section.length,1,'Expected one directory box on All Locations.');
+    assert.equal(section.find('h2').text(),locationDirectory.heading);
+    assert.equal(section.attr('aria-labelledby'),section.find('h2').attr('id'));
+    assert.equal(section.find('nav').attr('aria-labelledby'),section.find('h2').attr('id'));
+    assert.equal(section.find('ul > li').length,directoryPaths.length);
+    assert.deepEqual(section.find('a[data-location-link]').toArray().map(node=>({label:$(node).text(),path:new URL(node.attribs.href).pathname})),locationDirectory.links,'Directory labels or original URL paths differ.');
+    assert.equal($('#sds-location-directory').text(),locationDirectoryCss,'Directory styling differs from Git source.');
+    assert.equal(section.find('form').length,0,'The directory must not add another enquiry form.');
+    directoryAudit.directoryTemplatesVerified++;
+  }else{
+    assert.equal($('[data-location-directory],[data-location-link],#sds-location-directory').length,0,'Directory markup or styles leaked to another page: '+path);
+    directoryAudit.otherTemplatesWithoutDirectoryChangesVerified++;
+  }
   if(locationPanel||typePanel||guidePanel){
     assert.equal($('main > header.service-hero.source-enquiry-panel').length,1,'Missing rounded enquiry section: '+path);
     assert.equal($('#sds-enquiry-panel').text(),panelCss,path);
@@ -106,6 +127,22 @@ for(const page of index.pages){
   }
   report.capturedRoutesVerified++;
 }
+for(const host of [origin,review,'https://housingconditionclaims.org','https://sds-housing-condition-claims.corbyn-davidson.chatgpt.site']){
+  const response=await request(host+locationDirectory.path);assert.equal(response.status,200);
+  const $=load(await response.text()),anchors=$('[data-location-directory] a[data-location-link]');
+  assert.equal(anchors.length,directoryPaths.length);
+  assert.equal($('link[rel=canonical]').attr('href'),origin+locationDirectory.path,'The review directory canonical must remain on SDS.');
+  for(const [i,node] of anchors.toArray().entries()){
+    const link=locationDirectory.links[i],href=node.attribs.href;
+    assert.equal(href,host+link.path,'Directory link opens a different website: '+host+' '+link.path);
+    const destination=await request(href);assert.equal(destination.status,200,'Directory destination is missing or redirects: '+href);
+    const page=load(await destination.text());assert.equal(page('link[rel=canonical]').attr('href'),origin+link.path);
+    if(host===origin){assert.ok(!destination.headers.has('x-robots-tag'));directoryAudit.productionLinksVerified++;directoryAudit.links.push({...link,productionUrl:href,status:destination.status,canonical:page('link[rel=canonical]').attr('href')});}
+    else{assert.match(destination.headers.get('x-robots-tag'),/noindex/);directoryAudit.reviewLinksVerified++;}
+  }
+}
+report.locationDirectoryLinksVerified=directoryAudit.productionLinksVerified;
+report.reviewDirectoryLinksVerified=directoryAudit.reviewLinksVerified;
 const originalSitemap=load(await readFile(resolve(root,'migration/original-sitemap.xml'),'utf8'),{xmlMode:true});
 for(const node of originalSitemap('loc').toArray()){
   const url=originalSitemap(node).text(),response=await request(url);assert.ok([200,301].includes(response.status),url);
@@ -220,4 +257,5 @@ for(const [path,expectedHash] of Object.entries(presentation.stylesheetHashes)){
 }
 assert.ok(report.reviewStylesheetLinksVerified>=report.allPublicBuildRoutesVerified);
 report.reviewStylesheetsLoadFromCurrentBuild=true;
+await writeFile(resolve(root,'docs/migration/location-directory-validation.json'),JSON.stringify(directoryAudit,null,2)+'\n');
 await DB.close();await writeFile(resolve(root,'docs/migration/page-consolidation-validation.json'),JSON.stringify(consolidationAudit,null,2)+'\n');await writeFile(resolve(root,'docs/migration/production-seo-validation.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

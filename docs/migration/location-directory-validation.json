@@ -1,0 +1,846 @@
+{
+  "path": "/housing-disrepair/locations/",
+  "originalLocationUrlsVerified": 119,
+  "directoryTemplatesVerified": 1,
+  "otherTemplatesWithoutDirectoryChangesVerified": 296,
+  "productionLinksVerified": 119,
+  "reviewLinksVerified": 357,
+  "reviewLinksWorkWithoutJavaScript": true,
+  "metadataPreserved": true,
+  "browserVisualAuditComplete": false,
+  "links": [
+    {
+      "label": "Barking & Dagenham",
+      "path": "/housing-disrepair/locations/london/barking/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/barking/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/barking/"
+    },
+    {
+      "label": "Barnsley",
+      "path": "/housing-disrepair/locations/barnsley/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/barnsley/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/barnsley/"
+    },
+    {
+      "label": "Basildon",
+      "path": "/housing-disrepair/locations/basildon/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/basildon/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/basildon/"
+    },
+    {
+      "label": "Basingstoke",
+      "path": "/housing-disrepair/locations/basingstoke/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/basingstoke/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/basingstoke/"
+    },
+    {
+      "label": "Bath",
+      "path": "/housing-disrepair/locations/bath/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bath/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/bath/"
+    },
+    {
+      "label": "Bedford",
+      "path": "/housing-disrepair/locations/bedford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bedford/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/bedford/"
+    },
+    {
+      "label": "Birkenhead",
+      "path": "/housing-disrepair/locations/birkenhead/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/birkenhead/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/birkenhead/"
+    },
+    {
+      "label": "Birmingham",
+      "path": "/housing-disrepair/locations/birmingham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/birmingham/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/birmingham/"
+    },
+    {
+      "label": "Blackburn",
+      "path": "/housing-disrepair/locations/blackburn/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/blackburn/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/blackburn/"
+    },
+    {
+      "label": "Blackpool",
+      "path": "/housing-disrepair/locations/blackpool/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/blackpool/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/blackpool/"
+    },
+    {
+      "label": "Bolton",
+      "path": "/housing-disrepair/locations/bolton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bolton/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/bolton/"
+    },
+    {
+      "label": "Bootle",
+      "path": "/housing-disrepair/locations/bootle/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bootle/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/bootle/"
+    },
+    {
+      "label": "Bradford",
+      "path": "/housing-disrepair/locations/bradford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bradford/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/bradford/"
+    },
+    {
+      "label": "Brent",
+      "path": "/housing-disrepair/locations/london/brent/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/brent/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/brent/"
+    },
+    {
+      "label": "Brighton",
+      "path": "/housing-disrepair/locations/brighton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/brighton/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/brighton/"
+    },
+    {
+      "label": "Bristol",
+      "path": "/housing-disrepair/locations/bristol/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bristol/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/bristol/"
+    },
+    {
+      "label": "Burnley",
+      "path": "/housing-disrepair/locations/burnley/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/burnley/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/burnley/"
+    },
+    {
+      "label": "Camden",
+      "path": "/housing-disrepair/locations/london/camden/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/camden/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/camden/"
+    },
+    {
+      "label": "Canterbury",
+      "path": "/housing-disrepair/locations/canterbury/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/canterbury/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/canterbury/"
+    },
+    {
+      "label": "Carlisle",
+      "path": "/housing-disrepair/locations/carlisle/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/carlisle/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/carlisle/"
+    },
+    {
+      "label": "Chelmsford",
+      "path": "/housing-disrepair/locations/chelmsford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chelmsford/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/chelmsford/"
+    },
+    {
+      "label": "Cheltenham",
+      "path": "/housing-disrepair/locations/cheltenham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/cheltenham/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/cheltenham/"
+    },
+    {
+      "label": "Chester",
+      "path": "/housing-disrepair/locations/chester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chester/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/chester/"
+    },
+    {
+      "label": "Chesterfield",
+      "path": "/housing-disrepair/locations/chesterfield/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chesterfield/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/chesterfield/"
+    },
+    {
+      "label": "Chichester",
+      "path": "/housing-disrepair/locations/chichester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chichester/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/chichester/"
+    },
+    {
+      "label": "Colchester",
+      "path": "/housing-disrepair/locations/colchester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/colchester/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/colchester/"
+    },
+    {
+      "label": "Coventry",
+      "path": "/housing-disrepair/locations/coventry/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/coventry/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/coventry/"
+    },
+    {
+      "label": "Crawley",
+      "path": "/housing-disrepair/locations/crawley/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/crawley/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/crawley/"
+    },
+    {
+      "label": "Croydon",
+      "path": "/housing-disrepair/locations/london/croydon/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/croydon/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/croydon/"
+    },
+    {
+      "label": "Darlington",
+      "path": "/housing-disrepair/locations/darlington/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/darlington/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/darlington/"
+    },
+    {
+      "label": "Derby",
+      "path": "/housing-disrepair/locations/derby/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/derby/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/derby/"
+    },
+    {
+      "label": "Doncaster",
+      "path": "/housing-disrepair/locations/doncaster/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/doncaster/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/doncaster/"
+    },
+    {
+      "label": "Dover",
+      "path": "/housing-disrepair/locations/dover/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/dover/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/dover/"
+    },
+    {
+      "label": "Dudley",
+      "path": "/housing-disrepair/locations/dudley/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/dudley/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/dudley/"
+    },
+    {
+      "label": "Durham",
+      "path": "/housing-disrepair/locations/durham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/durham/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/durham/"
+    },
+    {
+      "label": "Ealing",
+      "path": "/housing-disrepair/locations/london/ealing/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/ealing/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/ealing/"
+    },
+    {
+      "label": "Enfield",
+      "path": "/housing-disrepair/locations/london/enfield/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/enfield/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/enfield/"
+    },
+    {
+      "label": "Exeter",
+      "path": "/housing-disrepair/locations/exeter/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/exeter/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/exeter/"
+    },
+    {
+      "label": "Folkestone",
+      "path": "/housing-disrepair/locations/folkestone/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/folkestone/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/folkestone/"
+    },
+    {
+      "label": "Fulham",
+      "path": "/housing-disrepair/locations/london/fulham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/fulham/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/fulham/"
+    },
+    {
+      "label": "Gateshead",
+      "path": "/housing-disrepair/locations/gateshead/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gateshead/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/gateshead/"
+    },
+    {
+      "label": "Gillingham",
+      "path": "/housing-disrepair/locations/gillingham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gillingham/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/gillingham/"
+    },
+    {
+      "label": "Gloucester",
+      "path": "/housing-disrepair/locations/gloucester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gloucester/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/gloucester/"
+    },
+    {
+      "label": "Great Yarmouth",
+      "path": "/housing-disrepair/locations/great-yarmouth/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/great-yarmouth/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/great-yarmouth/"
+    },
+    {
+      "label": "Greenwich",
+      "path": "/housing-disrepair/locations/london/greenwich/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/greenwich/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/greenwich/"
+    },
+    {
+      "label": "Grimsby",
+      "path": "/housing-disrepair/locations/grimsby/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/grimsby/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/grimsby/"
+    },
+    {
+      "label": "Hackney",
+      "path": "/housing-disrepair/locations/london/hackney/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hackney/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hackney/"
+    },
+    {
+      "label": "Hammersmith",
+      "path": "/housing-disrepair/locations/london/hammersmith/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hammersmith/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hammersmith/"
+    },
+    {
+      "label": "Haringey",
+      "path": "/housing-disrepair/locations/london/haringey/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/haringey/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/haringey/"
+    },
+    {
+      "label": "Harlow",
+      "path": "/housing-disrepair/locations/harlow/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/harlow/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/harlow/"
+    },
+    {
+      "label": "Hartlepool",
+      "path": "/housing-disrepair/locations/hartlepool/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hartlepool/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/hartlepool/"
+    },
+    {
+      "label": "Hastings",
+      "path": "/housing-disrepair/locations/hastings/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hastings/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/hastings/"
+    },
+    {
+      "label": "Havering",
+      "path": "/housing-disrepair/locations/london/havering/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/havering/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/havering/"
+    },
+    {
+      "label": "Hereford",
+      "path": "/housing-disrepair/locations/hereford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hereford/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/hereford/"
+    },
+    {
+      "label": "Hounslow",
+      "path": "/housing-disrepair/locations/london/hounslow/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hounslow/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hounslow/"
+    },
+    {
+      "label": "Huddersfield",
+      "path": "/housing-disrepair/locations/huddersfield/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/huddersfield/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/huddersfield/"
+    },
+    {
+      "label": "Hull",
+      "path": "/housing-disrepair/locations/hull/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hull/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/hull/"
+    },
+    {
+      "label": "Ipswich",
+      "path": "/housing-disrepair/locations/ipswich/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/ipswich/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/ipswich/"
+    },
+    {
+      "label": "Islington",
+      "path": "/housing-disrepair/locations/london/islington/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/islington/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/islington/"
+    },
+    {
+      "label": "Kettering",
+      "path": "/housing-disrepair/locations/kettering/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/kettering/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/kettering/"
+    },
+    {
+      "label": "Lambeth",
+      "path": "/housing-disrepair/locations/london/lambeth/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/lambeth/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/lambeth/"
+    },
+    {
+      "label": "Lancaster",
+      "path": "/housing-disrepair/locations/lancaster/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lancaster/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/lancaster/"
+    },
+    {
+      "label": "Leeds",
+      "path": "/housing-disrepair/locations/leeds/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/leeds/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/leeds/"
+    },
+    {
+      "label": "Leicester",
+      "path": "/housing-disrepair/locations/leicester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/leicester/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/leicester/"
+    },
+    {
+      "label": "Lewisham",
+      "path": "/housing-disrepair/locations/london/lewisham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/lewisham/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/lewisham/"
+    },
+    {
+      "label": "Lincoln",
+      "path": "/housing-disrepair/locations/lincoln/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lincoln/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/lincoln/"
+    },
+    {
+      "label": "Liverpool",
+      "path": "/housing-disrepair/locations/liverpool/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/liverpool/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/liverpool/"
+    },
+    {
+      "label": "London",
+      "path": "/housing-disrepair/locations/london/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/"
+    },
+    {
+      "label": "Lowestoft",
+      "path": "/housing-disrepair/locations/lowestoft/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lowestoft/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/lowestoft/"
+    },
+    {
+      "label": "Luton",
+      "path": "/housing-disrepair/locations/luton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/luton/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/luton/"
+    },
+    {
+      "label": "Maidstone",
+      "path": "/housing-disrepair/locations/maidstone/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/maidstone/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/maidstone/"
+    },
+    {
+      "label": "Manchester",
+      "path": "/housing-disrepair/locations/manchester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/manchester/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/manchester/"
+    },
+    {
+      "label": "Margate",
+      "path": "/housing-disrepair/locations/margate/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/margate/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/margate/"
+    },
+    {
+      "label": "Middlesbrough",
+      "path": "/housing-disrepair/locations/middlesbrough/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/middlesbrough/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/middlesbrough/"
+    },
+    {
+      "label": "Milton Keynes",
+      "path": "/housing-disrepair/locations/milton-keynes/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/milton-keynes/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/milton-keynes/"
+    },
+    {
+      "label": "Newcastle",
+      "path": "/housing-disrepair/locations/newcastle/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/newcastle/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/newcastle/"
+    },
+    {
+      "label": "Newham",
+      "path": "/housing-disrepair/locations/london/newham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/newham/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/newham/"
+    },
+    {
+      "label": "Northampton",
+      "path": "/housing-disrepair/locations/northampton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/northampton/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/northampton/"
+    },
+    {
+      "label": "Norwich",
+      "path": "/housing-disrepair/locations/norwich/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/norwich/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/norwich/"
+    },
+    {
+      "label": "Nottingham",
+      "path": "/housing-disrepair/locations/nottingham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/nottingham/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/nottingham/"
+    },
+    {
+      "label": "Nuneaton",
+      "path": "/housing-disrepair/locations/nuneaton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/nuneaton/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/nuneaton/"
+    },
+    {
+      "label": "Oldham",
+      "path": "/housing-disrepair/locations/oldham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/oldham/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/oldham/"
+    },
+    {
+      "label": "Peterborough",
+      "path": "/housing-disrepair/locations/peterborough/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/peterborough/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/peterborough/"
+    },
+    {
+      "label": "Plymouth",
+      "path": "/housing-disrepair/locations/plymouth/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/plymouth/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/plymouth/"
+    },
+    {
+      "label": "Portsmouth",
+      "path": "/housing-disrepair/locations/portsmouth/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/portsmouth/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/portsmouth/"
+    },
+    {
+      "label": "Preston",
+      "path": "/housing-disrepair/locations/preston/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/preston/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/preston/"
+    },
+    {
+      "label": "Reading",
+      "path": "/housing-disrepair/locations/reading/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/reading/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/reading/"
+    },
+    {
+      "label": "Redbridge",
+      "path": "/housing-disrepair/locations/london/redbridge/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/redbridge/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/redbridge/"
+    },
+    {
+      "label": "Rochdale",
+      "path": "/housing-disrepair/locations/rochdale/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/rochdale/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/rochdale/"
+    },
+    {
+      "label": "Rotherham",
+      "path": "/housing-disrepair/locations/rotherham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/rotherham/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/rotherham/"
+    },
+    {
+      "label": "Salford",
+      "path": "/housing-disrepair/locations/salford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/salford/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/salford/"
+    },
+    {
+      "label": "Sandwell",
+      "path": "/housing-disrepair/locations/sandwell/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sandwell/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/sandwell/"
+    },
+    {
+      "label": "Scunthorpe",
+      "path": "/housing-disrepair/locations/scunthorpe/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/scunthorpe/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/scunthorpe/"
+    },
+    {
+      "label": "Sheffield",
+      "path": "/housing-disrepair/locations/sheffield/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sheffield/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/sheffield/"
+    },
+    {
+      "label": "Shrewsbury",
+      "path": "/housing-disrepair/locations/shrewsbury/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/shrewsbury/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/shrewsbury/"
+    },
+    {
+      "label": "Slough",
+      "path": "/housing-disrepair/locations/slough/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/slough/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/slough/"
+    },
+    {
+      "label": "Southampton",
+      "path": "/housing-disrepair/locations/southampton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/southampton/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/southampton/"
+    },
+    {
+      "label": "Southend on Sea",
+      "path": "/housing-disrepair/locations/southend-sea/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/southend-sea/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/southend-sea/"
+    },
+    {
+      "label": "Southwark",
+      "path": "/housing-disrepair/locations/london/southwark/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/southwark/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/southwark/"
+    },
+    {
+      "label": "Stevenage",
+      "path": "/housing-disrepair/locations/stevenage/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stevenage/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/stevenage/"
+    },
+    {
+      "label": "Stockport",
+      "path": "/housing-disrepair/locations/stockport/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stockport/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/stockport/"
+    },
+    {
+      "label": "Stoke on Trent",
+      "path": "/housing-disrepair/locations/stoke-trent/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stoke-trent/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/stoke-trent/"
+    },
+    {
+      "label": "Sunderland",
+      "path": "/housing-disrepair/locations/sunderland/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sunderland/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/sunderland/"
+    },
+    {
+      "label": "Swindon",
+      "path": "/housing-disrepair/locations/swindon/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/swindon/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/swindon/"
+    },
+    {
+      "label": "Tameside",
+      "path": "/housing-disrepair/locations/tameside/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/tameside/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/tameside/"
+    },
+    {
+      "label": "Telford",
+      "path": "/housing-disrepair/locations/telford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/telford/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/telford/"
+    },
+    {
+      "label": "Tower Hamlets",
+      "path": "/housing-disrepair/locations/london/tower-hamlets/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/tower-hamlets/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/tower-hamlets/"
+    },
+    {
+      "label": "Truro",
+      "path": "/housing-disrepair/locations/truro/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/truro/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/truro/"
+    },
+    {
+      "label": "Wakefield",
+      "path": "/housing-disrepair/locations/wakefield/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wakefield/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/wakefield/"
+    },
+    {
+      "label": "Walsall",
+      "path": "/housing-disrepair/locations/walsall/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/walsall/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/walsall/"
+    },
+    {
+      "label": "Waltham Forest",
+      "path": "/housing-disrepair/locations/london/waltham-forest/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/waltham-forest/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/waltham-forest/"
+    },
+    {
+      "label": "Wandsworth",
+      "path": "/housing-disrepair/locations/london/wandsworth/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/wandsworth/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/london/wandsworth/"
+    },
+    {
+      "label": "Warrington",
+      "path": "/housing-disrepair/locations/warrington/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/warrington/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/warrington/"
+    },
+    {
+      "label": "Watford",
+      "path": "/housing-disrepair/locations/watford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/watford/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/watford/"
+    },
+    {
+      "label": "Wigan",
+      "path": "/housing-disrepair/locations/wigan/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wigan/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/wigan/"
+    },
+    {
+      "label": "Wolverhampton",
+      "path": "/housing-disrepair/locations/wolverhampton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wolverhampton/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/wolverhampton/"
+    },
+    {
+      "label": "Worcester",
+      "path": "/housing-disrepair/locations/worcester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/worcester/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/worcester/"
+    },
+    {
+      "label": "Worthing",
+      "path": "/housing-disrepair/locations/worthing/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/worthing/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/worthing/"
+    },
+    {
+      "label": "York",
+      "path": "/housing-disrepair/locations/york/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/york/",
+      "status": 200,
+      "canonical": "https://www.sds-solicitors.com/housing-disrepair/locations/york/"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "baselineSource": "9cfdcc393d933fe441ba997d8b51f2fa4d89a345",
+  "directoryPath": "/housing-disrepair/locations/",
+  "requestedLinks": 119,
+  "productionDestinationsVerified": 119,
+  "reviewDestinationsVerified": 357,
+  "otherTemplatesByteIdentical": 296,
+  "existingPageOutsideAddedDirectoryByteIdentical": true,
+  "existingFormsAndSchemasUnchanged": true,
+  "metadataAndCanonicalsUnchanged": true,
+  "sitemapBytesUnchanged": true,
+  "routingAndAssetsUnchanged": true,
+  "headingIdUnique": true,
+  "originalLocationsNowLinkedFromDirectory": true,
+  "browserVisualAuditComplete": false
+}

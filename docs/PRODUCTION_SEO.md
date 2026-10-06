@@ -15,6 +15,8 @@ Production origin: **https://www.sds-solicitors.com**. This release prepares the
 
 ## Selected SDS page consolidation
 
+The All Locations directory links to all 119 retained original location pages. Their existing URL paths and self-canonicals remain unchanged, and every destination stays in the same 243-URL production sitemap. The directory links use the current origin on review hosts, so reviewers see the new design even without JavaScript or when opening a new tab; production links are fully qualified SDS URLs. `config/location-directory.json` records the supplied labels and paths, and `migration/location-directory-validation.json` verifies the full list and every destination.
+
 The owner selected the original SDS wording and URLs as the public versions in the approved design. The following alternatives are retired with single-hop 301s, including their non-slash variants. This is a page-selection decision; the alternatives were not verbatim copies of the original SDS pages. No original SDS page is removed, merged or rewritten. `/faqs/` is the sole standalone sitemap addition.
 
 | Retired alternative | Retained SDS-content page |
