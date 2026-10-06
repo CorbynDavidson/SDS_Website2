@@ -31,3 +31,11 @@ Seven original schemas use the tested `/api/forms/<key>` handlers. D1 stores lab
 ## Production status
 
 The review site remains noindex and production mode returns 503 until the release gates are signed off. This release does not switch SDS DNS, change email records, configure a CRM, enable production tracking or claim a completed browser/mobile audit. Original missing media/links remain explicit in the reports. See `HANDOVER.md` and `config/release-gates.json` for the remaining work.
+
+## Published release
+
+Published successfully as **Site version 48** at https://housingconditionclaims.org on 6 October 2026. Native source: `bceb3d89275fa8dc0b7b9c9d866414716af6fc32`. GitHub implementation: [`9e397b423ba1e12fdff0295b857e461dd32beef2`](https://github.com/CorbynDavidson/SDS_Website2/commit/9e397b423ba1e12fdff0295b857e461dd32beef2). [GitHub CI](https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37403334513) passed. All 315 changed GitHub files matched local Git blob hashes.
+
+Verification covered 296 original-content/SEO routes, 22,030 source copy blocks, 75 used original media files with correct local hashes/types, 155 internal links and thirteen backend tests. All seven schemas were also submitted through the compiled Worker against isolated local SQL, and the authenticated combined dashboard read them. No live personal records or notification systems were changed by those tests.
+
+The captured Hanane Chikhaoui profile has no visible primary content. Its route and original SEO are retained; no biography is invented. Review this legacy empty page before production.

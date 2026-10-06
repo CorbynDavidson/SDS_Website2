@@ -1,6 +1,6 @@
 # SDS website
 
-Review: https://housingconditionclaims.org. The user requested the design from before the content migration, so **main builds the version-41 design**. Review responses remain noindex. The production site at https://www.sds-solicitors.com and its DNS have not changed.
+Review: https://housingconditionclaims.org (**version 48**). The user requested the design from before the content migration, so **main builds the version-41 design**. Review responses remain noindex. The production site at https://www.sds-solicitors.com and its DNS have not changed.
 
 Original SDS page content and SEO are now fitted into the approved design on **all 296 captured routes**. Headings, paragraphs, lists, FAQs, forms, profile/article images, SEO titles and metadata are preserved. Shared fonts, CSS, logo, navigation, footer and homepage carousels retain the approved design. See [content migration](docs/CONTENT_MIGRATION.md) and its independent verification report.
 

@@ -25,7 +25,7 @@
     "backendTestsPassed": 13
   },
   "migrationBranch": "migration/exact-sds-content",
-  "migrationContentIntegrationIntoApprovedDesignComplete": false,
+  "migrationContentIntegrationIntoApprovedDesignComplete": true,
   "productionReleaseReady": false,
   "browserRecheckCompleted": false,
   "browserRecheckBlocker": "Automatic approval review service was at capacity.",
@@ -93,5 +93,44 @@
     "githubCommit": "84bcd381a984f90632bffdaa297a4753cb7b21f9",
     "verifiedFiles": 32,
     "allMatched": true
-  }
+  },
+  "contentMigration": {
+    "versionNumber": 48,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_e432b6996c6081918386af0e96673b6b",
+    "sourceCommit": "bceb3d89275fa8dc0b7b9c9d866414716af6fc32",
+    "githubCommit": "9e397b423ba1e12fdff0295b857e461dd32beef2",
+    "deploymentId": "appgdep_6ac45a30ce808191bc25f9d8ac0439f4",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T02:17:45.876329+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "archive": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000def882108fd9f48028a46581",
+      "content_hash": "sha256:c7e164bd4332d35450314a55664ee98d3ee4f2d2a98288e70c6f03c05b246a5e",
+      "size_bytes": 63877120,
+      "file_count": 277
+    },
+    "capturedContentRoutes": 296,
+    "metadataRoutes": 296,
+    "sourceDirectoryEntries": 24,
+    "sourceProfilePaths": 25,
+    "originalCopyBlocksVerified": 22030,
+    "originalMediaVerifiedLocally": 75,
+    "internalLinksVerified": 155,
+    "originalFormSchemasActive": 7,
+    "backendTestsPassed": 13,
+    "compiledFormsAndDashboardVerifiedLocally": true,
+    "githubFilesVerified": 315,
+    "githubAllChangedFilesMatch": true,
+    "githubCi": {
+      "id": 37403334513,
+      "conclusion": "success",
+      "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37403334513"
+    },
+    "browserVisualAuditComplete": false,
+    "productionDnsChanged": false,
+    "productionReleaseReady": false
+  },
+  "currentlyDeployedRelease": "contentMigration"
 }
