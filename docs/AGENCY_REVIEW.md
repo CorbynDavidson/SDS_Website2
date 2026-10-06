@@ -13,13 +13,13 @@ The review should establish whether the design, technical implementation and mig
 | Item | Review reference |
 |---|---|
 | Live review website | https://housingconditionclaims.org/ — **published version 75** |
-| Code baseline | [GitHub revision 3522c7cf7873109ceb5f4ec19705a1061242e1c4](https://github.com/CorbynDavidson/SDS_Website2/tree/3522c7cf7873109ceb5f4ec19705a1061242e1c4) |
+| Code baseline | [GitHub revision b39181072b1318c130c29cde0d24f28639b77082](https://github.com/CorbynDavidson/SDS_Website2/tree/b39181072b1318c130c29cde0d24f28639b77082) |
 | Deployed source reference | Sites commit `e536abdf5e98548ccb7393500bac2c5b7d03a658` |
 | Intended production domain | **https://www.sds-solicitors.com/** |
 | Existing production website | https://www.sds-solicitors.com/ |
 | Owner editor entry | https://housingconditionclaims.org/?edit=1 |
 | URL inventory | Supplied `SDS_URL_Migration_Map.xlsx`; see the version qualification in the appendix |
-| Production sitemap | [Repository sitemap at the code baseline](https://github.com/CorbynDavidson/SDS_Website2/blob/3522c7cf7873109ceb5f4ec19705a1061242e1c4/sitemap.xml) |
+| Production sitemap | [Repository sitemap at the code baseline](https://github.com/CorbynDavidson/SDS_Website2/blob/b39181072b1318c130c29cde0d24f28639b77082/sitemap.xml) |
 
 Please report findings against version 75 and the pinned code revision, rather than a moving `main` branch. This sync includes the latest implementation, tests and review controls. Agree and record a new baseline if implementation changes during the review.
 
