@@ -30,16 +30,16 @@
   "browserRecheckCompleted": false,
   "browserRecheckBlocker": "The required control-browser skill is unavailable in this execution environment.",
   "activeReviewRelease": {
-    "versionNumber": 58,
-    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_9c635f6708e08191882247be1ea5335e",
-    "sourceCommit": "fdcf7d27fd119f9026fbc32166e986aa0d35c7c6",
-    "deploymentId": "appgdep_6ac47c32434c8191a0d234b78d7eeb00",
+    "versionNumber": 59,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_72652f81102c8191b094ac60b6a8cb47",
+    "sourceCommit": "52286d397045db67d89d55e8437b3084827b07d8",
+    "deploymentId": "appgdep_6ac47f145b5c81918a05499be8b84915",
     "status": "succeeded",
-    "confirmedAt": "2026-10-06T04:42:48.572550+00:00",
+    "confirmedAt": "2026-10-06T04:55:08.426508+00:00",
     "reviewUrl": "https://housingconditionclaims.org",
     "envSetRevision": 2
   },
-  "githubImplementationCommit": "8197b8e7cdbe50065edd2c69fc3f85d5eeced071",
+  "githubImplementationCommit": "e555cffa60b6774534f6087dff219cdda00edc9d",
   "githubMigrationCheckpoint": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
   "validation": {
     "currentDesign": {
@@ -80,9 +80,9 @@
     }
   ],
   "sourceMirrorIntegrity": {
-    "nativeCommit": "fdcf7d27fd119f9026fbc32166e986aa0d35c7c6",
-    "githubCommit": "8197b8e7cdbe50065edd2c69fc3f85d5eeced071",
-    "verifiedFiles": 18,
+    "nativeCommit": "52286d397045db67d89d55e8437b3084827b07d8",
+    "githubCommit": "e555cffa60b6774534f6087dff219cdda00edc9d",
+    "verifiedFiles": 11,
     "allMatched": true
   },
   "contentMigration": {
@@ -123,7 +123,7 @@
     "productionDnsChanged": false,
     "productionReleaseReady": false
   },
-  "currentlyDeployedRelease": "housingGuideEnquiryPanels",
+  "currentlyDeployedRelease": "termsBusinessPage",
   "layoutCorrections": {
     "versionNumber": 49,
     "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_c199c3e18214819187efa28ccd0653f9",
@@ -502,6 +502,52 @@
       "status": "completed",
       "conclusion": "success",
       "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37414908202"
+    }
+  },
+  "termsBusinessPage": {
+    "versionNumber": 59,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_72652f81102c8191b094ac60b6a8cb47",
+    "sourceCommit": "52286d397045db67d89d55e8437b3084827b07d8",
+    "githubCommit": "e555cffa60b6774534f6087dff219cdda00edc9d",
+    "deploymentId": "appgdep_6ac47f145b5c81918a05499be8b84915",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T04:55:08.426508+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "archive": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_000000002b14821094585f20010c85c2",
+      "content_hash": "sha256:292f1d9e69bb225c0f7c7e89300199be1eaba3f8b79415cd99c2810682978279",
+      "size_bytes": 65013760,
+      "file_count": 280
+    },
+    "path": "/about-us/terms-business/",
+    "sourceUrl": "https://www.sds-solicitors.com/about-us/terms-business/",
+    "exactWordingVerified": true,
+    "textCharacters": 44449,
+    "textSha256": "a2c68a66d5c6a3665951632724582b5a8f8460736544d09cdd6e519ad8b96ea0",
+    "tablesPreserved": 3,
+    "roundedCornersCssPixels": 24,
+    "pageOnlyStylesheet": true,
+    "otherPublicTemplatesUnchanged": 304,
+    "reviewTermsLinksVerified": 66,
+    "reviewLinksWorkWithoutJavascript": true,
+    "baseStylesheetsUnchanged": true,
+    "existing155EnquiryPanelsPreserved": true,
+    "formsRoutesAndSitemapUnchanged": true,
+    "productionSeoPreserved": true,
+    "productionDnsChanged": false,
+    "backendTestsPassed": 13,
+    "browserVisualAuditComplete": false,
+    "sourceMirrorIntegrity": {
+      "verifiedFiles": 11,
+      "allMatched": true
+    },
+    "githubCi": {
+      "runId": 37415877509,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37415877509"
     }
   }
 }
