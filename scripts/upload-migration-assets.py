@@ -9,7 +9,7 @@ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--origi
 origin=args.origin.rstrip('/')
 if urlsplit(origin).scheme!='https' or urlsplit(origin).hostname not in {'housingconditionclaims.org','www.housingconditionclaims.org'}: raise SystemExit('Use the configured HTTPS review origin.')
 token=json.loads(sys.stdin.readline())['token']
-data=json.loads((root/'dist/server/data.json').read_text())
+data=json.loads((root/'build/data.json').read_text())
 assets={path:asset for path,asset in data['assets'].items() if not asset.get('base64')}
 def upload(item):
  path,asset=item;raw=(root/'public'/path.lstrip('/')).read_bytes()

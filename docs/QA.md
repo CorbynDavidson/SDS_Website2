@@ -9,3 +9,7 @@ Twelve backend tests verify complete original form schemas, invalid data, CSRF, 
 Browser review is carried out on the internal supervised development preview, using synthetic data only. Record representative templates and observed issues here after verification. Full mobile/device accessibility, original CMS conditional branching, production tracking/consent and lead routing remain explicit launch gates.
 
 Performance: the build measures compressed Worker size and media bytes. Larger assets are content-addressed in R2 and static delivery supports ETags/range responses. Original media are retained to avoid changing content. High-resolution original JPEGs can be optimised with approved visual-equivalence checks after the immutable originals are preserved. No Lighthouse/Core Web Vitals score is claimed without measuring the actual deployment.
+
+## Browser observations (6 October 2026)
+
+The desktop homepage rendered with original copy, new logo/theme, all captured content and functioning external SRA/reviews embeds. Browser inspection identified legacy form click interference and border/label styling; source fixes were applied. A final browser reload/recheck was blocked by automatic approval review because the review service was at capacity. The resulting form handler and CSS corrections still require a browser recheck; all 12 backend tests and full copy/metadata checks pass. No completed mobile/device audit is claimed.

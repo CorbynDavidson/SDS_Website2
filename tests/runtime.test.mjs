@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { createWorker } from '../worker/runtime.mjs';
 import { localD1 } from '../scripts/lib/local-d1.mjs';
-const root=resolve(import.meta.dirname,'..'),data=JSON.parse(await readFile(resolve(root,'dist/server/data.json'),'utf8'));
+const root=resolve(import.meta.dirname,'..'),data=JSON.parse(await readFile(resolve(root,'build/data.json'),'utf8'));
 const origin='https://housingconditionclaims.org',owner='corbyn.davidson@hotmail.com';
 const base={RELEASE_MODE:'review',AUTH_PROVIDER:'sites',RATE_LIMIT_SECRET:'test-only-salt-for-local-tests'};
 const common=Object.values(data.forms).find(form=>form.originalId==='12007');

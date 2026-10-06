@@ -7,7 +7,7 @@ import { parse,bodyText,metadata,sha256 } from './lib/html.mjs';
 const root=resolve(import.meta.dirname,'..');
 const manifest=JSON.parse(await readFile(resolve(root,'migration/source-manifest.json'),'utf8'));
 const index=JSON.parse(await readFile(resolve(root,'src/content/sds/index.json'),'utf8'));
-const data=JSON.parse(await readFile(resolve(root,'dist/server/data.json'),'utf8'));
+const data=JSON.parse(await readFile(resolve(root,'build/data.json'),'utf8'));
 const worker=(await import(resolve(root,'dist/server/index.js'))).default;
 const errors=[],pages=[],links=new Set(),externalIntegrations=new Set();
 assert.equal(manifest.unresolved_pages,0,'Unresolved original pages');

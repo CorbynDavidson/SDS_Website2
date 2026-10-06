@@ -39,8 +39,9 @@ if (gzipBytes > 9 * 1024 * 1024) throw new Error('Worker exceeds the release siz
 await rm(resolve(root,'dist'),{recursive:true,force:true});
 await mkdir(resolve(root,'dist/server'),{recursive:true});
 await writeFile(resolve(root,'dist/server/index.js'),output);
-await writeFile(resolve(root,'dist/server/data.json'),JSON.stringify(data));
-await cp(resolve(root,'public'),resolve(root,'dist/client'),{recursive:true});
+await mkdir(resolve(root,'build'),{recursive:true});
+await writeFile(resolve(root,'build/data.json'),JSON.stringify(data));
+if (!process.argv.includes('--sites')) await cp(resolve(root,'public'),resolve(root,'dist/client'),{recursive:true});
 await mkdir(resolve(root,'docs/migration'),{recursive:true});
 await writeFile(resolve(root,'docs/migration/build.json'),JSON.stringify({pageCount:index.pages.length,formCount:Object.keys(forms).length,assetCount:Object.keys(assets).length,assetBytes:Object.values(assets).reduce((a,b)=>a+b.bytes,0),workerBytes:Buffer.byteLength(output),workerGzipBytes:gzipBytes,sourceCapturedAt:manifest.completed_at},null,2)+'\n');
 console.log('Built SDS Worker: '+index.pages.length+' original pages, '+Object.keys(forms).length+' forms, '+Object.keys(assets).length+' assets; '+(gzipBytes/1048576).toFixed(2)+' MiB compressed.');
