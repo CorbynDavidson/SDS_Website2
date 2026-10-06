@@ -18,7 +18,7 @@ The original directory lists **24 people**; **25 individual profile paths** were
 - Generated page content: `src/content/current-design/pages/` and its route index.
 - Independent verification: `scripts/validate-current-content.mjs`, `docs/migration/content-validation.json`.
 
-`npm run check` rebuilds corresponding page files and reports, compares served content and SEO with the immutable captures, checks approved styles/shared design/carousels, source media hashes/MIME types and internal links, then runs the thirteen persistence/security backend tests. Commit all generated changes with the implementation. GitHub runs the same checks.
+`npm run check` rebuilds corresponding page files and reports, compares served content and SEO with the immutable captures and the recorded screenshot-form exception, checks approved styles/shared design/carousels, source media hashes/MIME types and internal links, then runs the fourteen persistence/security backend tests. Commit all generated changes with the implementation. GitHub runs the same checks. The exception is limited to `/housing-disrepair-enquiries/`: its selected five-field form matches the original homepage callback, while all non-form content and SEO on that page remain original. `config/claim-enquiry.json` records the selection; the old captured wizard and every original backend schema are preserved.
 
 `npm run build:metadata` retains the metadata-only version-47 build for rollback/review. Its unchanged-body reports describe that intermediate build, not this content release. `npm run check:migration` retains the earlier CMS-layout candidate for source research; it is not the selected design.
 

@@ -8,7 +8,7 @@
   "disrepairServiceSchemasVerified": 168,
   "permanentRedirectsVerified": 294,
   "knownNonHousingRoutesVerified": 25,
-  "internalAbsoluteLinksVerified": 18141,
+  "internalAbsoluteLinksVerified": 18140,
   "reviewNoindexVerified": true,
   "productionRobotsVerified": true,
   "privateRoutesNoindexVerified": true,
@@ -36,6 +36,8 @@
   "termsWordingCharacters": 44449,
   "termsWordingSha256": "a2c68a66d5c6a3665951632724582b5a8f8460736544d09cdd6e519ad8b96ea0",
   "termsTablesPreserved": 3,
+  "claimEnquiryUsesReferenceCallback": true,
+  "claimEnquiryFieldsVerified": 5,
   "claimCtasVerified": 32,
   "approvedVersion53DesignRestored": true,
   "reviewStylesheetsLoadFromCurrentBuild": true

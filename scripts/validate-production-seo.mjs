@@ -195,8 +195,16 @@ assert.equal(terms(termPage),exactTermsText,'Terms wording or order changed');
 assert.equal(termPage('main table').length,sourceTerms('#top table,#central table,#wide table').length,'Terms tables changed');
 assert.ok(oldText.length>40000);assert.ok(report.reviewTermsLinksVerified>0);report.termsExactWordingVerified=true;report.termsOnlyStylesheetVerified=true;
 report.termsWordingCharacters=exactTermsText.length;report.termsWordingSha256=createHash('sha256').update(exactTermsText).digest('hex');report.termsTablesPreserved=termPage('main table').length;
-const enquiry=load(await(await request(origin+'/housing-disrepair-enquiries/')).text());assert.equal(enquiry('[data-source-wizard-card]').length,1);assert.equal(enquiry('form[data-sds-wizard]').length,1);assert.equal(enquiry('form[data-sds-wizard]').attr('id'),'hdr_multi_step');assert.equal(enquiry('button[data-sds-wizard-button]').length,5);
-assert.ok(enquiry('#sds-content-controls').text().includes('[class*="hide_when_"]'));report.wizardFormsConsistent=true;
+const claimEnquiry=await readJson('config/claim-enquiry.json');
+const enquiry=load(await(await request(origin+claimEnquiry.path)).text());
+assert.equal(enquiry('main form').length,1);assert.equal(enquiry('main form[data-source-form-presentation="reference-callback"]').length,1);
+assert.equal(enquiry('main form').attr('data-sds-form'),claimEnquiry.formKey);assert.equal(enquiry('main form').attr('data-source-path'),claimEnquiry.path);
+assert.equal(enquiry('main form[data-sds-wizard],main [data-source-wizard-card]').length,0);
+assert.equal(enquiry('main form .source-form-field').length,5);assert.equal(enquiry('main form button[type=submit]').length,1);assert.equal(enquiry('main form button').text().trim(),'Get in touch');
+const home=load(await(await request(origin+claimEnquiry.referencePath)).text());
+assert.equal(enquiry('main form fieldset').html(),home('main form[data-sds-form="'+claimEnquiry.formKey+'"] fieldset').html(),'Reference callback questions, options or consent changed');
+report.claimEnquiryUsesReferenceCallback=true;report.claimEnquiryFieldsVerified=5;
+report.wizardFormsConsistent=true;
 let ctas=0;
 for(const page of Object.values(data.pages)){const $=load(gunzipSync(Buffer.from(page.gzip,'base64')).toString());for(const node of $('a[href]').toArray())if(/^(?:CLAIM NOW|START YOUR CLAIM NOW)$/i.test($(node).text().trim())){assert.equal(new URL(node.attribs.href).pathname,'/housing-disrepair-enquiries/');ctas++;}}
 assert.ok(ctas>0);report.claimCtaDestinationPreserved=true;report.claimCtasVerified=ctas;

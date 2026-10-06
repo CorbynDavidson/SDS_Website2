@@ -2,7 +2,7 @@
 
 [XML sitemap](sitemap.xml) · [Published sitemap source](public/sitemap.xml)
 
-The build keeps both repository copies and the Worker sitemap in sync. The claim enquiry page at `/housing-disrepair-enquiries/` uses the shared site's form-card colours, rounded fields, selection controls and buttons through its scoped `src/claim-enquiry.css`, preserving all original wording, fields and five steps.
+The build keeps both repository copies and the Worker sitemap in sync. At the owner's screenshot request, `/housing-disrepair-enquiries/` now uses the same five-field callback form as the homepage, stacked in one column with the full-width yellow Get in touch button. Its page content, title, metadata and migration URL are unchanged. This is the sole approved form-content replacement; immutable originals and all seven backend schemas remain intact. `config/claim-enquiry.json` records the selection, and `src/claim-enquiry.css` scopes its presentation to this page.
 
 Review: https://housingconditionclaims.org (**version 61**). The version-53 visual layout is retained with the requested location, disrepair-type and Housing Guides enquiry-section borders. Version 56 fixed stylesheet loading: the initial rollback still requested the design CSS from the old SDS domain. **Main builds the version-41 design** with the subsequent approved layout adjustments and original migrated content. Review responses remain noindex. The production site at https://www.sds-solicitors.com and its DNS have not changed.
 

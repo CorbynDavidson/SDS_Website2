@@ -6,6 +6,7 @@ import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {load} from 'cheerio';
 import {localD1} from './lib/local-d1.mjs';
+import {callbackFormDefinitions} from './lib/claim-enquiry.mjs';
 const root=resolve(import.meta.dirname,'..');
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
@@ -23,6 +24,9 @@ const origin='https://www.sds-solicitors.com';
 const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'review',RATE_LIMIT_SECRET:'local-validation-only',ASSETS:{async fetch(request){const path=new URL(request.url).pathname;if(!data.assets[path])return new Response('Missing',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':'application/octet-stream'}});}}};
 const fetchPage=(module,path)=>module.fetch(new Request(origin+path),env);
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
+const claimEnquiry=await readJson('config/claim-enquiry.json');
+const callbackOriginal=sourceByUrl.get(origin+claimEnquiry.referencePath);
+const callbackOriginalRaw=gunzipSync(await readFile(resolve(root,callbackOriginal.source_file))).toString('utf8');
 const importedByPath=new Map((await readJson('src/content/sds/index.json')).pages.map(page=>[page.path,page]));
 const sourceAssets=new Map(manifest.assets.filter(a=>a.status===200).map(a=>[new URL(a.url).pathname,a]));
 const directorySource=sourceByUrl.get('https://www.sds-solicitors.com/about-us/our-people/');
@@ -50,6 +54,11 @@ function originalContent(raw,path=''){
    if(primary[0]===node||copy(node).parents().toArray().includes(primary[0]))continue;
    if(!copy(node).parents('#original').length)continue;
    widget(copy(node)).remove();removedFormWidgets++;
+ }
+ if(path.replace(/\/+$/,'')===claimEnquiry.path.replace(/\/+$/,'')){
+   const reference=originalContent(callbackOriginalRaw,claimEnquiry.referencePath);
+   primary.remove();root.append(reference.copy.html(reference.primary));
+   return {copy,root,primary:root.find('form').first(),removedFormWidgets,removedProfileCards:0,formPresentationOverride:true};
  }
  let removedProfileCards=0;
  if(path.replace(/\/+$/,'')==='/housing-disrepair/locations'){
@@ -151,7 +160,8 @@ for(const page of report.pages){
  assert.equal(primary.length,originalCopy.primary?1:0,'Expected exactly one original enquiry widget: '+page.path);
  for(const form of $('main form[data-sds-form]').toArray())assert.equal($(form).closest('[data-source-enquiry]').length,1,'Secondary enquiry form remains: '+page.path);
  if(originalCopy.primary){
-   const importedCopy=originalContent(await readFile(resolve(root,importedByPath.get(page.path).contentFile),'utf8'));
+   const controlSource=originalCopy.formPresentationOverride?importedByPath.get(claimEnquiry.referencePath):importedByPath.get(page.path);
+   const importedCopy=originalContent(await readFile(resolve(root,controlSource.contentFile),'utf8'),controlSource.path);
    const controls=(dom,widget)=>widget.find('input:not([type=hidden]),textarea,select').toArray().filter(n=>n.attribs.name&&!dom(n).hasClass('sds-honeypot')).map(n=>({name:n.attribs.name,type:n.attribs.type||n.tagName,required:'required'in n.attribs}));
    assert.deepEqual(controls($,primary),controls(importedCopy.copy,importedCopy.primary),'Primary enquiry fields changed: '+page.path);layoutAudit.primaryFormFieldsPreserved++;
    assert.equal(primary.closest('.service-hero,.rights-hero,.profile-hero').length,1,'Primary enquiry must be in the top content box: '+page.path);
@@ -187,7 +197,7 @@ for(const page of report.pages){
    layoutAudit.welcomeMessageCarouselVerified=true;
  }
  if(page.path==='/about-us/our-people/'){const originalDirectory=load(raw);const expected=originalDirectory('.team-list .kpeople-member').length;assert.equal($('.team-grid .team-card').length,expected);assert.equal($('.team-card-leadership').length,2);audit.sourceDirectoryProfiles=expected;}
- audit.routesVerified++;audit.pages.push({path:page.path,copyMatchesOriginal:true,paragraphsAndHeadingsMatch:true,seoMatchesOriginal:true,approvedStylesAndSharedDesignPreserved:true});
+ audit.routesVerified++;audit.pages.push({path:page.path,copyMatchesOriginal:!originalCopy.formPresentationOverride,copyMatchesApprovedFormAndOriginalPage:true,formPresentationOverride:originalCopy.formPresentationOverride||false,paragraphsAndHeadingsMatch:true,seoMatchesOriginal:true,approvedStylesAndSharedDesignPreserved:true});
 }
 for(const path of media){
  const source=path.match(/\/([a-f0-9]{64})\./)?.[1];
@@ -204,7 +214,7 @@ for(const path of ['/submissions','/submissions.csv','/editor','/api/editor/sess
 audit.ownerProtectedAdministrationVerified=true;
 const production=await worker.fetch(new Request(origin+'/'),{...env,RELEASE_MODE:'production'});assert.equal(production.status,200);assert.ok(!production.headers.has('x-robots-tag'));audit.productionIndexationVerified=true;
 assert.equal((await fetchPage(worker,'/this-page-does-not-exist/')).status,404);
-audit.formKeys=[...forms];assert.deepEqual(data.forms,await readJson('src/content/sds/forms.json'),'All original submission handlers must remain available.');
+audit.formKeys=[...forms];assert.deepEqual(data.forms,callbackFormDefinitions(await readJson('src/content/sds/forms.json'),claimEnquiry),'Original handlers must remain unchanged apart from the approved callback source URL.');
 for(const path of (await readJson('config/page-consolidation.json')).retainedStandaloneRoutes){
  const response=await fetchPage(worker,path);assert.equal(response.status,200,'Existing additional page unavailable: '+path);
  const $=load(await response.text());assert.equal($('#sds-layout-adjustments').text(),layoutCss,'Additional page must share header spacing and layout rules: '+path);assert.ok($('main form').length<=1,'Additional page has repeated forms: '+path);layoutAudit.fallbackLayoutsVerified++;

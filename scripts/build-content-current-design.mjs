@@ -11,6 +11,7 @@ import {addReviewsPage} from './lib/reviews-page.mjs';
 import {applyProductionSeo,productionUrl,productionSitemap} from './lib/production-seo.mjs';
 import {createProductionRouting} from '../worker/production-routing.mjs';
 import {addEnquiryPanel} from './lib/enquiry-panel.mjs';
+import {referenceCallback,replaceClaimEnquiry,callbackFormDefinitions} from './lib/claim-enquiry.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
@@ -30,7 +31,8 @@ const policy=await readJson('config/metadata-migration.json');
 const config=await readJson('config/site.json');
 const reviewsContent=await readJson('src/reviews-page.json');
 const reviewsHomeHtml=await (await approved.fetch(new Request(config.productionOrigin+'/'),{})).text();
-const forms=await readJson('src/content/sds/forms.json');
+const claimEnquiry=await readJson('config/claim-enquiry.json');
+const forms=callbackFormDefinitions(await readJson('src/content/sds/forms.json'),claimEnquiry);
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const enquiryPanelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
 const termsBusinessCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
@@ -75,6 +77,9 @@ for(const path of ['/sds-theme.css','/sds-runtime.js','/assets/sheldon-davidson-
   assets[path]={sha256:sha256(bytes),bytes:bytes.length,type:typeByExtension[extname(path)],base64:bytes.toString('base64')};
 }
 const runtime=(await readFile(resolve(root,'public/sds-runtime.js'),'utf8')).replace("'#banner .content-panel h1", "'[data-source-copy] h1,[data-source-copy] h2,[data-source-copy] h3,[data-source-copy] p,[data-source-copy] li,h1[data-source-copy],#banner .content-panel h1");
+const referencePage=index.pages.find(page=>page.path===claimEnquiry.referencePath);
+const referenceContent=cleanContent(await readFile(resolve(root,referencePage.contentFile),'utf8'),{origin:index.sourceOrigin,mediaUrls,path:referencePage.path,locationProfileCard});
+const referenceHtml=renderContentPage(reviewsHomeHtml,referenceContent,{path:referencePage.path,family:'home',title:'Home'}).html;
 const pages={},records=[],unavailableMedia=[];
 await mkdir(resolve(root,'src/content/current-design/pages'),{recursive:true});
 await mkdir(resolve(root,'build/current-design-pages'),{recursive:true});
@@ -91,6 +96,7 @@ for(const page of index.pages) {
   const base=await (await approved.fetch(new Request(config.productionOrigin+page.path),{})).text();
   const seo=await readJson(page.seoFile);
   const rendered=renderContentPage(base,cleaned,{path:page.path,family,title:seo.title.split('|')[0].trim()});
+  if(panelPath(page.path)===claimEnquiry.path)rendered.html=replaceClaimEnquiry(rendered.html,referenceCallback(referenceHtml,claimEnquiry,page.path));
   if(page.path.replace(/\/+$/,'')===reviewsContent.path.replace(/\/+$/,''))rendered.html=addReviewsPage(rendered.html,{content:reviewsContent,homeHtml:reviewsHomeHtml});
   let html=withContentRuntime(rendered.html,runtime,layoutCss);
   // Retain carousel scripts; replace the old browser-local editor with the
@@ -199,7 +205,7 @@ await writeFile(target,originalDesign.replace('export default {','const approved
 // Package exact original media; hashed Worker routes enforce MIME types even
 // when a hosting platform labels a WebP as application/octet-stream.
 await cp(resolve(root,'public'),resolve(root,'dist/client'),{recursive:true});
-const report={sourceCommit:policy.sourceCommit,sourceBranch:policy.sourceBranch,sourceCapturedAt:index.sourceCompletedAt,designBaselineVersion:41,designFingerprint:policy.designFingerprint,capturedRoutes:records.length,contentTransferred:records.length,metadataTransferred:records.length,originalMediaFiles:Object.keys(mediaUrls).length,unavailableOriginalMedia:unavailableMedia,originalWordingPreserved:true,approvedStylesPreserved:true,approvedHeaderFooterPreserved:true,homepageCarouselsPreserved:true,formCount:Object.keys(forms).length,reviewNoindexEnforced:true,productionSeoConfigured:true,productionReleaseReady:false,pages:records};
+const report={sourceCommit:policy.sourceCommit,sourceBranch:policy.sourceBranch,sourceCapturedAt:index.sourceCompletedAt,designBaselineVersion:41,designFingerprint:policy.designFingerprint,capturedRoutes:records.length,contentTransferred:records.length,metadataTransferred:records.length,originalMediaFiles:Object.keys(mediaUrls).length,unavailableOriginalMedia:unavailableMedia,originalWordingPreserved:false,originalNonFormWordingPreserved:true,approvedFormPresentationOverrides:[claimEnquiry],approvedStylesPreserved:true,approvedHeaderFooterPreserved:true,homepageCarouselsPreserved:true,formCount:Object.keys(forms).length,reviewNoindexEnforced:true,productionSeoConfigured:true,productionReleaseReady:false,pages:records};
 await writeFile(resolve(root,'src/content/current-design/index.json'),JSON.stringify({sourceCommit:policy.sourceCommit,designBaselineVersion:41,pages:records},null,2)+'\n');
 await writeFile(resolve(root,'docs/migration/content-to-current-design.json'),JSON.stringify(report,null,2)+'\n');
 const compiled=await readFile(target);

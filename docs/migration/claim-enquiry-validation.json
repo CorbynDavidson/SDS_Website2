@@ -1,23 +1,24 @@
 {
-  "baselineSourceCommit": "e06a44d8d10c8f5296b3b3043542c0d1675a15ca",
-  "styledTemplates": 1,
-  "otherTemplatesByteIdentical": 296,
-  "formControlsPreserved": 35,
-  "eligibilityQuestionGroupsPreserved": 4,
-  "originalMarkupPreserved": true,
-  "sitemapSelectionUnchanged": true,
-  "formSchemasUnchanged": true,
-  "routingUnchanged": true,
-  "browserVisualAuditComplete": false,
   "checkedOn": "2026-10-06",
+  "baselineSourceCommit": "8490b10ec0d55f19a4e552e0c13630abf923b6ff",
   "path": "/housing-disrepair-enquiries/",
-  "stylesheet": "src/claim-enquiry.css",
-  "preservedSteps": 5,
-  "sharedSiteDesignPreserved": true,
-  "repositorySitemapCopies": [
-    "sitemap.xml",
-    "public/sitemap.xml",
-    "docs/migration/current-design-sitemap.xml"
+  "referencePath": "/",
+  "referenceFormKey": "d4ec9836d21b4cb3",
+  "referenceImage": "image(20261006-055826).png",
+  "formFields": [
+    "Full Name *",
+    "Email *",
+    "Phone Number *",
+    "Postcode *",
+    "Type of Disrepair *"
   ],
-  "sitemapUrls": 243
+  "oneColumnLayout": true,
+  "otherTemplatesByteIdentical": 296,
+  "nonFormContentAndSeoByteIdentical": true,
+  "originalWizardSchemaRetained": true,
+  "sitemapSelectionUnchanged": true,
+  "routingUnchanged": true,
+  "uniqueElementIds": true,
+  "backendTestsPassed": 14,
+  "browserVisualAuditComplete": false
 }

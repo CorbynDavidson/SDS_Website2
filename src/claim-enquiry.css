@@ -1,80 +1,11 @@
-/* Use the existing callback-card colours and controls on the claim journey. */
-.sds-claim-enquiry .source-wizard-card {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 10px;
-  width: 100%;
-  padding: 22px;
-  border: 0;
-  border-radius: 24px;
-  background: #f4f9fa;
-  color: #032b4c;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, .24);
-  font: 500 1rem/1.5 "DM Sans", sans-serif;
-}
-.sds-claim-enquiry .source-wizard-card > * { min-width: 0; grid-column: 1 / -1; }
-.sds-claim-enquiry .source-wizard-card > .source-form-field:has(input:is([name="first_name"], [name="last_name"], [name="email"], [name="phone"])) { grid-column: auto; }
-.sds-claim-enquiry .source-wizard-card .form-reform-control { min-width: 0; margin: 8px 0; }
-.sds-claim-enquiry .source-wizard-card .form-reform-control[form] { margin: 0; }
-.sds-claim-enquiry .source-wizard-card .source-form-field > label {
-  display: block;
-  margin: 0 0 5px;
-  color: #032b4c;
-  font-size: .9rem;
-  font-weight: 700;
-  line-height: 1.5;
-}
-.sds-claim-enquiry .source-wizard-card input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
-.sds-claim-enquiry .source-wizard-card select,
-.sds-claim-enquiry .source-wizard-card textarea {
-  min-width: 0;
-  width: 100%;
-  max-width: 100%;
-  padding: 10px 11px;
-  border: 1px solid #cad1dc;
-  border-radius: 10px;
-  background: #fff;
-  color: #032b4c;
-  font: 500 1rem/1.5 "DM Sans", sans-serif;
-}
-.sds-claim-enquiry .source-wizard-card textarea { min-height: 120px; resize: vertical; }
-.sds-claim-enquiry .source-wizard-card .form-reform-radioset > div,
-.sds-claim-enquiry .source-wizard-card .form-reform-checkbox-list > div {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px 10px;
-  margin-top: 10px;
-}
-.sds-claim-enquiry .source-wizard-card .form-reform-radioset > div > div,
-.sds-claim-enquiry .source-wizard-card .form-reform-checkbox-list > div > div {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-  min-height: 44px;
-  padding: 10px 11px;
-  border: 1px solid #cad1dc;
-  border-radius: 10px;
-  background: #fff;
-}
-.sds-claim-enquiry .source-wizard-card :is(.form-reform-radioset, .form-reform-checkbox-list) > div > div:has(input:checked) { border-color: #008b8c; background: #e7f5f4; }
-.sds-claim-enquiry .source-wizard-card :is(.form-reform-radioset, .form-reform-checkbox-list) > div > div > label { flex: 1; margin: 0; cursor: pointer; font-size: 1rem; font-weight: 500; line-height: 1.5; }
-.sds-claim-enquiry .source-wizard-card input:is([type="checkbox"], [type="radio"]) { flex: 0 0 20px; width: 20px; height: 20px; margin: 0; accent-color: #008b8c; }
-.sds-claim-enquiry .source-wizard-card fieldset { min-width: 0; margin: 16px 0; padding: 0; border: 0; }
-.sds-claim-enquiry .source-wizard-card legend { padding: 0; color: #032b4c; font-size: .9rem; font-weight: 700; }
-.sds-claim-enquiry .source-wizard-card p { margin: 12px 0; color: #405f70; font-size: .85rem; line-height: 1.5; }
-.sds-claim-enquiry .source-wizard-card button {
-  min-height: 44px;
-  width: 100%;
-  padding: 11px;
-  border: 0;
-  border-radius: 10px;
-  background: #efb400;
-  color: #032b4c;
-  font: 800 1rem/1.4 "DM Sans", sans-serif;
-}
-.sds-claim-enquiry .source-wizard-card :is(input, select, textarea, button):focus-visible { outline: 3px solid #008b8c; outline-offset: 3px; }
+/* Match the standard callback card in the supplied screenshot on this URL. */
+.sds-claim-enquiry .page-callback.callback { width: 100%; padding: 22px; border-radius: 24px; background: #f4f9fa; color: #032b4c; }
+.sds-claim-enquiry .page-callback .callback-head { text-align: left; margin-bottom: 16px; }
+.sds-claim-enquiry .page-callback .callback-head p:nth-child(2) { margin: 16px 0; font: 800 1.75rem/1.2 Manrope, sans-serif; }
+.sds-claim-enquiry .page-callback .form-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.sds-claim-enquiry .page-callback .field { min-width: 0; gap: 0; }
+.sds-claim-enquiry .page-callback .field :is(input, select) { min-height: 44px; }
+.sds-claim-enquiry .page-callback button { min-height: 44px; width: 100%; padding: 11px; background: #efb400; color: #032b4c; }
 @media (max-width: 620px) {
-  .sds-claim-enquiry .source-wizard-card { grid-template-columns: minmax(0, 1fr); padding: 24px 18px; }
-  .sds-claim-enquiry .source-wizard-card .form-reform-checkbox-list > div { grid-template-columns: minmax(0, 1fr); }
+  .sds-claim-enquiry .page-callback.callback { padding: 24px 22px; }
 }

@@ -31,6 +31,13 @@ test('Required, email, option and source validation reject requests before stori
  for(const request of[post(common,{...fields,[name]:''}),post(common,{...fields,[email]:'bad address'}),post(common,{...fields,[select]:'invented-option'}),post(common,fields,{body:{sourcePath:'/unknown/'}}),post(common,fields,{body:{requestKey:'tiny'}})])assert.equal((await worker.fetch(request,env)).status,400);
  assert.equal((await DB.prepare('SELECT COUNT(*) AS count FROM form_submissions').first()).count,0);
 });
+test('The screenshot callback form accepts and stores enquiries from the retained claim URL',async t=>{
+ const{worker,env,DB}=await fixture(t),sourcePath='/housing-disrepair-enquiries/';
+ assert.ok(common.sourcePaths.includes(sourcePath));
+ const response=await worker.fetch(post(common,validFields(common),{body:{sourcePath}}),env);assert.equal(response.status,201);
+ const result=await response.json(),row=await DB.prepare('SELECT form_key,source_path,payload_json FROM form_submissions WHERE id=?').bind(result.id).first();
+ assert.equal(row.source_path,sourcePath);assert.equal(row.form_key,common.key);assert.equal(Object.keys(JSON.parse(row.payload_json)).length,5);
+});
 test('CSRF and honeypot protection leave the database untouched',async t=>{
  const{worker,env,DB}=await fixture(t);
  assert.equal((await worker.fetch(post(common,validFields(common),{headers:{origin:'https://attacker.invalid'}}),env)).status,403);

@@ -2,7 +2,7 @@
   "sourceCommit": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
   "sourceFilesVerified": 298,
   "routesVerified": 296,
-  "originalParagraphsAndHeadingsVerified": 20226,
+  "originalParagraphsAndHeadingsVerified": 20100,
   "metadataRoutesVerified": 296,
   "approvedStyleRoutesVerified": 296,
   "approvedHeaderFooterRoutesVerified": 296,
@@ -28,6 +28,8 @@
     {
       "path": "/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -35,6 +37,8 @@
     {
       "path": "/about-us/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -42,6 +46,8 @@
     {
       "path": "/about-us/careers/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -49,6 +55,8 @@
     {
       "path": "/about-us/case-studies/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -56,6 +64,8 @@
     {
       "path": "/about-us/case-studies/compensation-for-tenant-after-leaks-and-guttering-led-to-severe-damp-and-mould/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -63,6 +73,8 @@
     {
       "path": "/about-us/case-studies/compensation-for-tenant-after-roof-leak-and-widespread-damp/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -70,6 +82,8 @@
     {
       "path": "/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -77,6 +91,8 @@
     {
       "path": "/about-us/case-studies/compensation-recovered-following-persistent-leak-and-worsening-damp/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -84,6 +100,8 @@
     {
       "path": "/about-us/case-studies/damp-mould-and-unsafe-electrics-ignored-until-legal-action-was-taken/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -91,6 +109,8 @@
     {
       "path": "/about-us/case-studies/elderly-tenant-wins-settlement-after-months-without-hot-water/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -98,6 +118,8 @@
     {
       "path": "/about-us/case-studies/family-wins-boiler-claim-after-years-of-missed-repairs-and-stress/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -105,6 +127,8 @@
     {
       "path": "/about-us/case-studies/multiple-defects-and-serious-damp-in-sheffield-home/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -112,6 +136,8 @@
     {
       "path": "/about-us/case-studies/persistent-bathroom-leak-and-water-damage/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -119,6 +145,8 @@
     {
       "path": "/about-us/case-studies/severe-flooring-defects-and-pest-infestation/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -126,6 +154,8 @@
     {
       "path": "/about-us/case-studies/severe-pest-infestation-and-lack-of-heating/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -133,6 +163,8 @@
     {
       "path": "/about-us/case-studies/tenant-wins-settlement-after-unsafe-flat-damages-mental-health/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -140,6 +172,8 @@
     {
       "path": "/about-us/case-studies/tenant-with-children-wins-settlement-after-years-of-disrepair/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -147,6 +181,8 @@
     {
       "path": "/about-us/case-studies/tenant-with-respiratory-illness-wins-mould-claim-after-years-of-neglect/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -154,6 +190,8 @@
     {
       "path": "/about-us/case-studies/vulnerable-tenant-wins-settlement-after-living-without-heating/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -161,6 +199,8 @@
     {
       "path": "/about-us/client-questionnaire/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -168,6 +208,8 @@
     {
       "path": "/about-us/complaints/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -175,6 +217,8 @@
     {
       "path": "/about-us/cookies/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -182,6 +226,8 @@
     {
       "path": "/about-us/news/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -189,6 +235,8 @@
     {
       "path": "/about-us/news/better-bake-macmillan/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -196,6 +244,8 @@
     {
       "path": "/about-us/news/can-you-sue-your-landlord-unsafe-living-conditions/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -203,6 +253,8 @@
     {
       "path": "/about-us/news/coffee-morning-success-sheldon-davidson-solicitors/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -210,6 +262,8 @@
     {
       "path": "/about-us/news/damp-mould-and-heating-compensation-claims-how-much-could-you-claim/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -217,6 +271,8 @@
     {
       "path": "/about-us/news/final-update-marathon/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -224,6 +280,8 @@
     {
       "path": "/about-us/news/getting-muddy-charity/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -231,6 +289,8 @@
     {
       "path": "/about-us/news/how-defend-against-landlord-making-false-damage-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -238,6 +298,8 @@
     {
       "path": "/about-us/news/how-long-can-landlord-leave-you-without-heat/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -245,6 +307,8 @@
     {
       "path": "/about-us/news/how-long-does-housing-disrepair-claim-take/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -252,6 +316,8 @@
     {
       "path": "/about-us/news/london-marathon/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -259,6 +325,8 @@
     {
       "path": "/about-us/news/olympic-torch/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -266,6 +334,8 @@
     {
       "path": "/about-us/news/phase-1-of-the-renters-rights-act-2026/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -273,6 +343,8 @@
     {
       "path": "/about-us/news/social-housing-rent-increases-in-2026/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -280,6 +352,8 @@
     {
       "path": "/about-us/news/spot-the-early-signs-of-housing-disrepair-before-it-gets-worse/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -287,6 +361,8 @@
     {
       "path": "/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -294,6 +370,8 @@
     {
       "path": "/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -301,6 +379,8 @@
     {
       "path": "/about-us/news/what-the-2026-changes-to-awaabs-law-mean-for-tenants/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -308,6 +388,8 @@
     {
       "path": "/about-us/news/what-to-do-when-your-landlord-keeps-delaying/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -315,6 +397,8 @@
     {
       "path": "/about-us/news/why-holding-landlords-accountable-really-matters/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -322,6 +406,8 @@
     {
       "path": "/about-us/news/why-sheldon-davidson-solicitors-different/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -329,6 +415,8 @@
     {
       "path": "/about-us/our-people/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -336,6 +424,8 @@
     {
       "path": "/about-us/our-people/alison-sherlock/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -343,6 +433,8 @@
     {
       "path": "/about-us/our-people/angela-brewis/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -350,6 +442,8 @@
     {
       "path": "/about-us/our-people/blake-davidson/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -357,6 +451,8 @@
     {
       "path": "/about-us/our-people/brian-tyrie/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -364,6 +460,8 @@
     {
       "path": "/about-us/our-people/corbyn-lewis/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -371,6 +469,8 @@
     {
       "path": "/about-us/our-people/daisy-kerins/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -378,6 +478,8 @@
     {
       "path": "/about-us/our-people/dominique-stansfield/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -385,6 +487,8 @@
     {
       "path": "/about-us/our-people/emma-farrington/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -392,6 +496,8 @@
     {
       "path": "/about-us/our-people/hanane-chikhaoui/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -399,6 +505,8 @@
     {
       "path": "/about-us/our-people/hayley-garnet/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -406,6 +514,8 @@
     {
       "path": "/about-us/our-people/janine-watson/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -413,6 +523,8 @@
     {
       "path": "/about-us/our-people/jen-schofield/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -420,6 +532,8 @@
     {
       "path": "/about-us/our-people/kaneesha-zendera/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -427,6 +541,8 @@
     {
       "path": "/about-us/our-people/karen-holt/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -434,6 +550,8 @@
     {
       "path": "/about-us/our-people/kate-sherlock/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -441,6 +559,8 @@
     {
       "path": "/about-us/our-people/katie-morgan/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -448,6 +568,8 @@
     {
       "path": "/about-us/our-people/lauren-davies/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -455,6 +577,8 @@
     {
       "path": "/about-us/our-people/michael-haycock/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -462,6 +586,8 @@
     {
       "path": "/about-us/our-people/milena-bologan/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -469,6 +595,8 @@
     {
       "path": "/about-us/our-people/modupe-somoye/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -476,6 +604,8 @@
     {
       "path": "/about-us/our-people/moyin-ajidagba/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -483,6 +613,8 @@
     {
       "path": "/about-us/our-people/sheldon-davidson/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -490,6 +622,8 @@
     {
       "path": "/about-us/our-people/victoria-mccormack/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -497,6 +631,8 @@
     {
       "path": "/about-us/our-people/william-webb/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -504,6 +640,8 @@
     {
       "path": "/about-us/our-people/yulie-wagman/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -511,6 +649,8 @@
     {
       "path": "/about-us/privacy-policy/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -518,6 +658,8 @@
     {
       "path": "/about-us/reviews/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -525,6 +667,8 @@
     {
       "path": "/about-us/sds-solicitors-discontinued-legal-services/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -532,6 +676,8 @@
     {
       "path": "/about-us/terms-business/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -539,6 +685,8 @@
     {
       "path": "/contact-us/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -546,6 +694,8 @@
     {
       "path": "/contact-us/compensation-calculator-confirmation/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -553,6 +703,8 @@
     {
       "path": "/contact-us/housing-disrepair-confirmation/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -560,6 +712,8 @@
     {
       "path": "/contact-us/housing-disrepair-enquiries-stands/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -567,6 +721,8 @@
     {
       "path": "/contact-us/medical-negligence-confirmation/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -574,6 +730,8 @@
     {
       "path": "/contact-us/personal-injury-confirmation/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -581,6 +739,8 @@
     {
       "path": "/contact-us/thank-you/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -588,6 +748,8 @@
     {
       "path": "/housing-disrepair-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -595,6 +757,8 @@
     {
       "path": "/housing-disrepair-claims/compensation-calculator/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -602,6 +766,8 @@
     {
       "path": "/housing-disrepair-claims/council-housing/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -609,6 +775,8 @@
     {
       "path": "/housing-disrepair-claims/housing-condition-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -616,6 +784,8 @@
     {
       "path": "/housing-disrepair-claims/managing-your-claim/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -623,6 +793,8 @@
     {
       "path": "/housing-disrepair-claims/pre-action-protocol/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -630,6 +802,8 @@
     {
       "path": "/housing-disrepair-claims/private-landlord/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -637,6 +811,8 @@
     {
       "path": "/housing-disrepair-claims/social-housing/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -644,13 +820,17 @@
     {
       "path": "/housing-disrepair-claims/tenant-rights-landlord-obligations/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
     },
     {
       "path": "/housing-disrepair-enquiries/",
-      "copyMatchesOriginal": true,
+      "copyMatchesOriginal": false,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": true,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -658,6 +838,8 @@
     {
       "path": "/housing-disrepair/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -665,6 +847,8 @@
     {
       "path": "/housing-disrepair/bathroom-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -672,6 +856,8 @@
     {
       "path": "/housing-disrepair/boiler-heating-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -679,6 +865,8 @@
     {
       "path": "/housing-disrepair/brickwork-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -686,6 +874,8 @@
     {
       "path": "/housing-disrepair/crumbling-plaster/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -693,6 +883,8 @@
     {
       "path": "/housing-disrepair/damp-and-mould-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -700,6 +892,8 @@
     {
       "path": "/housing-disrepair/dangerous-wiring-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -707,6 +901,8 @@
     {
       "path": "/housing-disrepair/defective-sanitaryware/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -714,6 +910,8 @@
     {
       "path": "/housing-disrepair/electrical-faults-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -721,6 +919,8 @@
     {
       "path": "/housing-disrepair/flooding-water-damage-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -728,6 +928,8 @@
     {
       "path": "/housing-disrepair/gas-appliance-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -735,6 +937,8 @@
     {
       "path": "/housing-disrepair/housing-associations/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -742,6 +946,8 @@
     {
       "path": "/housing-disrepair/housing-associations/berneslai/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -749,6 +955,8 @@
     {
       "path": "/housing-disrepair/housing-associations/blackpool-coastal-housing/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -756,6 +964,8 @@
     {
       "path": "/housing-disrepair/housing-associations/bromford-housing/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -763,6 +973,8 @@
     {
       "path": "/housing-disrepair/housing-associations/clarion-housing-group/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -770,6 +982,8 @@
     {
       "path": "/housing-disrepair/housing-associations/great-places-housing-group/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -777,6 +991,8 @@
     {
       "path": "/housing-disrepair/housing-associations/guinness-partnership/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -784,6 +1000,8 @@
     {
       "path": "/housing-disrepair/housing-associations/hanover-housing-association/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -791,6 +1009,8 @@
     {
       "path": "/housing-disrepair/housing-associations/housing-21/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -798,6 +1018,8 @@
     {
       "path": "/housing-disrepair/housing-associations/london-and-quadrant-housing-trust/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -805,6 +1027,8 @@
     {
       "path": "/housing-disrepair/housing-associations/midland-heart/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -812,6 +1036,8 @@
     {
       "path": "/housing-disrepair/housing-associations/orbit-group/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -819,6 +1045,8 @@
     {
       "path": "/housing-disrepair/housing-associations/peabody-group/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -826,6 +1054,8 @@
     {
       "path": "/housing-disrepair/housing-associations/riverside-housing/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -833,6 +1063,8 @@
     {
       "path": "/housing-disrepair/housing-associations/sanctuary-housing/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -840,6 +1072,8 @@
     {
       "path": "/housing-disrepair/housing-associations/southern-housing-group/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -847,6 +1081,8 @@
     {
       "path": "/housing-disrepair/housing-associations/thirteen-group/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -854,6 +1090,8 @@
     {
       "path": "/housing-disrepair/insect-infestation-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -861,6 +1099,8 @@
     {
       "path": "/housing-disrepair/kitchen-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -868,6 +1108,8 @@
     {
       "path": "/housing-disrepair/locations/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -875,6 +1117,8 @@
     {
       "path": "/housing-disrepair/locations/barnsley/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -882,6 +1126,8 @@
     {
       "path": "/housing-disrepair/locations/basildon/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -889,6 +1135,8 @@
     {
       "path": "/housing-disrepair/locations/basingstoke/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -896,6 +1144,8 @@
     {
       "path": "/housing-disrepair/locations/bath/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -903,6 +1153,8 @@
     {
       "path": "/housing-disrepair/locations/bedford/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -910,6 +1162,8 @@
     {
       "path": "/housing-disrepair/locations/birkenhead/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -917,6 +1171,8 @@
     {
       "path": "/housing-disrepair/locations/birmingham/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -924,6 +1180,8 @@
     {
       "path": "/housing-disrepair/locations/blackburn/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -931,6 +1189,8 @@
     {
       "path": "/housing-disrepair/locations/blackpool/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -938,6 +1198,8 @@
     {
       "path": "/housing-disrepair/locations/bolton/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -945,6 +1207,8 @@
     {
       "path": "/housing-disrepair/locations/bootle/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -952,6 +1216,8 @@
     {
       "path": "/housing-disrepair/locations/bradford/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -959,6 +1225,8 @@
     {
       "path": "/housing-disrepair/locations/brighton/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -966,6 +1234,8 @@
     {
       "path": "/housing-disrepair/locations/bristol/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -973,6 +1243,8 @@
     {
       "path": "/housing-disrepair/locations/burnley/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -980,6 +1252,8 @@
     {
       "path": "/housing-disrepair/locations/canterbury/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -987,6 +1261,8 @@
     {
       "path": "/housing-disrepair/locations/carlisle/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -994,6 +1270,8 @@
     {
       "path": "/housing-disrepair/locations/chelmsford/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1001,6 +1279,8 @@
     {
       "path": "/housing-disrepair/locations/cheltenham/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1008,6 +1288,8 @@
     {
       "path": "/housing-disrepair/locations/chester/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1015,6 +1297,8 @@
     {
       "path": "/housing-disrepair/locations/chesterfield/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1022,6 +1306,8 @@
     {
       "path": "/housing-disrepair/locations/chichester/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1029,6 +1315,8 @@
     {
       "path": "/housing-disrepair/locations/colchester/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1036,6 +1324,8 @@
     {
       "path": "/housing-disrepair/locations/coventry/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1043,6 +1333,8 @@
     {
       "path": "/housing-disrepair/locations/crawley/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1050,6 +1342,8 @@
     {
       "path": "/housing-disrepair/locations/darlington/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1057,6 +1351,8 @@
     {
       "path": "/housing-disrepair/locations/derby/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1064,6 +1360,8 @@
     {
       "path": "/housing-disrepair/locations/doncaster/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1071,6 +1369,8 @@
     {
       "path": "/housing-disrepair/locations/dover/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1078,6 +1378,8 @@
     {
       "path": "/housing-disrepair/locations/dudley/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1085,6 +1387,8 @@
     {
       "path": "/housing-disrepair/locations/durham/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1092,6 +1396,8 @@
     {
       "path": "/housing-disrepair/locations/exeter/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1099,6 +1405,8 @@
     {
       "path": "/housing-disrepair/locations/folkestone/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1106,6 +1414,8 @@
     {
       "path": "/housing-disrepair/locations/gateshead/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1113,6 +1423,8 @@
     {
       "path": "/housing-disrepair/locations/gillingham/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1120,6 +1432,8 @@
     {
       "path": "/housing-disrepair/locations/gloucester/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1127,6 +1441,8 @@
     {
       "path": "/housing-disrepair/locations/great-yarmouth/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1134,6 +1450,8 @@
     {
       "path": "/housing-disrepair/locations/grimsby/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1141,6 +1459,8 @@
     {
       "path": "/housing-disrepair/locations/harlow/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1148,6 +1468,8 @@
     {
       "path": "/housing-disrepair/locations/hartlepool/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1155,6 +1477,8 @@
     {
       "path": "/housing-disrepair/locations/hastings/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1162,6 +1486,8 @@
     {
       "path": "/housing-disrepair/locations/hereford/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1169,6 +1495,8 @@
     {
       "path": "/housing-disrepair/locations/huddersfield/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1176,6 +1504,8 @@
     {
       "path": "/housing-disrepair/locations/hull/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1183,6 +1513,8 @@
     {
       "path": "/housing-disrepair/locations/ipswich/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1190,6 +1522,8 @@
     {
       "path": "/housing-disrepair/locations/kettering/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1197,6 +1531,8 @@
     {
       "path": "/housing-disrepair/locations/lancaster/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1204,6 +1540,8 @@
     {
       "path": "/housing-disrepair/locations/leeds/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1211,6 +1549,8 @@
     {
       "path": "/housing-disrepair/locations/leicester/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1218,6 +1558,8 @@
     {
       "path": "/housing-disrepair/locations/lincoln/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1225,6 +1567,8 @@
     {
       "path": "/housing-disrepair/locations/liverpool/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1232,6 +1576,8 @@
     {
       "path": "/housing-disrepair/locations/london/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1239,6 +1585,8 @@
     {
       "path": "/housing-disrepair/locations/london/barking/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1246,6 +1594,8 @@
     {
       "path": "/housing-disrepair/locations/london/brent/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1253,6 +1603,8 @@
     {
       "path": "/housing-disrepair/locations/london/camden/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1260,6 +1612,8 @@
     {
       "path": "/housing-disrepair/locations/london/croydon/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1267,6 +1621,8 @@
     {
       "path": "/housing-disrepair/locations/london/ealing/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1274,6 +1630,8 @@
     {
       "path": "/housing-disrepair/locations/london/enfield/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1281,6 +1639,8 @@
     {
       "path": "/housing-disrepair/locations/london/fulham/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1288,6 +1648,8 @@
     {
       "path": "/housing-disrepair/locations/london/greenwich/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1295,6 +1657,8 @@
     {
       "path": "/housing-disrepair/locations/london/hackney/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1302,6 +1666,8 @@
     {
       "path": "/housing-disrepair/locations/london/hammersmith/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1309,6 +1675,8 @@
     {
       "path": "/housing-disrepair/locations/london/haringey/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1316,6 +1684,8 @@
     {
       "path": "/housing-disrepair/locations/london/havering/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1323,6 +1693,8 @@
     {
       "path": "/housing-disrepair/locations/london/hounslow/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1330,6 +1702,8 @@
     {
       "path": "/housing-disrepair/locations/london/islington/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1337,6 +1711,8 @@
     {
       "path": "/housing-disrepair/locations/london/lambeth/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1344,6 +1720,8 @@
     {
       "path": "/housing-disrepair/locations/london/lewisham/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1351,6 +1729,8 @@
     {
       "path": "/housing-disrepair/locations/london/newham/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1358,6 +1738,8 @@
     {
       "path": "/housing-disrepair/locations/london/redbridge/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1365,6 +1747,8 @@
     {
       "path": "/housing-disrepair/locations/london/southwark/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1372,6 +1756,8 @@
     {
       "path": "/housing-disrepair/locations/london/tower-hamlets/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1379,6 +1765,8 @@
     {
       "path": "/housing-disrepair/locations/london/waltham-forest/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1386,6 +1774,8 @@
     {
       "path": "/housing-disrepair/locations/london/wandsworth/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1393,6 +1783,8 @@
     {
       "path": "/housing-disrepair/locations/lowestoft/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1400,6 +1792,8 @@
     {
       "path": "/housing-disrepair/locations/luton/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1407,6 +1801,8 @@
     {
       "path": "/housing-disrepair/locations/maidstone/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1414,6 +1810,8 @@
     {
       "path": "/housing-disrepair/locations/manchester/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1421,6 +1819,8 @@
     {
       "path": "/housing-disrepair/locations/margate/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1428,6 +1828,8 @@
     {
       "path": "/housing-disrepair/locations/middlesbrough/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1435,6 +1837,8 @@
     {
       "path": "/housing-disrepair/locations/milton-keynes/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1442,6 +1846,8 @@
     {
       "path": "/housing-disrepair/locations/newcastle/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1449,6 +1855,8 @@
     {
       "path": "/housing-disrepair/locations/northampton/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1456,6 +1864,8 @@
     {
       "path": "/housing-disrepair/locations/norwich/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1463,6 +1873,8 @@
     {
       "path": "/housing-disrepair/locations/nottingham/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1470,6 +1882,8 @@
     {
       "path": "/housing-disrepair/locations/nuneaton/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1477,6 +1891,8 @@
     {
       "path": "/housing-disrepair/locations/oldham/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1484,6 +1900,8 @@
     {
       "path": "/housing-disrepair/locations/peterborough/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1491,6 +1909,8 @@
     {
       "path": "/housing-disrepair/locations/plymouth/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1498,6 +1918,8 @@
     {
       "path": "/housing-disrepair/locations/portsmouth/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1505,6 +1927,8 @@
     {
       "path": "/housing-disrepair/locations/preston/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1512,6 +1936,8 @@
     {
       "path": "/housing-disrepair/locations/reading/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1519,6 +1945,8 @@
     {
       "path": "/housing-disrepair/locations/rochdale/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1526,6 +1954,8 @@
     {
       "path": "/housing-disrepair/locations/rotherham/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1533,6 +1963,8 @@
     {
       "path": "/housing-disrepair/locations/salford/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1540,6 +1972,8 @@
     {
       "path": "/housing-disrepair/locations/sandwell/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1547,6 +1981,8 @@
     {
       "path": "/housing-disrepair/locations/scunthorpe/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1554,6 +1990,8 @@
     {
       "path": "/housing-disrepair/locations/sheffield/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1561,6 +1999,8 @@
     {
       "path": "/housing-disrepair/locations/shrewsbury/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1568,6 +2008,8 @@
     {
       "path": "/housing-disrepair/locations/slough/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1575,6 +2017,8 @@
     {
       "path": "/housing-disrepair/locations/southampton/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1582,6 +2026,8 @@
     {
       "path": "/housing-disrepair/locations/southend-sea/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1589,6 +2035,8 @@
     {
       "path": "/housing-disrepair/locations/stevenage/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1596,6 +2044,8 @@
     {
       "path": "/housing-disrepair/locations/stockport/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1603,6 +2053,8 @@
     {
       "path": "/housing-disrepair/locations/stoke-trent/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1610,6 +2062,8 @@
     {
       "path": "/housing-disrepair/locations/sunderland/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1617,6 +2071,8 @@
     {
       "path": "/housing-disrepair/locations/swindon/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1624,6 +2080,8 @@
     {
       "path": "/housing-disrepair/locations/tameside/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1631,6 +2089,8 @@
     {
       "path": "/housing-disrepair/locations/telford/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1638,6 +2098,8 @@
     {
       "path": "/housing-disrepair/locations/truro/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1645,6 +2107,8 @@
     {
       "path": "/housing-disrepair/locations/wakefield/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1652,6 +2116,8 @@
     {
       "path": "/housing-disrepair/locations/walsall/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1659,6 +2125,8 @@
     {
       "path": "/housing-disrepair/locations/warrington/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1666,6 +2134,8 @@
     {
       "path": "/housing-disrepair/locations/watford/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1673,6 +2143,8 @@
     {
       "path": "/housing-disrepair/locations/wigan/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1680,6 +2152,8 @@
     {
       "path": "/housing-disrepair/locations/wolverhampton/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1687,6 +2161,8 @@
     {
       "path": "/housing-disrepair/locations/worcester/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1694,6 +2170,8 @@
     {
       "path": "/housing-disrepair/locations/worthing/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1701,6 +2179,8 @@
     {
       "path": "/housing-disrepair/locations/york/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1708,6 +2188,8 @@
     {
       "path": "/housing-disrepair/plumbing-drainage-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1715,6 +2197,8 @@
     {
       "path": "/housing-disrepair/roof-gutter-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1722,6 +2206,8 @@
     {
       "path": "/housing-disrepair/spray-foam-insulation-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1729,6 +2215,8 @@
     {
       "path": "/housing-disrepair/unsafe-flooring-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1736,6 +2224,8 @@
     {
       "path": "/housing-disrepair/vermin-from-disrepair-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1743,6 +2233,8 @@
     {
       "path": "/housing-disrepair/windows-doors-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1750,6 +2242,8 @@
     {
       "path": "/referral-bonus-scheme/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1757,6 +2251,8 @@
     {
       "path": "/referral-bonus-scheme/family-and-friends-bonus-terms-and-conditions/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1764,6 +2260,8 @@
     {
       "path": "/about-us/careers",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1771,6 +2269,8 @@
     {
       "path": "/about-us/case-studies/topic/359/housing-disrepair/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1778,6 +2278,8 @@
     {
       "path": "/about-us/complaints",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1785,6 +2287,8 @@
     {
       "path": "/about-us/cookies",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1792,6 +2296,8 @@
     {
       "path": "/about-us/news",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1799,6 +2305,8 @@
     {
       "path": "/about-us/news/topic/358/housing-disrepair/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1806,6 +2314,8 @@
     {
       "path": "/about-us/news/topic/78/about-sds/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1813,6 +2323,8 @@
     {
       "path": "/about-us/our-people/alison-sherlock",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1820,6 +2332,8 @@
     {
       "path": "/about-us/our-people/angela-brewis",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1827,6 +2341,8 @@
     {
       "path": "/about-us/our-people/blake-davidson",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1834,6 +2350,8 @@
     {
       "path": "/about-us/our-people/brian-tyrie",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1841,6 +2359,8 @@
     {
       "path": "/about-us/our-people/corbyn-lewis",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1848,6 +2368,8 @@
     {
       "path": "/about-us/our-people/daisy-kerins",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1855,6 +2377,8 @@
     {
       "path": "/about-us/our-people/dominique-stansfield",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1862,6 +2386,8 @@
     {
       "path": "/about-us/our-people/emma-farrington",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1869,6 +2395,8 @@
     {
       "path": "/about-us/our-people/hayley-garnet",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1876,6 +2404,8 @@
     {
       "path": "/about-us/our-people/janine-watson",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1883,6 +2413,8 @@
     {
       "path": "/about-us/our-people/jen-schofield",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1890,6 +2422,8 @@
     {
       "path": "/about-us/our-people/kaneesha-zendera",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1897,6 +2431,8 @@
     {
       "path": "/about-us/our-people/karen-holt",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1904,6 +2440,8 @@
     {
       "path": "/about-us/our-people/kate-sherlock",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1911,6 +2449,8 @@
     {
       "path": "/about-us/our-people/katie-morgan",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1918,6 +2458,8 @@
     {
       "path": "/about-us/our-people/lauren-davies",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1925,6 +2467,8 @@
     {
       "path": "/about-us/our-people/michael-haycock",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1932,6 +2476,8 @@
     {
       "path": "/about-us/our-people/milena-bologan",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1939,6 +2485,8 @@
     {
       "path": "/about-us/our-people/modupe-somoye",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1946,6 +2494,8 @@
     {
       "path": "/about-us/our-people/moyin-ajidagba",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1953,6 +2503,8 @@
     {
       "path": "/about-us/our-people/sheldon-davidson",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1960,6 +2512,8 @@
     {
       "path": "/about-us/our-people/victoria-mccormack",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1967,6 +2521,8 @@
     {
       "path": "/about-us/our-people/william-webb",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1974,6 +2530,8 @@
     {
       "path": "/about-us/our-people/yulie-wagman",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1981,6 +2539,8 @@
     {
       "path": "/about-us/privacy-policy",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1988,6 +2548,8 @@
     {
       "path": "/complaints/www.legalombudsman.org.uk",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -1995,6 +2557,8 @@
     {
       "path": "/complaints/www.ombudsman-services.org",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2002,6 +2566,8 @@
     {
       "path": "/complaints/www.small-claims-mediation.co.uk",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2009,6 +2575,8 @@
     {
       "path": "/contact-us",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2016,6 +2584,8 @@
     {
       "path": "/flooding-water-damage-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2023,6 +2593,8 @@
     {
       "path": "/housing-disrepair",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2030,6 +2602,8 @@
     {
       "path": "/housing-disrepair/leaks-plumbing-drainage-claims/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2037,6 +2611,8 @@
     {
       "path": "/privacy-policy/",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2044,6 +2620,8 @@
     {
       "path": "/about-us/case-studies/?ccm_paging_p_b2385=2",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2051,6 +2629,8 @@
     {
       "path": "/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=2",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2058,6 +2638,8 @@
     {
       "path": "/about-us/news/?ccm_paging_p_b1269=2",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2065,6 +2647,8 @@
     {
       "path": "/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=2",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2072,6 +2656,8 @@
     {
       "path": "/about-us/case-studies/?ccm_paging_p_b2385=1",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2079,6 +2665,8 @@
     {
       "path": "/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=1",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2086,6 +2674,8 @@
     {
       "path": "/about-us/news/?ccm_paging_p_b1269=1",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
@@ -2093,6 +2683,8 @@
     {
       "path": "/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=1",
       "copyMatchesOriginal": true,
+      "copyMatchesApprovedFormAndOriginalPage": true,
+      "formPresentationOverride": false,
       "paragraphsAndHeadingsMatch": true,
       "seoMatchesOriginal": true,
       "approvedStylesAndSharedDesignPreserved": true
