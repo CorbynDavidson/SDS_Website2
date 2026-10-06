@@ -33,4 +33,6 @@ jobs:
             docs/migration/metadata-to-current-design.json
             docs/migration/metadata-validation.json
             docs/migration/current-design-sitemap.xml
+            docs/migration/content-to-current-design.json
+            docs/migration/content-validation.json
           retention-days: 30

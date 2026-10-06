@@ -1,5 +1,7 @@
 # Original metadata on the approved design
 
+Historical version-47 metadata-only release. The current full-content release is documented in [CONTENT_MIGRATION.md](CONTENT_MIGRATION.md). The unchanged-body counts below apply to the metadata-only build.
+
 Authorised 6 October 2026: add the metadata from the previous migration branch while keeping the restored design intact, and add missing pages in that design.
 
 ## What is now built

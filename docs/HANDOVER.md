@@ -1,21 +1,18 @@
 # SDS migration handover
 
-Prepared 6 October 2026. Production origin remains **https://www.sds-solicitors.com**. Production DNS has not been changed. The user requested restoration of the design from before migration; the review site was rolled back to version 41. The implementation below describes the retained migration candidate, not the restored live site's content or handlers. Refit the original content into the approved version-41 design before releasing it. See [DESIGN_RESTORATION.md](DESIGN_RESTORATION.md).
-
-The latest approved-design build now has original metadata on all 296 captured routes and 13 additional routes with original article wording. The existing 283 route bodies remain unchanged. The sitemap includes all 248 original URLs. [METADATA_MIGRATION.md](METADATA_MIGRATION.md) and its reports describe this current implementation; the seven-form handlers and whole-document parity below still describe the retained candidate.
+Prepared 6 October 2026. Production remains **https://www.sds-solicitors.com**; DNS has not changed. The current review release fits original SDS wording and SEO into the approved version-41 design. The rejected CMS layout remains an archived research baseline.
 
 ## Implemented
 
-- The authoritative Concrete CMS sitemap contains **248 published URLs**. Raw anonymous HTML, original sitemap/robots, metadata, visible wording, forms and first-party media are captured in Git.
-- Additional linked URLs and original listing pagination are included. The precise totals and one-to-one original/review URL mapping are generated in [migration/coverage.json](migration/coverage.json) and [migration/url-map.csv](migration/url-map.csv).
-- Each imported page retains the original full content and metadata. Shared styling applies the new SDS colours/logo and responsive presentation. No text is rewritten, including existing spelling, heading levels and regulatory wording.
-- `npm run validate:migration` compares the retained candidate's compiled and served HTML with immutable raw captures for every route. Review responses are separately checked for noindex and disabled analytics. Unknown routes return a real 404. Normal `npm run validate` checks the approved design and metadata/additional articles.
-- Seven original form schemas have replacement handlers, prepared D1 queries, validation, CSRF/honeypot protection, durable rate limits and idempotent submission keys. Earlier `enquiries` records remain available.
-- Private evidence files use R2; enquiry records and drafts use D1. The submissions view, CSV and evidence downloads require an allowlisted authenticated owner. Portable hosting verifies signed Cloudflare Access JWTs.
-- All available original media are packaged with the Worker under `dist/client`; the shared theme/runtime/logo also have an embedded fallback. Hosted byte/hash verification is recorded in [migration/assets-verification.json](migration/assets-verification.json).
-- All 269 hosted asset responses matched their expected bytes and SHA-256 during candidate verification. Only 111 passed the additional content-type check; the host returned generic MIME types for WebP, fonts and an extensionless JSON resource. The complete report retains these failures. This delivery issue must be resolved before the candidate is released again.
-- Thirteen meaningful backend tests cover the original schemas, persistence, invalid submissions, duplicate requests, spam controls, owner access, legacy data, escaping, CSV safety, drafts, private files and JWT verification.
-- GitHub capture/import automation commits captured content and generated audit files after checks pass. Push/PR validation builds and verifies the site. Secrets and submissions are never stored in the public repository.
+- All **296 captured routes** have original primary page content and SEO titles/meta/canonicals/JSON-LD. The review sitemap includes all 248 original sitemap URLs and retained new-design routes.
+- Original paragraphs, headings, lists, FAQs, article/profile media and form labels/options are compared with immutable raw captures. Shared navigation, fonts, CSS, logo, footer and homepage carousels use the approved design. Shared source staff modals/navigation are not copied as article content.
+- The directory retains its 24 listed people; all 25 captured profile paths are available. Articles and pagination retain original content.
+- Seven original form schemas use prepared D1 queries, validation, CSRF/honeypot protection, durable limits and idempotent requests. Private evidence uses R2. Owner-only submissions/CSV/private downloads include earlier `enquiries`; authenticated drafts are active on migrated pages.
+- Available original media are packaged under `dist/client` with checksum-addressed Worker URLs that enforce correct MIME types. The generated content validation verifies used media bytes/types locally. Earlier hosted MIME failures remain historical evidence; a full fresh hosted-media audit is not claimed here.
+- Normal `npm run check` verifies current served copy, original SEO, approved styles/shared components, media/links, noindex and production blocking, then runs thirteen meaningful backend tests. GitHub CI uses the same commands.
+- Corresponding generated content, SEO baselines, route indexes, build adapter and audit reports are committed. Secrets and submissions never enter the public repository.
+
+See [CONTENT_MIGRATION.md](CONTENT_MIGRATION.md) and `migration/content-validation.json` for the selected release. The metadata-only reports and full-document CMS candidate reports describe earlier releases.
 
 ## Remaining production gates
 
@@ -25,7 +22,7 @@ These are recorded as `false` in [../config/release-gates.json](../config/releas
 |---|---|---|
 | Original multi-step rules | Obtain the Concrete CMS Reform submission rules, eligibility branches, upload policy and confirmation/routing settings. The review flow collects all five questions and stores the result; private CMS decisions are not reconstructed from guesses. | SDS / original CMS administrator |
 | Lead follow-up | Confirm who monitors submissions and connect/verify the existing email or CRM destination. Storage works; no unverified notification or CRM routing is claimed. | SDS operations / developer |
-| Tracking and consent | Original GA4, GTM, Meta, Clarity, WhatConverts and CookieInformation source configuration is preserved for production and disabled in review. Verify account permissions, consent behaviour, conversion events and call tracking on the final domain. | Marketing contractor |
+| Tracking and consent | Original tracking configuration is retained in the captured source; review tracking is disabled. Integrate the approved production tracking and consent settings before cutover. Verify account permissions, consent behaviour, conversion events and call tracking on the final domain. | Marketing contractor |
 | URL completeness beyond public links | Compare this full public sitemap/crawl with Search Console, analytics, ad landing URLs and backlink exports. Add any hidden published routes/redirects using the same raw-source process. | SEO contractor |
 | Backup and restore | Verify a restricted production D1 export, restore rehearsal and private evidence backup; agree retention and deletion ownership. Existing data is not copied into Git. | SDS data owner / developer |
 | Browser and mobile sign-off | Review representative templates and every distinct form on real mobile/desktop devices, including menus, focus, uploader, conditional journeys and performance. Automated parity checks are not a full accessibility audit. | Developer / SDS |
@@ -39,7 +36,7 @@ Some original complaints links resolve to `/complaints/www.…` and the old site
 
 ## Start here
 
-On `main`, the following commands build/validate/preview the restored earlier design. The full content/metadata/backend evidence above belongs to the retained [migration branch](https://github.com/CorbynDavidson/SDS_Website2/tree/migration/exact-sds-content). Run `npm run check:migration` explicitly to verify that candidate; it does not establish the restored design as an exact-copy SDS replacement.
+On `main`, these commands build, verify and preview the approved design with original content and SEO:
 
 ```sh
 npm ci --ignore-scripts
@@ -47,6 +44,6 @@ npm run check
 npm run dev
 ```
 
-Node **24** is required. Public media are in `public/`; retained candidate HTML in `src/content/sds/pages/`; original SEO baselines in `src/seo/sds/pages/`; original immutable raw HTML in `migration/source-pages/`. The retained candidate runtime is `worker/runtime.mjs`; the current design builds from `worker/index.template.js` through `scripts/build-current-design.mjs`. Added current-design article HTML is in `src/content/design-additions/`.
+Node **24** is required. Public media are in `public/`; immutable original captures in `migration/source-pages/`; original SEO in `src/seo/sds/pages/`; source article/form content in `src/content/sds/`; generated current page content in `src/content/current-design/`. Build with `scripts/build-content-current-design.mjs`. Form/admin persistence is implemented by `worker/runtime.mjs` and delegated to by the current Worker.
 
 Read [DEPLOYMENT.md](DEPLOYMENT.md), [ENQUIRIES.md](ENQUIRIES.md), [EDITOR_WORKFLOW.md](EDITOR_WORKFLOW.md), [DATA_OPERATIONS.md](DATA_OPERATIONS.md), [QA.md](QA.md), [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) and [ROLLBACK.md](ROLLBACK.md). Publication evidence is recorded in `docs/migration/deployment.json` after a confirmed deployment.

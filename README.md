@@ -2,9 +2,11 @@
 
 Review: https://housingconditionclaims.org. The user requested the design from before the content migration, so **main builds the version-41 design**. Review responses remain noindex. The production site at https://www.sds-solicitors.com and its DNS have not changed.
 
-The original SDS metadata is now applied to **all 296 captured routes**. The 283 existing page bodies, styles and executable scripts remain unchanged. Thirteen missing routes (nine paths plus four pagination variants) are added using the current design and original article wording. The review sitemap includes all 248 original sitemap URLs. See [metadata migration](docs/METADATA_MIGRATION.md) for scope and verification.
+Original SDS page content and SEO are now fitted into the approved design on **all 296 captured routes**. Headings, paragraphs, lists, FAQs, forms, profile/article images, SEO titles and metadata are preserved. Shared fonts, CSS, logo, navigation, footer and homepage carousels retain the approved design. See [content migration](docs/CONTENT_MIGRATION.md) and its independent verification report.
 
-The full original-source migration is preserved on [migration/exact-sds-content](https://github.com/CorbynDavidson/SDS_Website2/tree/migration/exact-sds-content). It contains 296 captured routes, exact wording/metadata baselines, media, seven form schemas and backend tests. Its rejected visual layout is not the live website. The original content still needs fitting into the restored design before production release.
+The review sitemap includes all 248 original sitemap URLs. All seven original enquiry schemas use the tested D1/R2 handlers; protected administration includes new and earlier enquiries. Production launch gates remain pending, including browser/mobile review, CMS eligibility rules, lead routing, consent/tracking and domain cutover.
+
+The immutable originals and earlier CMS-layout candidate remain on [migration/exact-sds-content](https://github.com/CorbynDavidson/SDS_Website2/tree/migration/exact-sds-content). Its visual layout is not the selected design.
 
 ## Development
 
@@ -16,9 +18,9 @@ npm run check
 npm run dev
 ```
 
-Normal builds use `scripts/build-current-design.mjs`, the previous `scripts/build-worker.mjs`, `worker/index.template.js` and `src/` design files. A head overlay adds original SEO without modifying existing page bodies or display settings. Added article files are generated in `src/content/design-additions/`. A wrapper retains review noindex, a health endpoint and the production-release block. Existing enquiries and migration data are preserved privately in D1/R2.
+Normal builds use `scripts/build-content-current-design.mjs`, the immutable original sources and the approved renderer. Corresponding page content is generated in `src/content/current-design/`; reports record per-route copy/SEO/design parity. The Worker keeps review noindex and the production-release block. Existing private data remains in D1/R2.
 
-`npm run check:migration` builds and validates the retained migration candidate locally; it does not deploy it. Rebuild with `npm run build` before publishing the approved current design.
+`npm run build:metadata` builds the intermediate metadata-only version. `npm run check:migration` validates the retained CMS-layout candidate; neither command deploys it. Rebuild with `npm run build` before publishing the current content/design combination.
 
 [Design restoration](docs/DESIGN_RESTORATION.md) · [Developer handover](docs/HANDOVER.md) · [Deployment](docs/DEPLOYMENT.md) · [Editing](docs/EDITOR_WORKFLOW.md) · [Launch gates](docs/LAUNCH_CHECKLIST.md)
 

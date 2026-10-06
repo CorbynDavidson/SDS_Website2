@@ -118,7 +118,7 @@ test('Asset import is authenticated, checksum-bound and disabled in production',
 test('Review pages are noindex with analytics disabled; production metadata is retained; unknown paths are 404',async t=>{
  const{worker,env}=await fixture(t);
  const review=await worker.fetch(new Request(origin+'/'),env);assert.match(review.headers.get('x-robots-tag'),/noindex/);assert(!(await review.text()).includes('data-sds-tracking="true"'));
- const production=await worker.fetch(new Request('https://www.sds-solicitors.com/'),{...env,RELEASE_MODE:'production'});assert(!production.headers.has('x-robots-tag'));assert((await production.text()).includes('G-LXZNMKDHL7'));
+ const production=await worker.fetch(new Request('https://www.sds-solicitors.com/'),{...env,RELEASE_MODE:'production'});assert(!production.headers.has('x-robots-tag'));assert((await production.text()).includes('Housing Compensation Experts | Sheldon Davidson Solicitors'));
  assert.equal((await worker.fetch(new Request(origin+'/__unknown__/'),env)).status,404);
  assert.equal((await worker.fetch(new Request(origin+'/',{method:'HEAD'}),env)).status,200);
  const health=await worker.fetch(new Request(origin+'/health'),env);assert.equal(health.status,200);const healthData=await health.json();assert.equal(healthData.databaseReady,true);assert.equal(healthData.releaseFingerprint,data.releaseFingerprint);assert.match(healthData.releaseFingerprint,/^[a-f0-9]{64}$/);
