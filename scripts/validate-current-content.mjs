@@ -17,6 +17,7 @@ const provenance=await readJson('config/metadata-source-provenance.json');
 const baseline=(await import(pathToFileURL(resolve(root,'build/design-before-content.mjs')))).default;
 const worker=(await import(pathToFileURL(resolve(root,'dist/server/index.js')))).default;
 const data=await readJson('build/data.json');
+const reviewsContent=await readJson('src/reviews-page.json');
 const DB=await localD1();
 const origin='https://housingconditionclaims.org';
 const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'review',RATE_LIMIT_SECRET:'local-validation-only',ASSETS:{async fetch(request){const path=new URL(request.url).pathname;if(!data.assets[path])return new Response('Missing',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':'application/octet-stream'}});}}};
@@ -72,6 +73,7 @@ const removedBannerHashes=manifest.assets.filter(a=>/\/(housing-disrepair-blue|h
 const layoutAudit={bannerRemovalRoutesVerified:0,standardFormsUsingHomepageCard:0,benefitRowsVerified:0,processRowsVerified:0,twoColumnDisrepairGridsVerified:0,centredLocationTeamRoutesVerified:0,duplicateLocationProfileCardsRemoved:0,wizardCardsVerified:0,layoutCssMatchesGitFile:true,singleEnquiryWidgetRoutesVerified:0,secondaryEnquiryWidgetsRemoved:0,primaryFormFieldsPreserved:0,welcomeMessageCarouselVerified:false,fallbackLayoutsVerified:0};
 const audit={sourceCommit:provenance.commit,sourceFilesVerified:0,routesVerified:0,originalParagraphsAndHeadingsVerified:0,metadataRoutesVerified:0,approvedStyleRoutesVerified:0,approvedHeaderFooterRoutesVerified:0,internalLinksVerified:0,mediaVerified:0,originalUnavailableLinks:[],unavailableOriginalMedia:report.unavailableOriginalMedia,formKeys:[],homepageCarouselsVerified:false,sourceDirectoryProfiles:0,productionBlockVerified:false,reviewNoindexVerified:true,ownerProtectedAdministrationVerified:false,browserVisualAuditComplete:false,pages:[]};
 const media=new Set(),links=new Set(),forms=new Set();
+const reviewsAudit={titleCorrected:false,homepageTestimonialsPreserved:false,verifiedFallbackReviews:0,officialWidgetConfigured:false,sourceLinksVerified:false,originalRecognitionImageVerified:false};
 for(const [path,sha]of Object.entries(provenance.blobs)){const bytes=await readFile(resolve(root,path));assert.equal(createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),sha,'Pinned source changed: '+path);audit.sourceFilesVerified++;}
 assert.equal(hash(await readFile(resolve(root,'build/design-before-metadata.mjs'))),policy.designFingerprint);
 for(const page of report.pages){
@@ -106,7 +108,20 @@ for(const page of report.pages){
    assert.equal($(n).closest('[data-source-wizard-card]').length,1,'Wizard lacks a consistent card: '+page.path);
    assert.ok($(n).closest('[data-source-wizard-card]').find('.hide_when_2').length,'Wizard step display rules are missing: '+page.path);layoutAudit.wizardCardsVerified++;
  }
- assert.deepEqual(seo(html),seo(raw),'Original SEO differs: '+page.path);audit.metadataRoutesVerified++;
+ const expectedSeo=seo(raw);
+ if(page.path===reviewsContent.path)expectedSeo.title='Reviews | Sheldon Davidson Solicitors';
+ assert.deepEqual(seo(html),expectedSeo,'Original SEO differs: '+page.path);audit.metadataRoutesVerified++;
+ if(page.path===reviewsContent.path){
+   assert.equal($('main h1').text(),'Reviews');assert.ok(!$('head title').text().includes('::'));reviewsAudit.titleCorrected=true;
+   const home=load(await(await fetchPage(worker,'/')).text());assert.equal($('section.testimonials').html(),home('section.testimonials').html());
+   assert.ok($('#sds-review-controls').text().includes('const showTestimonial='));reviewsAudit.homepageTestimonialsPreserved=true;
+   const frame=$('iframe[data-review-widget-url]');assert.equal(frame.length,1);assert.equal(frame.attr('data-review-widget-url'),'https://www.reviewsolicitors.co.uk/widget/full-page/14147/');
+   assert.ok($('#sds-review-controls').text().includes("event.origin!=='https://www.reviewsolicitors.co.uk'"));reviewsAudit.officialWidgetConfigured=true;
+   assert.equal($('[data-reviews-fallback] .reviews-feedback-card').length,4);reviewsAudit.verifiedFallbackReviews=4;
+   for(const url of [reviewsContent.reviewSolicitorsUrl,reviewsContent.googleUrl,reviewsContent.recognition.postUrl])assert.ok($('a[href]').toArray().some(n=>n.attribs.href===url));reviewsAudit.sourceLinksVerified=true;
+   const image=await fetchPage(worker,reviewsContent.recognition.imagePath);assert.equal(image.status,200);assert.equal(image.headers.get('content-type'),'image/jpeg');
+   const imageBytes=Buffer.from(await image.arrayBuffer());assert.equal(hash(imageBytes),reviewsContent.recognition.imageSha256);assert.equal(hash(await readFile(resolve(root,'public'+reviewsContent.recognition.imagePath))),reviewsContent.recognition.imageSha256);reviewsAudit.originalRecognitionImageVerified=true;
+ }
  const originalCopy=originalContent(raw,page.path),currentCopy=migratedContent(html);
  if(page.path.replace(/\/+$/,'')==='/housing-disrepair/locations'){
    const team=$('[data-source-location-team]');assert.equal(team.length,1);
@@ -182,4 +197,5 @@ for(const path of ['/damp-and-mould-claims','/broken-heating-and-hot-water-claim
 await DB.close();
 await writeFile(resolve(root,'docs/migration/content-validation.json'),JSON.stringify(audit,null,2)+'\n');
 await writeFile(resolve(root,'docs/migration/layout-validation.json'),JSON.stringify(layoutAudit,null,2)+'\n');
+await writeFile(resolve(root,'docs/migration/reviews-validation.json'),JSON.stringify(reviewsAudit,null,2)+'\n');
 console.log('Validated '+audit.routesVerified+' original-content routes, '+audit.metadataRoutesVerified+' SEO titles/heads, '+audit.originalParagraphsAndHeadingsVerified+' copy blocks, '+audit.mediaVerified+' original media and '+audit.internalLinksVerified+' internal links; approved styles and carousel controls retained.');

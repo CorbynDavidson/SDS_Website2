@@ -7,6 +7,7 @@ import assert from 'node:assert/strict';
 import {load} from 'cheerio';
 import {sha256,normaliseText} from './lib/html.mjs';
 import {cleanContent,extractContent,renderContentPage,withContentRuntime} from './lib/current-design-content.mjs';
+import {addReviewsPage} from './lib/reviews-page.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
@@ -24,6 +25,8 @@ const locationProfileCard=directoryContent.html(victoria);
 const manifest=await readJson('migration/source-manifest.json');
 const policy=await readJson('config/metadata-migration.json');
 const config=await readJson('config/site.json');
+const reviewsContent=await readJson('src/reviews-page.json');
+const reviewsHomeHtml=await (await approved.fetch(new Request(config.reviewOrigin+'/'),{})).text();
 const forms=await readJson('src/content/sds/forms.json');
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
@@ -37,7 +40,7 @@ for(const asset of manifest.assets.filter(a=>a.status===200&&a.file)) {
   mediaUrls[sourcePath]=path;mediaSources[path]={sha256:asset.sha256,bytes:bytes.length,type,sourcePath};
   assets[sourcePath]={sha256:asset.sha256,bytes:bytes.length,type};
 }
-for(const path of ['/sds-theme.css','/sds-runtime.js','/assets/sheldon-davidson-solicitors-logo.png']){
+for(const path of ['/sds-theme.css','/sds-runtime.js','/assets/sheldon-davidson-solicitors-logo.png',reviewsContent.recognition.imagePath]){
   const bytes=await readFile(resolve(root,'public'+path));
   assets[path]={sha256:sha256(bytes),bytes:bytes.length,type:typeByExtension[extname(path)],base64:bytes.toString('base64')};
 }
@@ -58,6 +61,7 @@ for(const page of index.pages) {
   const base=await (await approved.fetch(new Request(config.reviewOrigin+page.path),{})).text();
   const seo=await readJson(page.seoFile);
   const rendered=renderContentPage(base,cleaned,{path:page.path,family,title:seo.title.split('|')[0].trim()});
+  if(page.path.replace(/\/+$/,'')===reviewsContent.path.replace(/\/+$/,''))rendered.html=addReviewsPage(rendered.html,{content:reviewsContent,homeHtml:reviewsHomeHtml});
   let html=withContentRuntime(rendered.html,runtime,layoutCss);
   // Retain carousel scripts; replace the old browser-local editor with the
   // owner-authenticated database draft editor already used by the migration.
@@ -107,7 +111,8 @@ export default {async fetch(request,env={},ctx={}){
       else if(env.ASSETS){const original=await env.ASSETS.fetch(new Request(new URL(asset.sourcePath,request.url),{headers:request.headers}));response=new Response(original.body,{status:original.status,headers});}
       else response=new Response('Source asset unavailable',{status:503,headers});
     }
-  }else if(get&&contentLookup(url))response=new Response(await contentHtml(contentLookup(url)),{headers:{'content-type':'text/html; charset=utf-8','cache-control':url.searchParams.has('edit')?'no-store':'public, max-age=300'}});
+  }else if(get&&contentData.assets[url.pathname]?.base64)response=await contentBackend.fetch(request,env,ctx);
+  else if(get&&contentLookup(url))response=new Response(await contentHtml(contentLookup(url)),{headers:{'content-type':'text/html; charset=utf-8','cache-control':url.searchParams.has('edit')?'no-store':'public, max-age=300'}});
   else if(url.pathname==='/sitemap.xml'&&get)response=new Response(contentData.sitemap,{headers:{'content-type':'application/xml; charset=utf-8'}});
   else if(url.pathname==='/robots.txt'&&get)response=new Response('User-agent: *\\nAllow: /\\n\\nSitemap: '+contentData.config.reviewOrigin+'/sitemap.xml\\n',{headers:{'content-type':'text/plain; charset=utf-8'}});
   else if(url.pathname==='/health'||url.pathname.startsWith('/api/forms/')||url.pathname.startsWith('/api/editor/')||url.pathname==='/editor'||url.pathname.startsWith('/submissions'))response=await contentBackend.fetch(request,env,ctx);

@@ -132,7 +132,7 @@
     "productionDnsChanged": false,
     "productionReleaseReady": false
   },
-  "currentlyDeployedRelease": "teamLayout",
+  "currentlyDeployedRelease": "headerCardsAndLocations",
   "layoutCorrections": {
     "versionNumber": 49,
     "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_c199c3e18214819187efa28ccd0653f9",
@@ -248,6 +248,42 @@
       "id": 37407616848,
       "conclusion": "success",
       "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37407616848"
+    },
+    "browserVisualAuditComplete": false,
+    "productionDnsChanged": false,
+    "productionReleaseReady": false
+  },
+  "headerCardsAndLocations": {
+    "versionNumber": 52,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_f0f9e659947c8191b086fe6dd1fae896",
+    "sourceCommit": "93becd302668cb8ae87c4e4fa3b6a136f85444a8",
+    "githubCommit": "2bffc45208864f85eaebf0901fc05a8d604d4f26",
+    "deploymentId": "appgdep_6ac469d4c2a48191a47e1b3bcb01b793",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T03:24:28.227550+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "archive": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_000000008bc082109a48bc83d5a49e4a",
+      "content_hash": "sha256:ba15dff242a1377a3de0f4fba78c173c4b014094fd46729760ecb77a956a490b",
+      "size_bytes": 64307200,
+      "file_count": 277
+    },
+    "bannerRemovalRoutesVerified": 296,
+    "processRowsVerified": 2,
+    "twoColumnDisrepairGridsVerified": 125,
+    "centredLocationTeamRoutesVerified": 1,
+    "duplicateLocationProfileCardsRemoved": 1,
+    "capturedContentAndSeoRoutesVerified": 296,
+    "retainedCopyBlocksVerified": 20226,
+    "backendTestsPassed": 13,
+    "githubFilesVerified": 164,
+    "githubAllChangedFilesMatch": true,
+    "githubCi": {
+      "id": 37408686553,
+      "conclusion": "success",
+      "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37408686553"
     },
     "browserVisualAuditComplete": false,
     "productionDnsChanged": false,

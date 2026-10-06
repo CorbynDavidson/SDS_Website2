@@ -1,12 +1,14 @@
 # SDS website
 
-Review: https://housingconditionclaims.org (**version 51**). The user requested the design from before the content migration, so **main builds the version-41 design**. Review responses remain noindex. The production site at https://www.sds-solicitors.com and its DNS have not changed.
+Review: https://housingconditionclaims.org (**version 52**). The user requested the design from before the content migration, so **main builds the version-41 design**. Review responses remain noindex. The production site at https://www.sds-solicitors.com and its DNS have not changed.
 
 Original SDS page content and SEO are now fitted into the approved design on **all 296 captured routes**. Headings, paragraphs, lists, FAQs, forms, profile/article images, SEO titles and metadata are preserved. Shared fonts, CSS, logo, navigation, footer and homepage carousels retain the approved design. Version 49 removes the wall/switch banners, gives page forms the homepage callback-card styling and lays out the four benefits horizontally (four columns on desktop, two on smaller screens). See [content migration](docs/CONTENT_MIGRATION.md) and its independent verification report.
 
 Version 50 moves Sheldon Davidson’s original welcome message into a readable “Who we are” carousel slide, aligns the first box, adds 48px of header spacing and removes secondary enquiry widgets. Primary form fields and retained wording are preserved.
 
 Version 51 gives team sections a generous rounded frame and extends the secondary grey background across the Our People content area. The original directory, filter controls, profile links and SEO remain intact.
+
+Version 52 removes aerial estate banners, vertically centres the header, gives the claims steps a horizontal desktop layout and the disrepair image cards two columns, and keeps one centred Sheldon/Victoria pair on All Locations. Original wording and SEO remain, with the requested duplicate-card removal and original Victoria directory card addition explicitly verified.
 
 The review sitemap includes all 248 original sitemap URLs. All seven original enquiry schemas use the tested D1/R2 handlers; protected administration includes new and earlier enquiries. Production launch gates remain pending, including browser/mobile review, CMS eligibility rules, lead routing, consent/tracking and domain cutover.
 

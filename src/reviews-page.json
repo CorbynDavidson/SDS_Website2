@@ -1,0 +1,72 @@
+{
+  "path": "/about-us/reviews/",
+  "heading": "Reviews",
+  "seoTitle": "Reviews | Sheldon Davidson Solicitors",
+  "checkedOn": "2026-10-06",
+  "reviewSolicitorsUrl": "https://www.reviewsolicitors.co.uk/greater-manchester/manchester/sheldon-davidson-solicitors-ltd",
+  "googleUrl": "https://www.google.com/maps/search/?api=1&query=Sheldon%20Davidson%20Solicitors%20219%20Bury%20New%20Road%20Whitefield",
+  "widgetUrl": "https://www.reviewsolicitors.co.uk/widget/full-page/14147/",
+  "widgetFirmId": 14147,
+  "fallbackReviews": [
+    {
+      "id": "3566124",
+      "author": "Anonymous",
+      "date": "2026-09-11",
+      "platform": "ReviewSolicitors",
+      "rating": 5,
+      "summary": "The client appreciated regular updates, helpful guidance and the support Emma and Jen provided during a car accident claim.",
+      "url": "https://www.reviewsolicitors.co.uk/greater-manchester/manchester/sheldon-davidson-solicitors-ltd#reviews-local-list-full"
+    },
+    {
+      "id": "3549411",
+      "author": "Anonymous",
+      "date": "2026-08-25",
+      "platform": "ReviewSolicitors",
+      "rating": 5,
+      "quote": "Thank you very much to Emma F. I really appreciate your support.",
+      "url": "https://www.reviewsolicitors.co.uk/greater-manchester/manchester/sheldon-davidson-solicitors-ltd#reviews-local-list-full"
+    },
+    {
+      "id": "3373180",
+      "author": "Ty",
+      "date": "2026-03-17",
+      "platform": "Google",
+      "rating": 5,
+      "quote": "Very speedy process and kept me informed",
+      "excerpt": true,
+      "url": "https://www.reviewsolicitors.co.uk/greater-manchester/manchester/sheldon-davidson-solicitors-ltd#reviews-not-local-list-full"
+    },
+    {
+      "id": "3373181",
+      "author": "Freja Stafford",
+      "date": "2026-03-17",
+      "platform": "Google",
+      "rating": 5,
+      "summary": "Freja valued Emma and Corbyn’s help after a car accident, describing an easy process with regular updates and supportive communication.",
+      "url": "https://www.reviewsolicitors.co.uk/greater-manchester/manchester/sheldon-davidson-solicitors-ltd#reviews-not-local-list-full"
+    }
+  ],
+  "recognition": {
+    "author": "ReviewSolicitors-Recognition",
+    "postUrl": "https://www.linkedin.com/posts/reviewsolicitors-recognition_legal-uklaw-solicitor-activity-7510617135774134272-5On_",
+    "quote": "A 97% client recommendation rate speaks to a team known for persistence and genuine care",
+    "excerpt": true,
+    "imagePath": "/assets/reviewsolicitors-recognition-linkedin.jpg",
+    "imageAlt": "ReviewSolicitors recognition graphic for Sheldon Davidson Solicitors: 97% would recommend to friends and family, based on 230+ client reviews.",
+    "sourceImageUrl": "https://media.licdn.com/dms/image/v2/D4E10AQHVLCmS6bMGCQ/image-shrink_800/B4EaDsSeAnH4Ak-/0/1790670660187?e=2147483647&v=beta&t=e2ttkEUNGrvbbLFjWcghijiFaT22PmTXxkVjZx_KywA",
+    "imageSha256": "67c98f0b1f65404693e7ca508f23ed7c37e61ce14d3945bba23abf3afeddc6c3",
+    "imageMime": "image/jpeg",
+    "imageBytes": 56534
+  },
+  "provenance": {
+    "reviewSourceUrl": "https://www.reviewsolicitors.co.uk/greater-manchester/manchester/sheldon-davidson-solicitors-ltd",
+    "googleReviewsShownOn": "ReviewSolicitors",
+    "widgetSource": "Captured SDS Reviews page, firm 14147, full-page widget",
+    "publicSourceChecks": {
+      "reviewSolicitorsProfile": 200,
+      "widget": 200,
+      "linkedInPost": 200,
+      "linkedInImage": 200
+    }
+  }
+}
