@@ -1,10 +1,8 @@
-# SDS website migration
+# SDS website
 
-Migration candidate for https://www.sds-solicitors.com. Review host: https://housingconditionclaims.org.
+Review: https://housingconditionclaims.org. The user requested the design from before the content migration, so **main builds the version-41 design**. Review responses remain noindex. The production site at https://www.sds-solicitors.com and its DNS have not changed.
 
-The user rejected the migration's visual layout on 6 October 2026 and requested the design from before migration. The review site has been restored to version 41. This branch preserves the exact-content migration groundwork; it must be adapted to the approved previous design before deployment. It is not the currently deployed website. See [design restoration](docs/DESIGN_RESTORATION.md).
-
-The active build preserves the original SDS wording, published URLs and metadata across the authoritative 248-page sitemap plus linked routes and pagination. [Developer handover](docs/HANDOVER.md) explains implementation, evidence and remaining production gates.
+The full original-source migration is preserved on [migration/exact-sds-content](https://github.com/CorbynDavidson/SDS_Website2/tree/migration/exact-sds-content). It contains 296 captured routes, exact wording/metadata baselines, media, seven form schemas and backend tests. Its rejected visual layout is not the live website. The original content still needs fitting into the restored design before production release.
 
 ## Development
 
@@ -16,12 +14,10 @@ npm run check
 npm run dev
 ```
 
-The Worker build uses `worker/runtime.mjs`, imported original pages in `src/content/sds/`, source SEO in `src/seo/sds/`, shared presentation in `public/sds-theme.css` and D1/R2 runtime bindings. Captured raw originals and media are kept in Git; private submissions and secrets are not.
+Normal builds use `scripts/build-current-design.mjs`, the previous `scripts/build-worker.mjs`, `worker/index.template.js` and `src/` design files. Page bodies are retained; a wrapper adds review noindex, a health endpoint and a production-release block. Existing enquiries and migration data are preserved privately in D1/R2.
 
-[Coverage report](docs/migration/coverage.json) · [Original/review URL map](docs/migration/url-map.csv) · [Deployment](docs/DEPLOYMENT.md) · [Enquiries](docs/ENQUIRIES.md) · [Editing](docs/EDITOR_WORKFLOW.md) · [Launch gates](docs/LAUNCH_CHECKLIST.md) · [Rollback](docs/ROLLBACK.md)
+`npm run check:migration` builds and validates the retained migration candidate locally; it does not deploy it. Rebuild with `npm run build` before publishing the approved current design.
 
-GitHub workflows capture/import public source and commit corresponding content/media/report files, then validate exact preservation and backend behaviour. The review deployment uses Sites. GitHub Pages alone cannot run the protected database/form handlers. Production DNS has not changed; the existing SDS domain remains the production canonical origin.
+[Design restoration](docs/DESIGN_RESTORATION.md) · [Developer handover](docs/HANDOVER.md) · [Deployment](docs/DEPLOYMENT.md) · [Editing](docs/EDITOR_WORKFLOW.md) · [Launch gates](docs/LAUNCH_CHECKLIST.md)
 
-## Migration proposal
-
-The original accepted scope is recorded in [SDS_MIGRATION_PLAN.md](docs/SDS_MIGRATION_PLAN.md); use the handover and generated reports for current implementation status.
+GitHub validates normal pushes and migration branches. Intentional source capture imports and commits corresponding content/media/audit files using the migration checks. GitHub does not automatically deploy Sites. Secrets and submissions never belong in this public repository.

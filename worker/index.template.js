@@ -76,7 +76,11 @@ const adminPage = (rows) => `<!doctype html>
 ${rows.length ? `<div class="table-wrap"><table><thead><tr><th>Received</th><th>Name</th><th>Email</th><th>Phone</th><th>Postcode</th><th>Type of disrepair</th></tr></thead><tbody>${rows.map((row) => `<tr><td>${escapeHtml(row.created_at)}</td><td>${escapeHtml(row.full_name)}</td><td><a href="mailto:${escapeHtml(row.email)}">${escapeHtml(row.email)}</a></td><td><a href="tel:${escapeHtml(row.phone)}">${escapeHtml(row.phone)}</a></td><td>${escapeHtml(row.postcode)}</td><td>${escapeHtml(row.disrepair_type)}</td></tr>`).join("")}</tbody></table></div>` : '<div class="table-wrap empty">No enquiries have been submitted yet.</div>'}
 </main></body></html>`;
 
-const csvCell = (value) => `"${String(value ?? "").replaceAll('"', '""')}"`;
+const csvCell = (value) => {
+  let text = String(value ?? "");
+  if (/^[=+@\-\t\r]/.test(text)) text = "'" + text;
+  return `"${text.replaceAll('"', '""')}"`;
+};
 
 export default {
   async fetch(request, env) {
@@ -167,7 +171,7 @@ export default {
           .bind(fullName, email, phone, postcode, disrepairType).run();
         return json({ ok: true }, 201);
       } catch (error) {
-        console.error("Unable to save enquiry", error);
+        console.error("Unable to save enquiry", error?.name || "Error");
         return json({ error: "We could not send your enquiry. Please try again." }, 500);
       }
     }

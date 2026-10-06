@@ -42,7 +42,7 @@ jobs:
       - name: Import and verify exact source preservation
         run: |
           npm run import:sds
-          npm run check
+          npm run check:migration
       - name: Commit source records and media
         run: |
           git config user.name 'SDS migration automation'

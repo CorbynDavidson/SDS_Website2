@@ -37,6 +37,8 @@ Some original complaints links resolve to `/complaints/www.…` and the old site
 
 ## Start here
 
+On `main`, the following commands build/validate/preview the restored earlier design. The full content/metadata/backend evidence above belongs to the retained [migration branch](https://github.com/CorbynDavidson/SDS_Website2/tree/migration/exact-sds-content). Run `npm run check:migration` explicitly to verify that candidate; it does not establish the restored design as an exact-copy SDS replacement.
+
 ```sh
 npm ci --ignore-scripts
 npm run check

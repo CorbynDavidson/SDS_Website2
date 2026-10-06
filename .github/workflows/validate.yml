@@ -19,7 +19,7 @@ jobs:
       - name: Initialise imported content if this is the bootstrap commit
         run: |
           if [ ! -f src/content/sds/index.json ]; then npm run import:sds; fi
-      - name: Build, compare every original page and test backend behaviour
+      - name: Build and validate the selected source
         run: npm run check
       - uses: actions/upload-artifact@v4
         if: always()
@@ -29,4 +29,5 @@ jobs:
             docs/migration/coverage.json
             docs/migration/url-map.csv
             docs/migration/build.json
+            docs/design-build.json
           retention-days: 30

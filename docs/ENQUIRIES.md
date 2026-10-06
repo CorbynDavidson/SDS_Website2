@@ -1,5 +1,7 @@
 # Enquiries and operator access
 
+**Current deployment:** the review site has been restored to the earlier version-41 design. Its earlier six-field `/api/leads` handler stores records in `enquiries`, and its protected submissions view reads that table. The seven-schema handlers, uploads and D1 drafts described below are retained migration-candidate work, not the restored live handlers. New migration test records and private evidence remain intact in their additive tables/bucket.
+
 All seven captured original schemas are in `src/content/sds/forms.json`. The visible labels, select options and consent paragraphs remain the original SDS wording. CMS-specific expiring tokens are removed and forms submit to `/api/forms/<key>`. Successful enquiries redirect to the captured `/contact-us/thank-you/` page.
 
 Records are in `form_submissions`: created time, source path, form identity, labelled answers and unique request key. Duplicate retries store one record. The old `enquiries` table is preserved and shown alongside new records. CSRF checks require a matching Origin; honeypot responses store nothing; IP addresses are hashed with a private salt into hourly rate buckets. Raw IPs and form values are not logged.

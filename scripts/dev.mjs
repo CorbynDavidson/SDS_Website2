@@ -7,7 +7,7 @@ import { localD1 } from './lib/local-d1.mjs';
 const root=resolve(import.meta.dirname,'..');
 await mkdir(resolve(root,'.data'),{recursive:true});
 const DB=await localD1(resolve(root,'.data/preview.sqlite'));
-const assetData=JSON.parse(await readFile(resolve(root,'build/data.json'),'utf8'));
+const assetData=process.argv.includes('--previous-design')?{assets:{}}:JSON.parse(await readFile(resolve(root,'build/data.json'),'utf8'));
 let worker=(await import(resolve(root,'dist/server/index.js'))).default;
 const fileObjects = new Map();
 const ASSET_STORAGE = {
