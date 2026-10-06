@@ -1,3 +1,4 @@
+import { contactBundle, embedContactValidation } from './lib/contact-validation-bundle.mjs';
 import { readFile, writeFile, mkdir, readdir, rm, cp } from 'node:fs/promises';
 import { resolve, extname, relative } from 'node:path';
 import { gzipSync } from 'node:zlib';
@@ -33,7 +34,7 @@ await walk(resolve(root,'public'));
 const data = {config,pages,forms,assets,sourceCapturedAt:manifest.completed_at,
   sitemap:await readFile(resolve(root,'migration/original-sitemap.xml'),'utf8'),
   robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
-const runtime = (await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace('export function createWorker','function createWorker');
+const runtime = embedContactValidation((await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace("import { checkPostcode } from './postcode-lookup.mjs';", (await readFile(resolve(root,'worker/postcode-lookup.mjs'),'utf8')).replace('export async function','async function')).replace("import { checkEmailDomain } from './email-domain.mjs';", (await readFile(resolve(root,'worker/email-domain.mjs'),'utf8')).replace('export async function','async function'))).replace('export function createWorker','function createWorker');
 data.staticHeadersSha256 = sha256(await readFile(resolve(root,'public/_headers')));
 data.releaseFingerprint = sha256(runtime + JSON.stringify(data));
 const output = runtime + '\nconst data = ' + JSON.stringify(data) + ';\nexport default createWorker(data);\n';

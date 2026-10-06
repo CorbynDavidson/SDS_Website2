@@ -11,11 +11,11 @@ const common=Object.values(data.forms).find(form=>form.originalId==='12007');
 const validFields=definition=>Object.fromEntries(definition.fields.map(field=>[field.name,field.options.length?(field.options.find(o=>o.value)?.value||''):/email/i.test(field.type)?'migration-test@example.invalid':field.type==='tel'?'01615550100':/postcode/i.test(field.label)?'M1 1AA':'Migration verification']));
 const post=(definition,fields=validFields(definition),overrides={})=>new Request(origin+'/api/forms/'+definition.key,{method:'POST',headers:{'content-type':'application/json',origin,'cf-connecting-ip':'192.0.2.15',...overrides.headers},body:JSON.stringify({fields,sourcePath:definition.sourcePaths[0],requestKey:crypto.randomUUID(),...overrides.body})});
 const admin=path=>new Request(origin+path,{headers:{'oai-authenticated-user-email':owner}});
-async function fixture(t){const DB=await localD1();t.after(()=>DB.close());return{worker:createWorker(data),env:{...base,DB},DB};}
+async function fixture(t){const DB=await localD1();t.after(()=>DB.close());return{worker:createWorker(data, {checkEmailDomain: async () => ({status:'unknown'}), checkPostcode: async () => ({status:'unknown'})}),env:{...base,DB},DB};}
 
 test('Captured asset routes override generic hosting MIME and retain GET, HEAD and ETag behavior',async()=>{
  const [path,asset]=Object.entries(data.assets).find(([,a])=>a.storagePath&&a.type==='image/webp');
- const requests=[],worker=createWorker(data),env={...base,ASSETS:{async fetch(request){requests.push(new URL(request.url).pathname);return new Response('verified image bytes',{headers:{'content-type':'application/octet-stream'}});}}};
+ const requests=[],worker=createWorker(data, {checkEmailDomain: async () => ({status:'unknown'}), checkPostcode: async () => ({status:'unknown'})}),env={...base,ASSETS:{async fetch(request){requests.push(new URL(request.url).pathname);return new Response('verified image bytes',{headers:{'content-type':'application/octet-stream'}});}}};
  const get=await worker.fetch(new Request(origin+path),env);
  assert.equal(get.status,200);assert.equal(get.headers.get('content-type'),asset.type);assert.equal(await get.text(),'verified image bytes');
  assert.equal(requests[0],asset.storagePath);assert.equal(get.headers.get('etag'),'"'+asset.sha256+'"');
@@ -69,14 +69,14 @@ test('CSRF and honeypot protection leave the database untouched',async t=>{
 test('Retrying the same request stores one enquiry; a restart can still read it',async t=>{
  const{worker,env,DB}=await fixture(t),requestKey=crypto.randomUUID();
  assert.equal((await worker.fetch(post(common,validFields(common),{body:{requestKey}}),env)).status,201);
- const retry=await createWorker(data).fetch(post(common,validFields(common),{body:{requestKey}}),env);
+ const retry=await createWorker(data, {checkEmailDomain: async () => ({status:'unknown'}), checkPostcode: async () => ({status:'unknown'})}).fetch(post(common,validFields(common),{body:{requestKey}}),env);
  assert.equal(retry.status,200);assert.equal((await retry.json()).duplicate,true);
  assert.equal((await DB.prepare('SELECT COUNT(*) AS count FROM form_submissions').first()).count,1);
 });
 test('Durable rate limits cap repeated requests across Worker instances',async t=>{
  const{env,DB}=await fixture(t);
- for(let i=0;i<20;i++)assert.equal((await createWorker(data).fetch(post(common),env)).status,201);
- const limited=await createWorker(data).fetch(post(common),env);assert.equal(limited.status,429);assert(limited.headers.get('retry-after'));
+ for(let i=0;i<20;i++)assert.equal((await createWorker(data, {checkEmailDomain: async () => ({status:'unknown'}), checkPostcode: async () => ({status:'unknown'})}).fetch(post(common),env)).status,201);
+ const limited=await createWorker(data, {checkEmailDomain: async () => ({status:'unknown'}), checkPostcode: async () => ({status:'unknown'})}).fetch(post(common),env);assert.equal(limited.status,429);assert(limited.headers.get('retry-after'));
  assert.equal((await DB.prepare('SELECT COUNT(*) AS count FROM form_submissions').first()).count,20);
 });
 test('Owner-only administration blocks anonymous, other users and missing auth configuration',async t=>{
@@ -95,7 +95,7 @@ test('All-wording drafts persist text changes with owner protection and unchange
  const request=copy=>new Request(origin+'/api/editor/draft',{method:'POST',headers:{'content-type':'application/json',origin,'oai-authenticated-user-email':owner},body:JSON.stringify({path:'/',baseSha256:draft.baseSha256,copy})});
  const copy={'copy-0001':'Updated navigation','copy-0020':'<img src=x onerror=alert(1)>','copy-0030':''};
  assert.equal((await worker.fetch(request(copy),env)).status,200);
- const saved=await(await createWorker(data).fetch(admin('/api/editor/draft?path=/'),env)).json();
+ const saved=await(await createWorker(data, {checkEmailDomain: async () => ({status:'unknown'}), checkPostcode: async () => ({status:'unknown'})}).fetch(admin('/api/editor/draft?path=/'),env)).json();
  assert.deepEqual(JSON.parse(saved.draft.body_html),{version:2,copy});
  assert.equal(await(await worker.fetch(new Request(origin+'/'),env)).text(),published);
  for(const invalid of[[],{'bad-id':'bad'},{'copy-0001':42}])assert.equal((await worker.fetch(request(invalid),env)).status,400);
@@ -119,7 +119,7 @@ test('Drafts survive Worker restarts and reject outdated page hashes and cross-o
  assert.equal((await worker.fetch(request('obsolete'),env)).status,409);
  assert.equal((await worker.fetch(request(draft.baseSha256,'https://attacker.invalid'),env)).status,403);
  assert.equal((await worker.fetch(request(),env)).status,200);
- const saved=await(await createWorker(data).fetch(admin('/api/editor/draft?path=/'),env)).json();assert.equal(saved.draft.body_html,'<main><p>Review draft</p></main>');
+ const saved=await(await createWorker(data, {checkEmailDomain: async () => ({status:'unknown'}), checkPostcode: async () => ({status:'unknown'})}).fetch(admin('/api/editor/draft?path=/'),env)).json();assert.equal(saved.draft.body_html,'<main><p>Review draft</p></main>');
 });
 test('Private evidence uploads persist with enquiries and require owner access',async t=>{
  const{worker,env,DB}=await fixture(t),objects=new Map();
@@ -177,4 +177,38 @@ test('Bundled media is served with release hashes; an empty static binding does 
  env.ASSET_STORAGE={async get(key){assert.equal(key,'public-assets/'+asset.sha256);return{body:bytes,size:bytes.length};}};
  response=await worker.fetch(new Request(origin+path),env);assert.equal(response.status,200);assert.deepEqual(Buffer.from(await response.arrayBuffer()),bytes);
  assert.equal((await worker.fetch(new Request(origin+path,{headers:{'if-none-match':'"'+asset.sha256+'"'}}),env)).status,304);
+});
+
+test('Phone validation and email DNS rejection happen before storage, while uncertain DNS does not lose leads',async t=>{
+ const {env,DB}=await fixture(t),fields=validFields(common),phone=common.fields.find(f=>f.type==='tel').name;
+ const worker=createWorker(data,{checkEmailDomain:async()=>({status:'invalid'})});
+ assert.equal((await worker.fetch(post(common,{...fields,[phone]:'12345'}),env)).status,400);
+ assert.equal((await worker.fetch(post(common,fields),env)).status,400);
+ assert.equal((await DB.prepare('SELECT COUNT(*) AS count FROM form_submissions').first()).count,0);
+ const uncertain=createWorker(data,{checkEmailDomain:async()=>({status:'unknown'}),checkPostcode:async()=>({status:'unknown'})});
+ assert.equal((await uncertain.fetch(post(common,fields),env)).status,201);
+});
+
+test('Contact-check endpoint validates details without creating leads and enforces origin and rate limits',async t=>{
+ const {env,DB}=await fixture(t);
+ const worker=createWorker(data,{checkEmailDomain:async domain=>({status:domain==='missing.invalid'?'invalid':'mail-routing'}),checkPostcode:async postcode=>({status:postcode==='ZZ99 9ZZ'?'invalid':'found',postcode})});
+ const check=(type,value,extra={})=>new Request(origin+'/api/contact-check',{method:'POST',headers:{'content-type':'application/json',origin,'cf-connecting-ip':'192.0.2.21',...extra},body:JSON.stringify({type,value})});
+ for(const [type,value,status] of [['postcode','m11aa','found'],['postcode','M1','invalid'],['postcode','ZZ99 9ZZ','invalid'],['email','person@missing.invalid','invalid'],['email','person@gmail.com','mail-routing']]){
+  const response=await worker.fetch(check(type,value),env);assert.equal(response.status,200);assert.equal((await response.json()).status,status);
+ }
+ assert.equal((await worker.fetch(check('postcode','M1 1AA',{origin:'https://attacker.invalid'}),env)).status,403);
+ assert.equal((await DB.prepare('SELECT COUNT(*) AS count FROM form_submissions').first()).count,0);
+ for(let i=0;i<56;i++)assert.equal((await worker.fetch(check('postcode','M1 1AA'),env)).status,200);
+ assert.equal((await worker.fetch(check('postcode','M1 1AA'),env)).status,429);
+ // Field checks do not consume the separate enquiry quota.
+ assert.equal((await worker.fetch(post(common),env)).status,201);
+});
+test('Postcode directory checks reject nonexistent postcodes before storage and permit unavailable or retired results',async t=>{
+ const {env,DB}=await fixture(t),fields=validFields(common),postcode=common.fields.find(f=>/postcode/i.test(f.label)).name;
+ const service=status=>createWorker(data,{checkEmailDomain:async()=>({status:'unknown'}),checkPostcode:async()=>({status})});
+ assert.equal((await service('invalid').fetch(post(common,{...fields,[postcode]:'ZZ99 9ZZ'}),env)).status,400);
+ assert.equal((await DB.prepare('SELECT COUNT(*) AS count FROM form_submissions').first()).count,0);
+ for(const status of ['found','unknown','terminated'])assert.equal((await service(status).fetch(post(common,{...fields,[postcode]:'m11aa'}),env)).status,201);
+ const rows=(await DB.prepare('SELECT payload_json FROM form_submissions').all()).results;
+ for(const row of rows)assert.equal(JSON.parse(row.payload_json)[postcode].value,'M1 1AA');
 });

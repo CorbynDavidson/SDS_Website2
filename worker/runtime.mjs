@@ -1,3 +1,6 @@
+import { checkPostcode } from './postcode-lookup.mjs';
+import { validateContact } from '../scripts/lib/contact-validation.mjs';
+import { checkEmailDomain } from './email-domain.mjs';
 const encoder = new TextEncoder();
 const escapeHtml = value => String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
 const json = (value, status = 200, extra = {}) => new Response(JSON.stringify(value), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...extra } });
@@ -77,22 +80,22 @@ function validateFields(definition, values) {
     const text = Array.isArray(value) ? value.join(', ') : value;
     if (text.length > (field.tag === 'textarea' ? 20000 : 1000)) return { error: field.label + ': this response is too long.' };
     if (field.required && !text) return { error: 'Please complete ' + field.label.replace(/\s*\*/g, '') + '.' };
-    if (text && field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text)) return { error: 'Please enter a valid email address.' };
-    if (text && field.type === 'tel' && !/^[0-9+()\s.xX:/-]{5,40}$/.test(text)) return { error: 'Please enter a valid phone number.' };
-    if (text && /postcode/i.test(field.label) && !/^[A-Z0-9 ]{5,12}$/i.test(text)) return { error: 'Please enter a valid postcode.' };
+    const contact = validateContact(/postcode/i.test(field.label) ? 'postcode' : field.type, text);
+    if (contact.error) return { error: contact.error };
+
     if (field.options.length && text && ![].concat(value).every(x => field.options.some(option => option.value === x))) return { error: 'Please choose a listed option for ' + field.label.replace(/\s*\*/g, '') + '.' };
-    cleaned[field.name] = { label: field.label, value, displayValue: field.options.length ? [].concat(value).map(v => field.options.find(o => o.value === v)?.label || v).join(', ') : text };
+    cleaned[field.name] = { label: field.label, value: /postcode/i.test(field.label) && contact.value ? contact.value : value, displayValue: field.options.length ? [].concat(value).map(v => field.options.find(o => o.value === v)?.label || v).join(', ') : (/postcode/i.test(field.label) && contact.value ? contact.value : text) };
   }
   return { fields: cleaned };
 }
 
-async function rateLimit(request, env) {
+async function rateLimit(request, env, scope = 'enquiries', maximum = 20) {
   if (!env.RATE_LIMIT_SECRET) return { error: 'The enquiry service is not configured.', status: 503 };
   const ip = request.headers.get('cf-connecting-ip') || 'unknown';
   const hour = Math.floor(Date.now() / 3600000);
-  const key = await digest(env.RATE_LIMIT_SECRET + ':' + hour + ':' + ip);
+  const key = await digest(env.RATE_LIMIT_SECRET + ':' + scope + ':' + hour + ':' + ip);
   const result = await env.DB.prepare('INSERT INTO submission_rate_limits (bucket_key, count, expires_at) VALUES (?, 1, ?) ON CONFLICT(bucket_key) DO UPDATE SET count = count + 1 RETURNING count').bind(key, (hour + 2) * 3600000).first();
-  if (Number(result?.count) > 20) return { error: 'Please wait before sending another enquiry.', status: 429 };
+  if (Number(result?.count) > maximum) return { error: 'Please wait before sending another enquiry.', status: 429 };
   return {};
 }
 
@@ -110,7 +113,7 @@ function editorHtml(pages, config) {
   return '<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>SDS content editor</title><style>body{margin:0;color:#032b4c;background:#f3f8f8;font:16px/1.6 system-ui}main{width:min(1000px,calc(100% - 40px));margin:40px auto}a{color:#007576}li{margin:8px 0}input{font:inherit;padding:10px;width:min(500px,100%);border:1px solid #ccdfe5;border-radius:8px}</style></head><body><main><h1>Content editor</h1><p>Open a page and edit the outlined wording, or use All wording to edit text across every slide, navigation, buttons and footer. Forms stay unchanged. Save a draft to keep your changes securely and reopen them later. Download a change request when ready to publish.</p><p>Saving a draft does not change the public website.</p><p><a href="/submissions">Form submissions</a> · <a href="https://github.com/' + escapeHtml(config.repository) + '">GitHub repository</a></p><label for="filter">Find a page</label><br><input id="filter" type="search"><ul id="pages">' + Object.keys(pages).sort().map(path => '<li><a href="' + escapeHtml(path) + (path.includes('?') ? '&amp;edit=1' : '?edit=1') + '">' + escapeHtml(path) + '</a></li>').join('') + '</ul></main><script>document.getElementById("filter").oninput=e=>{document.querySelectorAll("#pages li").forEach(li=>li.hidden=!li.textContent.toLowerCase().includes(e.target.value.toLowerCase()))}</script></body></html>';
 }
 
-export function createWorker(data) {
+export function createWorker(data, services = {}) {
   const pageCache = new Map();
   async function pageHtml(path) {
     if (!pageCache.has(path)) {
@@ -131,6 +134,24 @@ export function createWorker(data) {
   async function dispatch(request, env, ctx) {
     const url = new URL(request.url);
     const mode = env.RELEASE_MODE || data.config.defaultReleaseMode;
+    if (url.pathname === '/api/contact-check' && request.method === 'POST') {
+      if (!csrfSafe(request)) return json({error:'Please check details from this website.'},403);
+      let payload;try {payload=await readPayload(request);}catch{return json({error:'Invalid contact details.'},400);}
+      if (!['email','postcode'].includes(payload.type) || typeof payload.value !== 'string' || payload.value.length > 254) return json({error:'Invalid contact details.'},400);
+      const local=validateContact(payload.type,payload.value);
+      if(local.error)return json({status:'invalid',message:local.error});
+      if(!payload.value.trim())return json({status:'unknown'});
+      const limit=await rateLimit(request,env,'contact-checks',60);
+      if(limit.error)return json({status:'unknown'},limit.status);
+      const result=payload.type==='email'
+        ? await (services.checkEmailDomain || checkEmailDomain)(payload.value.trim().split('@')[1])
+        : await (services.checkPostcode || checkPostcode)(local.value);
+      const message=result.status==='invalid'
+        ? payload.type==='email' ? 'The email domain does not appear to accept email. Please check the spelling after @.' : 'We couldn’t find this postcode. Please check it for typing mistakes.'
+        : payload.type==='postcode' && result.status==='found' ? 'Postcode found.'
+        : result.status==='terminated' ? 'This is an older postcode. Please use the current postcode if you know it.' : '';
+      return json({status:result.status,message,...(result.postcode ? {postcode:result.postcode} : {})});
+    }
     if (url.pathname === '/api/migration/assets') {
       if (mode !== 'review' || !env.MIGRATION_UPLOAD_TOKEN || env.MIGRATION_UPLOAD_TOKEN.length < 32) return json({ error: 'Not found.' }, 404);
       const expected = 'Bearer ' + env.MIGRATION_UPLOAD_TOKEN;
@@ -187,6 +208,14 @@ export function createWorker(data) {
       if (existing) return json({ ok: true, id: existing.id, duplicate: true, redirect: '/contact-us/thank-you/' }, 200);
       const limit = await rateLimit(request, env);
       if (limit.error) return json({ error: limit.error }, limit.status, limit.status === 429 ? { 'retry-after': '3600' } : {});
+      for (const field of definition.fields.filter(field => field.type === 'email')) {
+        const address = String(valid.fields[field.name]?.value || '').trim();
+        if (address && (await (services.checkEmailDomain || checkEmailDomain)(address.split('@')[1])).status === 'invalid') return json({ error: 'The email domain does not appear to accept email. Please check the spelling after @.' }, 400);
+      }
+      for (const field of definition.fields.filter(field => /postcode/i.test(field.label))) {
+        const postcode = String(valid.fields[field.name]?.value || '').trim();
+        if (postcode && (await (services.checkPostcode || checkPostcode)(postcode)).status === 'invalid') return json({error:'We couldn’t find this postcode. Please check it for typing mistakes.'},400);
+      }
       if (attachments.length && (!definition.attachments || !env.ASSET_STORAGE)) return json({ error: 'File uploads are unavailable for this form.' }, 503);
       const uploaded = [];
       try {

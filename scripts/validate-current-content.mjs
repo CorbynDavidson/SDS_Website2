@@ -133,10 +133,13 @@ for(const page of report.pages){
  }
  const expectedSeo=seo(raw);
  if(page.path===reviewsContent.path)expectedSeo.title='Reviews | Sheldon Davidson Solicitors';
+ const preservedSeo=seo(gunzipSync(Buffer.from(data.pages[page.path].gzip,'base64')).toString('utf8'));
  const currentSeo=seo(html);assert.equal(currentSeo.title,expectedSeo.title,'Original title differs: '+page.path);
- // Original non-URL SEO wording is unchanged. Production URLs, Twitter
+ // Original non-URL SEO wording is unchanged. Review-only robots overrides
+ // are checked against stored production metadata, not the served pause tags.
+ // Production URLs, Twitter
  // additions and schemas are checked by the independent production audit.
- for(const meta of expectedSeo.meta){const key=meta.name||meta.property;if(['og:url','og:image','og:image:url','og:image:secure_url','twitter:url','twitter:image','twitter:image:src'].includes(key))continue;assert.ok(currentSeo.meta.some(value=>JSON.stringify(value)===JSON.stringify(meta)),'Original metadata wording differs: '+page.path+' '+key);}
+ for(const meta of expectedSeo.meta){const key=meta.name||meta.property;if(['og:url','og:image','og:image:url','og:image:secure_url','twitter:url','twitter:image','twitter:image:src'].includes(key))continue;assert.ok((['robots','googlebot'].includes(key.toLowerCase())?preservedSeo:currentSeo).meta.some(value=>JSON.stringify(value)===JSON.stringify(meta)),'Original metadata wording differs: '+page.path+' '+key);}
  audit.metadataRoutesVerified++;
  if(page.path===reviewsContent.path){
    assert.equal($('main h1').text(),'Reviews');assert.ok(!$('head title').text().includes('::'));reviewsAudit.titleCorrected=true;

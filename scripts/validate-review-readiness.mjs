@@ -8,13 +8,21 @@ const data=JSON.parse(await readFile(new URL('../build/data.json',import.meta.ur
 const worker=(await import('../dist/server/index.js')).default;
 const policy=createProductionRouting(data.config,data.routes);
 const env={RELEASE_MODE:'review',INDEXING_DISABLED:'true'};
-const report={publicTemplates:0,faqLinks:0,reviewLinks:0,sharedTrustBars:0,editorRuntimes:0,productionCanonicalsPreserved:true,indexingPausePreserved:true,browserVisualAuditComplete:false};
+const report={publicTemplates:0,faqLinks:0,reviewLinks:0,sharedTrustBars:0,editorRuntimes:0,productionCanonicalsPreserved:true,indexingPausePreserved:true,explicitNoindexHeads:0,noStoreReviewPages:0,browserVisualAuditComplete:false};
 for(const [path,page] of Object.entries(data.pages)){
   const stored=gunzipSync(Buffer.from(page.gzip,'base64')).toString('utf8'),origin='https://housingconditionclaims.org';
   const response=await worker.fetch(new Request(origin+path),env);
   assert.equal(response.status,200,path);
   assert.match(response.headers.get('x-robots-tag'),/noindex/,path);
   const html=await response.text(),$=load(html,{scriptingEnabled:false});
+  for(const name of ['robots','googlebot']){
+    const tags=$('head meta[name="'+name+'"]');
+    assert.equal(tags.length,1,'Exactly one '+name+' directive: '+path);
+    assert.equal(tags.attr('content'),'noindex, nofollow','Explicit '+name+' noindex: '+path);
+  }
+  assert.equal(response.headers.get('cache-control'),'no-store',path);
+  assert.equal(response.headers.get('cdn-cache-control'),'no-store',path);
+  report.explicitNoindexHeads++;report.noStoreReviewPages++;
   assert.equal($('#reviewsWidget').length,1,path);
   assert.equal($('#reviewsTab[aria-controls="reviewsPanel"]').length,1,path);
   assert.equal($('#reviewsPanel #reviewsClose').length,1,path);
@@ -35,7 +43,7 @@ for(const [path,page] of Object.entries(data.pages)){
       assert.equal(new URL(href).pathname,'/faqs/','FAQ link: '+path);report.faqLinks++;
     }
   }
-  assert.equal(policy.publicHtml(stored,new URL(data.config.productionOrigin+path)),stored,'Production navigation changed at runtime.');
+  assert.equal(policy.publicHtml(stored,new URL(data.config.productionOrigin+path),{RELEASE_MODE:'production'}),stored,'Production navigation changed at runtime.');
   report.publicTemplates++;report.sharedTrustBars++;report.editorRuntimes++;
 }
 assert.equal(data.routes.redirects['/faqs'],'/faqs/');

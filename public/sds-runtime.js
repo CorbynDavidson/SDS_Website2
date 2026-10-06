@@ -17,14 +17,107 @@
       else values[input.name] = value;
     }); return values;
   };
+  const keptEmails = new WeakMap();
+  const contactType = input => ['email','tel'].includes(input.type) ? input.type : /postcode|postal.?code/i.test([input.name || '', input.id || '', input.autocomplete || '', ...Array.from(input.labels || []).map(label => label.textContent)].join(' ')) ? 'postcode' : '';
+  const remoteResults = new Map();
+  function remoteHint(input, message) {
+    input.parentElement.querySelector('[data-contact-remote]')?.remove();
+    if (!message) return;
+    const hint=document.createElement('span');hint.dataset.contactRemote='';hint.setAttribute('role','status');hint.setAttribute('aria-live','polite');
+    hint.style.cssText='display:block;font-size:14px;line-height:1.5;margin-top:6px';hint.textContent=message;input.parentElement.append(hint);
+  }
+  async function remoteCheck(input) {
+    const type=contactType(input), value=input.value.trim();
+    if (!['email','postcode'].includes(type) || !value || input.disabled || input.validationMessage) return !input.validationMessage;
+    const candidate=SdsContactValidation.validateContact(type,value).value || value;
+    const key=type+':'+candidate;
+    let entry=remoteResults.get(key);
+    if (!entry || entry.expires<Date.now()) {
+      remoteHint(input,'Checking '+(type==='postcode' ? 'postcode' : 'email domain')+'…');
+      const promise=(async()=>{
+        try {
+          const response=await fetch('/api/contact-check',{method:'POST',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify({type,value:candidate}),signal:AbortSignal.timeout(4000)});
+          if(!response.ok)return {status:'unknown'};
+          return await response.json();
+        }catch{return {status:'unknown'};}
+      })();
+      entry={promise,expires:Date.now()+30000};
+      if(remoteResults.size>=100)remoteResults.delete(remoteResults.keys().next().value);
+      remoteResults.set(key,entry);
+    }
+    const result=await entry.promise;
+    const current=SdsContactValidation.validateContact(type,input.value.trim()).value || input.value.trim();
+    if(current!==candidate || input.disabled)return false;
+    if(result.status==='invalid') {
+      const message=result.message || 'Please check this '+(type==='postcode'?'postcode':'email address')+'.';
+      input.setCustomValidity(message);remoteHint(input,message);return false;
+    }
+    input.setCustomValidity('');
+    remoteHint(input,result.message || (result.status==='mail-routing' ? 'Email domain has mail-routing records.' : result.status==='unknown' ? 'The check is temporarily unavailable. You can still send your enquiry.' : ''));
+    return true;
+  }
+
+  function contactCheck(input) {
+    const type=contactType(input);
+    if (!type || input.disabled) return true;
+    const result = SdsContactValidation.validateContact(type, input.value);
+    if (type==='postcode' && result.value) input.value=result.value;
+    input.setCustomValidity(result.error || '');
+    let hint = input.parentElement.querySelector('[data-contact-hint]');
+    if (hint && hint.dataset.value === input.value && result.suggestion && keptEmails.get(input) !== input.value.trim()) {
+      input.setCustomValidity('Please check the email spelling. Choose the suggested address or keep your address.');
+      return false;
+    }
+    if (hint) hint.remove();
+    if (result.suggestion && keptEmails.get(input) !== input.value.trim()) {
+      hint = document.createElement('span'); hint.dataset.contactHint = ''; hint.dataset.value = input.value; hint.setAttribute('role', 'status');
+      hint.style.cssText = 'display:block;font-size:14px;line-height:1.5;margin-top:6px';
+      hint.append(document.createTextNode('Did you mean ' + result.suggestion + '? '));
+      const use = document.createElement('button'); use.type = 'button'; use.textContent = 'Use suggested address';
+      const keep = document.createElement('button'); keep.type = 'button'; keep.textContent = 'Keep my address';
+      for (const button of [use, keep]) button.style.cssText = 'display:inline-block;position:static;width:auto;height:auto;padding:5px;margin:3px;font-size:14px';
+      use.onclick = () => { input.value = result.suggestion; if(contactCheck(input)) remoteCheck(input); };
+      keep.onclick = () => { keptEmails.set(input, input.value.trim()); if(contactCheck(input)) remoteCheck(input); };
+      hint.append(use, keep); input.parentElement.append(hint);
+      input.setCustomValidity('Please check the email spelling. Choose the suggested address or keep your address.');
+    }
+    return !input.validationMessage;
+  }
+  document.addEventListener('input', event => {
+    const input=event.target;
+    if(contactType(input)) {input.setCustomValidity('');input.parentElement.querySelector('[data-contact-hint]')?.remove();input.parentElement.querySelector('[data-contact-remote]')?.remove();}
+  });
+  document.addEventListener('focusout', event => {
+    const input=event.target;
+    if(contactType(input) && contactCheck(input)) remoteCheck(input);
+  });
+  async function checkContactInputs(inputs,form) {
+    const contacts=inputs.filter(input=>contactType(input) && !input.disabled);
+    for(const input of contacts) {
+      if(!contactCheck(input)) {
+        if(input.getClientRects().length) input.reportValidity();else status(form,input.validationMessage,true);
+        return false;
+      }
+    }
+    const results=await Promise.all(contacts.map(remoteCheck));
+    const invalid=contacts.find((input,index)=>!results[index]);
+    if(invalid) {
+      if(invalid.getClientRects().length)invalid.reportValidity();else status(form,invalid.validationMessage || 'Please check your contact details.',true);
+      return false;
+    }
+    return true;
+  }
+  const checkContacts=form=>checkContactInputs(associated(form),form);
   const requests = new WeakMap();
   async function submit(form) {
     if (form.dataset.sending === 'true') return;
     form.dataset.sending = 'true';
     const buttons = [...form.querySelectorAll('button[type=submit],input[type=submit]'), ...document.querySelectorAll('[data-sds-wizard-button="' + form.dataset.sdsForm + '"]')];
     buttons.forEach(button => button.disabled = true);
-    status(form, 'Sending your enquiry…');
+    status(form, 'Checking your details…');
     try {
+      if (!await checkContacts(form)) { status(form,'Please check the highlighted contact details.',true); return; }
+      status(form,'Sending your enquiry…');
       if (!requests.has(form)) requests.set(form, crypto.randomUUID ? crypto.randomUUID() : Array.from(crypto.getRandomValues(new Uint8Array(16))).map(x=>x.toString(16).padStart(2,'0')).join(''));
       const payload = { fields: fields(form), sourcePath: form.dataset.sourcePath, requestKey: requests.get(form) };
       const files = associated(form).filter(input => input.type === 'file').flatMap(input => [...input.files]);
@@ -74,14 +167,15 @@
     associated(wizards.get(name).form).forEach(input => input.disabled = false);
   }
   for (const name of wizards.keys()) showStep(name, 1);
-  document.addEventListener('click', event => {
+  document.addEventListener('click', async event => {
     const button = event.target.closest('button[data-sds-wizard-button]');
     if (!button) return;
     event.preventDefault(); event.stopImmediatePropagation();
     const wizard = wizards.get(button.getAttribute('form'));
     if (!wizard || button.disabled) return;
     const visible = associated(wizard.form).filter(input => input.type !== 'hidden' && input.type !== 'file' && input.getClientRects().length);
-    for (const input of visible) { if (!input.reportValidity()) return; }
+    for (const input of visible) { contactCheck(input); if (!input.reportValidity()) return; }
+    if(!await checkContactInputs(visible,wizard.form))return;
     const checkboxes = visible.filter(input => input.type === 'checkbox');
     if (checkboxes.length && !checkboxes.some(input => input.checked)) { status(wizard.form, 'Please check at least one box.', true); return; }
     if (button.name === 'submit') submit(wizard.form);

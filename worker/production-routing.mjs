@@ -23,7 +23,14 @@ export function createProductionRouting(config,routes){
   // Crawlers must be able to fetch public pages to read the temporary noindex.
   const robots=(url,env)=>mode(url,env)==='review'&&!indexingDisabled(env)?'User-agent: *\nDisallow: /\n':
     'User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /submissions\nDisallow: /editor\nDisallow: /health\nDisallow: /*?edit=\nDisallow: /*&edit=\nDisallow: /staging/\nDisallow: /preview/\nDisallow: /_preview/\nDisallow: /build/\nDisallow: /signin-with-chatgpt\nDisallow: /signout-with-chatgpt\n\nSitemap: '+config.productionOrigin+'/sitemap.xml\n';
-  const publicHtml=(html,url)=>{
+  const publicHtml=(html,url,env={})=>{
+    // Keep the original metadata untouched when indexing is restored. During
+    // review/pause, serve explicit robots directives in the actual HTML head.
+    if(indexingDisabled(env)||mode(url,env)==='review'){
+      html=html.replace(/<meta\b(?=[^>]*\bname\s*=\s*(?:["'](?:robots|googlebot)["']|(?:robots|googlebot)(?=\s|\/?>)))[^>]*>/gi,'');
+      const directive='noindex, nofollow';
+      html=html.replace(/<head\b[^>]*>/i,head=>head+'\n<meta name="robots" content="'+directive+'">\n<meta name="googlebot" content="'+directive+'">');
+    }
     if(url.origin===production.origin)return html;
     // All page links open this build, including without JavaScript, with
     // modifier clicks or in a new tab. SEO metadata still identifies SDS.
@@ -35,9 +42,13 @@ export function createProductionRouting(config,routes){
   const finish=(response,url,env,head=false)=>{
     const result=new Response(head?null:response.body,response);
     if(privatePath(url)||response.status>=400)result.headers.set('x-robots-tag','noindex, nofollow');
-    else if(indexingDisabled(env)||mode(url,env)==='review')result.headers.set('x-robots-tag','noindex, follow');
+    else if(indexingDisabled(env)||mode(url,env)==='review')result.headers.set('x-robots-tag','noindex, nofollow');
     else result.headers.delete('x-robots-tag');
-    if(indexingDisabled(env)&&url.pathname==='/robots.txt')result.headers.set('cache-control','no-store');
+    if((indexingDisabled(env)||mode(url,env)==='review')&&(url.pathname==='/robots.txt'||response.headers.get('content-type')?.includes('text/html'))){
+      result.headers.set('cache-control','no-store');
+      result.headers.set('cdn-cache-control','no-store');
+      result.headers.set('cloudflare-cdn-cache-control','no-store');
+    }
     result.headers.set('x-content-type-options','nosniff');result.headers.set('referrer-policy','strict-origin-when-cross-origin');
     return result;
   };

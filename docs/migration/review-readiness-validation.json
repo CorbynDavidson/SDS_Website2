@@ -6,5 +6,7 @@
   "editorRuntimes": 325,
   "productionCanonicalsPreserved": true,
   "indexingPausePreserved": true,
+  "explicitNoindexHeads": 325,
+  "noStoreReviewPages": 325,
   "browserVisualAuditComplete": false
 }

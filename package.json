@@ -28,6 +28,10 @@
     "cheerio": "1.1.2",
     "drizzle-kit": "^0.31.4",
     "drizzle-orm": "^0.44.5",
+    "esbuild": "0.28.2",
     "wrangler": "4.147.0"
+  },
+  "dependencies": {
+    "libphonenumber-js": "1.13.14"
   }
 }

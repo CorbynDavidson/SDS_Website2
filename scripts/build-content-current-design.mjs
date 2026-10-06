@@ -1,3 +1,4 @@
+import { contactBundle, embedContactValidation } from './lib/contact-validation-bundle.mjs';
 import {execFileSync} from 'node:child_process';
 import {readFile,writeFile,mkdir,cp,rm} from 'node:fs/promises';
 import {resolve,extname} from 'node:path';
@@ -90,9 +91,10 @@ for(const asset of manifest.assets.filter(a=>a.status===200&&a.file)) {
   mediaSources[path].storagePath=storagePath;
 }
 for(const path of ['/sds-theme.css','/sds-runtime.js','/assets/sheldon-davidson-solicitors-logo.png',reviewsContent.recognition.imagePath]){
-  const bytes=await readFile(resolve(root,'public'+path));
+  const bytes=path==='/sds-runtime.js' ? Buffer.from(contactBundle+'\n'+await readFile(resolve(root,'public'+path),'utf8')) : await readFile(resolve(root,'public'+path));
   assets[path]={sha256:sha256(bytes),bytes:bytes.length,type:typeByExtension[extname(path)],base64:bytes.toString('base64')};
 }
+assets['/contact-validation.js']={sha256:sha256(contactBundle),bytes:Buffer.byteLength(contactBundle),type:'application/javascript; charset=utf-8',base64:Buffer.from(contactBundle).toString('base64')};
 const runtime=(await readFile(resolve(root,'public/sds-runtime.js'),'utf8')).replace("'#banner .content-panel h1", "'[data-source-copy] h1,[data-source-copy] h2,[data-source-copy] h3,[data-source-copy] p,[data-source-copy] li,h1[data-source-copy],#banner .content-panel h1");
 const referencePage=index.pages.find(page=>page.path===claimEnquiry.referencePath);
 const referenceContent=cleanContent(await readFile(resolve(root,referencePage.contentFile),'utf8'),{origin:index.sourceOrigin,mediaUrls,path:referencePage.path,locationProfileCard});
@@ -136,7 +138,7 @@ for(const page of index.pages) {
   html=correctReviewCopy(html,{path:page.path,policy:reviewReadiness});
   html=addSharedTrustBar(html,reviewsHomeHtml);
   html=applyProductionSeo(html,{config,path:page.path,redirects});
-  html=addEditableCopy(html,runtime);
+  html=addEditableCopy(html,runtime,'/contact-validation.js?v='+sha256(contactBundle).slice(0,16));
   const digest=sha256(page.sourceUrl).slice(0,24);
   const contentFile='src/content/current-design/pages/'+digest+'.html';
   const content=html.match(/<main\b[\s\S]*?<\/main>/i)[0];
@@ -163,7 +165,7 @@ for(const url of designSitemap('loc').toArray().map(node=>designSitemap(node).te
   html=addResourceNavigation(html,{policy:resourceNavigation,origin:config.productionOrigin});
   html=addSharedTrustBar(html,reviewsHomeHtml);
   html=applyProductionSeo(html,{config,path,redirects});
-  html=addEditableCopy(html,runtime);
+  html=addEditableCopy(html,runtime,'/contact-validation.js?v='+sha256(contactBundle).slice(0,16));
   pages[path]={gzip:gzipSync(Buffer.from(html),{level:9}).toString('base64'),status:200,sha256:sha256(html)};fallbackRoutes.push(path);
   if(!/noindex/i.test(load(html)('meta[name="robots"]').attr('content')||''))sitemapUrls.push(productionUrl(url,{origin:config.productionOrigin,path,redirects}));
 }
@@ -189,7 +191,7 @@ await writeFile(resolve(root,'public/robots.txt'),createProductionRouting(config
 const routingRuntime=(await readFile(resolve(root,'worker/production-routing.mjs'),'utf8')).replace('export function createProductionRouting','function createProductionRouting');
 const data={config,pages,forms,assets,routes:routeData,sourceCapturedAt:manifest.completed_at,sitemap,robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
 const fallbackLayoutHead='<style id="sds-layout-adjustments">'+layoutCss+'</style>';
-const backendRuntime=(await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace('export function createWorker','function createWorker');
+const backendRuntime=embedContactValidation((await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace("import { checkPostcode } from './postcode-lookup.mjs';", (await readFile(resolve(root,'worker/postcode-lookup.mjs'),'utf8')).replace('export async function','async function')).replace("import { checkEmailDomain } from './email-domain.mjs';", (await readFile(resolve(root,'worker/email-domain.mjs'),'utf8')).replace('export async function','async function'))).replace('export function createWorker','function createWorker');
 data.releaseFingerprint=sha256(backendRuntime+JSON.stringify(data));
 await writeFile(resolve(root,'build/data.json'),JSON.stringify(data));
 const originalDesign=await readFile(resolve(root,'build/design-before-metadata.mjs'),'utf8');
@@ -216,13 +218,13 @@ export default {async fetch(request,env={},ctx={}){
       else response=new Response('Source asset unavailable',{status:503,headers});
     }
   }else if(get&&contentData.assets[url.pathname])response=await contentBackend.fetch(request,env,ctx);
-  else if(get&&contentLookup(url))response=new Response(productionRouting.publicHtml(await contentHtml(contentLookup(url)),url),{headers:{'content-type':'text/html; charset=utf-8','cache-control':url.searchParams.has('edit')?'no-store':'public, max-age=300'}});
+  else if(get&&contentLookup(url))response=new Response(productionRouting.publicHtml(await contentHtml(contentLookup(url)),url,env),{headers:{'content-type':'text/html; charset=utf-8','cache-control':url.searchParams.has('edit')?'no-store':'public, max-age=300'}});
   else if(url.pathname==='/sitemap.xml'&&get)response=new Response(contentData.sitemap,{headers:{'content-type':'application/xml; charset=utf-8'}});
   else if(url.pathname==='/robots.txt'&&get)response=new Response(productionRouting.robots(url,env),{headers:{'content-type':'text/plain; charset=utf-8','cache-control':'public, max-age=300'}});
   else if(get&&contentData.routes.gone.includes(url.pathname))response=new Response('This page is no longer available.',{status:410,headers:{'content-type':'text/plain; charset=utf-8'}});
   else if(url.pathname==='/health'||url.pathname.startsWith('/api/forms/')||url.pathname.startsWith('/api/editor/')||url.pathname==='/editor'||url.pathname.startsWith('/submissions'))response=await contentBackend.fetch(request,env,ctx);
   else {if(url.pathname==='/api/leads'&&request.method==='POST'&&(request.headers.get('origin')!==url.origin||request.headers.get('sec-fetch-site')==='cross-site'))return Response.json({error:'Please submit from this website.'},{status:403});response=await approvedDesignWorker.fetch(head?new Request(request.url,{headers:request.headers}):request,env,ctx);
-    if(get&&response.status===200&&response.headers.get('content-type')?.includes('text/html'))response=new Response(productionRouting.publicHtml((await response.text()).replace('</head>',${JSON.stringify(fallbackLayoutHead)}+'</head>'),url),response);
+    if(get&&response.headers.get('content-type')?.includes('text/html'))response=new Response(productionRouting.publicHtml((await response.text()).replace('</head>',${JSON.stringify(fallbackLayoutHead)}+'</head>'),url,env),response);
   }
   return productionRouting.finish(response,url,env,head);
 }};
