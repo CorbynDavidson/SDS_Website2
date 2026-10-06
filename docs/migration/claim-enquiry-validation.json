@@ -1,0 +1,23 @@
+{
+  "baselineSourceCommit": "e06a44d8d10c8f5296b3b3043542c0d1675a15ca",
+  "styledTemplates": 1,
+  "otherTemplatesByteIdentical": 296,
+  "formControlsPreserved": 35,
+  "eligibilityQuestionGroupsPreserved": 4,
+  "originalMarkupPreserved": true,
+  "sitemapSelectionUnchanged": true,
+  "formSchemasUnchanged": true,
+  "routingUnchanged": true,
+  "browserVisualAuditComplete": false,
+  "checkedOn": "2026-10-06",
+  "path": "/housing-disrepair-enquiries/",
+  "stylesheet": "src/claim-enquiry.css",
+  "preservedSteps": 5,
+  "sharedSiteDesignPreserved": true,
+  "repositorySitemapCopies": [
+    "sitemap.xml",
+    "public/sitemap.xml",
+    "docs/migration/current-design-sitemap.xml"
+  ],
+  "sitemapUrls": 243
+}

@@ -269,7 +269,7 @@ export function renderContentPage(baseHtml,cleaned,{path,family,title}) {
     const toc=headings.map((node,i)=>{const id=node.attribs.id||'article-section-'+i;source(node).attr('id',id);return '<li><a href="#'+escape(id)+'">'+escape(source(node).text())+'</a></li>';}).join('');
     content='<article class="news-article"><div class="wrap news-layout">'+(toc?'<aside class="news-summary"><ul>'+toc+'</ul></aside>':'')+'<div class="news-prose">'+sourceWrap(article.html())+'</div></div></article>';
   }
-  const pageClass=path.replace(/\/+$/,'')==='/about-us/our-people'?' sds-people-page':path.replace(/\/+$/,'')==='/about-us/terms-business'?' sds-legal-page':'';
+  const pageClass=path.replace(/\/+$/,'')==='/about-us/our-people'?' sds-people-page':path.replace(/\/+$/,'')==='/about-us/terms-business'?' sds-legal-page':path.replace(/\/+$/,'')==='/housing-disrepair-enquiries'?' sds-claim-enquiry':'';
   const mainHtml='<main class="ccm-page sds-content-page'+pageClass+'">'+crumbHtml+hero+content+'</main>';
   return {html:replaceMain(baseHtml,mainHtml),family};
 }

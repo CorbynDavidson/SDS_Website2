@@ -23,17 +23,25 @@ const panelTypes=new Set(panelScope.disrepairTypePaths);
 const panelGuides=new Set(panelScope.housingGuidePaths);
 const panelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
 const termsCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
+const claimEnquiryCss=await readFile(resolve(root,'src/claim-enquiry.css'),'utf8');
 const consolidation=await readJson('config/page-consolidation.json');
 const consolidationAudit={selectedOn:consolidation.selectedOn,selection:consolidation.selection,retiredPagesVerified:0,redirectVariantsVerified:0,redirectResponsesVerified:0,internalLinksToRetiredPages:0,originalIndexableSitemapUrlsRetained:0,originalNoindexUrlsExcluded:[],retainedStandaloneRoutes:consolidation.retainedStandaloneRoutes,mappings:[]};
 const report={productionOrigin:origin,capturedRoutesVerified:0,allPublicBuildRoutesVerified:0,originalSitemapUrlsVerified:0,productionSitemapUrlsVerified:0,legalServiceSchemasVerified:0,disrepairServiceSchemasVerified:0,permanentRedirectsVerified:0,knownNonHousingRoutesVerified:0,internalAbsoluteLinksVerified:0,reviewNoindexVerified:false,productionRobotsVerified:false,privateRoutesNoindexVerified:false,termsExactWordingVerified:false,claimCtaDestinationPreserved:false,wizardFormsConsistent:false,sharedRoundedPanelsVerified:false,historicalInventoryComplete:false};
 report.sameOriginHeadResourcesVerified=0;report.reviewStylesheetLinksVerified=0;report.approvedStylesheetAssetsVerified=0;
 report.roundedEnquiryPanelsVerified=0;report.locationEnquiryPanelsVerified=0;report.disrepairTypeEnquiryPanelsVerified=0;report.housingGuideEnquiryPanelsVerified=0;report.otherPagesWithoutEnquiryPanelChangesVerified=0;
 report.reviewTermsLinksVerified=0;report.termsOnlyStylesheetVerified=false;
+report.claimEnquiryStyleTemplatesVerified=0;report.otherTemplatesWithoutClaimEnquiryStylesVerified=0;
 for(const [path,page] of Object.entries(data.pages)){
   const html=gunzipSync(Buffer.from(page.gzip,'base64')).toString(),$=load(html);
   const normalPath=path.split('?')[0].replace(/\/+$/,'')+'/';
   if(normalPath==='/about-us/terms-business/')assert.equal($('#sds-terms-business').text(),termsCss,path);
   else assert.equal($('#sds-terms-business').length,0,'Terms styling leaked to another page: '+path);
+  if(normalPath==='/housing-disrepair-enquiries/'){
+    assert.ok($('main').hasClass('sds-claim-enquiry'),'Claim enquiry page is missing its scoped styling: '+path);
+    assert.equal($('#sds-claim-enquiry').text(),claimEnquiryCss,'Claim enquiry styling differs from Git source: '+path);report.claimEnquiryStyleTemplatesVerified++;
+  }else{
+    assert.equal($('.sds-claim-enquiry,#sds-claim-enquiry').length,0,'Claim enquiry styling leaked to another page: '+path);report.otherTemplatesWithoutClaimEnquiryStylesVerified++;
+  }
   const locationPanel=normalPath.startsWith(panelScope.locationPrefix),typePanel=panelTypes.has(normalPath),guidePanel=panelGuides.has(normalPath);
   if(locationPanel||typePanel||guidePanel){
     assert.equal($('main > header.service-hero.source-enquiry-panel').length,1,'Missing rounded enquiry section: '+path);
@@ -106,6 +114,8 @@ for(const node of originalSitemap('loc').toArray()){
 }
 const sitemapResponse=await request(origin+'/sitemap.xml');assert.equal(sitemapResponse.status,200);assert.ok(!sitemapResponse.headers.has('x-robots-tag'));
 const sitemap=load(await sitemapResponse.text(),{xmlMode:true}),urls=sitemap('loc').toArray().map(node=>sitemap(node).text());assert.equal(urls.length,new Set(urls).size);
+for(const path of ['sitemap.xml','public/sitemap.xml','docs/migration/current-design-sitemap.xml'])assert.equal(await readFile(resolve(root,path),'utf8'),data.sitemap,'Sitemap copies are out of sync: '+path);
+report.repositorySitemapCopiesVerified=3;
 for(const url of urls){assert.equal(new URL(url).origin,origin);const response=await request(url);assert.equal(response.status,200,'Sitemap target redirects/errors: '+url);const $=load(await response.text());assert.equal($('link[rel=canonical]').attr('href'),url,'Sitemap target is not self-canonical: '+url);assert.ok(!/noindex/i.test($('meta[name=robots]').attr('content')||''));report.productionSitemapUrlsVerified++;}
 const originalIndexable=[];
 for(const node of originalSitemap('loc').toArray()){

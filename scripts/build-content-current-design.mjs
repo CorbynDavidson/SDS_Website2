@@ -34,6 +34,7 @@ const forms=await readJson('src/content/sds/forms.json');
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const enquiryPanelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
 const termsBusinessCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
+const claimEnquiryCss=await readFile(resolve(root,'src/claim-enquiry.css'),'utf8');
 const enquiryPanelScope=await readJson('config/enquiry-panel.json');
 const panelTypes=new Set([...enquiryPanelScope.disrepairTypePaths,...enquiryPanelScope.housingGuidePaths]);
 const panelPath=path=>path.split('?')[0].replace(/\/+$/,'')+'/';
@@ -105,6 +106,7 @@ for(const page of index.pages) {
   html=html.replace(/<div class="site-editor" id="siteEditor"[\s\S]*?<\/div>/g,'').replace(/<div class="editor-bar" id="editorBar"[\s\S]*?<\/div>/g,'');
   if(hasEnquiryPanel(page.path))html=addEnquiryPanel(html,enquiryPanelCss);
   if(panelPath(page.path)==='/about-us/terms-business/')html=html.replace('</head>','<style id="sds-terms-business">'+termsBusinessCss+'</style></head>');
+  if(panelPath(page.path)==='/housing-disrepair-enquiries/')html=html.replace('</head>','<style id="sds-claim-enquiry">'+claimEnquiryCss+'</style></head>');
   html=applyProductionSeo(html,{config,path:page.path,redirects});
   const digest=sha256(page.sourceUrl).slice(0,24);
   const contentFile='src/content/current-design/pages/'+digest+'.html';
@@ -150,6 +152,7 @@ for(const [path,destination] of Object.entries(redirects)){
 const sitemap=productionSitemap(sitemapUrls,config.productionOrigin);
 await writeFile(resolve(root,'docs/migration/current-design-sitemap.xml'),sitemap);
 await writeFile(resolve(root,'public/sitemap.xml'),sitemap);
+await writeFile(resolve(root,'sitemap.xml'),sitemap);
 await writeFile(resolve(root,'public/robots.txt'),createProductionRouting(config,routeData).robots(new URL(config.productionOrigin),{RELEASE_MODE:'production'}));
 const routingRuntime=(await readFile(resolve(root,'worker/production-routing.mjs'),'utf8')).replace('export function createProductionRouting','function createProductionRouting');
 const data={config,pages,forms,assets,routes:routeData,sourceCapturedAt:manifest.completed_at,sitemap,robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};

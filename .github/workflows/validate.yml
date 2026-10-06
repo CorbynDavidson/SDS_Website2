@@ -41,6 +41,7 @@ jobs:
             docs/migration/reviews-validation.json
             docs/migration/production-seo-validation.json
             docs/migration/page-consolidation-validation.json
+            docs/migration/claim-enquiry-validation.json
             docs/migration/production-routing.json
             docs/migration/production-url-map.csv
           retention-days: 30
