@@ -1,0 +1,1993 @@
+{
+  "date": "2026-10-06",
+  "scope": "Homepage housing-rights carousel only; CSS applies at the existing stacked-hero breakpoint of 900 CSS pixels.",
+  "browser": "Cloud Chrome; fixed-width frames of the actual compiled site. Physical iOS Safari was not available.",
+  "baselinePhone": {
+    "carousel": {
+      "bottom": 791.28125,
+      "height": 560,
+      "right": 341,
+      "width": 307,
+      "x": 34,
+      "y": 231.28125
+    },
+    "controls": {
+      "bottom": 771.28125,
+      "height": 42,
+      "right": 309,
+      "width": 243,
+      "x": 66,
+      "y": 729.28125
+    },
+    "copy": {
+      "bottom": 972.8125,
+      "height": 509.53125,
+      "right": 341,
+      "width": 307,
+      "x": 34,
+      "y": 463.28125
+    },
+    "copyClientHeight": 510,
+    "copyScrollHeight": 510,
+    "paragraphs": [
+      {
+        "rect": {
+          "bottom": 805.59375,
+          "height": 144,
+          "right": 309,
+          "width": 243,
+          "x": 66,
+          "y": 661.59375
+        },
+        "text": "Crumbling plaster, cracked brickwork and falling material can make rooms unsafe. Repeated patch repairs may not be enough where an underlying defect remains."
+      },
+      {
+        "rect": {
+          "bottom": 857.703125,
+          "height": 37.109375,
+          "right": 216.34375,
+          "width": 150.34375,
+          "x": 66,
+          "y": 820.59375
+        },
+        "text": "Defective brickwork"
+      },
+      {
+        "rect": {
+          "bottom": 902.8125,
+          "height": 37.109375,
+          "right": 202.65625,
+          "width": 136.65625,
+          "x": 66,
+          "y": 865.703125
+        },
+        "text": "Crumbling plaster"
+      }
+    ],
+    "scrollWidth": 375,
+    "slide": {
+      "bottom": 791.28125,
+      "height": 560,
+      "right": 341,
+      "width": 307,
+      "x": 34,
+      "y": 231.28125
+    },
+    "styles": {
+      "controlPosition": "absolute",
+      "slides": "560px"
+    },
+    "width": 375
+  },
+  "interactionLayoutChecks": [
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 1014.296875,
+      "contentGap": 24.109375,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 21,
+          "href": "https://www.sds-solicitors.com/#callback",
+          "insideCard": true,
+          "text": "Make a Claim",
+          "width": 103.59375
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 320,
+      "scrollWidth": 305,
+      "slideIndex": 0,
+      "title": "Make a Claim Today",
+      "viewportWidth": 305
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 1018.296875,
+      "contentGap": 194.265625,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/boiler-heating-claims/",
+          "insideCard": true,
+          "text": "Boilers & heating",
+          "width": 130.28125
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/gas-appliance-claims/",
+          "insideCard": true,
+          "text": "Gas appliances",
+          "width": 120.09374237060548
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 320,
+      "scrollWidth": 305,
+      "slideIndex": 1,
+      "title": "If your heating was left broken…",
+      "viewportWidth": 305
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 1018.296875,
+      "contentGap": 157.3125,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/damp-and-mould-claims/",
+          "insideCard": true,
+          "text": "Damp & mould",
+          "width": 116.53124237060548
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/spray-foam-insulation-claims/",
+          "insideCard": true,
+          "text": "Spray foam insulation",
+          "width": 159.890625
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 320,
+      "scrollWidth": 305,
+      "slideIndex": 2,
+      "title": "If the mould keeps coming back…",
+      "viewportWidth": 305
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 1018.296875,
+      "contentGap": 157.3125,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/brickwork-claims/",
+          "insideCard": true,
+          "text": "Defective brickwork",
+          "width": 150.34375
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/crumbling-plaster/",
+          "insideCard": true,
+          "text": "Crumbling plaster",
+          "width": 136.65625
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 320,
+      "scrollWidth": 305,
+      "slideIndex": 3,
+      "title": "If walls and ceilings keep breaking down…",
+      "viewportWidth": 305
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 1018.296875,
+      "contentGap": 194.265625,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/bathroom-claims/",
+          "insideCard": true,
+          "text": "Bathroom disrepair",
+          "width": 144.984375
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/defective-sanitaryware/",
+          "insideCard": true,
+          "text": "Defective sanitaryware",
+          "width": 169.5625
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 320,
+      "scrollWidth": 305,
+      "slideIndex": 4,
+      "title": "If essential facilities were left unusable…",
+      "viewportWidth": 305
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 1018.296875,
+      "contentGap": 218.265625,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/dangerous-wiring-claims/",
+          "insideCard": true,
+          "text": "Dangerous wiring",
+          "width": 132.421875
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/electrical-faults-claims/",
+          "insideCard": true,
+          "text": "Electrical faults",
+          "width": 121.89061737060548
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 320,
+      "scrollWidth": 305,
+      "slideIndex": 5,
+      "title": "If unsafe electrics were left sparking…",
+      "viewportWidth": 305
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 1018.296875,
+      "contentGap": 96.359375,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/insect-infestation-claims/",
+          "insideCard": true,
+          "text": "Insect infestation",
+          "width": 134.0625
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/vermin-from-disrepair-claims/",
+          "insideCard": true,
+          "text": "Vermin & pests",
+          "width": 119.71874237060548
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 320,
+      "scrollWidth": 305,
+      "slideIndex": 6,
+      "title": "If infestations keep returning to your home…",
+      "viewportWidth": 305
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 1018.296875,
+      "contentGap": 254.875,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/unsafe-flooring-claims/",
+          "insideCard": true,
+          "text": "Unsafe flooring claims",
+          "width": 162.25
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 320,
+      "scrollWidth": 305,
+      "slideIndex": 7,
+      "title": "If damaged floors put you at risk…",
+      "viewportWidth": 305
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 1018.296875,
+      "contentGap": 136.3125,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/",
+          "insideCard": true,
+          "text": "Kitchen disrepair",
+          "width": 131.671875
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/plumbing-drainage-claims/",
+          "insideCard": true,
+          "text": "Plumbing & active leaks",
+          "width": 173.0625
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 320,
+      "scrollWidth": 305,
+      "slideIndex": 8,
+      "title": "If broken plumbing damaged your kitchen…",
+      "viewportWidth": 305
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 1018.296875,
+      "contentGap": 128.515625,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/windows-doors-claims/",
+          "insideCard": true,
+          "text": "Windows & doors claims",
+          "width": 177.796875
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 320,
+      "scrollWidth": 305,
+      "slideIndex": 9,
+      "title": "If your home cannot stay secure and weatherproof…",
+      "viewportWidth": 305
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 1014.296875,
+      "contentGap": 24.109375,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 21,
+          "href": "https://www.sds-solicitors.com/#callback",
+          "insideCard": true,
+          "text": "Make a Claim",
+          "width": 103.59374237060548
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 320,
+      "scrollWidth": 305,
+      "slideIndex": 0,
+      "title": "Make a Claim Today",
+      "viewportWidth": 305
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 1018.296875,
+      "contentGap": 128.515625,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/windows-doors-claims/",
+          "insideCard": true,
+          "text": "Windows & doors claims",
+          "width": 177.796875
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 320,
+      "scrollWidth": 305,
+      "slideIndex": 9,
+      "title": "If your home cannot stay secure and weatherproof…",
+      "viewportWidth": 305
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 854.96875,
+      "contentGap": 24.109375,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 21,
+          "href": "https://www.sds-solicitors.com/#callback",
+          "insideCard": true,
+          "text": "Make a Claim",
+          "width": 103.59375
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 390,
+      "scrollWidth": 375,
+      "slideIndex": 0,
+      "title": "Make a Claim Today",
+      "viewportWidth": 375
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 858.96875,
+      "contentGap": 204.5,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/boiler-heating-claims/",
+          "insideCard": true,
+          "text": "Boilers & heating",
+          "width": 130.28125
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/gas-appliance-claims/",
+          "insideCard": true,
+          "text": "Gas appliances",
+          "width": 120.09375
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 390,
+      "scrollWidth": 375,
+      "slideIndex": 1,
+      "title": "If your heating was left broken…",
+      "viewportWidth": 375
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 858.96875,
+      "contentGap": 143.890625,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/damp-and-mould-claims/",
+          "insideCard": true,
+          "text": "Damp & mould",
+          "width": 116.53125
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/spray-foam-insulation-claims/",
+          "insideCard": true,
+          "text": "Spray foam insulation",
+          "width": 159.890625
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 390,
+      "scrollWidth": 375,
+      "slideIndex": 2,
+      "title": "If the mould keeps coming back…",
+      "viewportWidth": 375
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 858.96875,
+      "contentGap": 98.4375,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/brickwork-claims/",
+          "insideCard": true,
+          "text": "Defective brickwork",
+          "width": 150.34375
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/crumbling-plaster/",
+          "insideCard": true,
+          "text": "Crumbling plaster",
+          "width": 136.65625
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 390,
+      "scrollWidth": 375,
+      "slideIndex": 3,
+      "title": "If walls and ceilings keep breaking down…",
+      "viewportWidth": 375
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 858.96875,
+      "contentGap": 119.890625,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/bathroom-claims/",
+          "insideCard": true,
+          "text": "Bathroom disrepair",
+          "width": 144.984375
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/defective-sanitaryware/",
+          "insideCard": true,
+          "text": "Defective sanitaryware",
+          "width": 169.5625
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 390,
+      "scrollWidth": 375,
+      "slideIndex": 4,
+      "title": "If essential facilities were left unusable…",
+      "viewportWidth": 375
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 858.96875,
+      "contentGap": 143.890625,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/dangerous-wiring-claims/",
+          "insideCard": true,
+          "text": "Dangerous wiring",
+          "width": 132.421875
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/electrical-faults-claims/",
+          "insideCard": true,
+          "text": "Electrical faults",
+          "width": 121.890625
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 390,
+      "scrollWidth": 375,
+      "slideIndex": 5,
+      "title": "If unsafe electrics were left sparking…",
+      "viewportWidth": 375
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 858.96875,
+      "contentGap": 135.390625,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/insect-infestation-claims/",
+          "insideCard": true,
+          "text": "Insect infestation",
+          "width": 134.0625
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/vermin-from-disrepair-claims/",
+          "insideCard": true,
+          "text": "Vermin & pests",
+          "width": 119.71875
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 390,
+      "scrollWidth": 375,
+      "slideIndex": 6,
+      "title": "If infestations keep returning to your home…",
+      "viewportWidth": 375
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 858.96875,
+      "contentGap": 204.5,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/unsafe-flooring-claims/",
+          "insideCard": true,
+          "text": "Unsafe flooring claims",
+          "width": 162.25
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 390,
+      "scrollWidth": 375,
+      "slideIndex": 7,
+      "title": "If damaged floors put you at risk…",
+      "viewportWidth": 375
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 858.96875,
+      "contentGap": 82.9375,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/",
+          "insideCard": true,
+          "text": "Kitchen disrepair",
+          "width": 131.671875
+        },
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/plumbing-drainage-claims/",
+          "insideCard": true,
+          "text": "Plumbing & active leaks",
+          "width": 173.0625
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 390,
+      "scrollWidth": 375,
+      "slideIndex": 8,
+      "title": "If broken plumbing damaged your kitchen…",
+      "viewportWidth": 375
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 858.96875,
+      "contentGap": 143.546875,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/windows-doors-claims/",
+          "insideCard": true,
+          "text": "Windows & doors claims",
+          "width": 177.796875
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 390,
+      "scrollWidth": 375,
+      "slideIndex": 9,
+      "title": "If your home cannot stay secure and weatherproof…",
+      "viewportWidth": 375
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 854.96875,
+      "contentGap": 24.109375,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 21,
+          "href": "https://www.sds-solicitors.com/#callback",
+          "insideCard": true,
+          "text": "Make a Claim",
+          "width": 103.59375
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 390,
+      "scrollWidth": 375,
+      "slideIndex": 0,
+      "title": "Make a Claim Today",
+      "viewportWidth": 375
+    },
+    {
+      "activeSlideCount": 1,
+      "arrows": [
+        {
+          "height": 44,
+          "width": 44
+        },
+        {
+          "height": 44,
+          "width": 44
+        }
+      ],
+      "carouselHeight": 858.96875,
+      "contentGap": 143.546875,
+      "controlsHeight": 69,
+      "controlsPosition": "static",
+      "links": [
+        {
+          "clearOfControls": true,
+          "height": 37.109375,
+          "href": "https://www.sds-solicitors.com/housing-disrepair/windows-doors-claims/",
+          "insideCard": true,
+          "text": "Windows & doors claims",
+          "width": 177.796875
+        }
+      ],
+      "passed": true,
+      "requestedWidth": 390,
+      "scrollWidth": 375,
+      "slideIndex": 9,
+      "title": "If your home cannot stay secure and weatherproof…",
+      "viewportWidth": 375
+    }
+  ],
+  "additionalLayoutChecks": [
+    {
+      "carouselHeight": 763.203125,
+      "controlsPosition": "static",
+      "passed": true,
+      "requestedWidth": 430,
+      "scrollWidth": 415,
+      "slides": [
+        {
+          "contentGap": 24.109375,
+          "index": 0,
+          "links": [
+            {
+              "bottom": 375.984375,
+              "height": 21,
+              "href": "https://www.sds-solicitors.com/#callback"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 170.6875,
+          "index": 1,
+          "links": [
+            {
+              "bottom": 229.40625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/boiler-heating-claims/"
+            },
+            {
+              "bottom": 229.40625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/gas-appliance-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 133.734375,
+          "index": 2,
+          "links": [
+            {
+              "bottom": 266.359375,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/damp-and-mould-claims/"
+            },
+            {
+              "bottom": 266.359375,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/spray-foam-insulation-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 133.734375,
+          "index": 3,
+          "links": [
+            {
+              "bottom": 266.359375,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/brickwork-claims/"
+            },
+            {
+              "bottom": 266.359375,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/crumbling-plaster/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 88.625,
+          "index": 4,
+          "links": [
+            {
+              "bottom": 266.359375,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/bathroom-claims/"
+            },
+            {
+              "bottom": 311.46875,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/defective-sanitaryware/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 157.734375,
+          "index": 5,
+          "links": [
+            {
+              "bottom": 242.359375,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/dangerous-wiring-claims/"
+            },
+            {
+              "bottom": 242.359375,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/electrical-faults-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 133.734375,
+          "index": 6,
+          "links": [
+            {
+              "bottom": 266.359375,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/insect-infestation-claims/"
+            },
+            {
+              "bottom": 266.359375,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/vermin-from-disrepair-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 170.6875,
+          "index": 7,
+          "links": [
+            {
+              "bottom": 229.40625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/unsafe-flooring-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 51.671875,
+          "index": 8,
+          "links": [
+            {
+              "bottom": 303.3125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/"
+            },
+            {
+              "bottom": 348.421875,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/plumbing-drainage-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 96.78125,
+          "index": 9,
+          "links": [
+            {
+              "bottom": 303.3125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/windows-doors-claims/"
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "viewportWidth": 415
+    },
+    {
+      "carouselHeight": 646.9375,
+      "controlsPosition": "static",
+      "passed": true,
+      "requestedWidth": 760,
+      "scrollWidth": 745,
+      "slides": [
+        {
+          "contentGap": 24.84375,
+          "index": 0,
+          "links": [
+            {
+              "bottom": 374.734375,
+              "height": 22,
+              "href": "https://www.sds-solicitors.com/#callback"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 139.375,
+          "index": 1,
+          "links": [
+            {
+              "bottom": 260.203125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/boiler-heating-claims/"
+            },
+            {
+              "bottom": 260.203125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/gas-appliance-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 139.375,
+          "index": 2,
+          "links": [
+            {
+              "bottom": 260.203125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/damp-and-mould-claims/"
+            },
+            {
+              "bottom": 260.203125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/spray-foam-insulation-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 102.421875,
+          "index": 3,
+          "links": [
+            {
+              "bottom": 297.15625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/brickwork-claims/"
+            },
+            {
+              "bottom": 297.15625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/crumbling-plaster/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 102.421875,
+          "index": 4,
+          "links": [
+            {
+              "bottom": 297.15625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/bathroom-claims/"
+            },
+            {
+              "bottom": 297.15625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/defective-sanitaryware/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 126.421875,
+          "index": 5,
+          "links": [
+            {
+              "bottom": 273.15625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/dangerous-wiring-claims/"
+            },
+            {
+              "bottom": 273.15625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/electrical-faults-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 102.421875,
+          "index": 6,
+          "links": [
+            {
+              "bottom": 297.15625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/insect-infestation-claims/"
+            },
+            {
+              "bottom": 297.15625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/vermin-from-disrepair-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 139.375,
+          "index": 7,
+          "links": [
+            {
+              "bottom": 260.203125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/unsafe-flooring-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 102.421875,
+          "index": 8,
+          "links": [
+            {
+              "bottom": 297.15625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/"
+            },
+            {
+              "bottom": 297.15625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/plumbing-drainage-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 102.421875,
+          "index": 9,
+          "links": [
+            {
+              "bottom": 297.15625,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/windows-doors-claims/"
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "viewportWidth": 745
+    },
+    {
+      "carouselHeight": 646.9375,
+      "controlsPosition": "static",
+      "passed": true,
+      "requestedWidth": 844,
+      "scrollWidth": 829,
+      "slides": [
+        {
+          "contentGap": 24.84375,
+          "index": 0,
+          "links": [
+            {
+              "bottom": 375.28125,
+              "height": 22,
+              "href": "https://www.sds-solicitors.com/#callback"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 139.375,
+          "index": 1,
+          "links": [
+            {
+              "bottom": 260.75,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/boiler-heating-claims/"
+            },
+            {
+              "bottom": 260.75,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/gas-appliance-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 139.375,
+          "index": 2,
+          "links": [
+            {
+              "bottom": 260.75,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/damp-and-mould-claims/"
+            },
+            {
+              "bottom": 260.75,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/spray-foam-insulation-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 102.421875,
+          "index": 3,
+          "links": [
+            {
+              "bottom": 297.703125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/brickwork-claims/"
+            },
+            {
+              "bottom": 297.703125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/crumbling-plaster/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 102.421875,
+          "index": 4,
+          "links": [
+            {
+              "bottom": 297.703125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/bathroom-claims/"
+            },
+            {
+              "bottom": 297.703125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/defective-sanitaryware/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 163.375,
+          "index": 5,
+          "links": [
+            {
+              "bottom": 236.75,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/dangerous-wiring-claims/"
+            },
+            {
+              "bottom": 236.75,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/electrical-faults-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 102.421875,
+          "index": 6,
+          "links": [
+            {
+              "bottom": 297.703125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/insect-infestation-claims/"
+            },
+            {
+              "bottom": 297.703125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/vermin-from-disrepair-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 139.375,
+          "index": 7,
+          "links": [
+            {
+              "bottom": 260.75,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/unsafe-flooring-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 102.421875,
+          "index": 8,
+          "links": [
+            {
+              "bottom": 297.703125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/"
+            },
+            {
+              "bottom": 297.703125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/plumbing-drainage-claims/"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "contentGap": 102.421875,
+          "index": 9,
+          "links": [
+            {
+              "bottom": 297.703125,
+              "height": 37.109375,
+              "href": "https://www.sds-solicitors.com/housing-disrepair/windows-doors-claims/"
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "viewportWidth": 829
+    }
+  ],
+  "transitionSamplingNote": "Layout checks sampled immediately after native previous/next actions; visibility and hit testing are recorded separately after transitions settle.",
+  "settledLinkCheck": {
+    "activeSlideCount": 1,
+    "arrows": [
+      {
+        "height": 44,
+        "width": 44
+      },
+      {
+        "height": 44,
+        "width": 44
+      }
+    ],
+    "carouselHeight": 858.96875,
+    "contentGap": 143.890625,
+    "controlsHeight": 69,
+    "controlsPosition": "static",
+    "links": [
+      {
+        "clearOfControls": true,
+        "height": 37.109375,
+        "hitTest": true,
+        "href": "https://www.sds-solicitors.com/housing-disrepair/damp-and-mould-claims/",
+        "insideCard": true,
+        "text": "Damp & mould",
+        "visible": true,
+        "width": 116.53125
+      },
+      {
+        "clearOfControls": true,
+        "height": 37.109375,
+        "hitTest": true,
+        "href": "https://www.sds-solicitors.com/housing-disrepair/spray-foam-insulation-claims/",
+        "insideCard": true,
+        "text": "Spray foam insulation",
+        "visible": true,
+        "width": 159.890625
+      }
+    ],
+    "passed": true,
+    "requestedWidth": 390,
+    "scrollWidth": 375,
+    "slideIndex": 2,
+    "title": "If the mould keeps coming back…",
+    "viewportWidth": 375
+  },
+  "desktopBefore": {
+    "elements": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(3, 43, 76)",
+        "fontSize": "16px",
+        "height": 167.875,
+        "lineHeight": "26.4px",
+        "padding": "32px 0px",
+        "position": "relative",
+        "selector": ".nav",
+        "width": 1201,
+        "x": 32,
+        "y": -402.90625
+      },
+      {
+        "background": "rgb(3, 43, 76)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 715.921875,
+        "lineHeight": "26.4px",
+        "padding": "18px",
+        "position": "relative",
+        "selector": ".hero.rights-hero",
+        "width": 1117,
+        "x": 32,
+        "y": -235.03125
+      },
+      {
+        "background": "rgb(8, 26, 45)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 679.921875,
+        "lineHeight": "26.4px",
+        "padding": "0px",
+        "position": "relative",
+        "selector": "#rightsCarousel",
+        "width": 574.015625,
+        "x": 50,
+        "y": -217.03125
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 679.921875,
+        "lineHeight": "26.4px",
+        "padding": "0px",
+        "position": "relative",
+        "selector": ".rights-slides",
+        "width": 574.015625,
+        "x": 50,
+        "y": -217.03125
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 679.921875,
+        "lineHeight": "26.4px",
+        "padding": "0px",
+        "position": "absolute",
+        "selector": ".rights-slide.active",
+        "width": 574.015625,
+        "x": 95.92124938964844,
+        "y": -217.03125
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 306.71875,
+        "lineHeight": "26.4px",
+        "padding": "0px",
+        "position": "relative",
+        "selector": ".rights-visual",
+        "width": 574.015625,
+        "x": 95.92124938964844,
+        "y": -217.03125
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 411.203125,
+        "lineHeight": "26.4px",
+        "padding": "0px 32px 70px",
+        "position": "relative",
+        "selector": ".rights-copy",
+        "width": 574.015625,
+        "x": 95.92124938964844,
+        "y": 51.6875
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "44.8px",
+        "height": 47.921875,
+        "lineHeight": "47.936px",
+        "padding": "0px",
+        "position": "static",
+        "selector": ".rights-copy h1",
+        "width": 510.015625,
+        "x": 127.92124938964844,
+        "y": 63.6875
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 42,
+        "lineHeight": "26.4px",
+        "padding": "0px",
+        "position": "absolute",
+        "selector": ".rights-controls",
+        "width": 510.015625,
+        "x": 82,
+        "y": 400.890625
+      },
+      {
+        "background": "rgb(112, 221, 211)",
+        "color": "rgb(3, 43, 76)",
+        "fontSize": "17.6px",
+        "height": 42,
+        "lineHeight": "normal",
+        "padding": "1px 6px",
+        "position": "static",
+        "selector": ".rights-next",
+        "width": 42,
+        "x": 550.015625,
+        "y": 400.890625
+      },
+      {
+        "background": "rgb(244, 249, 250)",
+        "color": "rgb(3, 43, 76)",
+        "fontSize": "16px",
+        "height": 679.921875,
+        "lineHeight": "24px",
+        "padding": "22px",
+        "position": "relative",
+        "selector": ".callback",
+        "width": 488.984375,
+        "x": 642.015625,
+        "y": -217.03125
+      },
+      {
+        "background": "rgb(238, 247, 247)",
+        "color": "rgb(3, 43, 76)",
+        "fontSize": "16px",
+        "height": 426.921875,
+        "lineHeight": "26.4px",
+        "padding": "30px",
+        "position": "static",
+        "selector": ".authority-card",
+        "width": 1201,
+        "x": 32,
+        "y": 1513.609375
+      }
+    ],
+    "scrollWidth": 1265,
+    "width": 1265
+  },
+  "desktopAfter": {
+    "activeSlide": "0",
+    "elements": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(3, 43, 76)",
+        "fontSize": "16px",
+        "height": 167.875,
+        "lineHeight": "26.4px",
+        "padding": "32px 0px",
+        "position": "relative",
+        "selector": ".nav",
+        "width": 1201,
+        "x": 32,
+        "y": 43.09375
+      },
+      {
+        "background": "rgb(3, 43, 76)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 715.921875,
+        "lineHeight": "26.4px",
+        "padding": "18px",
+        "position": "relative",
+        "selector": ".hero.rights-hero",
+        "width": 1117,
+        "x": 32,
+        "y": 210.96875
+      },
+      {
+        "background": "rgb(8, 26, 45)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 679.921875,
+        "lineHeight": "26.4px",
+        "padding": "0px",
+        "position": "relative",
+        "selector": "#rightsCarousel",
+        "width": 574.015625,
+        "x": 50,
+        "y": 228.96875
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 679.921875,
+        "lineHeight": "26.4px",
+        "padding": "0px",
+        "position": "relative",
+        "selector": ".rights-slides",
+        "width": 574.015625,
+        "x": 50,
+        "y": 228.96875
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 679.921875,
+        "lineHeight": "26.4px",
+        "padding": "0px",
+        "position": "absolute",
+        "selector": ".rights-slide.active",
+        "width": 574.015625,
+        "x": 50,
+        "y": 228.96875
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 306.71875,
+        "lineHeight": "26.4px",
+        "padding": "0px",
+        "position": "relative",
+        "selector": ".rights-visual",
+        "width": 574.015625,
+        "x": 50,
+        "y": 228.96875
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 411.203125,
+        "lineHeight": "26.4px",
+        "padding": "0px 32px 70px",
+        "position": "relative",
+        "selector": ".rights-copy",
+        "width": 574.015625,
+        "x": 50,
+        "y": 497.6875
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "44.8px",
+        "height": 47.921875,
+        "lineHeight": "47.936px",
+        "padding": "0px",
+        "position": "static",
+        "selector": ".rights-copy h1",
+        "width": 510.015625,
+        "x": 82,
+        "y": 509.6875
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "height": 42,
+        "lineHeight": "26.4px",
+        "padding": "0px",
+        "position": "absolute",
+        "selector": ".rights-controls",
+        "width": 510.015625,
+        "x": 82,
+        "y": 846.890625
+      },
+      {
+        "background": "rgb(112, 221, 211)",
+        "color": "rgb(3, 43, 76)",
+        "fontSize": "17.6px",
+        "height": 42,
+        "lineHeight": "normal",
+        "padding": "1px 6px",
+        "position": "static",
+        "selector": ".rights-next",
+        "width": 42,
+        "x": 550.015625,
+        "y": 846.890625
+      },
+      {
+        "background": "rgb(244, 249, 250)",
+        "color": "rgb(3, 43, 76)",
+        "fontSize": "16px",
+        "height": 679.921875,
+        "lineHeight": "24px",
+        "padding": "22px",
+        "position": "relative",
+        "selector": ".callback",
+        "width": 488.984375,
+        "x": 642.015625,
+        "y": 228.96875
+      },
+      {
+        "background": "rgb(238, 247, 247)",
+        "color": "rgb(3, 43, 76)",
+        "fontSize": "16px",
+        "height": 426.921875,
+        "lineHeight": "26.4px",
+        "padding": "30px",
+        "position": "static",
+        "selector": ".authority-card",
+        "width": 1201,
+        "x": 32,
+        "y": 1959.609375
+      }
+    ],
+    "scrollWidth": 1265,
+    "width": 1265
+  },
+  "desktopDifferences": [],
+  "allLayoutChecksPassed": true,
+  "desktopPreserved": true,
+  "releaseFingerprint": "82e5f5f2d4d3390ff68debd4af1c6032bfd5cbb4be5a1168d4d40fe266edcd84",
+  "screenshot": "mobile-carousel-2026-10-06-1791278939483.jpg",
+  "validation": {
+    "originalContentAndSeoRoutes": 324,
+    "publicTemplates": 325,
+    "nodeTestsPassed": 16,
+    "pythonTestsPassed": 2,
+    "productionDomainUnchanged": true
+  },
+  "release": {
+    "version": {
+      "id": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_e38a4830899c81918fa31e97b722ad09",
+      "project_id": "appgprj_6ab2ddc9120881918f89e316c048a437",
+      "version_number": 66,
+      "source": {
+        "commit_sha": "0870e4c3cbe83b84d9d1a372c0a333ecc6938b45"
+      },
+      "archive_storage": {
+        "archive_format": "tar",
+        "sediment_file_id": "file_0000000050a48210975316d23bf02816",
+        "content_hash": "sha256:fb72ed83877be4a9d096d1424fc657f3b0794b84d1a238882be61820a0b0edf0",
+        "size_bytes": 64225280,
+        "file_count": 267
+      },
+      "screenshot_url": null,
+      "deployment_id": null
+    },
+    "deployment": {
+      "id": "appgdep_6ac4c1a562e48191820fc36b9bd3567a",
+      "project_id": "appgprj_6ab2ddc9120881918f89e316c048a437",
+      "title": "SDS Housing Condition Claims",
+      "version_id": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_e38a4830899c81918fa31e97b722ad09",
+      "type": "publish",
+      "status": "succeeded",
+      "url": "https://sds-housing-condition-claims.corbyn-davidson.chatgpt.site",
+      "has_mcp": false,
+      "screenshot_asset_pointer": null,
+      "provider_deployment_id": "site---6ab2ddc9120881918f89e316c048a437",
+      "failure_message": null,
+      "env_set_revision": 2,
+      "updated_at": "2026-10-06T09:39:11.052130+00:00"
+    },
+    "implementationSourceCommit": "0870e4c3cbe83b84d9d1a372c0a333ecc6938b45"
+  },
+  "liveVerification": {
+    "origin": "https://housingconditionclaims.org",
+    "releaseFingerprint": "82e5f5f2d4d3390ff68debd4af1c6032bfd5cbb4be5a1168d4d40fe266edcd84",
+    "clientProfile": "Chrome-compatible public HTTP request; not verified Googlebot",
+    "records": [
+      {
+        "status": 200,
+        "finalUrl": "https://housingconditionclaims.org/",
+        "location": null,
+        "contentType": "text/html; charset=utf-8",
+        "robots": "noindex, follow",
+        "cacheControl": "public, max-age=300",
+        "bytes": 108311,
+        "elapsedMs": 8697,
+        "path": "/",
+        "sha256": "d034607efc982e4c5fcc1a3c52aba2a7a2ffe21c24428c993fc2eab94bf1dab7",
+        "expectedSha256": "d034607efc982e4c5fcc1a3c52aba2a7a2ffe21c24428c993fc2eab94bf1dab7",
+        "expectedStatus": 200,
+        "expectedContentType": "text/html; charset=utf-8",
+        "passed": true,
+        "mobileRulesPresent": true,
+        "canonicalPreserved": true
+      },
+      {
+        "status": 200,
+        "finalUrl": "https://housingconditionclaims.org/robots.txt",
+        "location": null,
+        "contentType": "text/plain; charset=utf-8",
+        "robots": "noindex, follow",
+        "cacheControl": "public, max-age=300",
+        "bytes": 26,
+        "elapsedMs": 8692,
+        "path": "/robots.txt",
+        "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1",
+        "expectedSha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1",
+        "expectedStatus": 200,
+        "expectedContentType": "text/plain; charset=utf-8",
+        "passed": true
+      },
+      {
+        "status": 200,
+        "finalUrl": "https://housingconditionclaims.org/housing-disrepair-enquiries/",
+        "location": null,
+        "contentType": "text/html; charset=utf-8",
+        "robots": "noindex, follow",
+        "cacheControl": "public, max-age=300",
+        "bytes": 52245,
+        "elapsedMs": 8862,
+        "path": "/housing-disrepair-enquiries/",
+        "sha256": "a57e4fdc217272277db73cfe4df5971fa6fd44e7127ce8d8bdc896fd1683d57b",
+        "expectedSha256": "a57e4fdc217272277db73cfe4df5971fa6fd44e7127ce8d8bdc896fd1683d57b",
+        "expectedStatus": 200,
+        "expectedContentType": "text/html; charset=utf-8",
+        "passed": true
+      },
+      {
+        "status": 200,
+        "finalUrl": "https://housingconditionclaims.org/brand.css",
+        "location": null,
+        "contentType": "text/css; charset=utf-8",
+        "robots": "noindex, follow",
+        "cacheControl": "public, max-age=86400",
+        "bytes": 30018,
+        "elapsedMs": 8021,
+        "path": "/brand.css",
+        "sha256": "bce1bafd206b22db8f6c678a0d1a18b2b7c1bc289c5ee5ead1edbbe8086731f5",
+        "expectedSha256": "bce1bafd206b22db8f6c678a0d1a18b2b7c1bc289c5ee5ead1edbbe8086731f5",
+        "expectedStatus": 200,
+        "expectedContentType": "text/css; charset=utf-8",
+        "passed": true
+      },
+      {
+        "status": 200,
+        "finalUrl": "https://housingconditionclaims.org/service.css",
+        "location": null,
+        "contentType": "text/css; charset=utf-8",
+        "robots": "noindex, follow",
+        "cacheControl": "public, max-age=86400",
+        "bytes": 17934,
+        "elapsedMs": 7940,
+        "path": "/service.css",
+        "sha256": "8f3a1854fc3265d3725a95879536cd465e708e20d916ed02408ea1512242cdc5",
+        "expectedSha256": "8f3a1854fc3265d3725a95879536cd465e708e20d916ed02408ea1512242cdc5",
+        "expectedStatus": 200,
+        "expectedContentType": "text/css; charset=utf-8",
+        "passed": true
+      }
+    ],
+    "allPassed": true
+  }
+}

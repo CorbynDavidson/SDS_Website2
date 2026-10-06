@@ -177,3 +177,49 @@ body .hero.rights-hero.wrap { width: min(1240px, calc(100% - 64px)); margin-left
   body > nav.nav .mega-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-welcome-message .sds-source-copy img[alt="Sheldon Davidson"][src$=".svg"] { max-width: min(100%, 380px); height: auto; }
 }
+
+/* Mobile scenario slides need intrinsic height, with controls below the links.
+   One shared grid cell reserves the tallest slide's height without layout jumps.
+   Match the existing stacked hero breakpoint; leave the desktop rules intact. */
+@media (max-width: 900px) {
+  .hero.rights-hero .rights-slides {
+    display: grid;
+    height: auto;
+    min-height: 0;
+    align-items: start;
+  }
+  .hero.rights-hero .rights-slide {
+    position: relative;
+    inset: auto;
+    grid-area: 1 / 1;
+    min-width: 0;
+  }
+  .hero.rights-hero .rights-visual {
+    flex: 0 0 270px;
+    height: 270px;
+    min-height: 0;
+  }
+  .hero.rights-hero .rights-copy { padding: 0 24px; }
+  .hero.rights-hero .rights-copy h1,
+  .hero.rights-hero .rights-copy h2 { overflow-wrap: anywhere; }
+  .hero.rights-hero .scenario-links a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .hero.rights-hero .rights-controls {
+    position: static;
+    margin: 20px 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .hero.rights-hero .rights-dots {
+    min-width: 0;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero.rights-hero .rights-arrows {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+  .hero.rights-hero .rights-arrow { width: 44px; height: 44px; }
+}

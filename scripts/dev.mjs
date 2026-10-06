@@ -30,10 +30,12 @@ const server=createServer(async(req,res)=>{
     if(previewUrl.pathname==='/_qa/viewport'){
       const width=Number(previewUrl.searchParams.get('width'));
       const path=previewUrl.searchParams.get('path')||'/';
-      if(![320,390,760,1280].includes(width)||!Object.hasOwn(assetData.pages||{},path)){
+      if(![320,390,430,760,844,1280].includes(width)||!Object.hasOwn(assetData.pages||{},path)){
         res.writeHead(400,{'content-type':'text/plain','x-robots-tag':'noindex, nofollow'});res.end('Choose a built public page and a supported width.');return;
       }
-      const safe=path.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
+      // Give each compiled preview a fresh URL so cached HTML cannot hide edits.
+      const framePath=path+(path.includes('?')?'&':'?')+'__preview='+assetData.releaseFingerprint;
+      const safe=framePath.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
       res.writeHead(200,{'content-type':'text/html; charset=utf-8','x-robots-tag':'noindex, nofollow','cache-control':'no-store'});
       res.end('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>SDS responsive QA</title><style>body{margin:0;background:#eee;font:14px sans-serif}p{margin:12px}iframe{display:block;border:0;margin:0 auto;background:white;width:'+width+'px;height:844px}</style><p>Development preview: '+width+'px</p><iframe id="sds-qa-frame" title="SDS responsive website preview" src="'+safe+'"></iframe></html>');return;
     }
@@ -44,7 +46,9 @@ const server=createServer(async(req,res)=>{
     for await(const chunk of req){bytes+=chunk.length;if(bytes>42*1024*1024)throw new Error('Request too large');chunks.push(chunk);}
     const request=new Request(new URL(req.url,origin),{method:req.method,headers,body:['GET','HEAD'].includes(req.method)?undefined:Buffer.concat(chunks)});
     const result=await worker.fetch(request,env,{waitUntil:promise=>promise.catch(()=>{})});
-    res.writeHead(result.status,Object.fromEntries(result.headers));
+    const responseHeaders=Object.fromEntries(result.headers);
+    responseHeaders['cache-control']='no-store';
+    res.writeHead(result.status,responseHeaders);
     if(result.body)for await(const chunk of result.body)res.write(Buffer.from(chunk));res.end();
   }catch{res.writeHead(503,{'content-type':'text/plain'});res.end('Preview temporarily unavailable.');}
 });
