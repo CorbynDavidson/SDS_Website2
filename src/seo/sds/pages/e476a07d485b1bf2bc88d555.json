@@ -1,0 +1,98 @@
+{
+  "title": "Our Case Studies | Sheldon Davidson Solicitors Manchester",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Discover how our expert Manchester solicitors have successfully recovered compensation and secured vital property repairs for our clients."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    },
+    {
+      "name": "”robots”",
+      "content": "”noindex,",
+      "follow”": ""
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/about-us/case-studies/?ccm_paging_p_b2385=2"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"name\": \"Case Studies\",\n    \"url\": \"https://www.sds-solicitors.com/about-us/case-studies/\",\n    \"headline\": \"Case Studies\",\n    \"inLanguage\": \"en-GB\",\n    \"description\": \"Discover how our expert Manchester solicitors have successfully recovered compensation and secured vital property repairs for our clients.\",\n    \"publisher\": {\n        \"name\": \"Sheldon Davidson Solicitors\"\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Case Studies"
+    },
+    {
+      "tag": "h2",
+      "text": "Vulnerable Tenant Forced to Sleep in One Room to Stay Warm Wins Repairs and Compensation"
+    },
+    {
+      "tag": "h2",
+      "text": "Hazardous Flooring Defects and Pest Infestation in Rented Home"
+    },
+    {
+      "tag": "h2",
+      "text": "A Decade of Disrepair Ends with Legal Victory for Tenant and Children"
+    },
+    {
+      "tag": "h2",
+      "text": "Severe Pest Infestation and Lack of Heating in Two-Bedroom Maisonette"
+    },
+    {
+      "tag": "h2",
+      "text": "Months of Water Damage from Leaking Bathroom Ends in Fair Payout"
+    },
+    {
+      "tag": "h5",
+      "text": "Case Studies by claim type:"
+    }
+  ]
+}

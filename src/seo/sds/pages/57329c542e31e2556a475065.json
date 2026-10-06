@@ -1,0 +1,109 @@
+{
+  "title": "How Long Can a Landlord Leave You Without Heat? | SDS Blog",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Find out how long a landlord can leave you without heating or hot water, what their legal responsibilities are, and when you may be able to claim compensation."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/about-us/news/how-long-can-landlord-leave-you-without-heat/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/about-us/news/how-long-can-landlord-leave-you-without-heat/#webpage\",\n    \"url\": \"https://www.sds-solicitors.com/about-us/news/how-long-can-landlord-leave-you-without-heat/\",\n    \"name\": \"How Long Can a Landlord Leave You Without Heat? | SDS Blog\",\n    \"description\": \"Find out how long a landlord can leave you without heating or hot water, what their legal responsibilities are, and when you may be able to claim compensation.\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"mainEntity\": {\n        \"@type\": \"Article\",\n        \"@id\": \"https://www.sds-solicitors.com/about-us/news/how-long-can-landlord-leave-you-without-heat/#article\",\n        \"headline\": \"How Long Can a Landlord Leave You Without Heat?\",\n        \"alternativeHeadline\": \"How Quickly Should a Landlord Fix Broken Heating?\",\n        \"articleSection\": \"Blog\",\n        \"description\": \"Find out how long a landlord can leave you without heating or hot water, what their legal responsibilities are, and when you may be able to claim compensation.\",\n        \"url\": \"https://www.sds-solicitors.com/about-us/news/how-long-can-landlord-leave-you-without-heat/\",\n        \"image\": {\n            \"@type\": \"ImageObject\"\n        },\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        },\n        \"datePublished\": \"2026-09-07\",\n        \"dateModified\": \"2026-09-07\",\n        \"isAccessibleForFree\": true,\n        \"mentions\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "How Long Can a Landlord Leave You Without Heat?"
+    },
+    {
+      "tag": "h2",
+      "text": "How Quickly Should a Landlord Fix Broken Heating?"
+    },
+    {
+      "tag": "h2",
+      "text": "What Are a Landlord’s Legal Responsibilities for Heating?"
+    },
+    {
+      "tag": "h2",
+      "text": "How Long Can a Landlord Leave You Without Hot Water?"
+    },
+    {
+      "tag": "h2",
+      "text": "What Should a Landlord Do While Repairs Are Ongoing?"
+    },
+    {
+      "tag": "h2",
+      "text": "What Temperature Should a Rented Home Be?"
+    },
+    {
+      "tag": "h2",
+      "text": "What if Your Landlord Does Not Fix the Heating?"
+    },
+    {
+      "tag": "h2",
+      "text": "Can You Claim Compensation for Being Left Without Heating?"
+    },
+    {
+      "tag": "h2",
+      "text": "Housing Disrepair Experts - SDS Solicitors"
+    },
+    {
+      "tag": "h2",
+      "text": "Get in Touch"
+    },
+    {
+      "tag": "h5",
+      "text": "News by topic:"
+    }
+  ]
+}

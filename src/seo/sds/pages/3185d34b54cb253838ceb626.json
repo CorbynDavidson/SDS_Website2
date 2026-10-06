@@ -1,0 +1,247 @@
+{
+  "title": "Housing Disrepair Claims | No Win No Fee Solicitors | SDS",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Our Housing Disrepair Claims service offers nationwide No Win No Fee support, helping tenants secure compensation from landlords. Contact SDS Solicitors today."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/housing-disrepair-claims/"
+    }
+  ],
+  "structuredData": [
+    "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What is a Housing Disrepair Claim?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"A housing disrepair claim is a legal action you can take against your landlord when they fail to carry out essential repairs. Every landlord, whether a council, housing association, or private landlord, has a legal duty to make sure the property you live in is safe, secure, and fit for purpose. If they fail in that duty, you can ask the court not only to order the repairs but also to award you compensation.\\n<br><br>\\nThis compensation reflects the inconvenience of living in poor conditions, the damage to your belongings, and in some cases, the impact on your health.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What Issues Qualify for a Housing Disrepair Claim?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Many different problems can give rise to a claim. The most common include damp and mould, persistent leaks, broken heating or hot water systems, unsafe wiring, structural cracks, rotten window frames, pest infestations, and security risks caused by damaged doors or locks.\\n<br><br>\\nEssentially, if the disrepair affects your health, safety, or ability to live comfortably in the property, it may qualify for a claim.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Do I Have to Give My Landlord Notice Before Making a Housing Disrepair Claim?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Yes. The law requires that you give your landlord a chance to put things right before you start a claim. This usually means writing to them (or emailing) to report the issue, explaining how long it has been ongoing, and giving them a reasonable opportunity to fix it. If they ignore your complaint, delay, or refuse to act, you then have strong grounds to bring a housing disrepair claim.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What Evidence Do I Need to Support My Housing Disrepair Claim?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"The stronger your evidence, the stronger your claim. Keep records of everything, including photographs and videos of the damage, medical evidence if your health has been affected, and receipts for any damaged items. It is also important to keep copies of letters, emails, or texts you have sent to your landlord reporting the issue.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"How Do I Start My Housing Disrepair Claim?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"The first step is simple: get in touch with us. At SDS Solicitors, we offer a free, no-obligation consultation. We will listen to your circumstances, review the evidence, and let you know whether you have a strong case. If you decide to proceed, we handle everything for you under our No Win No Fee promise, so you have nothing to lose.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"How Long Does a Housing Disrepair Claim take?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"The timescale depends on the complexity of your case. Straightforward claims where the landlord accepts responsibility may be resolved in a matter of months. If the landlord disputes the claim and court action is needed, it can take longer. Either way, our aim is to keep the process moving and to reduce stress for you at every stage.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Is There a Time Limit for Making a Housing Disrepair Claim?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Yes. For most claims, you have six years from the date the disrepair occurred or when you first reported it to your landlord. If your claim is linked to personal injury, such as asthma or other health conditions caused by damp, the time limit is three years from when you first noticed the symptoms or became aware they were linked to the disrepair. Acting quickly ensures your case is stronger and avoids running out of time.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"How Much Compensation Can I Get in a Housing Disrepair Claim?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Compensation is typically based on a percentage of your rent for the time you lived with the disrepair. This normally ranges from 25% to 50%, depending on the severity of the issue and how long it lasted. In some cases, if the property was completely uninhabitable, awards can be higher.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What is Included in Compensation for Housing Disrepair Claims?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Compensation usually covers three things: the inconvenience of living in unsuitable conditions, the cost of any belongings that were damaged, and the effect on your health if you became unwell as a result of the disrepair. Every case is different, so the amount you receive depends on your circumstances.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Can I Still Make a Housing Disrepair Claim if My Landlord Eventually Fixed the Problem?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Yes. Even if your landlord eventually carried out the repairs, you may still be entitled to compensation for the time you were left in unsuitable housing. Landlords cannot escape liability simply by fixing the problem late. The law recognises the harm caused by delays.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Do I Stop Paying Rent During a Housing Disrepair Claim?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"No. You must continue paying rent while your claim is ongoing. Stopping payments could put your tenancy at risk. The law instead provides for compensation, which reflects the reduced value of the property during the period of disrepair.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Will Making a Housing Disrepair Claim Affect My Tenancy or Lead to Eviction?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"No. It is against the law for a landlord to evict you simply because you are enforcing your legal rights. This is known as “retaliatory eviction” and is unlawful. If your landlord tries to evict you for making a claim, you may be entitled to further legal remedies.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Can I Make a Housing Disrepair Claim While I am Still Living in the Property?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Yes. Most claims are brought while tenants continue to live in the property. You do not have to move out to make a claim, and the law is designed to protect you while you remain in your home.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair-claims/'>Learn more</a>\\n<br>\"\n      }\n    }\n  ]\n}\n",
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/housing-disrepair-claims/#webpage\",\n    \"name\": \"Housing Disrepair Claims | No Win No Fee Solicitors | SDS\",\n    \"description\": \"Our Housing Disrepair Claims service offers nationwide No Win No Fee support, helping tenants secure compensation from landlords. Contact SDS Solicitors today.\",\n    \"url\": \"https://www.sds-solicitors.com/housing-disrepair-claims/\",\n    \"headline\": \"Housing Disrepair Claims - No Win No Fee Housing Solicitors\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"author\": {\n        \"@type\": \"Person\",\n        \"@id\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/#person\",\n        \"name\": \"Sheldon Davidson\",\n        \"url\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/\"\n    },\n    \"mainEntity\": {\n        \"@type\": \"Service\",\n        \"@id\": \"https://www.sds-solicitors.com/housing-disrepair-claims/#service\",\n        \"serviceType\": \"Housing Disrepair Claims - No Win No Fee Housing Solicitors\",\n        \"description\": \"Our Housing Disrepair Claims service offers nationwide No Win No Fee support, helping tenants secure compensation from landlords. Contact SDS Solicitors today.\",\n        \"name\": \"Housing Disrepair Claims - No Win No Fee Housing Solicitors\",\n        \"provider\": {\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\"\n        },\n        \"areaServed\": {\n            \"@type\": \"Place\",\n            \"name\": \"England\"\n        },\n        \"serviceOutput\": \"Legal Support\",\n        \"offers\": [\n            {\n                \"@type\": \"Offer\",\n                \"name\": \"No Win No Fee Housing Disrepair Claims\",\n                \"url\": \"https://www.sds-solicitors.com/contact-us/\",\n                \"availability\": \"https://schema.org/InStock\",\n                \"validFrom\": \"1997-08-01\",\n                \"eligibleRegion\": \"England\"\n            }\n        ],\n        \"availableChannel\": {\n            \"@type\": \"ServiceChannel\",\n            \"serviceUrl\": \"https://www.sds-solicitors.com/housing-disrepair-claims/\",\n            \"availableLanguage\": \"en\",\n            \"serviceLocation\": {\n                \"@type\": \"Place\",\n                \"name\": \"Sheldon Davidson Solicitors Office\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"@id\": \"https://www.sds-solicitors.com/#mainaddress\"\n                }\n            },\n            \"servicePhone\": {\n                \"@type\": \"ContactPoint\",\n                \"telephone\": \"01617963000\"\n            }\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}",
+    "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Product\",\n    \"name\": \"Legal Service & Advice\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"bestRating\": \"5\",\n        \"ratingValue\": \"4.8\",\n        \"worstRating\": \"1\",\n        \"reviewCount\": \"243\"\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h2",
+      "text": "Make a Housing Disrepair Claim"
+    },
+    {
+      "tag": "h1",
+      "text": "Housing Disrepair Claims - No Win No Fee Housing Solicitors"
+    },
+    {
+      "tag": "h2",
+      "text": "Am I eligible for a Housing Disrepair Claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "Why Choose No Win No Fee Housing Disrepair Claims?"
+    },
+    {
+      "tag": "h3",
+      "text": "Do you have a valid claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "Housing Disrepair Specialist"
+    },
+    {
+      "tag": "h3",
+      "text": "Your Home Will Be Repaired"
+    },
+    {
+      "tag": "h3",
+      "text": "Compensation Paid"
+    },
+    {
+      "tag": "h3",
+      "text": "No Win No Fee"
+    },
+    {
+      "tag": "h3",
+      "text": "SRA Regulated Solicitors"
+    },
+    {
+      "tag": "h2",
+      "text": "What can Housing Disrepair Claims achieve for tenants?"
+    },
+    {
+      "tag": "h3",
+      "text": "Compensation for Housing Disrepair"
+    },
+    {
+      "tag": "h3",
+      "text": "Court order to complete repairs"
+    },
+    {
+      "tag": "h2",
+      "text": "Understanding Housing Disrepair Claims"
+    },
+    {
+      "tag": "h3",
+      "text": "Referral Bonus"
+    },
+    {
+      "tag": "h2",
+      "text": "Common Issues in Housing Disrepair Claims"
+    },
+    {
+      "tag": "h3",
+      "text": "Mould & Damp"
+    },
+    {
+      "tag": "h3",
+      "text": "Electrical Faults"
+    },
+    {
+      "tag": "h3",
+      "text": "Vermin"
+    },
+    {
+      "tag": "h3",
+      "text": "Door & Windows"
+    },
+    {
+      "tag": "h3",
+      "text": "Boiler & Heating"
+    },
+    {
+      "tag": "h2",
+      "text": "The Process of Making a Housing Disrepair Claim"
+    },
+    {
+      "tag": "h3",
+      "text": "1. Document the Disrepair"
+    },
+    {
+      "tag": "h3",
+      "text": "2. Notify Your Landlord"
+    },
+    {
+      "tag": "h3",
+      "text": "3. Consult Housing Disrepair Solicitors"
+    },
+    {
+      "tag": "h3",
+      "text": "4. Independent Inspection"
+    },
+    {
+      "tag": "h3",
+      "text": "5. Pre-Action Protocol"
+    },
+    {
+      "tag": "h3",
+      "text": "6. Negotiation or Legal Action"
+    },
+    {
+      "tag": "h3",
+      "text": "7. Receive Compensation and Repairs"
+    },
+    {
+      "tag": "h2",
+      "text": "Get in Touch"
+    },
+    {
+      "tag": "h3",
+      "text": "Do you have a valid claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "£50 Referral Bonus"
+    },
+    {
+      "tag": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "tag": "h2",
+      "text": "What is a Housing Disrepair Claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "What Issues Qualify for a Housing Disrepair Claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "Do I Have to Give My Landlord Notice Before Taking Legal Action?"
+    },
+    {
+      "tag": "h2",
+      "text": "What Evidence Do I Need to Support My Housing Disrepair Claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "How Do I Start My Housing Disrepair Claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "Is There a Time Limit for Making a Housing Disrepair Claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "How Much Compensation Can I Get in a Housing Disrepair Claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "What is Included in Compensation for Housing Disrepair Claims?"
+    },
+    {
+      "tag": "h2",
+      "text": "Will Making a Housing Disrepair Claim Affect My Tenancy or Lead to Eviction?"
+    },
+    {
+      "tag": "h2",
+      "text": "Can I Make a Housing Disrepair Claim While I am Still Living in the Property?"
+    },
+    {
+      "tag": "h2",
+      "text": "What Are Housing Condition Claims And Could I Be Eligible To Make One?"
+    },
+    {
+      "tag": "h6",
+      "text": "Get Advice from a Housing Disrepair Professional"
+    }
+  ]
+}

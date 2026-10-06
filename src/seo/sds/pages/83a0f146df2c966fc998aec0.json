@@ -1,0 +1,211 @@
+{
+  "title": "Disrepair Rent Refunds & Living Condition Claims | SDS",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Our Housing Disrepair Solicitors offer nationwide No Win No Fee support, helping tenants claim compensation & rent refunds from landlords. Contact SDS Solicitors today"
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/housing-disrepair/"
+    }
+  ],
+  "structuredData": [
+    "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What is Classed as Housing Disrepair?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Housing disrepair is any issue in a rented property that makes it unsafe, uncomfortable, or unsuitable to live in. It goes beyond minor inconvenience and refers to problems that affect the health, safety, or daily life of the tenant.\\n<br><br>\\nExamples include damp and mould, leaks from roofs or pipes, broken heating systems, faulty wiring, pest infestations, damaged windows or doors, and structural defects such as cracked walls or collapsing ceilings. If the condition of your home puts you or your family at risk, it is classed as disrepair.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Who is Responsible for Repairing Housing Disrepair?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"The legal duty to repair usually falls on the landlord. Whether you rent from a council, housing association, or private landlord, they must maintain the structure and exterior of the property, such as the walls, roof, and windows. They are also responsible for essential services including heating, water, gas, sanitation, and electricity.\\n<br><br>\\nTenants are expected to look after the property on a day-to-day basis, but serious repairs and anything that affects safety or habitability are the landlord’s responsibility.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"How Quickly Should Landlords Carry Out Housing Repairs?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"There is no exact legal timeframe, but landlords must complete repairs within a “reasonable time.” What is reasonable depends on the urgency of the problem. Urgent issues such as no heating in winter, dangerous electrics, or a major water leak should be dealt with within days.\\n<br><br>\\nLess urgent problems, like cracked plaster or broken fixtures, may take longer, but landlords should not delay unnecessarily. If you are left waiting months for essential repairs, this is generally considered unreasonable.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What Should I Do if My Landlord Refuses to Fix Housing Disrepairs?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"If your landlord does not respond to your repair requests, you should first make sure your complaint is in writing and keep a record of all correspondence. Take photographs, videos, or written notes to show the condition of your home and the dates you reported the problem.\\n<br><br>\\nIf your landlord continues to ignore the issue, you can escalate the complaint through the council or seek legal advice. At that point, you may need legal support to enforce your rights and ensure the repairs are completed.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What is the Difference Between Housing Disrepair and Normal Wear and Tear?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Normal wear and tear refers to the everyday deterioration that occurs naturally as a result of living in a property, such as worn carpets, small scuffs on the walls, or minor fading of paintwork.\\n<br><br>\\nHousing disrepair, however, refers to more serious faults that affect safety, structure, or habitability. Examples include broken boilers, mould spreading across walls, water leaks, or crumbling brickwork. While tenants are expected to accept minor wear and tear, landlords are legally obliged to repair genuine disrepair.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Can My Landlord Charge Me for Housing Repairs?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"A landlord cannot charge you for repairs that are legally their responsibility. They must fix structural problems and maintain essential installations without passing the cost on to you.\\n<br><br>\\nThe only time you could be asked to pay is if the damage was caused by your actions, such as neglect, deliberate damage, or accidental breakages. For example, if you smash a window, you may have to cover the cost. But if the window frame has rotted due to age or poor maintenance, it is your landlord’s duty to repair it.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What if the Housing Repair Work Itself Causes Disruption?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Repairs must be carried out with proper notice and at reasonable times to minimise disruption. However, major works may sometimes affect how you use your home, for example if a bathroom or kitchen is out of action. In such cases, your landlord should take reasonable steps to reduce the impact, such as providing temporary facilities or alternative arrangements. If the disruption is extensive, they may even need to consider offering temporary accommodation until the work is completed.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Do I Have to Let My Landlord into the Property to Carry Out Housing Repairs?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Yes. As a tenant, you must allow your landlord or their contractors reasonable access to carry out necessary repairs. Landlords must give at least 24 hours’ written notice (except in emergencies) and visits must take place at sensible times. While you do have a right to privacy in your home, refusing access could delay repairs and affect your rights, so it is best to cooperate as long as reasonable notice has been given.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What are Examples of Structural Housing Disrepair?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Structural disrepair includes problems with the fundamental parts of the building that ensure it is safe and secure. Common examples are cracked or unstable brickwork, leaking or damaged roofs, rotten or broken window frames, unsafe staircases, collapsing ceilings, or issues with foundations. These types of problems are always the landlord’s responsibility, as they affect the stability, safety, and long-term condition of the property.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What if the Housing Disrepair Makes Part of my Home Unsafe to Use?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"If disrepair makes part of your home unsafe or unusable, your landlord has a duty to act quickly. For example, if faulty wiring makes your kitchen dangerous, or leaks mean you cannot use your bathroom, these repairs must be treated as urgent. While the work is being carried out, your landlord should also provide temporary solutions where possible. Leaving you without safe access to essential facilities is unacceptable.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Does Housing Disrepair Affect Children More Seriously?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Yes. Children are particularly vulnerable to the effects of poor housing. Damp and mould can worsen asthma or trigger respiratory illnesses, cold and draughty homes can harm development, and infestations can pose health risks. Because of this, landlords are expected to take particular care when families with children are affected by disrepair. Safe, healthy housing is essential for a child’s wellbeing.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair/'>Learn more</a>\\n<br>\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Do Landlords Have to Comply with Housing Fitness Standards?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Yes. Under the Homes (Fitness for Human Habitation) Act 2018, landlords must ensure that their properties are fit to live in from the start of the tenancy and throughout its duration. This means a property must be free from serious damp, have adequate ventilation and heating, and be structurally sound and secure. If your home falls below these standards, your landlord is failing in their legal obligations.\\n<br>\\n<a href='https://www.sds-solicitors.com/housing-disrepair/'>Learn more</a>\\n<br>\"\n      }\n    }\n  ]\n}\n",
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/housing-disrepair/#webpage\",\n    \"name\": \"Disrepair Rent Refunds & Living Condition Claims | SDS\",\n    \"description\": \"Our Housing Disrepair Solicitors offer nationwide No Win No Fee support, helping tenants claim compensation & rent refunds from landlords. Contact SDS Solicitors today\",\n    \"url\": \"https://www.sds-solicitors.com/housing-disrepair/\",\n    \"headline\": \"Housing Disrepair Claims\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"author\": {\n        \"@type\": \"Person\",\n        \"@id\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/#person\",\n        \"name\": \"Sheldon Davidson\",\n        \"url\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/\"\n    },\n    \"mainEntity\": {\n        \"@type\": \"Service\",\n        \"@id\": \"https://www.sds-solicitors.com/housing-disrepair/#service\",\n        \"serviceType\": \"Housing Disrepair Claims\",\n        \"description\": \"Our Housing Disrepair Solicitors offer nationwide No Win No Fee support, helping tenants claim compensation & rent refunds from landlords. Contact SDS Solicitors today\",\n        \"name\": \"Housing Disrepair Claims\",\n        \"provider\": {\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\"\n        },\n        \"areaServed\": {\n            \"@type\": \"Place\",\n            \"name\": \"England\"\n        },\n        \"serviceOutput\": \"Legal Support\",\n        \"offers\": [\n            {\n                \"@type\": \"Offer\",\n                \"name\": \"No Win No Fee Disrepair Types\",\n                \"url\": \"https://www.sds-solicitors.com/contact-us/\",\n                \"availability\": \"https://schema.org/InStock\",\n                \"validFrom\": \"1997-08-01\",\n                \"eligibleRegion\": \"England\"\n            }\n        ],\n        \"availableChannel\": {\n            \"@type\": \"ServiceChannel\",\n            \"serviceUrl\": \"https://www.sds-solicitors.com/housing-disrepair/\",\n            \"availableLanguage\": \"en\",\n            \"serviceLocation\": {\n                \"@type\": \"Place\",\n                \"name\": \"Sheldon Davidson Solicitors Office\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"@id\": \"https://www.sds-solicitors.com/#mainaddress\"\n                }\n            },\n            \"servicePhone\": {\n                \"@type\": \"ContactPoint\",\n                \"telephone\": \"01617963000\"\n            }\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}",
+    "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Product\",\n    \"name\": \"Legal Service & Advice\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"bestRating\": \"5\",\n        \"ratingValue\": \"4.8\",\n        \"worstRating\": \"1\",\n        \"reviewCount\": \"243\"\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Disrepair Rent Refunds"
+    },
+    {
+      "tag": "h2",
+      "text": "Are you Living with Housing Disrepair?"
+    },
+    {
+      "tag": "h3",
+      "text": "Check if you have valid claim..."
+    },
+    {
+      "tag": "h3",
+      "text": "Your Home Will Be Repaired"
+    },
+    {
+      "tag": "h3",
+      "text": "Compensation Paid"
+    },
+    {
+      "tag": "h3",
+      "text": "No Win No Fee"
+    },
+    {
+      "tag": "h3",
+      "text": "SRA Regulated Solicitors"
+    },
+    {
+      "tag": "h2",
+      "text": "We’ll Get the Repairs Done..."
+    },
+    {
+      "tag": "h2",
+      "text": "...and Compensation Paid Out"
+    },
+    {
+      "tag": "h2",
+      "text": "Types of Disrepair You Can Claim For"
+    },
+    {
+      "tag": "h3",
+      "text": "Defective Brickwork"
+    },
+    {
+      "tag": "h3",
+      "text": "Broken Roofing"
+    },
+    {
+      "tag": "h3",
+      "text": "Damp & Mold"
+    },
+    {
+      "tag": "h2",
+      "text": "Our Expert Housing Disrepair Team"
+    },
+    {
+      "tag": "h2",
+      "text": "How Does the Claims Process Work?"
+    },
+    {
+      "tag": "h3",
+      "text": "Eligibility Check"
+    },
+    {
+      "tag": "h3",
+      "text": "Initial Consultation"
+    },
+    {
+      "tag": "h3",
+      "text": "Expert Surveyor"
+    },
+    {
+      "tag": "h3",
+      "text": "Repairs & Compensation"
+    },
+    {
+      "tag": "h2",
+      "text": "Our No Win No Fee Promise"
+    },
+    {
+      "tag": "h2",
+      "text": "Our Specialist Housing Disrepair Team are Here to Help"
+    },
+    {
+      "tag": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "tag": "h2",
+      "text": "What is Classed as Housing Disrepair?"
+    },
+    {
+      "tag": "h2",
+      "text": "Who is Responsible for Repairing Housing Disrepair?"
+    },
+    {
+      "tag": "h2",
+      "text": "How Quickly Should Landlords Carry Out Housing Repairs?"
+    },
+    {
+      "tag": "h2",
+      "text": "What Should I Do if My Landlord Refuses to Fix Housing Disrepairs?"
+    },
+    {
+      "tag": "h2",
+      "text": "What is the Difference Between Housing Disrepair and Normal Wear and Tear?"
+    },
+    {
+      "tag": "h2",
+      "text": "Can My Landlord Charge Me for Housing Repairs?"
+    },
+    {
+      "tag": "h2",
+      "text": "What if the Housing Repair Work Itself Causes Disruption?"
+    },
+    {
+      "tag": "h2",
+      "text": "Do I Have to Let My Landlord into the Property to Carry Out Housing Repairs?"
+    },
+    {
+      "tag": "h2",
+      "text": "What are Examples of Structural Housing Disrepair?"
+    },
+    {
+      "tag": "h2",
+      "text": "What if the Housing Disrepair Makes Part of my Home Unsafe to Use?"
+    },
+    {
+      "tag": "h2",
+      "text": "Does Housing Disrepair Affect Children More Seriously?"
+    },
+    {
+      "tag": "h2",
+      "text": "Do Landlords Have to Comply with Housing Fitness Standards?"
+    },
+    {
+      "tag": "h2",
+      "text": "Referral Bonus!"
+    },
+    {
+      "tag": "h6",
+      "text": "Get Advice from a Housing Disrepair Professional"
+    }
+  ]
+}

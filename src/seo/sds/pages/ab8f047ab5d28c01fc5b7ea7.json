@@ -1,0 +1,133 @@
+{
+  "title": "How Long Does a Housing Disrepair Claim Take? | SDS Blog",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Find out how long a housing disrepair claim takes, key protocol stages, and what factors can speed up or delay your compensation and repairs."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/about-us/news/how-long-does-housing-disrepair-claim-take/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/about-us/news/how-long-does-housing-disrepair-claim-take/#webpage\",\n    \"url\": \"https://www.sds-solicitors.com/about-us/news/how-long-does-housing-disrepair-claim-take/\",\n    \"name\": \"How Long Does a Housing Disrepair Claim Take? | SDS Blog\",\n    \"description\": \"Find out how long a housing disrepair claim takes, key protocol stages, and what factors can speed up or delay your compensation and repairs.\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"mainEntity\": {\n        \"@type\": \"Article\",\n        \"@id\": \"https://www.sds-solicitors.com/about-us/news/how-long-does-housing-disrepair-claim-take/#article\",\n        \"headline\": \"How Long Does a Housing Disrepair Claim Take?\",\n        \"alternativeHeadline\": \"Why Can One Housing Disrepair Claim Take Longer Than Another?\",\n        \"articleSection\": \"Blog\",\n        \"description\": \"Find out how long a housing disrepair claim takes, key protocol stages, and what factors can speed up or delay your compensation and repairs.\",\n        \"url\": \"https://www.sds-solicitors.com/about-us/news/how-long-does-housing-disrepair-claim-take/\",\n        \"image\": {\n            \"@type\": \"ImageObject\"\n        },\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        },\n        \"datePublished\": \"2026-08-11\",\n        \"dateModified\": \"2026-08-11\",\n        \"isAccessibleForFree\": true,\n        \"mentions\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "How Long Does a Housing Disrepair Claim Take?"
+    },
+    {
+      "tag": "h3",
+      "text": "Key Timeline Overview at a Glance"
+    },
+    {
+      "tag": "h2",
+      "text": "Why Can One Housing Disrepair Claim Take Longer Than Another?"
+    },
+    {
+      "tag": "h2",
+      "text": "What Happens During a Housing Disrepair Claim?"
+    },
+    {
+      "tag": "h3",
+      "text": "Step 1: Checking the Claim and Gathering Evidence"
+    },
+    {
+      "tag": "h3",
+      "text": "Step 2: Sending the Letter of Claim"
+    },
+    {
+      "tag": "h3",
+      "text": "Step 3: Surveyor Inspection and Expert Evidence"
+    },
+    {
+      "tag": "h3",
+      "text": "Step 4: Agreeing Repairs and Compensation"
+    },
+    {
+      "tag": "h3",
+      "text": "Step 5: What Happens If the Landlord Does Not Cooperate?"
+    },
+    {
+      "tag": "h2",
+      "text": "Will I Have to Wait Until the Claim Ends for Repairs?"
+    },
+    {
+      "tag": "h3",
+      "text": "Urgent Protections Under Awaab's Law for Social Housing Tenants"
+    },
+    {
+      "tag": "h2",
+      "text": "How SDS Solicitors Can Help Keep Your Claim Moving"
+    },
+    {
+      "tag": "h2",
+      "text": "Do Housing Disrepair Claims Always Go to Court?"
+    },
+    {
+      "tag": "h2",
+      "text": "How Much Does It Cost to Make a Housing Disrepair Claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "How Long Do I Have to Start a Housing Disrepair Claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "Speak to Our Housing Disrepair Solicitors"
+    },
+    {
+      "tag": "h5",
+      "text": "News by topic:"
+    }
+  ]
+}

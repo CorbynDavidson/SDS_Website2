@@ -1,0 +1,97 @@
+{
+  "title": "£8,000 Secured for Tenant After Severe Water Damage | Case Study",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "SDS Solicitors helped a Leeds tenant recover £8,000 after water penetration and poor weatherproofing caused widespread internal damp, mould, and distress."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/#webpage\",\n    \"url\": \"https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/\",\n    \"name\": \"£8,000 Secured for Tenant After Severe Water Damage | Case Study\",\n    \"description\": \"SDS Solicitors helped a Leeds tenant recover £8,000 after water penetration and poor weatherproofing caused widespread internal damp, mould, and distress.\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"mainEntity\": {\n        \"@type\": \"Article\",\n        \"@id\": \"https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/#article\",\n        \"headline\": \"£8,000 Compensation for Tenant After Water Penetration Caused Extensive Internal Damage\",\n        \"alternativeHeadline\": \"£8,000 Secured for Tenant After Severe Water Damage\",\n        \"articleSection\": \"Case Study\",\n        \"description\": \"SDS Solicitors helped a Leeds tenant recover £8,000 after water penetration and poor weatherproofing caused widespread internal damp, mould, and distress.\",\n        \"url\": \"https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/\",\n        \"image\": {\n            \"@type\": \"ImageObject\"\n        },\n        \"author\": {\n            \"@type\": \"Person\",\n            \"@id\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/#person\",\n            \"name\": \"Sheldon Davidson\",\n            \"url\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/\"\n        },\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        },\n        \"datePublished\": \"2026-02-02\",\n        \"dateModified\": \"2026-06-11\",\n        \"isAccessibleForFree\": true,\n        \"about\": [\n            [\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Damp & Mould\",\n                    \"sameAs\": \"https://en.wikipedia.org/wiki/Damp\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Water Damage\",\n                    \"sameAs\": \"https://en.wikipedia.org/wiki/Water_damage\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Housing Disrepair Claims\",\n                    \"sameAs\": \"https://www.gov.uk/government/calls-for-evidence/housing-disrepair-claims/housing-disrepair-claims\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Housing Act 2004\",\n                    \"url\": \"https://www.legislation.gov.uk/ukpga/2004/34/contents\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Landlord and Tenant Act 1985\",\n                    \"url\": \"https://www.legislation.gov.uk/ukpga/1985/70\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Homes (Fitness for Human Habitation) Act 2018\",\n                    \"url\": \"https://www.legislation.gov.uk/ukpga/2018/34\"\n                }\n            ]\n        ],\n        \"mentions\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "£8,000 Compensation for Tenant After Water Penetration Caused Extensive Internal Damage"
+    },
+    {
+      "tag": "h2",
+      "text": "Condition of the Property and Main Disrepair Issues"
+    },
+    {
+      "tag": "h2",
+      "text": "Impact on the Tenant’s Life"
+    },
+    {
+      "tag": "h2",
+      "text": "How SDS Solicitors Supported the Client"
+    },
+    {
+      "tag": "h2",
+      "text": "Outcome and Reflection"
+    },
+    {
+      "tag": "h2",
+      "text": "Fee Earner’s Comment"
+    },
+    {
+      "tag": "h2",
+      "text": "Speak to Our Housing Disrepair Solicitors"
+    },
+    {
+      "tag": "h5",
+      "text": "Case Studies by Claim Type"
+    }
+  ]
+}

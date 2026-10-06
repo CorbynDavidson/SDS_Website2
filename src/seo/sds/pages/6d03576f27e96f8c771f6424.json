@@ -1,0 +1,178 @@
+{
+  "title": "Landlord Not Meeting Obligations on Living Condtions?",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Understand Tenant Rights and Landlord Obligations on Housing Conditions. Protect your rights and ensure your landlord meets their legal responsibilities."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/housing-disrepair-claims/tenant-rights-landlord-obligations/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/housing-disrepair-claims/tenant-rights-landlord-obligations/#webpage\",\n    \"name\": \"Landlord Not Meeting Obligations on Living Condtions?\",\n    \"description\": \"Understand Tenant Rights and Landlord Obligations on Housing Conditions. Protect your rights and ensure your landlord meets their legal responsibilities.\",\n    \"url\": \"https://www.sds-solicitors.com/housing-disrepair-claims/tenant-rights-landlord-obligations/\",\n    \"headline\": \"Tenant Rights & Landlord Compensation to Tenant\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"author\": {\n        \"@type\": \"Person\",\n        \"@id\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/#person\",\n        \"name\": \"Sheldon Davidson\",\n        \"url\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/\"\n    },\n    \"mainEntity\": {\n        \"@type\": \"Service\",\n        \"@id\": \"https://www.sds-solicitors.com/housing-disrepair-claims/tenant-rights-landlord-obligations/#service\",\n        \"serviceType\": \"Tenant Rights & Landlord Compensation to Tenant\",\n        \"description\": \"Understand Tenant Rights and Landlord Obligations on Housing Conditions. Protect your rights and ensure your landlord meets their legal responsibilities.\",\n        \"name\": \"Tenant Rights & Landlord Compensation to Tenant\",\n        \"provider\": {\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\"\n        },\n        \"areaServed\": {\n            \"@type\": \"Place\",\n            \"name\": \"England\"\n        },\n        \"serviceOutput\": \"Legal Support\",\n        \"offers\": [\n            {\n                \"@type\": \"Offer\",\n                \"name\": \"Legal Support For Tenant Rights & Landlord Obligations\",\n                \"url\": \"https://www.sds-solicitors.com/contact-us/\",\n                \"availability\": \"https://schema.org/InStock\",\n                \"validFrom\": \"1997-08-01\",\n                \"eligibleRegion\": \"England\"\n            }\n        ],\n        \"availableChannel\": {\n            \"@type\": \"ServiceChannel\",\n            \"serviceUrl\": \"https://www.sds-solicitors.com/housing-disrepair-claims/tenant-rights-landlord-obligations/\",\n            \"availableLanguage\": \"en\",\n            \"serviceLocation\": {\n                \"@type\": \"Place\",\n                \"name\": \"Sheldon Davidson Solicitors Office\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"@id\": \"https://www.sds-solicitors.com/#mainaddress\"\n                }\n            },\n            \"servicePhone\": {\n                \"@type\": \"ContactPoint\",\n                \"telephone\": \"01617963000\"\n            }\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}",
+    "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Product\",\n    \"name\": \"Legal Service & Advice\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"bestRating\": \"5\",\n        \"ratingValue\": \"4.8\",\n        \"worstRating\": \"1\",\n        \"reviewCount\": \"243\"\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h2",
+      "text": "Tenant Rights on Housing Conditions"
+    },
+    {
+      "tag": "h1",
+      "text": "Tenant Rights & Landlord Compensation to Tenant"
+    },
+    {
+      "tag": "h2",
+      "text": "Landlord Repair Obligations"
+    },
+    {
+      "tag": "h2",
+      "text": "Tenant Responsibility for Repairs"
+    },
+    {
+      "tag": "h3",
+      "text": "Do you have a valid claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "Housing Disrepair Specialist"
+    },
+    {
+      "tag": "h3",
+      "text": "Your Home Will Be Repaired"
+    },
+    {
+      "tag": "h3",
+      "text": "Compensation Paid"
+    },
+    {
+      "tag": "h3",
+      "text": "No Win No Fee"
+    },
+    {
+      "tag": "h3",
+      "text": "SRA Regulated Solicitors"
+    },
+    {
+      "tag": "h2",
+      "text": "What if the landlord refuses to do repairs?"
+    },
+    {
+      "tag": "h2",
+      "text": "How much compensation can I get for Housing Disrepair?"
+    },
+    {
+      "tag": "h3",
+      "text": "Referral Bonus"
+    },
+    {
+      "tag": "h2",
+      "text": "Common Disrepairs in Tenants' Homes"
+    },
+    {
+      "tag": "h3",
+      "text": "Mould & Damp"
+    },
+    {
+      "tag": "h3",
+      "text": "Electrical Faults"
+    },
+    {
+      "tag": "h3",
+      "text": "Vermin"
+    },
+    {
+      "tag": "h3",
+      "text": "Door & Windows"
+    },
+    {
+      "tag": "h3",
+      "text": "Boiler & Heating"
+    },
+    {
+      "tag": "h2",
+      "text": "How SDS Solicitors Can Help"
+    },
+    {
+      "tag": "h2",
+      "text": "Get in Touch"
+    },
+    {
+      "tag": "h3",
+      "text": "Do you have a valid claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "£50 Referral Bonus"
+    },
+    {
+      "tag": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "tag": "h2",
+      "text": "What should I do if my landlord ignores my repair request?"
+    },
+    {
+      "tag": "h2",
+      "text": "Can I make a claim against a landlord if I’m in rent arrears?"
+    },
+    {
+      "tag": "h2",
+      "text": "How much does it cost to claim against a landlord?"
+    },
+    {
+      "tag": "h6",
+      "text": "Get Advice from a Housing Disrepair Professional"
+    }
+  ]
+}

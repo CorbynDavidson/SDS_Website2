@@ -1,0 +1,73 @@
+{
+  "title": "Getting Muddy for Charity :: Sheldon Davidson Solicitors",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "SDS Solicitors news: Getting Muddy for Charity Speak to our team today"
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/about-us/news/getting-muddy-charity/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/about-us/news/getting-muddy-charity/#webpage\",\n    \"url\": \"https://www.sds-solicitors.com/about-us/news/getting-muddy-charity/\",\n    \"name\": \"Getting Muddy for Charity\",\n    \"description\": \"All across the UK hundreds of thousands of women have been showing cancer that hell hath no fury at the Pretty Muddy Race for Life. Amongst those women were a few of our very own team members.\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"mainEntity\": {\n        \"@type\": \"Article\",\n        \"@id\": \"https://www.sds-solicitors.com/about-us/news/getting-muddy-charity/#article\",\n        \"headline\": \"Getting Muddy for Charity\",\n        \"alternativeHeadline\": \"Getting Muddy for Charity\",\n        \"articleSection\": \"Blog\",\n        \"description\": \"All across the UK hundreds of thousands of women have been showing cancer that hell hath no fury at the Pretty Muddy Race for Life. Amongst those women were a few of our very own team members.\",\n        \"url\": \"https://www.sds-solicitors.com/about-us/news/getting-muddy-charity/\",\n        \"image\": {\n            \"@type\": \"ImageObject\"\n        },\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        },\n        \"datePublished\": \"2015-08-17\",\n        \"dateModified\": \"2026-07-20\",\n        \"isAccessibleForFree\": true,\n        \"mentions\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Getting Muddy for Charity"
+    },
+    {
+      "tag": "h5",
+      "text": "News by topic:"
+    }
+  ]
+}

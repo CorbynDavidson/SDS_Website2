@@ -1,0 +1,81 @@
+{
+  "title": "Why Sheldon Davidson Solicitors is different :: Sheldon Davidson Solicitors",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "SDS Solicitors news: Why Sheldon Davidson Solicitors is different Speak to our team today"
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/about-us/news/why-sheldon-davidson-solicitors-different/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/about-us/news/why-sheldon-davidson-solicitors-different/#webpage\",\n    \"url\": \"https://www.sds-solicitors.com/about-us/news/why-sheldon-davidson-solicitors-different/\",\n    \"name\": \"Why Sheldon Davidson Solicitors is different\",\n    \"description\": \"A firm of personal injury solicitors in Manchester is standing out from the crowd by providing a service with a difference, exemplified by their maxim “Proud to be Independent”.\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"mainEntity\": {\n        \"@type\": \"Article\",\n        \"@id\": \"https://www.sds-solicitors.com/about-us/news/why-sheldon-davidson-solicitors-different/#article\",\n        \"headline\": \"Why Sheldon Davidson Solicitors is different\",\n        \"alternativeHeadline\": \"Sheldon Davidson Solicitors offers a housing disrepair claims service with a difference\",\n        \"articleSection\": \"Blog\",\n        \"description\": \"A firm of personal injury solicitors in Manchester is standing out from the crowd by providing a service with a difference, exemplified by their maxim “Proud to be Independent”.\",\n        \"url\": \"https://www.sds-solicitors.com/about-us/news/why-sheldon-davidson-solicitors-different/\",\n        \"image\": {\n            \"@type\": \"ImageObject\"\n        },\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        },\n        \"datePublished\": \"2012-08-16\",\n        \"dateModified\": \"2021-02-19\",\n        \"isAccessibleForFree\": true,\n        \"mentions\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h2",
+      "text": "News"
+    },
+    {
+      "tag": "h1",
+      "text": "Why Sheldon Davidson Solicitors is different"
+    },
+    {
+      "tag": "h2",
+      "text": "Sheldon Davidson Solicitors offers a housing disrepair claims service with a difference"
+    },
+    {
+      "tag": "h5",
+      "text": "News by topic:"
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "title": "Kitchen Disrepair Claims | No Win No Fee | SDS",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Start your kitchen disrepair claim with SDS Solicitors today. Our experts offer No Win No Fee agreements to help you get the compensation you deserve."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/#webpage\",\n    \"name\": \"Kitchen Disrepair Claims | No Win No Fee | SDS\",\n    \"description\": \"Start your kitchen disrepair claim with SDS Solicitors today. Our experts offer No Win No Fee agreements to help you get the compensation you deserve.\",\n    \"url\": \"https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/\",\n    \"headline\": \"Kitchen Disrepair Claims  Against Landlord\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"author\": {\n        \"@type\": \"Person\",\n        \"@id\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/#person\",\n        \"name\": \"Sheldon Davidson\",\n        \"url\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/\"\n    },\n    \"mainEntity\": {\n        \"@type\": \"Service\",\n        \"@id\": \"https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/#service\",\n        \"serviceType\": \"Kitchen Disrepair Claims  Against Landlord\",\n        \"description\": \"Start your kitchen disrepair claim with SDS Solicitors today. Our experts offer No Win No Fee agreements to help you get the compensation you deserve.\",\n        \"name\": \"Kitchen Disrepair Claims  Against Landlord\",\n        \"provider\": {\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\"\n        },\n        \"areaServed\": {\n            \"@type\": \"Place\",\n            \"name\": \"England\"\n        },\n        \"serviceOutput\": \"Legal Support\",\n        \"offers\": [\n            {\n                \"@type\": \"Offer\",\n                \"name\": \"No Win No Fee Kitchen Disrepair Claims\",\n                \"url\": \"https://www.sds-solicitors.com/contact-us/\",\n                \"availability\": \"https://schema.org/InStock\",\n                \"validFrom\": \"1997-08-01\",\n                \"eligibleRegion\": \"England\"\n            }\n        ],\n        \"availableChannel\": {\n            \"@type\": \"ServiceChannel\",\n            \"serviceUrl\": \"https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/\",\n            \"availableLanguage\": \"en\",\n            \"serviceLocation\": {\n                \"@type\": \"Place\",\n                \"name\": \"Sheldon Davidson Solicitors Office\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"@id\": \"https://www.sds-solicitors.com/#mainaddress\"\n                }\n            },\n            \"servicePhone\": {\n                \"@type\": \"ContactPoint\",\n                \"telephone\": \"01617963000\"\n            }\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}",
+    "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Product\",\n    \"name\": \"Legal Service & Advice\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"bestRating\": \"5\",\n        \"ratingValue\": \"4.8\",\n        \"worstRating\": \"1\",\n        \"reviewCount\": \"243\"\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h2",
+      "text": "Kitchen Disrepair"
+    },
+    {
+      "tag": "h1",
+      "text": "Kitchen Disrepair Claims Against Landlord"
+    },
+    {
+      "tag": "h2",
+      "text": "When Kitchen Problems Become a Legal Repair Issue"
+    },
+    {
+      "tag": "h3",
+      "text": "Do you have a valid claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "Housing Disrepair Specialist"
+    },
+    {
+      "tag": "h3",
+      "text": "Your Home Will Be Repaired"
+    },
+    {
+      "tag": "h3",
+      "text": "Compensation Paid"
+    },
+    {
+      "tag": "h3",
+      "text": "No Win No Fee"
+    },
+    {
+      "tag": "h3",
+      "text": "SRA Regulated Solicitors"
+    },
+    {
+      "tag": "h2",
+      "text": "Landlord Duties for Kitchen Repairs and Safety"
+    },
+    {
+      "tag": "h2",
+      "text": "Claiming Compensation When Your Kitchen Is Unsafe or Unusable"
+    },
+    {
+      "tag": "h3",
+      "text": "Referral Bonus"
+    },
+    {
+      "tag": "h2",
+      "text": "Related Case Studies"
+    },
+    {
+      "tag": "h3",
+      "text": ""
+    },
+    {
+      "tag": "h3",
+      "text": ""
+    },
+    {
+      "tag": "h3",
+      "text": ""
+    },
+    {
+      "tag": "h2",
+      "text": "Types of Issues Relating to Kitchen Disrepair"
+    },
+    {
+      "tag": "h3",
+      "text": "Mould & Damp"
+    },
+    {
+      "tag": "h3",
+      "text": "Water Damage"
+    },
+    {
+      "tag": "h3",
+      "text": "Insects"
+    },
+    {
+      "tag": "h2",
+      "text": "How SDS Can Help with a Kitchen Disrepair Claim"
+    },
+    {
+      "tag": "h2",
+      "text": "Get in Touch"
+    },
+    {
+      "tag": "h3",
+      "text": "Do you have a valid claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "£50 Referral Bonus"
+    },
+    {
+      "tag": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "tag": "h2",
+      "text": "What is classed as kitchen disrepair?"
+    },
+    {
+      "tag": "h2",
+      "text": "Is my landlord responsible for kitchen leaks?"
+    },
+    {
+      "tag": "h2",
+      "text": "Can I claim for faulty kitchen electrics?"
+    },
+    {
+      "tag": "h2",
+      "text": "How much compensation can I receive for kitchen disrepair?"
+    },
+    {
+      "tag": "h2",
+      "text": "What evidence can support a kitchen disrepair claim?"
+    },
+    {
+      "tag": "h2",
+      "text": "How long does a landlord have to fix a broken kitchen?"
+    },
+    {
+      "tag": "h2",
+      "text": "Can I claim if I cannot use my kitchen?"
+    },
+    {
+      "tag": "h6",
+      "text": "Get Advice from a Housing Disrepair Professional"
+    }
+  ]
+}

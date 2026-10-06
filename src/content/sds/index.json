@@ -1,0 +1,2966 @@
+{
+  "sourceCompletedAt": "2026-10-06T00:09:24.566076+00:00",
+  "sourceOrigin": "https://www.sds-solicitors.com",
+  "pages": [
+    {
+      "path": "/",
+      "sourceUrl": "https://www.sds-solicitors.com/",
+      "finalUrl": "https://www.sds-solicitors.com/",
+      "sourceSha256": "7c27960879121191cfb91ffebfb53756e093c5b55f8bf799ffa448386ce6964f",
+      "contentFile": "src/content/sds/pages/232eb5bc4722f30c2a31ee42.html",
+      "seoFile": "src/seo/sds/pages/232eb5bc4722f30c2a31ee42.json",
+      "originalTextSha256": "372a492ff31f03f4910fbbbc23bd8757f09da8b8b37a8f8fffe064b67a404261",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/",
+      "sourceSha256": "fe0ddfaee01a2efd43dfc7356212cf341e0320aa4b67136068eb2867b9e7fce6",
+      "contentFile": "src/content/sds/pages/139d92467f16fefa9b1116bf.html",
+      "seoFile": "src/seo/sds/pages/139d92467f16fefa9b1116bf.json",
+      "originalTextSha256": "ad2b77967df09320446adb1096dc3f30b978751990814865b5c6ebf5859272b7",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/careers/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/careers/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/careers/",
+      "sourceSha256": "12738a8ff3f753235e54d195aa8c082e1f37340adfeea0084672437b3f16972e",
+      "contentFile": "src/content/sds/pages/b886bea32aac495fc34988f0.html",
+      "seoFile": "src/seo/sds/pages/b886bea32aac495fc34988f0.json",
+      "originalTextSha256": "b24dc9b0fde02cd2a2f6d14afbc186ff674dd5610db56af97ef84ca16c543e1e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/",
+      "sourceSha256": "ea011b8af9324b17b0baf2f9e09767c2dfba31aaf27f87a6d97e9c2817eeeca2",
+      "contentFile": "src/content/sds/pages/e30803c6b730769c9e838ab1.html",
+      "seoFile": "src/seo/sds/pages/e30803c6b730769c9e838ab1.json",
+      "originalTextSha256": "82f978e70755ac676778b682151cc8655e0e07095b121c8095326dd4e9457735",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/compensation-for-tenant-after-leaks-and-guttering-led-to-severe-damp-and-mould/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-leaks-and-guttering-led-to-severe-damp-and-mould/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-leaks-and-guttering-led-to-severe-damp-and-mould/",
+      "sourceSha256": "51ff554ef29205c098c223700342fa7c2dd5b2e71e6dd38d015762a33dde8157",
+      "contentFile": "src/content/sds/pages/b91316e7e8b79817e32166d8.html",
+      "seoFile": "src/seo/sds/pages/b91316e7e8b79817e32166d8.json",
+      "originalTextSha256": "4ef18b776218511e54865a25e7673a43958ebffa2d218d91f03ce88270af0b8d",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/compensation-for-tenant-after-roof-leak-and-widespread-damp/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-roof-leak-and-widespread-damp/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-roof-leak-and-widespread-damp/",
+      "sourceSha256": "a6665af8d4c2c5da5e3950b0f0d1b58b413434ec1a74f0839acda70aad8b2204",
+      "contentFile": "src/content/sds/pages/ccb5fbbbcf3b48ca34aa1fa0.html",
+      "seoFile": "src/seo/sds/pages/ccb5fbbbcf3b48ca34aa1fa0.json",
+      "originalTextSha256": "2bd64bc3b71b507a01bfc32d79d6f617539933a668df9f91027e90d17d9b541b",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/",
+      "sourceSha256": "f2333e9a89a6e4e9f38c8a3cae7dc0b992ab2ebaf3887b7583de5917252075a7",
+      "contentFile": "src/content/sds/pages/e8a6a06c0ca26cce3ae9949c.html",
+      "seoFile": "src/seo/sds/pages/e8a6a06c0ca26cce3ae9949c.json",
+      "originalTextSha256": "41343f8b34def0faf90ff7e5a5b9ff13f6d6f4af70e817afb0f4c64ef574f792",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/compensation-recovered-following-persistent-leak-and-worsening-damp/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-recovered-following-persistent-leak-and-worsening-damp/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-recovered-following-persistent-leak-and-worsening-damp/",
+      "sourceSha256": "6b9fdc20a0b28f83d676a3fabc37157ad61467e4289d98d8aeaf89c7a3952338",
+      "contentFile": "src/content/sds/pages/dfe6ea1063d9e4bd12bf22f9.html",
+      "seoFile": "src/seo/sds/pages/dfe6ea1063d9e4bd12bf22f9.json",
+      "originalTextSha256": "83f5c50cedf340043fa8c57654e3195a7297e6b8ee66344b802c7608bf81e300",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/damp-mould-and-unsafe-electrics-ignored-until-legal-action-was-taken/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/damp-mould-and-unsafe-electrics-ignored-until-legal-action-was-taken/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/damp-mould-and-unsafe-electrics-ignored-until-legal-action-was-taken/",
+      "sourceSha256": "d9046f27206ca021fdbe21224c3e46f99631d153fea8f46368a2c9ca9ec3c60d",
+      "contentFile": "src/content/sds/pages/e045f70d9d4b9c67d49059cd.html",
+      "seoFile": "src/seo/sds/pages/e045f70d9d4b9c67d49059cd.json",
+      "originalTextSha256": "76b3cbec3a22e419ff3c0f729f2477fab3a6c1949b7880dd5b4aedbb9355a4d0",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/elderly-tenant-wins-settlement-after-months-without-hot-water/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/elderly-tenant-wins-settlement-after-months-without-hot-water/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/elderly-tenant-wins-settlement-after-months-without-hot-water/",
+      "sourceSha256": "878c3eefa0a791b7bdfa8ce4b3611838022b52f99ddd5a58a307137edd7b7283",
+      "contentFile": "src/content/sds/pages/318910f381e5c0d2543eaf83.html",
+      "seoFile": "src/seo/sds/pages/318910f381e5c0d2543eaf83.json",
+      "originalTextSha256": "9ae403b102ab0a5d001020663687252da2d16e9fd71491028a7888bad8e529ff",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/family-wins-boiler-claim-after-years-of-missed-repairs-and-stress/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/family-wins-boiler-claim-after-years-of-missed-repairs-and-stress/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/family-wins-boiler-claim-after-years-of-missed-repairs-and-stress/",
+      "sourceSha256": "e0806dfb022dad055cc958a45b2b833cf88da1faa4f298dd8b142488e3da0736",
+      "contentFile": "src/content/sds/pages/5a96a9aeb8a6ea38d5137b45.html",
+      "seoFile": "src/seo/sds/pages/5a96a9aeb8a6ea38d5137b45.json",
+      "originalTextSha256": "e8ede859da0e5ee4b880e3e0b6e3b932004dfea4f2aa68b5331084118626667e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/multiple-defects-and-serious-damp-in-sheffield-home/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/multiple-defects-and-serious-damp-in-sheffield-home/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/multiple-defects-and-serious-damp-in-sheffield-home/",
+      "sourceSha256": "d4fedfc4c47de1a4946e9a2b57b1c61e173cf3f62acdf79ba46fa8ad3a9fa27d",
+      "contentFile": "src/content/sds/pages/9761dc0a0d2ea2ba6b296737.html",
+      "seoFile": "src/seo/sds/pages/9761dc0a0d2ea2ba6b296737.json",
+      "originalTextSha256": "444628082381053344377ac9bf87f60722164149904c9dff824a87456e824561",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/persistent-bathroom-leak-and-water-damage/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/persistent-bathroom-leak-and-water-damage/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/persistent-bathroom-leak-and-water-damage/",
+      "sourceSha256": "6a2c080350ce588cba5b3fd08fafa406802076a9984f16ed80288f416ba39287",
+      "contentFile": "src/content/sds/pages/f6557b7b7b7fc134a669c35c.html",
+      "seoFile": "src/seo/sds/pages/f6557b7b7b7fc134a669c35c.json",
+      "originalTextSha256": "1e7a1fa795daafe3adbd0e30149b5b903caab9da4da92303c7f81f2566cfeaf2",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/severe-flooring-defects-and-pest-infestation/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/severe-flooring-defects-and-pest-infestation/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/severe-flooring-defects-and-pest-infestation/",
+      "sourceSha256": "489ac59f07ed0ed5d8b3d48fd712108c9f88d5db42fd1b21ce3f11a81d643a5c",
+      "contentFile": "src/content/sds/pages/7a750cdd4ffa5c7bddc629e4.html",
+      "seoFile": "src/seo/sds/pages/7a750cdd4ffa5c7bddc629e4.json",
+      "originalTextSha256": "381f555851b9c2b5ffa4705beef1620b790e620db48d6bc2e729510718930573",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/severe-pest-infestation-and-lack-of-heating/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/severe-pest-infestation-and-lack-of-heating/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/severe-pest-infestation-and-lack-of-heating/",
+      "sourceSha256": "b0c288177e5a4ee3715f0cad55e4311c5ffebff5c154af3edd5eec989c6b871a",
+      "contentFile": "src/content/sds/pages/a36f76a0157da849f55725bb.html",
+      "seoFile": "src/seo/sds/pages/a36f76a0157da849f55725bb.json",
+      "originalTextSha256": "3d740d69ef134b2aeb16b2dfdb4ce50c62a655caea1c6c18bf0ae9af9728d61b",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/tenant-wins-settlement-after-unsafe-flat-damages-mental-health/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/tenant-wins-settlement-after-unsafe-flat-damages-mental-health/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/tenant-wins-settlement-after-unsafe-flat-damages-mental-health/",
+      "sourceSha256": "24e35108082bb2c3080474d5ceda625981b7cee118f751380c8d5fc2c901eeec",
+      "contentFile": "src/content/sds/pages/7ca579055973827fb7bd858d.html",
+      "seoFile": "src/seo/sds/pages/7ca579055973827fb7bd858d.json",
+      "originalTextSha256": "1c7510bf18116fb9a4b2d7537a8d6dde470b67b0fb7a402f08d704355aa6603b",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/tenant-with-children-wins-settlement-after-years-of-disrepair/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/tenant-with-children-wins-settlement-after-years-of-disrepair/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/tenant-with-children-wins-settlement-after-years-of-disrepair/",
+      "sourceSha256": "6c551c7ef87541d045ec11c8f2560d1e13c6b008744fce71c5090fd962f47dbb",
+      "contentFile": "src/content/sds/pages/b497ffcc904fea08a72a6e11.html",
+      "seoFile": "src/seo/sds/pages/b497ffcc904fea08a72a6e11.json",
+      "originalTextSha256": "955957a1dbe3571f40227dd2e5046504768b6aab7960c49f437a7b8ceebbdc4b",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/tenant-with-respiratory-illness-wins-mould-claim-after-years-of-neglect/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/tenant-with-respiratory-illness-wins-mould-claim-after-years-of-neglect/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/tenant-with-respiratory-illness-wins-mould-claim-after-years-of-neglect/",
+      "sourceSha256": "581a3bd0777f1d982ec5bfaa16b52a33a9bfedf4b0353e8cb4ed20a7cba41d42",
+      "contentFile": "src/content/sds/pages/afb659d2ec2e6352866dbb71.html",
+      "seoFile": "src/seo/sds/pages/afb659d2ec2e6352866dbb71.json",
+      "originalTextSha256": "b2e8416bbd7ea63084e02741a7b56b26f7045a94fc04cb15ecc37911705b276e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/vulnerable-tenant-wins-settlement-after-living-without-heating/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/vulnerable-tenant-wins-settlement-after-living-without-heating/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/vulnerable-tenant-wins-settlement-after-living-without-heating/",
+      "sourceSha256": "38e17909c29efb24042443b941099a6fb72fc0f6b70efef70dcf516180a9b22a",
+      "contentFile": "src/content/sds/pages/f20d0cad0f3f9cf4aff04334.html",
+      "seoFile": "src/seo/sds/pages/f20d0cad0f3f9cf4aff04334.json",
+      "originalTextSha256": "cfba07181c39256f50143dabac41ec12bfa19499bfc23e15ff0f1d70951be3ff",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/client-questionnaire/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/client-questionnaire/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/client-questionnaire/",
+      "sourceSha256": "167e5eab5c25c419ef87830d28f0748017046b405a3f7364ba7e6d4058fe4e6e",
+      "contentFile": "src/content/sds/pages/1ac4c395c66fa956479d8d75.html",
+      "seoFile": "src/seo/sds/pages/1ac4c395c66fa956479d8d75.json",
+      "originalTextSha256": "c6686f1eccb03047aba1c2454f5d4b6b6387c9d2bb9cd42500be89a77926e962",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/complaints/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/complaints/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/complaints/",
+      "sourceSha256": "f2c760c438868ba6df48b1c9033f8ca896e7808d9091dde5a4672705716bf6f1",
+      "contentFile": "src/content/sds/pages/13b4650cd199853ba349a180.html",
+      "seoFile": "src/seo/sds/pages/13b4650cd199853ba349a180.json",
+      "originalTextSha256": "61939aa6b4e08ddde7db6b0be3c63ab5558a54bc1f70e907261350113c8454e8",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/cookies/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/cookies/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/cookies/",
+      "sourceSha256": "9c07e598e25ed011f3d4b250d122165580b329945b708c73066f019cb02db805",
+      "contentFile": "src/content/sds/pages/2c895b771018f8e5ee605553.html",
+      "seoFile": "src/seo/sds/pages/2c895b771018f8e5ee605553.json",
+      "originalTextSha256": "9b51daf69c4ed2aaed9d30e25f38efc67876138488f3df3b5a1c65b03107b868",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "sourceSha256": "a1f9adab965be75d0f9589b06b4d425472c8085b9afe5e45b10bc33086b5cefd",
+      "contentFile": "src/content/sds/pages/6cf9d4361d19106517f4b4dc.html",
+      "seoFile": "src/seo/sds/pages/6cf9d4361d19106517f4b4dc.json",
+      "originalTextSha256": "05905ec5a940b634748ec22e893f4424b65652335ebbe7835ebe872061a1288f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/better-bake-macmillan/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/better-bake-macmillan/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/better-bake-macmillan/",
+      "sourceSha256": "954b4354ec3cb3bdfa61c22417c6c2e11ebdbab4939650ff5692610ad86aee0c",
+      "contentFile": "src/content/sds/pages/b1f3d8c2f5782e1aa66e47ec.html",
+      "seoFile": "src/seo/sds/pages/b1f3d8c2f5782e1aa66e47ec.json",
+      "originalTextSha256": "9dea1a9eff6cfa0bf7fb362a2408c515bf57c2a89e13be6b58a8dac41f72358e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/can-you-sue-your-landlord-unsafe-living-conditions/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/can-you-sue-your-landlord-unsafe-living-conditions/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/can-you-sue-your-landlord-unsafe-living-conditions/",
+      "sourceSha256": "71a53f1ca8e9ba8ba35d36f3fdf2e73e4c94bbbd01c088a5cba0c4fa2cef5726",
+      "contentFile": "src/content/sds/pages/dc4d850e92b860f52cc61845.html",
+      "seoFile": "src/seo/sds/pages/dc4d850e92b860f52cc61845.json",
+      "originalTextSha256": "d928da8894b781f734c8bb92373e1fa5417fdf2cc2cce30fe44e3b57f764f8bb",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/coffee-morning-success-sheldon-davidson-solicitors/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/coffee-morning-success-sheldon-davidson-solicitors/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/coffee-morning-success-sheldon-davidson-solicitors/",
+      "sourceSha256": "af2c239dcbae9f238899c8c5d5a7738f3127905081db2955698bf20a89de844c",
+      "contentFile": "src/content/sds/pages/5a472db7b8cac9c214baedf2.html",
+      "seoFile": "src/seo/sds/pages/5a472db7b8cac9c214baedf2.json",
+      "originalTextSha256": "63b645ed4ffab5e1e40917e1c3cf58d847df07617123edc162f2fe846ff6506d",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/damp-mould-and-heating-compensation-claims-how-much-could-you-claim/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/damp-mould-and-heating-compensation-claims-how-much-could-you-claim/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/damp-mould-and-heating-compensation-claims-how-much-could-you-claim/",
+      "sourceSha256": "84f8b800e38837e6a5b7c2731eb0ef8324fd7b566d6aafa77b14bc6321f2fc64",
+      "contentFile": "src/content/sds/pages/d406a38db7bb7308970da6a9.html",
+      "seoFile": "src/seo/sds/pages/d406a38db7bb7308970da6a9.json",
+      "originalTextSha256": "ad589847c7a43346a858f3238a780fdcc3bb90066f508950c2b3309a43f61e63",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/final-update-marathon/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/final-update-marathon/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/final-update-marathon/",
+      "sourceSha256": "46d04090a6257f4914fcad1e7919334d58724eb4a6f7bf971ac301fc947760d3",
+      "contentFile": "src/content/sds/pages/362746e590c4819daf5b57cc.html",
+      "seoFile": "src/seo/sds/pages/362746e590c4819daf5b57cc.json",
+      "originalTextSha256": "bd15ff92ed73486b5c767c914d6dc0579e76baeb24f1678f82ab8aa322065b25",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/getting-muddy-charity/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/getting-muddy-charity/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/getting-muddy-charity/",
+      "sourceSha256": "f55fcc82563c02b536cf85133c310be1df032723aaa35b81bf51ba5eccf532c7",
+      "contentFile": "src/content/sds/pages/81db162a00acaf9407207685.html",
+      "seoFile": "src/seo/sds/pages/81db162a00acaf9407207685.json",
+      "originalTextSha256": "a5664103624df59a51d11084c4c3e31ddbf0089e274f60d4c522109424eb1286",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/how-defend-against-landlord-making-false-damage-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/how-defend-against-landlord-making-false-damage-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/how-defend-against-landlord-making-false-damage-claims/",
+      "sourceSha256": "eb9cd7e4d07b28f34f84f22d7bf63eff0bf37fb52b9f3473cefe5e8ccadee012",
+      "contentFile": "src/content/sds/pages/9f808cd00c4cf91a7276e50e.html",
+      "seoFile": "src/seo/sds/pages/9f808cd00c4cf91a7276e50e.json",
+      "originalTextSha256": "e5c73be4f8d656babd152f1415eff2f6ee334266ca64e8d94258bacef4188880",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/how-long-can-landlord-leave-you-without-heat/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/how-long-can-landlord-leave-you-without-heat/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/how-long-can-landlord-leave-you-without-heat/",
+      "sourceSha256": "52b2918e1ab8735b42962876f51098611bda707566ab53ca22e7bdfe839a46f3",
+      "contentFile": "src/content/sds/pages/57329c542e31e2556a475065.html",
+      "seoFile": "src/seo/sds/pages/57329c542e31e2556a475065.json",
+      "originalTextSha256": "154e34943774ebc71a3e0ce872873c8a391d9418f5019af86e473f35efc3dcea",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/how-long-does-housing-disrepair-claim-take/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/how-long-does-housing-disrepair-claim-take/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/how-long-does-housing-disrepair-claim-take/",
+      "sourceSha256": "0f651b0ef10ea1e60450cae2cc70d6d535620a611a68ae830902893ddc2379f2",
+      "contentFile": "src/content/sds/pages/ab8f047ab5d28c01fc5b7ea7.html",
+      "seoFile": "src/seo/sds/pages/ab8f047ab5d28c01fc5b7ea7.json",
+      "originalTextSha256": "ac45bca1b47a0f76cdf993e4215de84e3ce11f88bf8976cde9bc5eef55c55a17",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/london-marathon/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/london-marathon/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/london-marathon/",
+      "sourceSha256": "1b0ad07e753803eba45c9ef23a5b87bc6b6ec7f4afe064897dd6cbf5efc97582",
+      "contentFile": "src/content/sds/pages/d8fe791c10c808712c1175ce.html",
+      "seoFile": "src/seo/sds/pages/d8fe791c10c808712c1175ce.json",
+      "originalTextSha256": "f1e45930f8a9da749ae399d86918ee6d8a55b46911e4e2820e6467f188d1457f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/olympic-torch/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/olympic-torch/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/olympic-torch/",
+      "sourceSha256": "a0c879412dc925d88d67c63210275b540f1d83886420630b183c6dc97df4d276",
+      "contentFile": "src/content/sds/pages/44681e84275cbd6fc08637b3.html",
+      "seoFile": "src/seo/sds/pages/44681e84275cbd6fc08637b3.json",
+      "originalTextSha256": "02901894fd55375fd345bcd833265a653bb264bbd0ee20b43a3c0dc6101c700f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/phase-1-of-the-renters-rights-act-2026/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/phase-1-of-the-renters-rights-act-2026/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/phase-1-of-the-renters-rights-act-2026/",
+      "sourceSha256": "d1f20ed4cb5222d374aa7499c4322dc675e8209285098dff2a2ded604311ab25",
+      "contentFile": "src/content/sds/pages/d5eb34198ac306c0ead321bb.html",
+      "seoFile": "src/seo/sds/pages/d5eb34198ac306c0ead321bb.json",
+      "originalTextSha256": "a291ac8aceadfdf73a75d1eb65dae62bf172c448a9bc12f90efa537cfd850955",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/social-housing-rent-increases-in-2026/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/social-housing-rent-increases-in-2026/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/social-housing-rent-increases-in-2026/",
+      "sourceSha256": "e5ba44ab7ce3756a17990474cc5421da06497eb3c650d88d50b3bc64f4c22ad2",
+      "contentFile": "src/content/sds/pages/9ece3c17774c39de9144e1aa.html",
+      "seoFile": "src/seo/sds/pages/9ece3c17774c39de9144e1aa.json",
+      "originalTextSha256": "a3e615f586ff5d35e73ca086da5218b0d1e94a6667058b1bac81750d206d1f60",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/spot-the-early-signs-of-housing-disrepair-before-it-gets-worse/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/spot-the-early-signs-of-housing-disrepair-before-it-gets-worse/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/spot-the-early-signs-of-housing-disrepair-before-it-gets-worse/",
+      "sourceSha256": "83342736e2dcce4f8bd8129e2afc385584d9a7c814b97fe40f5edabb4113cac9",
+      "contentFile": "src/content/sds/pages/d96bf75b8f14527c6f32a76b.html",
+      "seoFile": "src/seo/sds/pages/d96bf75b8f14527c6f32a76b.json",
+      "originalTextSha256": "d0bbbbadbbf62517ebaacc8c26413cba8cb5015dc1c229a0f2e1d7da2eee365c",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/",
+      "sourceSha256": "b1be04d1a7ee68acdb36cbc09be9f190ed3a02271e67ad1b91a257e652a1fad6",
+      "contentFile": "src/content/sds/pages/bfd9bd9846558cb8870bd24d.html",
+      "seoFile": "src/seo/sds/pages/bfd9bd9846558cb8870bd24d.json",
+      "originalTextSha256": "0c36e2f03a0ca35f265f4c41d30dac744ba7af5b014da8c7e86f9bec3e5cea0f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/",
+      "sourceSha256": "7815cf47e0b22550ea1a8ebfdda745abde5d2aeec1730a48befbdc4c92f745f7",
+      "contentFile": "src/content/sds/pages/5324e524103d40e575a07bb9.html",
+      "seoFile": "src/seo/sds/pages/5324e524103d40e575a07bb9.json",
+      "originalTextSha256": "cfbd2731051d5d9bed0adad0e36242829969555aac22ea304e938908022ea54f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/what-the-2026-changes-to-awaabs-law-mean-for-tenants/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/what-the-2026-changes-to-awaabs-law-mean-for-tenants/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/what-the-2026-changes-to-awaabs-law-mean-for-tenants/",
+      "sourceSha256": "625f2fa84adb9f6f989fdb59406ceb6455f152736c309f7f7ebf57f5b80d5a35",
+      "contentFile": "src/content/sds/pages/6f4d11947145a3cd7b368bc3.html",
+      "seoFile": "src/seo/sds/pages/6f4d11947145a3cd7b368bc3.json",
+      "originalTextSha256": "63eba76555329b69acc62f3e204b6a2e3d75abba53b30e8a98d6a8e3de2e2e94",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/what-to-do-when-your-landlord-keeps-delaying/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/what-to-do-when-your-landlord-keeps-delaying/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/what-to-do-when-your-landlord-keeps-delaying/",
+      "sourceSha256": "6bdd57f4915bac121cc828790140daf4fc3dc6813042031c8d2b42ab20825685",
+      "contentFile": "src/content/sds/pages/7105fd017f541313ac6c2f1d.html",
+      "seoFile": "src/seo/sds/pages/7105fd017f541313ac6c2f1d.json",
+      "originalTextSha256": "edbce094ac259b6330f5265252dce76a152d873e6179f39892a59ad3e75a98cb",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/why-holding-landlords-accountable-really-matters/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/why-holding-landlords-accountable-really-matters/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/why-holding-landlords-accountable-really-matters/",
+      "sourceSha256": "4c0b5b46145c9c7bcb92260a06fcc9077bd506caf7ae392c72e1233e60d5bdc0",
+      "contentFile": "src/content/sds/pages/565f5a8028b0507391a6c7d2.html",
+      "seoFile": "src/seo/sds/pages/565f5a8028b0507391a6c7d2.json",
+      "originalTextSha256": "2be80db37f4da7a43613abfc3ffd880bf8a3269b1ae9562d2b6289906ab96510",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/why-sheldon-davidson-solicitors-different/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/why-sheldon-davidson-solicitors-different/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/why-sheldon-davidson-solicitors-different/",
+      "sourceSha256": "c53e73a4526bd56c0bffae1e2f49ba1803156e1aad32b90596b8dc95490332ee",
+      "contentFile": "src/content/sds/pages/97d8c678de24d9da4ae45ad1.html",
+      "seoFile": "src/seo/sds/pages/97d8c678de24d9da4ae45ad1.json",
+      "originalTextSha256": "d60b75914dde5ddf87c5f354d076be7505eaa296032e8de22027773e53312a29",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/",
+      "sourceSha256": "392c78c8fc8b5241d08da658ac7b83f627fd7dbd31c4d145e122729975486e52",
+      "contentFile": "src/content/sds/pages/9b010ad085e87c2d4e3dc78d.html",
+      "seoFile": "src/seo/sds/pages/9b010ad085e87c2d4e3dc78d.json",
+      "originalTextSha256": "592bd2f2fbd59d6fff471e8473fd7c0541cc2dec76f09c2b729c728a8e21e128",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/alison-sherlock/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/alison-sherlock/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/alison-sherlock/",
+      "sourceSha256": "f2659c53b783870b4f56b99be15999f0b1970d765cf23d5c9612028efc5f347e",
+      "contentFile": "src/content/sds/pages/b03a6faac95696aba9912ac8.html",
+      "seoFile": "src/seo/sds/pages/b03a6faac95696aba9912ac8.json",
+      "originalTextSha256": "9b83015fc8bdc4f4b5ff063ae161ec4ef2fab289bc0f15483bac9d28ebf80441",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/angela-brewis/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/angela-brewis/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/angela-brewis/",
+      "sourceSha256": "994dd2ff80c195d24df01751ac15fa667f4f799b0da155801ccdecb4816c7b55",
+      "contentFile": "src/content/sds/pages/6d893ff2283be506f099d331.html",
+      "seoFile": "src/seo/sds/pages/6d893ff2283be506f099d331.json",
+      "originalTextSha256": "29c42d383bab3c79896b87cbd379af9d1f05adbae3a1bed4a51e00ca6001854a",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/blake-davidson/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/blake-davidson/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/blake-davidson/",
+      "sourceSha256": "41685a3c320c707bf44bf42d3dd936e93e224c28c246e114544acdfcc0cc0cec",
+      "contentFile": "src/content/sds/pages/9a4fb7c29947c387250f4150.html",
+      "seoFile": "src/seo/sds/pages/9a4fb7c29947c387250f4150.json",
+      "originalTextSha256": "c1ca8adfb8208f96f34f819a6c9c9a0c4317a4dc68d0c2103e88dcacfa0e10ce",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/brian-tyrie/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/brian-tyrie/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/brian-tyrie/",
+      "sourceSha256": "e9477fe9e18123324050b09574abcda809f3f2995fb731fd91bac684fffb42e7",
+      "contentFile": "src/content/sds/pages/49776a9e0e063fc11b660ddf.html",
+      "seoFile": "src/seo/sds/pages/49776a9e0e063fc11b660ddf.json",
+      "originalTextSha256": "0681e68301848827a2188fc8dae3a2ee2f444e78442bc5862098beb4f349d6c6",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/corbyn-lewis/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/corbyn-lewis/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/corbyn-lewis/",
+      "sourceSha256": "1e420e477c8dbdd7b9eab96cb05945d3301236c5eb37a173c5fba60d93c5209e",
+      "contentFile": "src/content/sds/pages/b3c44aaf1b3c23f8bf216bee.html",
+      "seoFile": "src/seo/sds/pages/b3c44aaf1b3c23f8bf216bee.json",
+      "originalTextSha256": "fe21e8f87f2277321a91c9e28b1d4b40ffb2838a425042755f21190771178450",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/daisy-kerins/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/daisy-kerins/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/daisy-kerins/",
+      "sourceSha256": "c9797fefead17b8973bf564079e62def1d6cd04357873d17c005b287797c2339",
+      "contentFile": "src/content/sds/pages/33e06c2ecf268560523f5a70.html",
+      "seoFile": "src/seo/sds/pages/33e06c2ecf268560523f5a70.json",
+      "originalTextSha256": "1717d7779cec8692dc86f61f8bfa4984bc47e6203130696cfc52d87b85a83f57",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/dominique-stansfield/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/dominique-stansfield/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/dominique-stansfield/",
+      "sourceSha256": "f48f61f76233df3e7f80dae55dcc7162586d9e7784bee1f7062851eb192e3300",
+      "contentFile": "src/content/sds/pages/b35b6bf8b2842af26d2b7531.html",
+      "seoFile": "src/seo/sds/pages/b35b6bf8b2842af26d2b7531.json",
+      "originalTextSha256": "dc94668cb9b05219d44c99bde70a18e39df4c345c5c6267053ece6315bf612be",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/emma-farrington/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/emma-farrington/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/emma-farrington/",
+      "sourceSha256": "e64a5be036f8098cbc314940881e07fa5fd65f587b5f79f2502253207080d3dd",
+      "contentFile": "src/content/sds/pages/c897399904709d4c9a17460a.html",
+      "seoFile": "src/seo/sds/pages/c897399904709d4c9a17460a.json",
+      "originalTextSha256": "1b7e13cec31c1d10db47a4f8858d9ca1df830f441206ab9391fcdf593aa8274d",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/hanane-chikhaoui/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/hanane-chikhaoui/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/hanane-chikhaoui/",
+      "sourceSha256": "273ec718a63bb4e66d7a817e2fc0707b3013ef83fdbf6e78e3e0edb50907e00b",
+      "contentFile": "src/content/sds/pages/24e90846a712da361f523f1a.html",
+      "seoFile": "src/seo/sds/pages/24e90846a712da361f523f1a.json",
+      "originalTextSha256": "01b87cbcc52923bef3d97aa5c8e0b02fcfc0d167b9da3d5ffde1e4a52d4a3b5f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/hayley-garnet/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/hayley-garnet/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/hayley-garnet/",
+      "sourceSha256": "de1d0d2f5804fe00443300f0cb0e6d61624a8ab0505ae53dba55bb85e6153741",
+      "contentFile": "src/content/sds/pages/dce1fb0e7ca0ab61c9929300.html",
+      "seoFile": "src/seo/sds/pages/dce1fb0e7ca0ab61c9929300.json",
+      "originalTextSha256": "6e515fae1da6d9dbba015b9a9a8df9245db6b9f38789e2be54a75c05b2bfd913",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/janine-watson/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/janine-watson/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/janine-watson/",
+      "sourceSha256": "d2e1175c833268991f44529374be54893e6f9f15b2993ef48ccc2451464ed5ed",
+      "contentFile": "src/content/sds/pages/a5d80592ad20463029978564.html",
+      "seoFile": "src/seo/sds/pages/a5d80592ad20463029978564.json",
+      "originalTextSha256": "c103fa21e52b88eaf9f944fb3d0cdb59f05080ab6946a88eaa660fbe89ebc6af",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/jen-schofield/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/jen-schofield/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/jen-schofield/",
+      "sourceSha256": "03a51c75f75b2d198dc64c915ca36e48807a877d5a1511de86861e7c962376a9",
+      "contentFile": "src/content/sds/pages/2dbfa97f61904b001bdb0cfb.html",
+      "seoFile": "src/seo/sds/pages/2dbfa97f61904b001bdb0cfb.json",
+      "originalTextSha256": "49fba5effd0589b441aa7985018ae609260fd376462db0a4861f03a52fc75ed3",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/kaneesha-zendera/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/kaneesha-zendera/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/kaneesha-zendera/",
+      "sourceSha256": "ad31ad1d33a1cfe7eeb2d9d77fffd141c39218fd7032e728a70f05d44364767e",
+      "contentFile": "src/content/sds/pages/f71be49a6a53e1dfcca7d99f.html",
+      "seoFile": "src/seo/sds/pages/f71be49a6a53e1dfcca7d99f.json",
+      "originalTextSha256": "5a8f7f3314ebb24936a60cafe6acdacbc43c33cbf7a4e669fc7d27bf73f0cda4",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/karen-holt/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/karen-holt/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/karen-holt/",
+      "sourceSha256": "1e18fe0057339fdeed21a1f691adf1532f181566891abcddedc988cd18f41daf",
+      "contentFile": "src/content/sds/pages/b471f0f6fdbf28b58b8bdf41.html",
+      "seoFile": "src/seo/sds/pages/b471f0f6fdbf28b58b8bdf41.json",
+      "originalTextSha256": "b6bb6afd09c231433ceb09a65615cadb83cd57275eadaf314a524254f2279a16",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/kate-sherlock/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/kate-sherlock/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/kate-sherlock/",
+      "sourceSha256": "6da848171ecf9df159327e2912b5bf01e9c463ff7ec4b3f80e9583f4062b1dae",
+      "contentFile": "src/content/sds/pages/d44f3f01eabc58c1f4c02cd2.html",
+      "seoFile": "src/seo/sds/pages/d44f3f01eabc58c1f4c02cd2.json",
+      "originalTextSha256": "7fd79e6ca9b87e071d6635fd6e0b38973ad70490f2c6f76b3b5e49dac149f0d9",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/katie-morgan/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/katie-morgan/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/katie-morgan/",
+      "sourceSha256": "4d619184b334d3c44e617868d41cb9082c88e4c48ef4abac4230b6379a81f7a5",
+      "contentFile": "src/content/sds/pages/620abbf87b64b55a1b554869.html",
+      "seoFile": "src/seo/sds/pages/620abbf87b64b55a1b554869.json",
+      "originalTextSha256": "733d75202dae96dea0ac2259a8285746d56515ab87c0da7c89c92977f4f80045",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/lauren-davies/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/lauren-davies/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/lauren-davies/",
+      "sourceSha256": "c57f392d0f8ff39915cf3b00ba8dfda7bb16e731f1dd8857abe1e5e65b4474b3",
+      "contentFile": "src/content/sds/pages/c477b04a816ea7116eb78377.html",
+      "seoFile": "src/seo/sds/pages/c477b04a816ea7116eb78377.json",
+      "originalTextSha256": "9be6b9ccb6eda58696f8a510da3068b1878388e67398fbae4b95858dca50b1cf",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/michael-haycock/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/michael-haycock/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/michael-haycock/",
+      "sourceSha256": "679bf1078db95b6a7330d5fdf11d866142b73e12315f62df1581a78ee5602e14",
+      "contentFile": "src/content/sds/pages/cfa84024ad9be03f08f3d30c.html",
+      "seoFile": "src/seo/sds/pages/cfa84024ad9be03f08f3d30c.json",
+      "originalTextSha256": "53c67982c33fbb42205a2f5cf808781d63addda86691d5c8586133302151af79",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/milena-bologan/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/milena-bologan/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/milena-bologan/",
+      "sourceSha256": "0b2402875c476248deaa2d283c6ff2c9f57a788efa593e616b2c7ebbd6995146",
+      "contentFile": "src/content/sds/pages/8147c9c2d18f8871baf27272.html",
+      "seoFile": "src/seo/sds/pages/8147c9c2d18f8871baf27272.json",
+      "originalTextSha256": "99b8b00a04023245b685be3599bbae904666fb5c937216fc131aa1a50ad47198",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/modupe-somoye/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/modupe-somoye/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/modupe-somoye/",
+      "sourceSha256": "325bce30af140483d606ed7c39d09659cbac94bbbb2401aa6b69b2f7a6c1cab3",
+      "contentFile": "src/content/sds/pages/2a6e519c33fc27bc759fefb3.html",
+      "seoFile": "src/seo/sds/pages/2a6e519c33fc27bc759fefb3.json",
+      "originalTextSha256": "5be42355fd20e2df0726404f6e4e149b446ea16a3624ccbd1ed1832071328f1f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/moyin-ajidagba/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/moyin-ajidagba/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/moyin-ajidagba/",
+      "sourceSha256": "0a97f61da876502c7716e61305008982d54088153f849e11323bfb2eb324908f",
+      "contentFile": "src/content/sds/pages/90acbae8aab225cded5fbcc3.html",
+      "seoFile": "src/seo/sds/pages/90acbae8aab225cded5fbcc3.json",
+      "originalTextSha256": "0381646fc3696269ec81a190501806234894e21ee4066e46559acb88d29fe7fb",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/sheldon-davidson/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/",
+      "sourceSha256": "c0661f01ce75dacb8fda9fbd60c4fd33a4cce60badf642479fcafb729d21da82",
+      "contentFile": "src/content/sds/pages/093913faa81dfd688582c057.html",
+      "seoFile": "src/seo/sds/pages/093913faa81dfd688582c057.json",
+      "originalTextSha256": "154267fbcb806911b4692f467b3d72f59bc33d9d28dd31f890279c59ce31179a",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/victoria-mccormack/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/victoria-mccormack/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/victoria-mccormack/",
+      "sourceSha256": "ec252482f20c86cd4062dca016ed44326309f7117af687f72b60494949c706b3",
+      "contentFile": "src/content/sds/pages/bb55edd4faeb6958e415e53e.html",
+      "seoFile": "src/seo/sds/pages/bb55edd4faeb6958e415e53e.json",
+      "originalTextSha256": "514113f475e80f55e22078a935a468969bc3616c6f2bb0ce257ef53764aca409",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/william-webb/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/william-webb/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/william-webb/",
+      "sourceSha256": "72bd64d5406e9d6dfc86c4d862fe88f9269b0103da6a9301ac01a53c92ea89ef",
+      "contentFile": "src/content/sds/pages/8e8c9a88b80224b705088b9d.html",
+      "seoFile": "src/seo/sds/pages/8e8c9a88b80224b705088b9d.json",
+      "originalTextSha256": "06170f9e889e9ceda13d604c2af5736aad32bd639a1aaae699cddbb05639ac38",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/yulie-wagman/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/yulie-wagman/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/yulie-wagman/",
+      "sourceSha256": "bc128dbd31e8eb29cc48af79d514e7f35ae71af7feeae69255b7f441b150b9f2",
+      "contentFile": "src/content/sds/pages/de7d2fba00c4e0c4c363c81f.html",
+      "seoFile": "src/seo/sds/pages/de7d2fba00c4e0c4c363c81f.json",
+      "originalTextSha256": "b3388c127274a13f6435346e5edffae36b0e58020c960c83371d0a51de6bad48",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/privacy-policy/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/privacy-policy/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/privacy-policy/",
+      "sourceSha256": "31e78b5da81cad674979a9d45ea6098339dca9ba08d10db19f82f3e9a0250f3f",
+      "contentFile": "src/content/sds/pages/eff6aa3ebfa34b8fffb685f1.html",
+      "seoFile": "src/seo/sds/pages/eff6aa3ebfa34b8fffb685f1.json",
+      "originalTextSha256": "1655ef2c1187f71bd5c66bf22638d2b188c81cece7dc0977610d7d050c686c2f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/reviews/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/reviews/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/reviews/",
+      "sourceSha256": "042d6a2c51581d229fc85452baa73fbba5b73446eb4db2b704c4a3cf3ea14273",
+      "contentFile": "src/content/sds/pages/daa22fdca3722e010736cbc2.html",
+      "seoFile": "src/seo/sds/pages/daa22fdca3722e010736cbc2.json",
+      "originalTextSha256": "d6f1f93645175d134c448c5cf7e057cb07ddf1ea7baeface1a5b27e80ccca178",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/sds-solicitors-discontinued-legal-services/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/",
+      "sourceSha256": "90c50344eb077da60e4b2c5a74f995aa58585e37868e5abb0a24035b1143f2b4",
+      "contentFile": "src/content/sds/pages/76c532cd47f75adfddd60379.html",
+      "seoFile": "src/seo/sds/pages/76c532cd47f75adfddd60379.json",
+      "originalTextSha256": "a4cf4b816470db22cebaaf847c86f112efbc4aa705dd4f8210deb0cda70b7421",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/terms-business/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/terms-business/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/terms-business/",
+      "sourceSha256": "8db88d0b1c3468bb731f1aa3a9c8a9ce559f100b358d8ceffc5da6845c384757",
+      "contentFile": "src/content/sds/pages/048bf770a5ac8276d6e40172.html",
+      "seoFile": "src/seo/sds/pages/048bf770a5ac8276d6e40172.json",
+      "originalTextSha256": "af18b7ddfc12b0794b1f2a23485086db08db8e9fe9f5d3c1f32eae72cc960564",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/contact-us/",
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/",
+      "finalUrl": "https://www.sds-solicitors.com/contact-us/",
+      "sourceSha256": "84a1554416553f17efee07e7c0aad9e4af0305a991b4ab2624913c3c09016c0c",
+      "contentFile": "src/content/sds/pages/674c1f0d5d7fa448d335d2ea.html",
+      "seoFile": "src/seo/sds/pages/674c1f0d5d7fa448d335d2ea.json",
+      "originalTextSha256": "21949e23a4a2f9ca3c6ea46bfb992e9ba09cdcb6255e0ce58d8294676824d914",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/contact-us/compensation-calculator-confirmation/",
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/compensation-calculator-confirmation/",
+      "finalUrl": "https://www.sds-solicitors.com/contact-us/compensation-calculator-confirmation/",
+      "sourceSha256": "4748a3b17cb339292b5342e03571c075ea77766cfaee0f97e4fd58b822a1de1f",
+      "contentFile": "src/content/sds/pages/fa1549682b697d4ab5e1289a.html",
+      "seoFile": "src/seo/sds/pages/fa1549682b697d4ab5e1289a.json",
+      "originalTextSha256": "d68b45ed3904f0ac7f9003e1c20a9db7251184b4e0d585b6fdc3d971c0b6b26c",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/contact-us/housing-disrepair-confirmation/",
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/housing-disrepair-confirmation/",
+      "finalUrl": "https://www.sds-solicitors.com/contact-us/housing-disrepair-confirmation/",
+      "sourceSha256": "944a55b091a177c564ffaa250606132555c38af9cc31aa2874d2a47a922fa935",
+      "contentFile": "src/content/sds/pages/4fe610cddce6f40432747f9f.html",
+      "seoFile": "src/seo/sds/pages/4fe610cddce6f40432747f9f.json",
+      "originalTextSha256": "a39426734080fd48f1fedd027c5967ca939ccf1593419cbab7563fe1355a40e0",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/contact-us/housing-disrepair-enquiries-stands/",
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/housing-disrepair-enquiries-stands/",
+      "finalUrl": "https://www.sds-solicitors.com/contact-us/housing-disrepair-enquiries-stands/",
+      "sourceSha256": "fcb830db8ffffdf577936885cd3e0d08649027ac542bdb485f3a87c9f58d2d83",
+      "contentFile": "src/content/sds/pages/76ccf9c8b05da8ad33cc6f15.html",
+      "seoFile": "src/seo/sds/pages/76ccf9c8b05da8ad33cc6f15.json",
+      "originalTextSha256": "32920133c696ddcc617fa29f5a9ecd8a74efd94303c84ccb24d1035fe7755914",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/contact-us/medical-negligence-confirmation/",
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/medical-negligence-confirmation/",
+      "finalUrl": "https://www.sds-solicitors.com/contact-us/medical-negligence-confirmation/",
+      "sourceSha256": "d4190c6d26d248da22ee96bae86e4431be03d9d6a2f191ebaf061e283d273d52",
+      "contentFile": "src/content/sds/pages/895bffadcfae7f621f2e0040.html",
+      "seoFile": "src/seo/sds/pages/895bffadcfae7f621f2e0040.json",
+      "originalTextSha256": "508900dcaa781cbd640a6580a1f6f934dad354ba1bcb2ffa966a5f54d66086d4",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/contact-us/personal-injury-confirmation/",
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/personal-injury-confirmation/",
+      "finalUrl": "https://www.sds-solicitors.com/contact-us/personal-injury-confirmation/",
+      "sourceSha256": "66b3bc77b3e66b78d8399491219d831671c0f731a4e2d50e0d0e815e1f9f5ffa",
+      "contentFile": "src/content/sds/pages/5e2f8d69be3d7c6bb415eb21.html",
+      "seoFile": "src/seo/sds/pages/5e2f8d69be3d7c6bb415eb21.json",
+      "originalTextSha256": "2b91ebc42cbd001c049e9ea947bcd241a755e235f280b9abd9c1cee2d3321591",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/contact-us/thank-you/",
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/thank-you/",
+      "finalUrl": "https://www.sds-solicitors.com/contact-us/thank-you/",
+      "sourceSha256": "d1586dc030e07fc6c6a9e688094b47e81f5aad77fd85a77dc8e347d4d9f48b0f",
+      "contentFile": "src/content/sds/pages/d524a18e13053b1df0271215.html",
+      "seoFile": "src/seo/sds/pages/d524a18e13053b1df0271215.json",
+      "originalTextSha256": "7ad42936a0494ed763d9dbfd594236cd8450ac4b064103e48ea898ffef615380",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/",
+      "sourceSha256": "1895cf3399a8059b67c2a14656581f91f7585c6e0fc8fed35587059820ff3723",
+      "contentFile": "src/content/sds/pages/3185d34b54cb253838ceb626.html",
+      "seoFile": "src/seo/sds/pages/3185d34b54cb253838ceb626.json",
+      "originalTextSha256": "5f8822a377ccd62b0d40f804fb3b358e119afb00c8c915d3cce83ac355176350",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair-claims/compensation-calculator/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/compensation-calculator/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/compensation-calculator/",
+      "sourceSha256": "a6e94a925732a18d0e41d3ff153bce7eb45775a5b976fb05793baa8e0a3b8442",
+      "contentFile": "src/content/sds/pages/d2e96a00b3ef1dd45c4409ad.html",
+      "seoFile": "src/seo/sds/pages/d2e96a00b3ef1dd45c4409ad.json",
+      "originalTextSha256": "0cc821edc7d752cd673cff235757bc012f2339eaf21a4e25701696faeffbe5f6",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair-claims/council-housing/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/council-housing/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/council-housing/",
+      "sourceSha256": "d17af38f647d3e2beb432c59c4bd431936225749cdf08eebed214167af153331",
+      "contentFile": "src/content/sds/pages/17c92c0e19092ab0cde7fa0e.html",
+      "seoFile": "src/seo/sds/pages/17c92c0e19092ab0cde7fa0e.json",
+      "originalTextSha256": "f65b3d7e99e98a4391e57c61c930f122169c178097f52ef606bd101b7ce28334",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair-claims/housing-condition-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/housing-condition-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/housing-condition-claims/",
+      "sourceSha256": "a2b763741c09a468514be6f79bb7f752f0208d08d7c21e7b7fcb990786eea2b7",
+      "contentFile": "src/content/sds/pages/9351a10bf08eee4b4937ff02.html",
+      "seoFile": "src/seo/sds/pages/9351a10bf08eee4b4937ff02.json",
+      "originalTextSha256": "695a694b514793fbae82a17ebb4c866bd85ad2e18549a3b33660e04ce5a995a1",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair-claims/managing-your-claim/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/managing-your-claim/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/managing-your-claim/",
+      "sourceSha256": "6996d254c8a468d09d6789d46c574248d80b3f8d4e07f0b162e60a4880fe095d",
+      "contentFile": "src/content/sds/pages/ce560fa589b63b6071798a67.html",
+      "seoFile": "src/seo/sds/pages/ce560fa589b63b6071798a67.json",
+      "originalTextSha256": "a55b3834f6f646843bd6e9a3d78a6a1894e9fb83a28c3b6c4dc5492facab7fbc",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair-claims/pre-action-protocol/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/pre-action-protocol/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/pre-action-protocol/",
+      "sourceSha256": "8483b85a1cd64cfc0f3b5522c86f7bd28acb2dcaf5abd67e8e025eae8dc2426b",
+      "contentFile": "src/content/sds/pages/35074962592d2c8594280956.html",
+      "seoFile": "src/seo/sds/pages/35074962592d2c8594280956.json",
+      "originalTextSha256": "f631152956be6efb50bbc80d330b225cb80f932c4c2f015530e25ba2a60cc8b1",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair-claims/private-landlord/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/private-landlord/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/private-landlord/",
+      "sourceSha256": "6fb5a7118751b426848ebd2ed371474d66c1c326d71331f0b0086df4b59d5df1",
+      "contentFile": "src/content/sds/pages/47c811da784e05344a4efa09.html",
+      "seoFile": "src/seo/sds/pages/47c811da784e05344a4efa09.json",
+      "originalTextSha256": "96b0e0058b35585321d3a307b249b7a9e828a852ced3e0d5172fc6650b8cf5d5",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair-claims/social-housing/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/social-housing/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/social-housing/",
+      "sourceSha256": "6970ba4e6a8acaeff838a0ea2b7729442d689c8de125445366f9b701fb83b6c4",
+      "contentFile": "src/content/sds/pages/f957faf8345ba76d86e9ba51.html",
+      "seoFile": "src/seo/sds/pages/f957faf8345ba76d86e9ba51.json",
+      "originalTextSha256": "0616384e5784e6eafe2a5f5fdaf9fe6c87f4591e9989c869dcc2365d5af9b1c1",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair-claims/tenant-rights-landlord-obligations/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/tenant-rights-landlord-obligations/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/tenant-rights-landlord-obligations/",
+      "sourceSha256": "0084ba1186d64ddd5eb8a78a821b7d7483af81ef6d7817a8130380cfc0992f9f",
+      "contentFile": "src/content/sds/pages/6d03576f27e96f8c771f6424.html",
+      "seoFile": "src/seo/sds/pages/6d03576f27e96f8c771f6424.json",
+      "originalTextSha256": "b69dbedf60f7067d7be2b8f1cf164a4cc04c102d1dc84739f10426e839632bd8",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair-enquiries/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-enquiries/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair-enquiries/",
+      "sourceSha256": "3b604b14350aeb45ea468c7dbf811e8585f658d8c0662744c6a93bb66ffff372",
+      "contentFile": "src/content/sds/pages/b37b9d508237b26088726aca.html",
+      "seoFile": "src/seo/sds/pages/b37b9d508237b26088726aca.json",
+      "originalTextSha256": "e3a9e83981450426299b7b1370ec21e534e84e4bfaa5ed951f3421c9db4644ef",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/",
+      "sourceSha256": "2488119534628c04438ef6550ec028b636306e5560ac07b9a907ab3cf75067af",
+      "contentFile": "src/content/sds/pages/83a0f146df2c966fc998aec0.html",
+      "seoFile": "src/seo/sds/pages/83a0f146df2c966fc998aec0.json",
+      "originalTextSha256": "4c855e69bc1efcb10fe3ce55867568095a8ec0012bee940134660f0e514c98e9",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/bathroom-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/bathroom-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/bathroom-claims/",
+      "sourceSha256": "82aa775d9fe539f044c3f46e3c364fc770f94b7c4d2d62eba69b939afb44fcbf",
+      "contentFile": "src/content/sds/pages/d97099a0c12165682f39ba9c.html",
+      "seoFile": "src/seo/sds/pages/d97099a0c12165682f39ba9c.json",
+      "originalTextSha256": "4858ea400c6faca52dc38abeab9425ea7de3dc5065bb48f2cee005ee16bf2bc8",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/boiler-heating-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/boiler-heating-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/boiler-heating-claims/",
+      "sourceSha256": "d2b552637fd235fb96ff82c3baefda9619be41d33a7396577a31d4f46415fc55",
+      "contentFile": "src/content/sds/pages/e3a31ce489015b30f8294c16.html",
+      "seoFile": "src/seo/sds/pages/e3a31ce489015b30f8294c16.json",
+      "originalTextSha256": "b2a691daa6ac069ed33d49cdb6a17eabc631d65c2a054ac092d1855e858f7360",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/brickwork-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/brickwork-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/brickwork-claims/",
+      "sourceSha256": "201b03769878183e87fbf7eead433a08933293bf6f3f3c131ffd2d002158cdec",
+      "contentFile": "src/content/sds/pages/a8227c5d79a82ed990c2e745.html",
+      "seoFile": "src/seo/sds/pages/a8227c5d79a82ed990c2e745.json",
+      "originalTextSha256": "a9e2eea69ec2624ff71a00e9ca88bd47be1b0eaa663624b4d2a420294d130711",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/crumbling-plaster/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/crumbling-plaster/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/crumbling-plaster/",
+      "sourceSha256": "a4c31ce0b907ad46c3ea9e133f8980db10349b5474be602aa4e33b2f86f6f345",
+      "contentFile": "src/content/sds/pages/fb1933d02ac09a435b1950a7.html",
+      "seoFile": "src/seo/sds/pages/fb1933d02ac09a435b1950a7.json",
+      "originalTextSha256": "e52414e835eb398b207a1db4ebb5fc9e192612030d8870387756a0465bebf2fe",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/damp-and-mould-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/damp-and-mould-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/damp-and-mould-claims/",
+      "sourceSha256": "24ab0b8754fb4364fb5aac497e9baecb1acc18fa682f9ef6d2f6d0a338f2577a",
+      "contentFile": "src/content/sds/pages/ff560ce3bf392332121172c7.html",
+      "seoFile": "src/seo/sds/pages/ff560ce3bf392332121172c7.json",
+      "originalTextSha256": "321ecd661a26ae93c190827692794b047850c90625df76d4d5eff7207e920c2e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/dangerous-wiring-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/dangerous-wiring-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/dangerous-wiring-claims/",
+      "sourceSha256": "bdeda89daf53d50cf622b0013c59f8f13bbc4f4b8778743accf9dcb8f0ff2ed6",
+      "contentFile": "src/content/sds/pages/e276adb0b977b835413b4de1.html",
+      "seoFile": "src/seo/sds/pages/e276adb0b977b835413b4de1.json",
+      "originalTextSha256": "7423df71d8cb3d0a3d7c3a29d6e71add09a00bf3464a0b266b1a366716fd2f08",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/defective-sanitaryware/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/defective-sanitaryware/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/defective-sanitaryware/",
+      "sourceSha256": "390037c582f95a95bc55301637607e1d948872fa948ff99aac379eb67c1d2df4",
+      "contentFile": "src/content/sds/pages/eb0979a0f13ba4167d6b0e4d.html",
+      "seoFile": "src/seo/sds/pages/eb0979a0f13ba4167d6b0e4d.json",
+      "originalTextSha256": "dcc90c8a19a6df60420cb169b200203961d5bc32e8818eb36dea340a2879955d",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/electrical-faults-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/electrical-faults-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/electrical-faults-claims/",
+      "sourceSha256": "066fac70625753ff82ee035358c1ee78a29ac7487998933e314def0a596ce103",
+      "contentFile": "src/content/sds/pages/2316cf6e0c80ae4685d76fdc.html",
+      "seoFile": "src/seo/sds/pages/2316cf6e0c80ae4685d76fdc.json",
+      "originalTextSha256": "59df12501a3622efd912173dcc97af69d34510c9497be03df715b1314c2a2b7c",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/flooding-water-damage-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/flooding-water-damage-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/flooding-water-damage-claims/",
+      "sourceSha256": "27f80b4227e911012108fd2c7110092e86676fd220ed7f66abc175e8e0fc081b",
+      "contentFile": "src/content/sds/pages/9706d29c85fc8c09f8ce5095.html",
+      "seoFile": "src/seo/sds/pages/9706d29c85fc8c09f8ce5095.json",
+      "originalTextSha256": "21dfdf9ea27211ec6eb68a5550202408434ac5faa0213ab24abcb2758edc01a3",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/gas-appliance-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/gas-appliance-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/gas-appliance-claims/",
+      "sourceSha256": "6db5c954bdc89c279718fb1f40f85d3c824acdc5b937045aafc7a127cd620d5f",
+      "contentFile": "src/content/sds/pages/8ec4970bba0b04a81779c612.html",
+      "seoFile": "src/seo/sds/pages/8ec4970bba0b04a81779c612.json",
+      "originalTextSha256": "34acc6531795acaec18bf1445ebe64dd59ef47fbe156e95390d02b13226b59da",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/",
+      "sourceSha256": "194e1423fe55ec507c5a96898ffa55e893ab1a7adee9cd77f3464aadcdb301a3",
+      "contentFile": "src/content/sds/pages/6536b8c3988eb724b254846e.html",
+      "seoFile": "src/seo/sds/pages/6536b8c3988eb724b254846e.json",
+      "originalTextSha256": "3f77a7cec22b27030544fc27fad13352681a67e71edae85290485b68f22f5fb9",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/berneslai/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/berneslai/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/berneslai/",
+      "sourceSha256": "0717eecd2b7a9c7169cb655ac34477da218dec90f679d7ffa4cfac151fea1518",
+      "contentFile": "src/content/sds/pages/9ea35d9bc57de4a57a60d12c.html",
+      "seoFile": "src/seo/sds/pages/9ea35d9bc57de4a57a60d12c.json",
+      "originalTextSha256": "a552adff99a215d23e506f3a29a9beb1ddc8e884a7be9ce532f1571a024c3772",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/blackpool-coastal-housing/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/blackpool-coastal-housing/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/blackpool-coastal-housing/",
+      "sourceSha256": "8c60ced5154915021517685fb08ff46611f6bb873eaeb761e55a55729ccc462f",
+      "contentFile": "src/content/sds/pages/c43dc8c99916af91d810d526.html",
+      "seoFile": "src/seo/sds/pages/c43dc8c99916af91d810d526.json",
+      "originalTextSha256": "9f468238b987d36b2970b5539dd9dd2a124eb45ee7af04dbcfacbe399f47339a",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/bromford-housing/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/bromford-housing/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/bromford-housing/",
+      "sourceSha256": "0b8e8ebfbe1dcc86b6a083346bd4d811b9339172ffb060fd20135128adc332a3",
+      "contentFile": "src/content/sds/pages/352103a0189d54660256212c.html",
+      "seoFile": "src/seo/sds/pages/352103a0189d54660256212c.json",
+      "originalTextSha256": "5e1af33bcefac9113eb63175d801a28c7ba3e3967ff051906b4382c6195e2e91",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/clarion-housing-group/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/clarion-housing-group/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/clarion-housing-group/",
+      "sourceSha256": "30820df3efcd3b630a14d585f1cb15dd15a056440b20c0bda34ec48c5d9e161c",
+      "contentFile": "src/content/sds/pages/d648ba95b1074781e290f5a4.html",
+      "seoFile": "src/seo/sds/pages/d648ba95b1074781e290f5a4.json",
+      "originalTextSha256": "150f95562a5f29d9ad173f8f9e07a8f291247b4bf0e70366c3e025db761e7e86",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/great-places-housing-group/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/great-places-housing-group/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/great-places-housing-group/",
+      "sourceSha256": "47ac4025c0f4ecb2524fc4ca058b128b8e691fc9c9d2cdf6b1c62a728e0811d8",
+      "contentFile": "src/content/sds/pages/f9837c8a825003916a5c171e.html",
+      "seoFile": "src/seo/sds/pages/f9837c8a825003916a5c171e.json",
+      "originalTextSha256": "28b5ce1eaeae26d88a1a38b0f810396964545612b677c7b4e7ad1a66fcbb7858",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/guinness-partnership/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/guinness-partnership/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/guinness-partnership/",
+      "sourceSha256": "e4396da5b9e104c31321f3357f26f826c0070faa2c5fd17d10c422fe37f815bb",
+      "contentFile": "src/content/sds/pages/2f5cd998debde67a4dfb9c02.html",
+      "seoFile": "src/seo/sds/pages/2f5cd998debde67a4dfb9c02.json",
+      "originalTextSha256": "8c17f5a4a22cf6e58204fdc1864820602053c1ca920052fe1fbb7728ba3a45fb",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/hanover-housing-association/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/hanover-housing-association/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/hanover-housing-association/",
+      "sourceSha256": "ed37b3be1fce7d7f42db989614edbf224b637ab473769c76eca4e5ab2de78097",
+      "contentFile": "src/content/sds/pages/79dae091169364c0db458616.html",
+      "seoFile": "src/seo/sds/pages/79dae091169364c0db458616.json",
+      "originalTextSha256": "b99062c82c022333b33fde19471bcff80f465bc767d596b4b194961121f2b32d",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/housing-21/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/housing-21/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/housing-21/",
+      "sourceSha256": "eb7609b9ff967452780e0a2d9f013a24986eacad081fd4c15e032a471283c2db",
+      "contentFile": "src/content/sds/pages/567d50b1b8acbf3ff797bb4f.html",
+      "seoFile": "src/seo/sds/pages/567d50b1b8acbf3ff797bb4f.json",
+      "originalTextSha256": "8431584fd133249bcc3085b73562d14e69ef9107cde31c915489e87d06989363",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/london-and-quadrant-housing-trust/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/london-and-quadrant-housing-trust/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/london-and-quadrant-housing-trust/",
+      "sourceSha256": "9b5f282701ff5549aa22d876592a94b257fb97b7fc79f695804662c65cb32dd0",
+      "contentFile": "src/content/sds/pages/29489bc8a12915a6305f2e76.html",
+      "seoFile": "src/seo/sds/pages/29489bc8a12915a6305f2e76.json",
+      "originalTextSha256": "9dbb910ad18b29a94cc624de51e652228b90a6041e080647b57bc4c3c9fe01f3",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/midland-heart/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/midland-heart/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/midland-heart/",
+      "sourceSha256": "b547f06c7f9796de2d67e5f6e483547d64609ba451da36751ce6cc236da81236",
+      "contentFile": "src/content/sds/pages/26da6572b560a753873d6d4c.html",
+      "seoFile": "src/seo/sds/pages/26da6572b560a753873d6d4c.json",
+      "originalTextSha256": "7a9d1830b088603c4072727b427806e2a2eff0b89ce3fc1b459ff6416eb654b4",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/orbit-group/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/orbit-group/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/orbit-group/",
+      "sourceSha256": "0803b212bb77bdc61bd46d97351828113fd51e7c14262b305768b4996c63e2f3",
+      "contentFile": "src/content/sds/pages/b22279b9d84b263ea03d75c9.html",
+      "seoFile": "src/seo/sds/pages/b22279b9d84b263ea03d75c9.json",
+      "originalTextSha256": "613803d4445a4ba8798b2c859ddfa605f61c15edc8d3b98ed479cd70c2561d94",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/peabody-group/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/peabody-group/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/peabody-group/",
+      "sourceSha256": "97c562c324784a0e47bed783dd4f4d92c5441e37111b3d2c0805da6d2f3e19df",
+      "contentFile": "src/content/sds/pages/374bcfd0496419cef19042ed.html",
+      "seoFile": "src/seo/sds/pages/374bcfd0496419cef19042ed.json",
+      "originalTextSha256": "0e86a91cdbd59d0427e47810d9a7b4daa55ed68336e851d400899771144ee99b",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/riverside-housing/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/riverside-housing/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/riverside-housing/",
+      "sourceSha256": "74ea5c9b21063c3c57df34aad0cd7875464c946dac6c4543218b41c4e9c60040",
+      "contentFile": "src/content/sds/pages/0ae629f81fc9ab77ec878b23.html",
+      "seoFile": "src/seo/sds/pages/0ae629f81fc9ab77ec878b23.json",
+      "originalTextSha256": "3f8c83d7d7281cbfc592dec7aa93722fc10c004c2e92f5e8e8a2105c91d7d220",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/sanctuary-housing/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/sanctuary-housing/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/sanctuary-housing/",
+      "sourceSha256": "ae9e711b5736e17e07e925d0d5110f21bc2cc6f62a094f5e101bdac98ced5041",
+      "contentFile": "src/content/sds/pages/4d47f3d7f3957468d817640c.html",
+      "seoFile": "src/seo/sds/pages/4d47f3d7f3957468d817640c.json",
+      "originalTextSha256": "ac3c12d40f0ee3ef5475f609a4749523ab9c25d7dc4e50df5ba3d14a1d5a6c08",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/southern-housing-group/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/southern-housing-group/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/southern-housing-group/",
+      "sourceSha256": "1127fe1fdb1d2ea0cc4843cb8630939a9f8b000748bb884fff842cd1d5cfd72e",
+      "contentFile": "src/content/sds/pages/f6e48c3eda995cbf7178e067.html",
+      "seoFile": "src/seo/sds/pages/f6e48c3eda995cbf7178e067.json",
+      "originalTextSha256": "250434a8321f180976eb32551cadf6d8f6f711afe5c4ff30ca8fbf4281b3e926",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/housing-associations/thirteen-group/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/thirteen-group/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/thirteen-group/",
+      "sourceSha256": "1a2044a95e42d2310ad13c32fc77df4e76e10f37491d4335a23172e86e4aa264",
+      "contentFile": "src/content/sds/pages/cfdc2c7e58e73e04ef4b528c.html",
+      "seoFile": "src/seo/sds/pages/cfdc2c7e58e73e04ef4b528c.json",
+      "originalTextSha256": "d2eeb7d6616a0e399fc720867b5ece42e4ba46eb24e787030d596b1172d3a7c5",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/insect-infestation-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/insect-infestation-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/insect-infestation-claims/",
+      "sourceSha256": "b339a1930edf5c0cd1850a9d95732adda6f7d96deff12bcdfcf3f2fb9553bda9",
+      "contentFile": "src/content/sds/pages/6337db583696c8efa9e7e428.html",
+      "seoFile": "src/seo/sds/pages/6337db583696c8efa9e7e428.json",
+      "originalTextSha256": "b082df19e88d45ec69047b813feef16fcb4741db016bf6de6e16acd9989fa39e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/kitchen-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/",
+      "sourceSha256": "6466d102dda4142b64767f0fc7c4d9679da9b6ceb2ea615ef7991c4d6d00c0e9",
+      "contentFile": "src/content/sds/pages/89c4f1fa0d39216f5b757c05.html",
+      "seoFile": "src/seo/sds/pages/89c4f1fa0d39216f5b757c05.json",
+      "originalTextSha256": "274ececc963947623e3b75fae3cda4ca1da615e6713d6effd912ff342a0cfc58",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/",
+      "sourceSha256": "863d1c3cb37af363bfefc7e2d3b497b56a35fa240f85da2785d15f12615536ff",
+      "contentFile": "src/content/sds/pages/1e02d3b558e804aef06d8658.html",
+      "seoFile": "src/seo/sds/pages/1e02d3b558e804aef06d8658.json",
+      "originalTextSha256": "3a614d0721fdb799db0e59a84933e4e576de9ad07d690b6917f743a8a4bad7cc",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/barnsley/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/barnsley/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/barnsley/",
+      "sourceSha256": "79734d861494dd3abf40a5c010dc155969dbaab5e5ee8e9296cb4a3cb647de71",
+      "contentFile": "src/content/sds/pages/cc20c7580bbfebc7a4c8b5ae.html",
+      "seoFile": "src/seo/sds/pages/cc20c7580bbfebc7a4c8b5ae.json",
+      "originalTextSha256": "efc2db87dbe557dcec609bc2aa295cc8baa181a38d67ffd80a923f929a3972d6",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/basildon/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/basildon/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/basildon/",
+      "sourceSha256": "2ec6ee09678a8824c54c6a503dfb789f1371e3128f9bf3f6cfc939f273713f27",
+      "contentFile": "src/content/sds/pages/320c92b795798b71aa4d119f.html",
+      "seoFile": "src/seo/sds/pages/320c92b795798b71aa4d119f.json",
+      "originalTextSha256": "67522ee90223974458ae0032736e2bd865f1117833eb30bfbfeaa18114e9802f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/basingstoke/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/basingstoke/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/basingstoke/",
+      "sourceSha256": "d688acc94b5868e454334919b22d72a1790a2ccda0f04ebeec3dfeac9ea67faf",
+      "contentFile": "src/content/sds/pages/6a10bb0ae26529dee00f8d8d.html",
+      "seoFile": "src/seo/sds/pages/6a10bb0ae26529dee00f8d8d.json",
+      "originalTextSha256": "5c174fbb856a66f7b3c97551b93495852cab69fa2bf21b44927da35ef9e580a3",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/bath/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bath/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bath/",
+      "sourceSha256": "20aaa5e7e655088f69f5372d4e75760f0acf78b655ecfa253b7a28448e9e88fa",
+      "contentFile": "src/content/sds/pages/4f31d16ce5b9eedd9ec4eabd.html",
+      "seoFile": "src/seo/sds/pages/4f31d16ce5b9eedd9ec4eabd.json",
+      "originalTextSha256": "7b5e1ac91f202894df10f94a562f9594f2fdb0d764111157a44bdc0903b7059d",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/bedford/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bedford/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bedford/",
+      "sourceSha256": "d984efd9896d1e46b75572bba693367b6d9fe0067193061f314d12d349370b3d",
+      "contentFile": "src/content/sds/pages/6b47557da4518cccf6a29524.html",
+      "seoFile": "src/seo/sds/pages/6b47557da4518cccf6a29524.json",
+      "originalTextSha256": "380d0f7c88ee1b5e67e26a1d04f9cb9097fb45046074c508275a36230ac947a6",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/birkenhead/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/birkenhead/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/birkenhead/",
+      "sourceSha256": "9cbca79b60ff618efa4953bf3645c1528c183bc4e89aa67849b4033e94925fa9",
+      "contentFile": "src/content/sds/pages/a0a8e47c8ac0dc783119ec51.html",
+      "seoFile": "src/seo/sds/pages/a0a8e47c8ac0dc783119ec51.json",
+      "originalTextSha256": "ba9078831b6844fbc58be8991bee86625255df4beb404808b3005813f43c4295",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/birmingham/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/birmingham/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/birmingham/",
+      "sourceSha256": "13dfe5613effbd99f33214ec9389e5ef60941cedacf80f6e105bd9aa25a6c2f6",
+      "contentFile": "src/content/sds/pages/46328906c3eed6a8de090c15.html",
+      "seoFile": "src/seo/sds/pages/46328906c3eed6a8de090c15.json",
+      "originalTextSha256": "7b766e008693aee5da73212248305082cbf9dc0070e02b7ffd0a8a074a2efaa3",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/blackburn/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/blackburn/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/blackburn/",
+      "sourceSha256": "f5a5e068fc6d0e8915c75c207665c38836ac93a9c526fc8c0f09878497189b60",
+      "contentFile": "src/content/sds/pages/36cdbb50b7fe7f53f016e473.html",
+      "seoFile": "src/seo/sds/pages/36cdbb50b7fe7f53f016e473.json",
+      "originalTextSha256": "945e23677c8efd5620c311605d419e80f152d3b5bd1f79c5037482ac4b4447b5",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/blackpool/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/blackpool/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/blackpool/",
+      "sourceSha256": "e71752a584b018911c579c77c36edf7d705a8f0d8a3aa1e3c501a5643c6d44ab",
+      "contentFile": "src/content/sds/pages/00ec8a815705570fab937f76.html",
+      "seoFile": "src/seo/sds/pages/00ec8a815705570fab937f76.json",
+      "originalTextSha256": "b0431115beb8340f812977a7c3d48535bcb533a7594e063677766ef7c787fd68",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/bolton/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bolton/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bolton/",
+      "sourceSha256": "6a38e5502f7a602e42a4ef399aa9f6f90711a6bde61fa35ac12497df008a1315",
+      "contentFile": "src/content/sds/pages/ffdc8078669dacb297a07df1.html",
+      "seoFile": "src/seo/sds/pages/ffdc8078669dacb297a07df1.json",
+      "originalTextSha256": "d751ad7969a13ae695c08aa95f2a2e9228be600ec9a05182295d3f8899d505c9",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/bootle/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bootle/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bootle/",
+      "sourceSha256": "6eeb19c2c35b2680b749b03b4fcd9f1d31083f129f6873a1a43b328748151253",
+      "contentFile": "src/content/sds/pages/cf5e0b34b010be5f49375613.html",
+      "seoFile": "src/seo/sds/pages/cf5e0b34b010be5f49375613.json",
+      "originalTextSha256": "0a412311d6a5bda52cebd745ce10c89fa0b026899c4301850ca4eb7fb59581b4",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/bradford/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bradford/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bradford/",
+      "sourceSha256": "402f0cc1506cf8794f9892a35e141ed9f86ab17770312280b5829dfd2b0e430f",
+      "contentFile": "src/content/sds/pages/5bb4076c529d090c3d55cb0d.html",
+      "seoFile": "src/seo/sds/pages/5bb4076c529d090c3d55cb0d.json",
+      "originalTextSha256": "600ec70949ffed695a6bbb7c2aea38cd3fa49b89f71b7b62bfc956f391990967",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/brighton/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/brighton/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/brighton/",
+      "sourceSha256": "180064244e13958258394f160c8b8cb1ef60ad732f3e04af3dd2d9ada95d5c5d",
+      "contentFile": "src/content/sds/pages/ab4e2eb0b3e0044474e77132.html",
+      "seoFile": "src/seo/sds/pages/ab4e2eb0b3e0044474e77132.json",
+      "originalTextSha256": "7a95f3a09907df2855bcba7b1f80295282b9bbbebae6290fea6ff19d73e37703",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/bristol/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bristol/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bristol/",
+      "sourceSha256": "e62a055cc292053d474f112499e0e546ca1bb9e3477ebafea2fa5b49e8bdce24",
+      "contentFile": "src/content/sds/pages/a7f1250a76b464b406bf2cce.html",
+      "seoFile": "src/seo/sds/pages/a7f1250a76b464b406bf2cce.json",
+      "originalTextSha256": "32cf87e6f52777eaa88da0b681e9cfc9185a966dc0362a91e9345163e7536571",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/burnley/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/burnley/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/burnley/",
+      "sourceSha256": "de46dada39ee70269b0a76906066d2cee259d2878ac34de406a13b572c35fa81",
+      "contentFile": "src/content/sds/pages/19cb648bb420876f4e879a17.html",
+      "seoFile": "src/seo/sds/pages/19cb648bb420876f4e879a17.json",
+      "originalTextSha256": "d37ab8c518f5889842d4cc05b3efe965e95dc62997bd886653af431c42329193",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/canterbury/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/canterbury/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/canterbury/",
+      "sourceSha256": "b13c42c1e2042006fe701d83346fba299cca7e007e3626297ba26880dc10fec1",
+      "contentFile": "src/content/sds/pages/bbc26d19b1824e5b8cf2a0c3.html",
+      "seoFile": "src/seo/sds/pages/bbc26d19b1824e5b8cf2a0c3.json",
+      "originalTextSha256": "58ea5596a684e6797cf739f885ff86024ca13be5c98c7667d301b5c2bd49468e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/carlisle/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/carlisle/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/carlisle/",
+      "sourceSha256": "01ee4b70160d2c69cda73d64cee1096b455e2ac5869275b3040d5f9697c7dfea",
+      "contentFile": "src/content/sds/pages/973f012e1bc071f43edbc5fb.html",
+      "seoFile": "src/seo/sds/pages/973f012e1bc071f43edbc5fb.json",
+      "originalTextSha256": "d4055ac409ae2a1c287a9d12b00d498fa52e66941aebefc6fbd2ee1e7d5bd0f9",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/chelmsford/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chelmsford/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chelmsford/",
+      "sourceSha256": "820937fb8ee8f1f7c93bd292085012a205b5c09d65aaab5bb791829a484fb0a6",
+      "contentFile": "src/content/sds/pages/25f822e0c30edb880a73c6dd.html",
+      "seoFile": "src/seo/sds/pages/25f822e0c30edb880a73c6dd.json",
+      "originalTextSha256": "988b13db7fe8714165d0e0e2780b83f421786888579366e4d87859dd7267909b",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/cheltenham/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/cheltenham/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/cheltenham/",
+      "sourceSha256": "3ef3f7423ff69e67e04a7710dd108ae0457a16ebf0b6900ffce081fb3d851d11",
+      "contentFile": "src/content/sds/pages/6a5e95a8ab2f8c842e4659ad.html",
+      "seoFile": "src/seo/sds/pages/6a5e95a8ab2f8c842e4659ad.json",
+      "originalTextSha256": "e81a7fc6fe11f34231c453e6499a1e47c7f3fff61e8daa0a1340d7fca6b19def",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/chester/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chester/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chester/",
+      "sourceSha256": "0292f0d0567fc7fe3eb3763c6f65b1e8a67206735cda855c1a783fedc6876f33",
+      "contentFile": "src/content/sds/pages/7e89e5e618e6c153c88a4e6a.html",
+      "seoFile": "src/seo/sds/pages/7e89e5e618e6c153c88a4e6a.json",
+      "originalTextSha256": "797219a65c7f32092a8551737a8b1c9b64bd25039dab7b32e554547ea12771e2",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/chesterfield/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chesterfield/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chesterfield/",
+      "sourceSha256": "e9edbbcea8748abe852095a7e006d01240fc7603a9c11a5b1ff08437aa97a882",
+      "contentFile": "src/content/sds/pages/b39d5ef62f86bcbd00443f9c.html",
+      "seoFile": "src/seo/sds/pages/b39d5ef62f86bcbd00443f9c.json",
+      "originalTextSha256": "7bb7ed18fece99b2451cb9b5eecacd7f47a6daf11f567e31b920c51fc8b1ed65",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/chichester/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chichester/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chichester/",
+      "sourceSha256": "9916044feb40a26d99618f4fcd77e9f9294119c7280260daff08b800cae2ef7b",
+      "contentFile": "src/content/sds/pages/0d66a5232106b4b78798b4a7.html",
+      "seoFile": "src/seo/sds/pages/0d66a5232106b4b78798b4a7.json",
+      "originalTextSha256": "86310542ff7ef47fd07d9a978148c603e23b368ec6240b7debf7cc65d9da8fee",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/colchester/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/colchester/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/colchester/",
+      "sourceSha256": "4b96271e5b646111a89527d44969e7412e6c0c8a49a1d95568538b56e542e7f7",
+      "contentFile": "src/content/sds/pages/e753d1e1c387a3218df32ef1.html",
+      "seoFile": "src/seo/sds/pages/e753d1e1c387a3218df32ef1.json",
+      "originalTextSha256": "02426c87a5bc5b8a6e438a8587359e731ad21854c5906fc938df6e80f179a77e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/coventry/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/coventry/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/coventry/",
+      "sourceSha256": "da645557915652ae937917499f1c3a4260c8842b8b8f49cea4f5df822e1a893a",
+      "contentFile": "src/content/sds/pages/eb47490eb556f8019319a8b8.html",
+      "seoFile": "src/seo/sds/pages/eb47490eb556f8019319a8b8.json",
+      "originalTextSha256": "1188883278cd1ff57fc92d98041488b555e6c612e2ed6003c1d5d07aad9bacab",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/crawley/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/crawley/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/crawley/",
+      "sourceSha256": "987596a16d513d88b9e796a268f9cece63258514c1f04c73af711cb4c911ca86",
+      "contentFile": "src/content/sds/pages/680558660f964628efe3b6d9.html",
+      "seoFile": "src/seo/sds/pages/680558660f964628efe3b6d9.json",
+      "originalTextSha256": "c14e1b2933c8687615dd0dc31bab9f836202ec22223854226009e24a478b77d8",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/darlington/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/darlington/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/darlington/",
+      "sourceSha256": "597b82597efc4400aec2d7eb1fb34d7f012d1fbcd311de597e6311d8f600a873",
+      "contentFile": "src/content/sds/pages/4ae88e77175d6efbf9f3a2b2.html",
+      "seoFile": "src/seo/sds/pages/4ae88e77175d6efbf9f3a2b2.json",
+      "originalTextSha256": "bd051b303be1e25e0f8c0237f60b3e5c93b514bd1c8b5e8e57806cd96b3ef8ee",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/derby/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/derby/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/derby/",
+      "sourceSha256": "f9b81674fdfd437d3220d3d5e28e2b9f62cbd7814764b148ce797f28f4e385bb",
+      "contentFile": "src/content/sds/pages/b8a9064fe7e36936cf505bd2.html",
+      "seoFile": "src/seo/sds/pages/b8a9064fe7e36936cf505bd2.json",
+      "originalTextSha256": "a0d08e79c6cd922fa3ae52b946469f056eba03a4fbf83bf31ccc72019d12251a",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/doncaster/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/doncaster/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/doncaster/",
+      "sourceSha256": "51bea7eb0bb2519a178b8095b5a5b1c7bf8db415bc9eebea1f08fdd2011047da",
+      "contentFile": "src/content/sds/pages/6985b2f3d1ab2b0719269e43.html",
+      "seoFile": "src/seo/sds/pages/6985b2f3d1ab2b0719269e43.json",
+      "originalTextSha256": "90f7ec4baaf3b79e6a3ff2b4feb209e7f830dc927837da2b1f9a7a7fdc7f9b51",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/dover/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/dover/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/dover/",
+      "sourceSha256": "631bec29becca60a025f119de40e113930a45fd275634565efe4a98491271673",
+      "contentFile": "src/content/sds/pages/aa09ac2f76c05715639b97e3.html",
+      "seoFile": "src/seo/sds/pages/aa09ac2f76c05715639b97e3.json",
+      "originalTextSha256": "03a797d81e6d4e164fb5dc2a8b3ff2734b86fe5e95f43dfdaa5d8ce81711940b",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/dudley/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/dudley/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/dudley/",
+      "sourceSha256": "d275a5928505ddb0ee224dbf37b8e806494f933309a1f3927f7f91ba13999866",
+      "contentFile": "src/content/sds/pages/f9124d98b89ae9fe8b3f4002.html",
+      "seoFile": "src/seo/sds/pages/f9124d98b89ae9fe8b3f4002.json",
+      "originalTextSha256": "bde6520f08ab618025de2d32828fae4c90b82ace86e120a00263e60e848af388",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/durham/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/durham/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/durham/",
+      "sourceSha256": "5c0a6bd6e0ebc4ee76ff2c0ded62098c71b5a601236b7cb55ceb0e8e65283c48",
+      "contentFile": "src/content/sds/pages/05ada38c4b6ca623bf12c899.html",
+      "seoFile": "src/seo/sds/pages/05ada38c4b6ca623bf12c899.json",
+      "originalTextSha256": "cb11752b017bb9e4dc6b4b197d9d8d295e51fbcfc2effe93f3bf1158d1f526dd",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/exeter/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/exeter/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/exeter/",
+      "sourceSha256": "885451a2865809af2cf67d7bb4d66240f11a903e61ccf0e263159ec583db7605",
+      "contentFile": "src/content/sds/pages/3b3f953493179d936e7273db.html",
+      "seoFile": "src/seo/sds/pages/3b3f953493179d936e7273db.json",
+      "originalTextSha256": "57570fe5382374db393a197015d23394df7a35885eddfb4a76c25065f7d83028",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/folkestone/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/folkestone/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/folkestone/",
+      "sourceSha256": "b67b142c0238858a92ad870d37ab987618ea1766bad9e4e295ae5c7a1e0a7678",
+      "contentFile": "src/content/sds/pages/ce64f54845034efcac4f7c64.html",
+      "seoFile": "src/seo/sds/pages/ce64f54845034efcac4f7c64.json",
+      "originalTextSha256": "c0dfd0ed6831b3cc239a34ed2d85fa4e2b784f7a49bdaec5b98271fd93f948b0",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/gateshead/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gateshead/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gateshead/",
+      "sourceSha256": "396505194c5771431e19f09364125ce9e84f7614edbbf723c8ef1c255ecae8b5",
+      "contentFile": "src/content/sds/pages/7cdf6aa33b3bcb235a17a7d1.html",
+      "seoFile": "src/seo/sds/pages/7cdf6aa33b3bcb235a17a7d1.json",
+      "originalTextSha256": "690873f1299e02d1b01797bd410a913f3ac02e2735f7e71652aeb4aca5f29287",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/gillingham/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gillingham/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gillingham/",
+      "sourceSha256": "6b8980028c07d2ee8f6ba1f4b543f1097ead61f77e9266b3d58790851e03c1e8",
+      "contentFile": "src/content/sds/pages/eb80f3ed7f751f6306f659ef.html",
+      "seoFile": "src/seo/sds/pages/eb80f3ed7f751f6306f659ef.json",
+      "originalTextSha256": "6ef1d58fcd394fb9a9183423c3390a456e79c558ab33a020931037362c240e92",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/gloucester/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gloucester/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gloucester/",
+      "sourceSha256": "4de694a8f03c5c21216a5d63953dd3bb3ead4d052d845693d20f4afaf24e4641",
+      "contentFile": "src/content/sds/pages/916c01ed2f01131cddd4e0aa.html",
+      "seoFile": "src/seo/sds/pages/916c01ed2f01131cddd4e0aa.json",
+      "originalTextSha256": "352a97d3d9e6a8cb020f07457a25ec7f19be4caa5cb032428498a10c9aa02c28",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/great-yarmouth/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/great-yarmouth/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/great-yarmouth/",
+      "sourceSha256": "9827229fce98f804480088646e9e5100016b642f4aae71a8219c358ba957552e",
+      "contentFile": "src/content/sds/pages/66ab1d9e6479e3ef95aeb9cd.html",
+      "seoFile": "src/seo/sds/pages/66ab1d9e6479e3ef95aeb9cd.json",
+      "originalTextSha256": "54dfc37c9ac2724b6661945ca4d2e04725737fd1588e9215d25e94739f0696a9",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/grimsby/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/grimsby/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/grimsby/",
+      "sourceSha256": "0ef073bafcd70a86042756eb76db002f3ecebced91bffb60244c2276206d4b7c",
+      "contentFile": "src/content/sds/pages/3b58eef94172d55a5f4a0d5b.html",
+      "seoFile": "src/seo/sds/pages/3b58eef94172d55a5f4a0d5b.json",
+      "originalTextSha256": "d543e52b98a607b646c870f63f2338429269372e04c02bbdef574c8d3562f558",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/harlow/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/harlow/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/harlow/",
+      "sourceSha256": "6c0407b2678e5f6afc88f463cd4e8320cf385d2f7d1f261dd8ddacbd62bbdf44",
+      "contentFile": "src/content/sds/pages/f13ed3b0011b413b177f6af1.html",
+      "seoFile": "src/seo/sds/pages/f13ed3b0011b413b177f6af1.json",
+      "originalTextSha256": "a870f55068a20ea398ea142bbea08620d6cc636278453542b3e213bdc35fb654",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/hartlepool/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hartlepool/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hartlepool/",
+      "sourceSha256": "80ba34788ee3a219ae6356384458ca8f1e15f7ea7d8c63c655bff7ea1e068631",
+      "contentFile": "src/content/sds/pages/ca1554ccfc96778d7a0d2c6e.html",
+      "seoFile": "src/seo/sds/pages/ca1554ccfc96778d7a0d2c6e.json",
+      "originalTextSha256": "d966b6dc1a7ef391efcc0c2d83ad3c5651474a28e67dbebfdb3fc213ee9f9fd1",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/hastings/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hastings/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hastings/",
+      "sourceSha256": "af25cc51185fb33ba6d8ed5069783f3d0f8a91369e31404f0e88d759b380c711",
+      "contentFile": "src/content/sds/pages/b2682e9e2b291ff8b166634f.html",
+      "seoFile": "src/seo/sds/pages/b2682e9e2b291ff8b166634f.json",
+      "originalTextSha256": "84f7fe388aec49c0f76d086583f25908ce9df17af2f64207f26400aaa07c15d3",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/hereford/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hereford/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hereford/",
+      "sourceSha256": "4b844d78e7a6982d3c3c51ef4ab48cceb432cd82fe5b8636e9a9b63c286f2bf1",
+      "contentFile": "src/content/sds/pages/57d3bdcd66925377ee7eb476.html",
+      "seoFile": "src/seo/sds/pages/57d3bdcd66925377ee7eb476.json",
+      "originalTextSha256": "a65e6804cf9d5e099594ff844fc9d938076ec6d4e913511967a892db083c3c02",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/huddersfield/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/huddersfield/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/huddersfield/",
+      "sourceSha256": "d13f47fb120a4143da8bab6cb4df6810dcd381e41e54e004c61f03f2593b545b",
+      "contentFile": "src/content/sds/pages/12ab07fee0471c4760b618fe.html",
+      "seoFile": "src/seo/sds/pages/12ab07fee0471c4760b618fe.json",
+      "originalTextSha256": "a3cc1fa736cbacaef19b204e78e6df163c7aa0c7c7a3b33a150aaede127e094d",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/hull/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hull/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hull/",
+      "sourceSha256": "3b1cfd55b5df95d9a783c26ca255167333e259714a749fe88829a8bf92cb7c9c",
+      "contentFile": "src/content/sds/pages/87a5ab2de5f83d775e5f935d.html",
+      "seoFile": "src/seo/sds/pages/87a5ab2de5f83d775e5f935d.json",
+      "originalTextSha256": "c59d8b65750daac59c1256b879e2472752264d36bc0d037b46ded5d6daa5241d",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/ipswich/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/ipswich/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/ipswich/",
+      "sourceSha256": "b1eeff2d089c4b95de6e2be8ad34b60e5dc00d6f7d1d3bbdeebab7d509e652be",
+      "contentFile": "src/content/sds/pages/0fca445d8e9d265da5f44efb.html",
+      "seoFile": "src/seo/sds/pages/0fca445d8e9d265da5f44efb.json",
+      "originalTextSha256": "aeaf8648a45c5389a3f9b8f06d5789ca2c8b219328aa11a558f005cfe346397f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/kettering/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/kettering/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/kettering/",
+      "sourceSha256": "25db79b94bac135643d4bfb50195050d77c04e475d3015225b6574912f321724",
+      "contentFile": "src/content/sds/pages/89c3d6b6928f0d22927656d5.html",
+      "seoFile": "src/seo/sds/pages/89c3d6b6928f0d22927656d5.json",
+      "originalTextSha256": "c653142ad2d03c392f73b134e3bc3a29deaefcd54d9e231946b026c8f4ae4a5c",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/lancaster/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lancaster/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lancaster/",
+      "sourceSha256": "bb2dee53dfc61dd0b34b9af154270c2bd070ae6ace28fcc6f0f5d0f3ac8d795e",
+      "contentFile": "src/content/sds/pages/26c667723ae7f92816960d9b.html",
+      "seoFile": "src/seo/sds/pages/26c667723ae7f92816960d9b.json",
+      "originalTextSha256": "cd5ce7e303f1faacdca45092e6043a98d045d663734c5268fafceaa5ba63f0b2",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/leeds/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/leeds/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/leeds/",
+      "sourceSha256": "903aecf5617edbad0dc6f13bd44e8903cf17c74fe11c3147422fb657b3b19206",
+      "contentFile": "src/content/sds/pages/2932bee3ae9b74555b7a361a.html",
+      "seoFile": "src/seo/sds/pages/2932bee3ae9b74555b7a361a.json",
+      "originalTextSha256": "5e997f94269b0638145acf2ffc8af3ad492acc896ebe1f41e176196784c60215",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/leicester/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/leicester/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/leicester/",
+      "sourceSha256": "269b86b25f23e0cd67bcb597e6eb7fd39153f9db7b0fdac0fbd9f742a4b92cfb",
+      "contentFile": "src/content/sds/pages/daecf80f88b36332345948cd.html",
+      "seoFile": "src/seo/sds/pages/daecf80f88b36332345948cd.json",
+      "originalTextSha256": "f996c6426c1424608789526c192d677ad95cb97c15474832e6ec434a3722bd34",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/lincoln/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lincoln/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lincoln/",
+      "sourceSha256": "29647db636d6dbf4523b4c5db0afe286a76d53c1db2f86a1e977603e96c08a57",
+      "contentFile": "src/content/sds/pages/a24df5e502e168ee4fdd02ef.html",
+      "seoFile": "src/seo/sds/pages/a24df5e502e168ee4fdd02ef.json",
+      "originalTextSha256": "288ce7e6cd4f5a9bf0feb2da100ad011ae956c1c808a01045f3af1e844f0a43d",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/liverpool/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/liverpool/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/liverpool/",
+      "sourceSha256": "381b472f8637b12a20ecad898c6137ace396b45f103e3f420a1266483b994b1a",
+      "contentFile": "src/content/sds/pages/0c850d234b964767ff493ca0.html",
+      "seoFile": "src/seo/sds/pages/0c850d234b964767ff493ca0.json",
+      "originalTextSha256": "345debe16ea0d1f71c363a1b045769fc05265c96e1071660c70ea5a4d80985ef",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/",
+      "sourceSha256": "e391e785b647dbf14fee0611d53a82b1e39d5afc2ac3a74c4bac64ab62fd4443",
+      "contentFile": "src/content/sds/pages/abe013e23902ff442ea72c89.html",
+      "seoFile": "src/seo/sds/pages/abe013e23902ff442ea72c89.json",
+      "originalTextSha256": "a099aae4bd3aad0523c897438735df9f66dcb3b6babc81ef70b217f634330ef5",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/barking/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/barking/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/barking/",
+      "sourceSha256": "a6569386a042626cd4338239f503828e826f21284264417982f078563cc5da78",
+      "contentFile": "src/content/sds/pages/72ed7bcd17de50cf204c18c4.html",
+      "seoFile": "src/seo/sds/pages/72ed7bcd17de50cf204c18c4.json",
+      "originalTextSha256": "08126cdcc146e01e9cce239a9e800b47f05241671e6a87c6ba1ccfb4cd77a1de",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/brent/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/brent/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/brent/",
+      "sourceSha256": "737cc6e85293cbd7e5a4c5c66f64fca19a7a5dd76d2a74e8f565001180dd682c",
+      "contentFile": "src/content/sds/pages/64d9a186b6d82e9e1fab4a22.html",
+      "seoFile": "src/seo/sds/pages/64d9a186b6d82e9e1fab4a22.json",
+      "originalTextSha256": "a4d576bb88e4e0d892a18c1ce105685c6f335d2683b707ae9f91713bf6148db8",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/camden/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/camden/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/camden/",
+      "sourceSha256": "cc77fcb0d2daf6bb645df658b91032c426766bbac6100cccfb47f5cd64477eaa",
+      "contentFile": "src/content/sds/pages/855e621bb7d394dba7b0b3cc.html",
+      "seoFile": "src/seo/sds/pages/855e621bb7d394dba7b0b3cc.json",
+      "originalTextSha256": "f20df1632fe566feba15290e6e97d3f61619ddd7864a0b7eecf03cd00bc8dbec",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/croydon/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/croydon/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/croydon/",
+      "sourceSha256": "a6b4b2499997bc40fcc88ad8ca6ce81a04af4984f0ee08b9443eb6a609959bd9",
+      "contentFile": "src/content/sds/pages/199bf75c535bf3114bc87957.html",
+      "seoFile": "src/seo/sds/pages/199bf75c535bf3114bc87957.json",
+      "originalTextSha256": "c8361fb4df58b9834e22e17ee7cef6882ef2186f02c7a5a61be09a2badd63c16",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/ealing/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/ealing/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/ealing/",
+      "sourceSha256": "388f046cfda2d935476d9ba5f85840b21664a3da8e99d4cb52284a89b0883913",
+      "contentFile": "src/content/sds/pages/eee44ff671c14d49f0364622.html",
+      "seoFile": "src/seo/sds/pages/eee44ff671c14d49f0364622.json",
+      "originalTextSha256": "a9179ed39f203ac54c9c3c0d75454e36569b8d9cf1dbef4860a4a06b754767f3",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/enfield/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/enfield/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/enfield/",
+      "sourceSha256": "6c205b61804160dc416253554f94f42d7c86c5070a55b108f314146fc25f4941",
+      "contentFile": "src/content/sds/pages/3d9dc4560ec2711bf68c5cf6.html",
+      "seoFile": "src/seo/sds/pages/3d9dc4560ec2711bf68c5cf6.json",
+      "originalTextSha256": "5394650f63d59560febc9f8a76c6468feb0d0114014958563359a7be21f818f1",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/fulham/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/fulham/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/fulham/",
+      "sourceSha256": "39358163020906deea2a93899b2f704a269502ad4aa88827468cab6658b90562",
+      "contentFile": "src/content/sds/pages/af4c634606d117563d15967b.html",
+      "seoFile": "src/seo/sds/pages/af4c634606d117563d15967b.json",
+      "originalTextSha256": "5b4c72068d70b8b1f4e619f52b80c88328d64edcc2e1943640791fbc680a67df",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/greenwich/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/greenwich/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/greenwich/",
+      "sourceSha256": "5d759114a745e12a7e55e5a5c9b6122d0dcec95aa7e2f15072f71ebac857c2b5",
+      "contentFile": "src/content/sds/pages/a4acaa8e5e7ed4284d9aa530.html",
+      "seoFile": "src/seo/sds/pages/a4acaa8e5e7ed4284d9aa530.json",
+      "originalTextSha256": "66eb906fd237d6ca863bfad5accc7f309d8bd00e7310e46145fc80390776db18",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/hackney/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hackney/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hackney/",
+      "sourceSha256": "89ea529580ab8adee19ad1d0bc4d598958525b9eb22f4209ed8c012355706b11",
+      "contentFile": "src/content/sds/pages/0f3c2315d76236a4541aaf87.html",
+      "seoFile": "src/seo/sds/pages/0f3c2315d76236a4541aaf87.json",
+      "originalTextSha256": "3267f7f0350d903c923fe68e6bf35fade0bac4a5273132a45913f7e540b22a32",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/hammersmith/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hammersmith/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hammersmith/",
+      "sourceSha256": "bdd4c63557f6e5ddc38b67f307621275471f406b69f4ed05c7f1027b68b2a008",
+      "contentFile": "src/content/sds/pages/7d0050e0666b79b0aa1cde87.html",
+      "seoFile": "src/seo/sds/pages/7d0050e0666b79b0aa1cde87.json",
+      "originalTextSha256": "143e7660f9427313c2f7d9897b14eb54fa295851a2d1b90428c3b04eb46c9d2b",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/haringey/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/haringey/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/haringey/",
+      "sourceSha256": "fcf734096cee8b756e20ac7b4a39bd5f23119b0a0b87d574d1c88aaff27f2a51",
+      "contentFile": "src/content/sds/pages/fb98c0376ca3f2dd5f914269.html",
+      "seoFile": "src/seo/sds/pages/fb98c0376ca3f2dd5f914269.json",
+      "originalTextSha256": "37023fe5a5a8ec99492fa5cddb0de81bd8673bbea346d53048f4d20f034350d3",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/havering/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/havering/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/havering/",
+      "sourceSha256": "502a3b81c4cea4419ba83dae50d7efb81b9f7e0bb668ec1fa396501681261299",
+      "contentFile": "src/content/sds/pages/d24e52d42481d16767e06c80.html",
+      "seoFile": "src/seo/sds/pages/d24e52d42481d16767e06c80.json",
+      "originalTextSha256": "232114d6c7fe9f3f943860e588ed94bee6323c02c9b731015fcb33ae0b8222c6",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/hounslow/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hounslow/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hounslow/",
+      "sourceSha256": "6a4a144c2b09e34124d71fd070a3af05bb1eec7a67e0c94049d3fcc15127d26e",
+      "contentFile": "src/content/sds/pages/e5c84aa3100bee47b507aed7.html",
+      "seoFile": "src/seo/sds/pages/e5c84aa3100bee47b507aed7.json",
+      "originalTextSha256": "13d5a40e38912d6522343d21a6e307e03426d7b66b28ba3a5d86b757ed36d5ee",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/islington/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/islington/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/islington/",
+      "sourceSha256": "f39ef97dc9d5584d5ad993d2ed03383c0b3b5d680b1b73df48cefdba7f16b6d5",
+      "contentFile": "src/content/sds/pages/cae931f63cb06b1a542a8faa.html",
+      "seoFile": "src/seo/sds/pages/cae931f63cb06b1a542a8faa.json",
+      "originalTextSha256": "c1822ad2cade5f1d12756410cd8f36302991a34ae27f5ccec02268c448478aa5",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/lambeth/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/lambeth/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/lambeth/",
+      "sourceSha256": "b5c44c271232e7911f4a2c9dd7505bb3077742957787bfc3821c5fb5b3bb1ca8",
+      "contentFile": "src/content/sds/pages/81dfb3417a41cbf9775fe342.html",
+      "seoFile": "src/seo/sds/pages/81dfb3417a41cbf9775fe342.json",
+      "originalTextSha256": "8632e0a3686c36e261c1b6ff09b2ce63b38edbaf13a9c1700d5ad446578336da",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/lewisham/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/lewisham/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/lewisham/",
+      "sourceSha256": "534e5be19295d7fbea762fe5ff6a143292fde8d05284728020deb217a6a2f141",
+      "contentFile": "src/content/sds/pages/d88954fa4c2cb6a063fe676c.html",
+      "seoFile": "src/seo/sds/pages/d88954fa4c2cb6a063fe676c.json",
+      "originalTextSha256": "aba3b363e1eae79cbf0caccbf5e92e98213ad2593c1c0c9bd74ad7468ee3c93e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/newham/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/newham/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/newham/",
+      "sourceSha256": "5f27b7614e9f964a445377ee0b30d0c15b3af02742745afb7c55899df62f375c",
+      "contentFile": "src/content/sds/pages/081574255a56bbce51986d6f.html",
+      "seoFile": "src/seo/sds/pages/081574255a56bbce51986d6f.json",
+      "originalTextSha256": "cf0d0ddba09219670c42520d3f90e24121a74e3968ea9c56bdee6ca4667e20c7",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/redbridge/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/redbridge/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/redbridge/",
+      "sourceSha256": "8e10d2aa4995bbbca6c992bbfe08fac633e6682b36486872889f17d55947039e",
+      "contentFile": "src/content/sds/pages/08ea480e187d190fdfccf03e.html",
+      "seoFile": "src/seo/sds/pages/08ea480e187d190fdfccf03e.json",
+      "originalTextSha256": "ae1ff55216dca4750a88c9f23a2926a14a43f87ce5220cf736412f0301176be9",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/southwark/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/southwark/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/southwark/",
+      "sourceSha256": "c6414d5880549f32ce31587d69637a19541698e20b53c711a727b02060d867eb",
+      "contentFile": "src/content/sds/pages/9caae32bf5e8f81dde2bed72.html",
+      "seoFile": "src/seo/sds/pages/9caae32bf5e8f81dde2bed72.json",
+      "originalTextSha256": "d7897bc363b44913dc00a52dc669680f457997694dbaae90cffafeed6df56776",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/tower-hamlets/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/tower-hamlets/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/tower-hamlets/",
+      "sourceSha256": "2ea312e9a18245e4356a693ac55e1099dce3b421c441d8335e5c87cfd2f386e8",
+      "contentFile": "src/content/sds/pages/fbe5e3c063d0e32b2306f3a6.html",
+      "seoFile": "src/seo/sds/pages/fbe5e3c063d0e32b2306f3a6.json",
+      "originalTextSha256": "a2fe2107f6cf85179d9298198895156532136f05ff993e23d280104d713a7484",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/waltham-forest/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/waltham-forest/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/waltham-forest/",
+      "sourceSha256": "3d65ee5593ad0dc4d2f10241e27973d64d773df50e144eba592d5d890c744ae0",
+      "contentFile": "src/content/sds/pages/dc92a9636cf16767168f86ce.html",
+      "seoFile": "src/seo/sds/pages/dc92a9636cf16767168f86ce.json",
+      "originalTextSha256": "2e402158fd976db3dce1704ab41dfee813b977887918609dc3d656a8f8b5dd19",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/london/wandsworth/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/wandsworth/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/wandsworth/",
+      "sourceSha256": "78d9249885c27cfca6bf46ceca81ebef2e6410721e9fd3d8327cec183ae77dcf",
+      "contentFile": "src/content/sds/pages/e123b82a214f10d98badd655.html",
+      "seoFile": "src/seo/sds/pages/e123b82a214f10d98badd655.json",
+      "originalTextSha256": "9064641807370d9b626c576bbf1ac8ec140e16d21e5974c88f9ea749169fc3ed",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/lowestoft/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lowestoft/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lowestoft/",
+      "sourceSha256": "92cc6c8dde4597b1779557cc10bf8eea67e6acfe0115cd60bf6d9e9f37e406c1",
+      "contentFile": "src/content/sds/pages/35b7ba0adf3eea424c5981ad.html",
+      "seoFile": "src/seo/sds/pages/35b7ba0adf3eea424c5981ad.json",
+      "originalTextSha256": "1ff700eac8bcc51961adefaf6a06792a74e6541e13ea0056b5c98d1e32873a74",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/luton/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/luton/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/luton/",
+      "sourceSha256": "3314cd65fdb22502d30758d4b753e226ed2f950616481633daca545c4923831e",
+      "contentFile": "src/content/sds/pages/89d58369f57e3ab7542fb1da.html",
+      "seoFile": "src/seo/sds/pages/89d58369f57e3ab7542fb1da.json",
+      "originalTextSha256": "e8a202b63651460563790c97cc2f8537ac01284f396e5e47afdff047ccaf4719",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/maidstone/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/maidstone/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/maidstone/",
+      "sourceSha256": "7cdf29ebf63666694acc4373f819bc230ad916d4abd1037c3dd58bfb1325b765",
+      "contentFile": "src/content/sds/pages/461a90da7b69876a941882af.html",
+      "seoFile": "src/seo/sds/pages/461a90da7b69876a941882af.json",
+      "originalTextSha256": "e3b6e70b7b2e7ec130f02c1f022a8610afc6335bbff56fc34d54a43e89e7dc6f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/manchester/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/manchester/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/manchester/",
+      "sourceSha256": "6eb042a4ecf2b6c7b08f6070dfc3dc5db030aee0d0017497775594837a2bf556",
+      "contentFile": "src/content/sds/pages/3b325dce41b58d0f1c1cfe6b.html",
+      "seoFile": "src/seo/sds/pages/3b325dce41b58d0f1c1cfe6b.json",
+      "originalTextSha256": "c4ef629abc6942c0b7c2c9157c25ff72424e508aa80117c79f2481f90a2fe596",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/margate/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/margate/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/margate/",
+      "sourceSha256": "e36abf7bb46cd84d0ef646876c676808a0b714c7cd09254b09b383792502fb99",
+      "contentFile": "src/content/sds/pages/561db96c08b5acd020730ab2.html",
+      "seoFile": "src/seo/sds/pages/561db96c08b5acd020730ab2.json",
+      "originalTextSha256": "a603faf04153623dd694a8ef7ca19d964279079a6111d82e9e9bf55905aa859c",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/middlesbrough/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/middlesbrough/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/middlesbrough/",
+      "sourceSha256": "45408652fa97eb321138dcb2e31ef165c3eb1b28bc8a06a2d766d33bb1b9b96a",
+      "contentFile": "src/content/sds/pages/1357247d995b158a45cacf92.html",
+      "seoFile": "src/seo/sds/pages/1357247d995b158a45cacf92.json",
+      "originalTextSha256": "8dddd43b03ac9c1deaff2ecee02aea7f534dda80bee4d5ea4752a7aba78f66f7",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/milton-keynes/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/milton-keynes/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/milton-keynes/",
+      "sourceSha256": "57011dce6dab69a74aad265f0697c381bed80a545d3079ac890cd86cef883a94",
+      "contentFile": "src/content/sds/pages/95fe7e45361e9807b2fa3b2d.html",
+      "seoFile": "src/seo/sds/pages/95fe7e45361e9807b2fa3b2d.json",
+      "originalTextSha256": "fd90de1c556476029541925e5604b89d34af6ca4c41701dc7efd87a81a1efe74",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/newcastle/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/newcastle/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/newcastle/",
+      "sourceSha256": "e5a671668e178e710f7d7ff7fdc78a1dd07749934387f8e07de1fd77023fceee",
+      "contentFile": "src/content/sds/pages/87f37b56bf01f4b51fce432b.html",
+      "seoFile": "src/seo/sds/pages/87f37b56bf01f4b51fce432b.json",
+      "originalTextSha256": "8822eede4a767b19892677172aeb4d0015724e9d17fe648cfde216076ea8194c",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/northampton/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/northampton/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/northampton/",
+      "sourceSha256": "44eae9d444369be0a6002e916a4683e6c3ab5e192dccf3ef121e786abae6fb13",
+      "contentFile": "src/content/sds/pages/bb1f6922597eeb33253c1c69.html",
+      "seoFile": "src/seo/sds/pages/bb1f6922597eeb33253c1c69.json",
+      "originalTextSha256": "2d19d2a9d1e31ce048de06582d103bb91af760d35476de2f0bcd7cc42923f4e8",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/norwich/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/norwich/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/norwich/",
+      "sourceSha256": "52b2c449c55180ff145c8c94dc9f0bff561851f94248845bac040233461b53ea",
+      "contentFile": "src/content/sds/pages/69e28d9fc51fbe6c5c468a22.html",
+      "seoFile": "src/seo/sds/pages/69e28d9fc51fbe6c5c468a22.json",
+      "originalTextSha256": "05f665845e5d313765397de9d4551523fbd59b091058a4a451714d67b6177de4",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/nottingham/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/nottingham/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/nottingham/",
+      "sourceSha256": "17a833a80b9fc7122f01eaca4656a790d38387f3a5e6f0d796645a83d829c701",
+      "contentFile": "src/content/sds/pages/f61ea7b1679adfb74da9ed88.html",
+      "seoFile": "src/seo/sds/pages/f61ea7b1679adfb74da9ed88.json",
+      "originalTextSha256": "c1f22251c906b0fe37c79c50eb381cf55e9cf34dbfaad681e570e95cc4987266",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/nuneaton/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/nuneaton/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/nuneaton/",
+      "sourceSha256": "ad5bd8501233b7bd48a963fd1804e0d9afa3bd8297255426131e770705e77214",
+      "contentFile": "src/content/sds/pages/fb81175d58c83a113186e598.html",
+      "seoFile": "src/seo/sds/pages/fb81175d58c83a113186e598.json",
+      "originalTextSha256": "bda00657005266bc3423a60f5c00bda4066f7a907664222e12ae9edb6c26854a",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/oldham/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/oldham/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/oldham/",
+      "sourceSha256": "f086d3a269a34cde1d83f5eefe03705013affb28fa31e32c11e4c8f874eab980",
+      "contentFile": "src/content/sds/pages/a6f878cea5713646325d442c.html",
+      "seoFile": "src/seo/sds/pages/a6f878cea5713646325d442c.json",
+      "originalTextSha256": "dc065085c11a2b8215c6c1ed3338f91978b8362b8901e3725b2c0ca6eab70822",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/peterborough/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/peterborough/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/peterborough/",
+      "sourceSha256": "6ec8e427231d510d35af3456ed02053e1f57e8b8821259ac32dff04b2fefa71e",
+      "contentFile": "src/content/sds/pages/f45cdd16388be96ca1031e69.html",
+      "seoFile": "src/seo/sds/pages/f45cdd16388be96ca1031e69.json",
+      "originalTextSha256": "7e6be58b1325a5fbe0a9844475eaa5ae75371f9a438c869e5d3f0432c22a92ea",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/plymouth/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/plymouth/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/plymouth/",
+      "sourceSha256": "197c1e283a603d4b880665cf5952da03465f4fe3fd1ab24e23d8b5a90fab5642",
+      "contentFile": "src/content/sds/pages/90cad7e8768b345e45c1f67e.html",
+      "seoFile": "src/seo/sds/pages/90cad7e8768b345e45c1f67e.json",
+      "originalTextSha256": "fe55b9e4271c720fb58a2212b9385df8860a4eb4653d4aed04efe580f6ce65ee",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/portsmouth/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/portsmouth/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/portsmouth/",
+      "sourceSha256": "95a58b932243ac3ecc270dc5c31bd9452bc098ec5676bfdc71080308e384e1e8",
+      "contentFile": "src/content/sds/pages/9642d6b05fe2412e92500772.html",
+      "seoFile": "src/seo/sds/pages/9642d6b05fe2412e92500772.json",
+      "originalTextSha256": "2a8deb254241fa539cf140fae1027714d0421559e5430e6d26d3294f66e9cb24",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/preston/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/preston/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/preston/",
+      "sourceSha256": "75b3d8bc2086be8d3795f14d4f0ce1ae4ce5b8b436fb03b9aeeee1aad5fa3225",
+      "contentFile": "src/content/sds/pages/bfd2655a73b409b0a16869f0.html",
+      "seoFile": "src/seo/sds/pages/bfd2655a73b409b0a16869f0.json",
+      "originalTextSha256": "461d4c3071b9d58463dd385847030bc035794fa08e6be8e0073585d748300b60",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/reading/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/reading/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/reading/",
+      "sourceSha256": "a4c7da3f97ff2171a3c3f2b816e825d21f10f2272ecb7923c9f07343cae6d1a2",
+      "contentFile": "src/content/sds/pages/554e10b9eb64769c38fa3cfe.html",
+      "seoFile": "src/seo/sds/pages/554e10b9eb64769c38fa3cfe.json",
+      "originalTextSha256": "0099827969a2d698c69532f8a60381201c4c5337a7bc60c9ff3ed8f08cdf53b3",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/rochdale/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/rochdale/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/rochdale/",
+      "sourceSha256": "2ab060f7430f565d14a5b0ee233288a9c6ec11bb599aaaa4dce66b883f1370b6",
+      "contentFile": "src/content/sds/pages/5868760cecf9746ac86c58ae.html",
+      "seoFile": "src/seo/sds/pages/5868760cecf9746ac86c58ae.json",
+      "originalTextSha256": "f9297e8338c5b55f2db544d686bed017ab87c6e7bb3620b98beb752ea1591c5c",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/rotherham/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/rotherham/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/rotherham/",
+      "sourceSha256": "3f072f1b553f67bc81c4134bcfd0fd3a287bd59286c36560034d87cf34ad8ccb",
+      "contentFile": "src/content/sds/pages/74a1bbb21e102d8d6988979b.html",
+      "seoFile": "src/seo/sds/pages/74a1bbb21e102d8d6988979b.json",
+      "originalTextSha256": "89b37cc72525373947e521f25e8119f831b47f2b1726ae4e62be1bcffc09095f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/salford/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/salford/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/salford/",
+      "sourceSha256": "8c86c4bfe34cec76efb43dc1da92a9b5349b92ef1dd8e989f2caa90776b8cdb9",
+      "contentFile": "src/content/sds/pages/ff70d6e01ee228950456cbb9.html",
+      "seoFile": "src/seo/sds/pages/ff70d6e01ee228950456cbb9.json",
+      "originalTextSha256": "1099c254190f7f4da54d4439e3bd137f1f114fdf95716c54df807dbd5bf58797",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/sandwell/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sandwell/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sandwell/",
+      "sourceSha256": "a07b7a73f3b23ad4ff79a50a35b2b507bd34ed4464db06e5e6338eeb4a8293df",
+      "contentFile": "src/content/sds/pages/be650a629f5ee8b1bba51163.html",
+      "seoFile": "src/seo/sds/pages/be650a629f5ee8b1bba51163.json",
+      "originalTextSha256": "0704fd200a42b73d2bd5a74c68ec6d0a20a4058b44077d5b0c2b4c7fe43fee63",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/scunthorpe/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/scunthorpe/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/scunthorpe/",
+      "sourceSha256": "8758e3155c853b8f69995fb30055a5a0029ab5fbdba33a18122f84e1f62134ce",
+      "contentFile": "src/content/sds/pages/f10b3c7f3b2839a47cebd7dc.html",
+      "seoFile": "src/seo/sds/pages/f10b3c7f3b2839a47cebd7dc.json",
+      "originalTextSha256": "bb67139fb4c829cec184705f238d725b013878e88598fbbf6f87317ad47a4b00",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/sheffield/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sheffield/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sheffield/",
+      "sourceSha256": "178cbc6e74d7ad11c3175ca6b307e648d4d0868275a513c2d06edcf061720653",
+      "contentFile": "src/content/sds/pages/3d29ee162113b7bd249ac24f.html",
+      "seoFile": "src/seo/sds/pages/3d29ee162113b7bd249ac24f.json",
+      "originalTextSha256": "73ce4ef60f3ace22c2645f601e1902e60bbfdeac9d74a5e690a6b305ca07309e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/shrewsbury/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/shrewsbury/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/shrewsbury/",
+      "sourceSha256": "800556364848b38845bf77d57146f85420358d4d9ebc74349fd4f906cd6b6449",
+      "contentFile": "src/content/sds/pages/29793314ecef03389d82005a.html",
+      "seoFile": "src/seo/sds/pages/29793314ecef03389d82005a.json",
+      "originalTextSha256": "63403b9de77663ee71b2bedb6f14384e1dddd88c4ce23c167436dacfa269591f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/slough/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/slough/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/slough/",
+      "sourceSha256": "6e9cd3456480b58d5d84610486459b4f9c098fd0b0596342eedd9aa12cf0a844",
+      "contentFile": "src/content/sds/pages/fde3526a9e8a147e9af68c7e.html",
+      "seoFile": "src/seo/sds/pages/fde3526a9e8a147e9af68c7e.json",
+      "originalTextSha256": "0867a1ee1a9aa628cf64341f2806735c3d09931a8ad6a7899bf2e9ed0e49a62d",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/southampton/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/southampton/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/southampton/",
+      "sourceSha256": "7ab613aa82ab4764fca00ae572cc139af7f00c4094d78b1108482207fce5fe20",
+      "contentFile": "src/content/sds/pages/8ff0051391d9e78c796fe813.html",
+      "seoFile": "src/seo/sds/pages/8ff0051391d9e78c796fe813.json",
+      "originalTextSha256": "c14d9cc56eee66dfe753ab3e4519f4d04fd2d79b587ee212e6c9534e1f70f1c0",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/southend-sea/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/southend-sea/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/southend-sea/",
+      "sourceSha256": "ccb0b7d3bce94e71a569016173c44a4cb98c92d0fc73eb195f2df0e65949fc65",
+      "contentFile": "src/content/sds/pages/2ef299ffa47776fed20330c7.html",
+      "seoFile": "src/seo/sds/pages/2ef299ffa47776fed20330c7.json",
+      "originalTextSha256": "95eb2322752912365d85dc609f3cfac898a9dcb8b0f3a76f86e3ae4c243597e3",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/stevenage/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stevenage/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stevenage/",
+      "sourceSha256": "4f2eec4dd4047de5533c22d20f9f608e443de76fbe48fdfae88a897adc542b6f",
+      "contentFile": "src/content/sds/pages/c3d3e53190e5369af012ee8c.html",
+      "seoFile": "src/seo/sds/pages/c3d3e53190e5369af012ee8c.json",
+      "originalTextSha256": "dd6b73a98cd2fcfa63448d0d5324c06a3e794196ea1d33292c44b653f5b96a97",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/stockport/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stockport/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stockport/",
+      "sourceSha256": "b03aff5f128f978ccc0da1d8aecb574431e9085ab4d8bbe5c210451e06bee1c0",
+      "contentFile": "src/content/sds/pages/4481e1714f8ba1ddafb7be8b.html",
+      "seoFile": "src/seo/sds/pages/4481e1714f8ba1ddafb7be8b.json",
+      "originalTextSha256": "59e731a69871a2bf1edfa0757054c5cc10b9e684df7589327707432a70429bf7",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/stoke-trent/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stoke-trent/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stoke-trent/",
+      "sourceSha256": "2ebbb13abfe8a5146cf8c259ea9ec9b85b937c6d49ec56efb674301b7f00ad49",
+      "contentFile": "src/content/sds/pages/8ce174a66b210b2c2bcf557c.html",
+      "seoFile": "src/seo/sds/pages/8ce174a66b210b2c2bcf557c.json",
+      "originalTextSha256": "13a3e33518c3d7d5446436738b76ce04665eb74a06441b3078b04268ea8b2a75",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/sunderland/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sunderland/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sunderland/",
+      "sourceSha256": "f4844a7875b7272e20c9b21f3cef28cd523c9c4011de844bbdb6641d4c6ae526",
+      "contentFile": "src/content/sds/pages/ce963bb42ef2fb0fc10d65a2.html",
+      "seoFile": "src/seo/sds/pages/ce963bb42ef2fb0fc10d65a2.json",
+      "originalTextSha256": "bb79fd46d5405cc5e99fcdcc31d79b7910a9cb5e561ff2352c97683325e44dbf",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/swindon/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/swindon/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/swindon/",
+      "sourceSha256": "b7afb5546df85ef90fead9577804d690f5780b0a77f6f0a146389d4642a9144b",
+      "contentFile": "src/content/sds/pages/6cc9d67f3d93b60fcf02e013.html",
+      "seoFile": "src/seo/sds/pages/6cc9d67f3d93b60fcf02e013.json",
+      "originalTextSha256": "2348ab61a95682ced1c9ccbf839b1af1f8d1a01c43040061d88ab998be02de6d",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/tameside/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/tameside/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/tameside/",
+      "sourceSha256": "9d104615ffdacf6f3a33fcb5fe11270df2498d61085ffd0ce50387ada6ade65b",
+      "contentFile": "src/content/sds/pages/784b23e5ff1b7b0847daa96b.html",
+      "seoFile": "src/seo/sds/pages/784b23e5ff1b7b0847daa96b.json",
+      "originalTextSha256": "7991bd3c9efe893362d83d9dc401423b794888e2727838aa48f1e4637d1fb372",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/telford/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/telford/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/telford/",
+      "sourceSha256": "0b5099c85cc4c4e68719ce668514ededc40506282c429becb8b920baffaac4f5",
+      "contentFile": "src/content/sds/pages/49bb298330ba53f3197a6d12.html",
+      "seoFile": "src/seo/sds/pages/49bb298330ba53f3197a6d12.json",
+      "originalTextSha256": "42c58667233adbe5d0d72c58558d8ea47646a5ff08a32d11e5702758440755f1",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/truro/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/truro/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/truro/",
+      "sourceSha256": "a0d6ebee95c877df81f6712b7bdcb5c15930c90f01ec8f95ab82965117d55336",
+      "contentFile": "src/content/sds/pages/614817fdc02e850186a3b24d.html",
+      "seoFile": "src/seo/sds/pages/614817fdc02e850186a3b24d.json",
+      "originalTextSha256": "ec4d69e55ead222b1290cca3ae0ca75c00221279e0a1815629ad91a4e71334a0",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/wakefield/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wakefield/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wakefield/",
+      "sourceSha256": "420048b62fdf1b4135a304c61a1714c19c04d113089433df7eb12ebc1ec5ae6a",
+      "contentFile": "src/content/sds/pages/f0c6463b35c0b9d301edc63d.html",
+      "seoFile": "src/seo/sds/pages/f0c6463b35c0b9d301edc63d.json",
+      "originalTextSha256": "849949d2574c5caef37d611f26675e4cdc28e0de0d413e7f49720c874812da2a",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/walsall/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/walsall/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/walsall/",
+      "sourceSha256": "02a806ff21c207053d7a952be930fd50462ab77497c953a45cce6e810f0d4927",
+      "contentFile": "src/content/sds/pages/937fdb73bae7baaf747a82c6.html",
+      "seoFile": "src/seo/sds/pages/937fdb73bae7baaf747a82c6.json",
+      "originalTextSha256": "1d6bf61bfeb9797fd8521a4dd18d751cb491e732ef4723cfc2271f9e5989246f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/warrington/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/warrington/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/warrington/",
+      "sourceSha256": "525bbb0d00fa914e1d402714f8b1a2ee35bb0fa7ab52ad174d3234c9560d5df0",
+      "contentFile": "src/content/sds/pages/e2e9ccb9b3be6f5957401789.html",
+      "seoFile": "src/seo/sds/pages/e2e9ccb9b3be6f5957401789.json",
+      "originalTextSha256": "278853532c84896472d121650492105d06aafe990626965c8508942dc47e3f6e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/watford/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/watford/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/watford/",
+      "sourceSha256": "a8386da50e51796b1fb0e3137f6847ca135c3db2c4d92519775d7b7860e3700d",
+      "contentFile": "src/content/sds/pages/5f0b4eef49100fcbef86705e.html",
+      "seoFile": "src/seo/sds/pages/5f0b4eef49100fcbef86705e.json",
+      "originalTextSha256": "0c86395ef6ae92e38396d080b031c992e21178bbe8806157fa84ec82d54b6487",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/wigan/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wigan/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wigan/",
+      "sourceSha256": "5c561348f152ac554128f9e755acf804cf0ff2324a977d42ff2f6b7f06dd11a8",
+      "contentFile": "src/content/sds/pages/b01869fa7d9e1eaf0b3399ce.html",
+      "seoFile": "src/seo/sds/pages/b01869fa7d9e1eaf0b3399ce.json",
+      "originalTextSha256": "9c21762b2602f965246ae954c4fb0c37c2ccb7fc2b71c2e247062a4a8bab0e20",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/wolverhampton/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wolverhampton/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wolverhampton/",
+      "sourceSha256": "cc5f363ad45f9548719475e3bcb0d1a30c908ededef7639aa960db77754cf5af",
+      "contentFile": "src/content/sds/pages/22cbc0f01b78d303fc4eb1ed.html",
+      "seoFile": "src/seo/sds/pages/22cbc0f01b78d303fc4eb1ed.json",
+      "originalTextSha256": "467b6395bfa8dc6f2d47e8993737fcb52b6fb39a7a58374190f769e9ca34a324",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/worcester/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/worcester/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/worcester/",
+      "sourceSha256": "b18aaf21d7455322ccf00b6f151f461dba90116f8fefe54e387b0a078c62d948",
+      "contentFile": "src/content/sds/pages/b42d7039cf3fff98c9996c19.html",
+      "seoFile": "src/seo/sds/pages/b42d7039cf3fff98c9996c19.json",
+      "originalTextSha256": "bc60ef265165421ca05bb14b870ab0731f79da4b9fc3ff8e6977cbe11000f20b",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/worthing/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/worthing/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/worthing/",
+      "sourceSha256": "b604542cd92db8ef751c6a6a4d5fde91654b4f40a6f146e0f9b3b4f473067fc2",
+      "contentFile": "src/content/sds/pages/8190ae37160e4f46f9cadc8b.html",
+      "seoFile": "src/seo/sds/pages/8190ae37160e4f46f9cadc8b.json",
+      "originalTextSha256": "bb3f47d9d33f7eca97018352d867e6e45cfe483e38e8481752e4b051b5f919db",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/locations/york/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/york/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/york/",
+      "sourceSha256": "39bf9b2c09ef4789095b7d67ec49efb63022313a670367987c1f06e47d4f44e3",
+      "contentFile": "src/content/sds/pages/2c046bb8c2da146bde1aa1fd.html",
+      "seoFile": "src/seo/sds/pages/2c046bb8c2da146bde1aa1fd.json",
+      "originalTextSha256": "381fc2ded7a52c0826541e72bd5f4292cb76512c0fb18477ca51fe149c2dde87",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/plumbing-drainage-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/plumbing-drainage-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/plumbing-drainage-claims/",
+      "sourceSha256": "a20b45f52ae44453f557cfd96cb2aeef6d58eedf9ef2f31ac3ed182f44bffa32",
+      "contentFile": "src/content/sds/pages/3f0e0bb1a9199fff66b5344f.html",
+      "seoFile": "src/seo/sds/pages/3f0e0bb1a9199fff66b5344f.json",
+      "originalTextSha256": "24b2391b19579375b4b9b3a2f6e9caa4c7564cbc4a64604ad62439d7848a1a63",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/roof-gutter-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/roof-gutter-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/roof-gutter-claims/",
+      "sourceSha256": "4c09f48f4857ba8b1623e264f7253a08d394bc1ca1eead4a12274ea6edd86d52",
+      "contentFile": "src/content/sds/pages/f2bc616a07dfbfeb073c93ed.html",
+      "seoFile": "src/seo/sds/pages/f2bc616a07dfbfeb073c93ed.json",
+      "originalTextSha256": "32466737a249a44b0493178fd8dc6daafd0190660c914424ccffba9248cbb536",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/spray-foam-insulation-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/spray-foam-insulation-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/spray-foam-insulation-claims/",
+      "sourceSha256": "5e649ee63a1066810c02012dbf2c61fb90f05368dd2a2b6d8189b407927e96a6",
+      "contentFile": "src/content/sds/pages/063968fa2be4cc77d646ff7f.html",
+      "seoFile": "src/seo/sds/pages/063968fa2be4cc77d646ff7f.json",
+      "originalTextSha256": "6196ae4a5167c284f2dfe6313f60bfa8d4293482d204721467d58ee2fb061fb0",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/unsafe-flooring-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/unsafe-flooring-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/unsafe-flooring-claims/",
+      "sourceSha256": "87065be7490de9948ed2cdb1ad8896a50b1cbacfaf0358ff844371733f44ae6a",
+      "contentFile": "src/content/sds/pages/9dd4ba9da2c7b3fd8e1834b4.html",
+      "seoFile": "src/seo/sds/pages/9dd4ba9da2c7b3fd8e1834b4.json",
+      "originalTextSha256": "d94bc13ed3c8e4136bb0560858c34feaa514e892f09d641c0c21107d9c27e387",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/vermin-from-disrepair-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/vermin-from-disrepair-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/vermin-from-disrepair-claims/",
+      "sourceSha256": "eaadee89d7c5d298bfdc4dc3f11af29297559fdbef02367cb6a14afa22c2139a",
+      "contentFile": "src/content/sds/pages/7745ea55adc97d1b43ea411e.html",
+      "seoFile": "src/seo/sds/pages/7745ea55adc97d1b43ea411e.json",
+      "originalTextSha256": "a73158da08dfb026e05437e6418c96da072f3de4433345a489d3d3e42f2db954",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/windows-doors-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/windows-doors-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/windows-doors-claims/",
+      "sourceSha256": "a0cee2de68f568c99b4219a8700d40d969dcc37a842dc42ca6fb724f518ff60a",
+      "contentFile": "src/content/sds/pages/de4ccefb2f1c042aefd0be3b.html",
+      "seoFile": "src/seo/sds/pages/de4ccefb2f1c042aefd0be3b.json",
+      "originalTextSha256": "30e26848dd6e1b894f8a538c2440ff87025d41b49d24f01f600edf93ebbf4b7a",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/referral-bonus-scheme/",
+      "sourceUrl": "https://www.sds-solicitors.com/referral-bonus-scheme/",
+      "finalUrl": "https://www.sds-solicitors.com/referral-bonus-scheme/",
+      "sourceSha256": "c5390f190934f0c8a22c4ef4149782da481e0e5095ead1eed0302c2f0110dfdd",
+      "contentFile": "src/content/sds/pages/4a1db3ffd21931ce06e0fc32.html",
+      "seoFile": "src/seo/sds/pages/4a1db3ffd21931ce06e0fc32.json",
+      "originalTextSha256": "24ed57ec11d9782e12732b270f73502639b24b0d5ed2ca3f6b81b79570c94fa2",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/referral-bonus-scheme/family-and-friends-bonus-terms-and-conditions/",
+      "sourceUrl": "https://www.sds-solicitors.com/referral-bonus-scheme/family-and-friends-bonus-terms-and-conditions/",
+      "finalUrl": "https://www.sds-solicitors.com/referral-bonus-scheme/family-and-friends-bonus-terms-and-conditions/",
+      "sourceSha256": "bf917e9aadcffc84ac679b6877fca9a748eafc55c62755d0c2a125c24b3262be",
+      "contentFile": "src/content/sds/pages/f3750bd8ee02575733706698.html",
+      "seoFile": "src/seo/sds/pages/f3750bd8ee02575733706698.json",
+      "originalTextSha256": "1935946ab3f790aea2c46a1194ddc5712a40f37170101149bbd6d1702e99abfd",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/careers",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/careers",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/careers/",
+      "sourceSha256": "12738a8ff3f753235e54d195aa8c082e1f37340adfeea0084672437b3f16972e",
+      "contentFile": "src/content/sds/pages/ccb405ba0e93fa546e597119.html",
+      "seoFile": "src/seo/sds/pages/ccb405ba0e93fa546e597119.json",
+      "originalTextSha256": "b24dc9b0fde02cd2a2f6d14afbc186ff674dd5610db56af97ef84ca16c543e1e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/topic/359/housing-disrepair/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/359/housing-disrepair/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/359/housing-disrepair/",
+      "sourceSha256": "71b66d05c27dcfb1cad00dd8e8a283b380a9689510be4ef51752fdfc09ce089d",
+      "contentFile": "src/content/sds/pages/829cd14d1563c82f39f20df2.html",
+      "seoFile": "src/seo/sds/pages/829cd14d1563c82f39f20df2.json",
+      "originalTextSha256": "551178ed7b910451fae7e50f1f81e83ca6f63589504901809d72e0333b251a88",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/complaints",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/complaints",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/complaints/",
+      "sourceSha256": "f2c760c438868ba6df48b1c9033f8ca896e7808d9091dde5a4672705716bf6f1",
+      "contentFile": "src/content/sds/pages/adaa07f237de554f2be78ec6.html",
+      "seoFile": "src/seo/sds/pages/adaa07f237de554f2be78ec6.json",
+      "originalTextSha256": "61939aa6b4e08ddde7db6b0be3c63ab5558a54bc1f70e907261350113c8454e8",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/cookies",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/cookies",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/cookies/",
+      "sourceSha256": "9c07e598e25ed011f3d4b250d122165580b329945b708c73066f019cb02db805",
+      "contentFile": "src/content/sds/pages/48d9f117c702689d9dd742b7.html",
+      "seoFile": "src/seo/sds/pages/48d9f117c702689d9dd742b7.json",
+      "originalTextSha256": "9b51daf69c4ed2aaed9d30e25f38efc67876138488f3df3b5a1c65b03107b868",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "sourceSha256": "a1f9adab965be75d0f9589b06b4d425472c8085b9afe5e45b10bc33086b5cefd",
+      "contentFile": "src/content/sds/pages/60ffc3b02ef641d4d93681d8.html",
+      "seoFile": "src/seo/sds/pages/60ffc3b02ef641d4d93681d8.json",
+      "originalTextSha256": "05905ec5a940b634748ec22e893f4424b65652335ebbe7835ebe872061a1288f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/topic/358/housing-disrepair/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/358/housing-disrepair/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/topic/358/housing-disrepair/",
+      "sourceSha256": "a11b6425e28bb2d69ba19266299acfc95842041220115856f5d32fd893067262",
+      "contentFile": "src/content/sds/pages/83ccb4275ae8648bf61ee051.html",
+      "seoFile": "src/seo/sds/pages/83ccb4275ae8648bf61ee051.json",
+      "originalTextSha256": "05905ec5a940b634748ec22e893f4424b65652335ebbe7835ebe872061a1288f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/topic/78/about-sds/",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/78/about-sds/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/topic/78/about-sds/",
+      "sourceSha256": "bd9c75a94022a4d722da62bdb5810f710f06a7eb3716239a744153ea62e63805",
+      "contentFile": "src/content/sds/pages/794428cd584d44551a42a132.html",
+      "seoFile": "src/seo/sds/pages/794428cd584d44551a42a132.json",
+      "originalTextSha256": "71eba2b348a6ca3e7bd9dce8cc55fc04b0a461a9ffb9e69a403fd800ea75d7c0",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/alison-sherlock",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/alison-sherlock",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/alison-sherlock/",
+      "sourceSha256": "f2659c53b783870b4f56b99be15999f0b1970d765cf23d5c9612028efc5f347e",
+      "contentFile": "src/content/sds/pages/14674184166773de2be55009.html",
+      "seoFile": "src/seo/sds/pages/14674184166773de2be55009.json",
+      "originalTextSha256": "9b83015fc8bdc4f4b5ff063ae161ec4ef2fab289bc0f15483bac9d28ebf80441",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/angela-brewis",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/angela-brewis",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/angela-brewis/",
+      "sourceSha256": "994dd2ff80c195d24df01751ac15fa667f4f799b0da155801ccdecb4816c7b55",
+      "contentFile": "src/content/sds/pages/6dcbdf48d390311cb5370812.html",
+      "seoFile": "src/seo/sds/pages/6dcbdf48d390311cb5370812.json",
+      "originalTextSha256": "29c42d383bab3c79896b87cbd379af9d1f05adbae3a1bed4a51e00ca6001854a",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/blake-davidson",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/blake-davidson",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/blake-davidson/",
+      "sourceSha256": "41685a3c320c707bf44bf42d3dd936e93e224c28c246e114544acdfcc0cc0cec",
+      "contentFile": "src/content/sds/pages/9ef426ce8f4ffd8cf5eeb6b9.html",
+      "seoFile": "src/seo/sds/pages/9ef426ce8f4ffd8cf5eeb6b9.json",
+      "originalTextSha256": "c1ca8adfb8208f96f34f819a6c9c9a0c4317a4dc68d0c2103e88dcacfa0e10ce",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/brian-tyrie",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/brian-tyrie",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/brian-tyrie/",
+      "sourceSha256": "e9477fe9e18123324050b09574abcda809f3f2995fb731fd91bac684fffb42e7",
+      "contentFile": "src/content/sds/pages/893f52f584b2b08ab3aa5fdf.html",
+      "seoFile": "src/seo/sds/pages/893f52f584b2b08ab3aa5fdf.json",
+      "originalTextSha256": "0681e68301848827a2188fc8dae3a2ee2f444e78442bc5862098beb4f349d6c6",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/corbyn-lewis",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/corbyn-lewis",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/corbyn-lewis/",
+      "sourceSha256": "1e420e477c8dbdd7b9eab96cb05945d3301236c5eb37a173c5fba60d93c5209e",
+      "contentFile": "src/content/sds/pages/c93b91deec7dcbe6a8c685d9.html",
+      "seoFile": "src/seo/sds/pages/c93b91deec7dcbe6a8c685d9.json",
+      "originalTextSha256": "fe21e8f87f2277321a91c9e28b1d4b40ffb2838a425042755f21190771178450",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/daisy-kerins",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/daisy-kerins",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/daisy-kerins/",
+      "sourceSha256": "c9797fefead17b8973bf564079e62def1d6cd04357873d17c005b287797c2339",
+      "contentFile": "src/content/sds/pages/b6e19bb0911a0b5186da5b29.html",
+      "seoFile": "src/seo/sds/pages/b6e19bb0911a0b5186da5b29.json",
+      "originalTextSha256": "1717d7779cec8692dc86f61f8bfa4984bc47e6203130696cfc52d87b85a83f57",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/dominique-stansfield",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/dominique-stansfield",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/dominique-stansfield/",
+      "sourceSha256": "f48f61f76233df3e7f80dae55dcc7162586d9e7784bee1f7062851eb192e3300",
+      "contentFile": "src/content/sds/pages/1bcf154153e786cf940a95ca.html",
+      "seoFile": "src/seo/sds/pages/1bcf154153e786cf940a95ca.json",
+      "originalTextSha256": "dc94668cb9b05219d44c99bde70a18e39df4c345c5c6267053ece6315bf612be",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/emma-farrington",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/emma-farrington",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/emma-farrington/",
+      "sourceSha256": "e64a5be036f8098cbc314940881e07fa5fd65f587b5f79f2502253207080d3dd",
+      "contentFile": "src/content/sds/pages/35c660df34ec4c442c5c8852.html",
+      "seoFile": "src/seo/sds/pages/35c660df34ec4c442c5c8852.json",
+      "originalTextSha256": "1b7e13cec31c1d10db47a4f8858d9ca1df830f441206ab9391fcdf593aa8274d",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/hayley-garnet",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/hayley-garnet",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/hayley-garnet/",
+      "sourceSha256": "de1d0d2f5804fe00443300f0cb0e6d61624a8ab0505ae53dba55bb85e6153741",
+      "contentFile": "src/content/sds/pages/b3432fd49f8cf943cea9f297.html",
+      "seoFile": "src/seo/sds/pages/b3432fd49f8cf943cea9f297.json",
+      "originalTextSha256": "6e515fae1da6d9dbba015b9a9a8df9245db6b9f38789e2be54a75c05b2bfd913",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/janine-watson",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/janine-watson",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/janine-watson/",
+      "sourceSha256": "d2e1175c833268991f44529374be54893e6f9f15b2993ef48ccc2451464ed5ed",
+      "contentFile": "src/content/sds/pages/74dfc27ef2af4b0829ad2d00.html",
+      "seoFile": "src/seo/sds/pages/74dfc27ef2af4b0829ad2d00.json",
+      "originalTextSha256": "c103fa21e52b88eaf9f944fb3d0cdb59f05080ab6946a88eaa660fbe89ebc6af",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/jen-schofield",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/jen-schofield",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/jen-schofield/",
+      "sourceSha256": "03a51c75f75b2d198dc64c915ca36e48807a877d5a1511de86861e7c962376a9",
+      "contentFile": "src/content/sds/pages/8872ed184b5115f715994559.html",
+      "seoFile": "src/seo/sds/pages/8872ed184b5115f715994559.json",
+      "originalTextSha256": "49fba5effd0589b441aa7985018ae609260fd376462db0a4861f03a52fc75ed3",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/kaneesha-zendera",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/kaneesha-zendera",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/kaneesha-zendera/",
+      "sourceSha256": "ad31ad1d33a1cfe7eeb2d9d77fffd141c39218fd7032e728a70f05d44364767e",
+      "contentFile": "src/content/sds/pages/dd29b16fa37424635f470b6e.html",
+      "seoFile": "src/seo/sds/pages/dd29b16fa37424635f470b6e.json",
+      "originalTextSha256": "5a8f7f3314ebb24936a60cafe6acdacbc43c33cbf7a4e669fc7d27bf73f0cda4",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/karen-holt",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/karen-holt",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/karen-holt/",
+      "sourceSha256": "1e18fe0057339fdeed21a1f691adf1532f181566891abcddedc988cd18f41daf",
+      "contentFile": "src/content/sds/pages/aa077d75ced4db32898515d4.html",
+      "seoFile": "src/seo/sds/pages/aa077d75ced4db32898515d4.json",
+      "originalTextSha256": "b6bb6afd09c231433ceb09a65615cadb83cd57275eadaf314a524254f2279a16",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/kate-sherlock",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/kate-sherlock",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/kate-sherlock/",
+      "sourceSha256": "6da848171ecf9df159327e2912b5bf01e9c463ff7ec4b3f80e9583f4062b1dae",
+      "contentFile": "src/content/sds/pages/09e44d3a8b42fb875f2e2d82.html",
+      "seoFile": "src/seo/sds/pages/09e44d3a8b42fb875f2e2d82.json",
+      "originalTextSha256": "7fd79e6ca9b87e071d6635fd6e0b38973ad70490f2c6f76b3b5e49dac149f0d9",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/katie-morgan",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/katie-morgan",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/katie-morgan/",
+      "sourceSha256": "4d619184b334d3c44e617868d41cb9082c88e4c48ef4abac4230b6379a81f7a5",
+      "contentFile": "src/content/sds/pages/b57e4a60ef596436a9f32670.html",
+      "seoFile": "src/seo/sds/pages/b57e4a60ef596436a9f32670.json",
+      "originalTextSha256": "733d75202dae96dea0ac2259a8285746d56515ab87c0da7c89c92977f4f80045",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/lauren-davies",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/lauren-davies",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/lauren-davies/",
+      "sourceSha256": "c57f392d0f8ff39915cf3b00ba8dfda7bb16e731f1dd8857abe1e5e65b4474b3",
+      "contentFile": "src/content/sds/pages/c89acdb67b947fe436fc265b.html",
+      "seoFile": "src/seo/sds/pages/c89acdb67b947fe436fc265b.json",
+      "originalTextSha256": "9be6b9ccb6eda58696f8a510da3068b1878388e67398fbae4b95858dca50b1cf",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/michael-haycock",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/michael-haycock",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/michael-haycock/",
+      "sourceSha256": "679bf1078db95b6a7330d5fdf11d866142b73e12315f62df1581a78ee5602e14",
+      "contentFile": "src/content/sds/pages/df57e381536b4d1e5d6017a5.html",
+      "seoFile": "src/seo/sds/pages/df57e381536b4d1e5d6017a5.json",
+      "originalTextSha256": "53c67982c33fbb42205a2f5cf808781d63addda86691d5c8586133302151af79",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/milena-bologan",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/milena-bologan",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/milena-bologan/",
+      "sourceSha256": "0b2402875c476248deaa2d283c6ff2c9f57a788efa593e616b2c7ebbd6995146",
+      "contentFile": "src/content/sds/pages/69438341468a3cb1a2c5efb0.html",
+      "seoFile": "src/seo/sds/pages/69438341468a3cb1a2c5efb0.json",
+      "originalTextSha256": "99b8b00a04023245b685be3599bbae904666fb5c937216fc131aa1a50ad47198",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/modupe-somoye",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/modupe-somoye",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/modupe-somoye/",
+      "sourceSha256": "325bce30af140483d606ed7c39d09659cbac94bbbb2401aa6b69b2f7a6c1cab3",
+      "contentFile": "src/content/sds/pages/2f11f6e46276bba2489f502a.html",
+      "seoFile": "src/seo/sds/pages/2f11f6e46276bba2489f502a.json",
+      "originalTextSha256": "5be42355fd20e2df0726404f6e4e149b446ea16a3624ccbd1ed1832071328f1f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/moyin-ajidagba",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/moyin-ajidagba",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/moyin-ajidagba/",
+      "sourceSha256": "0a97f61da876502c7716e61305008982d54088153f849e11323bfb2eb324908f",
+      "contentFile": "src/content/sds/pages/bea7f7e1915960cbbb77bae5.html",
+      "seoFile": "src/seo/sds/pages/bea7f7e1915960cbbb77bae5.json",
+      "originalTextSha256": "0381646fc3696269ec81a190501806234894e21ee4066e46559acb88d29fe7fb",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/sheldon-davidson",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/",
+      "sourceSha256": "c0661f01ce75dacb8fda9fbd60c4fd33a4cce60badf642479fcafb729d21da82",
+      "contentFile": "src/content/sds/pages/0229d199a0491cb6c822cfb9.html",
+      "seoFile": "src/seo/sds/pages/0229d199a0491cb6c822cfb9.json",
+      "originalTextSha256": "154267fbcb806911b4692f467b3d72f59bc33d9d28dd31f890279c59ce31179a",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/victoria-mccormack",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/victoria-mccormack",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/victoria-mccormack/",
+      "sourceSha256": "ec252482f20c86cd4062dca016ed44326309f7117af687f72b60494949c706b3",
+      "contentFile": "src/content/sds/pages/4dc04e88e1b5cdc92ed395fc.html",
+      "seoFile": "src/seo/sds/pages/4dc04e88e1b5cdc92ed395fc.json",
+      "originalTextSha256": "514113f475e80f55e22078a935a468969bc3616c6f2bb0ce257ef53764aca409",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/william-webb",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/william-webb",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/william-webb/",
+      "sourceSha256": "72bd64d5406e9d6dfc86c4d862fe88f9269b0103da6a9301ac01a53c92ea89ef",
+      "contentFile": "src/content/sds/pages/1da8ba1c05900bc157b64b52.html",
+      "seoFile": "src/seo/sds/pages/1da8ba1c05900bc157b64b52.json",
+      "originalTextSha256": "06170f9e889e9ceda13d604c2af5736aad32bd639a1aaae699cddbb05639ac38",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/our-people/yulie-wagman",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/yulie-wagman",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/our-people/yulie-wagman/",
+      "sourceSha256": "bc128dbd31e8eb29cc48af79d514e7f35ae71af7feeae69255b7f441b150b9f2",
+      "contentFile": "src/content/sds/pages/177c18c3ae1b8497b366587e.html",
+      "seoFile": "src/seo/sds/pages/177c18c3ae1b8497b366587e.json",
+      "originalTextSha256": "b3388c127274a13f6435346e5edffae36b0e58020c960c83371d0a51de6bad48",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/privacy-policy",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/privacy-policy",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/privacy-policy/",
+      "sourceSha256": "31e78b5da81cad674979a9d45ea6098339dca9ba08d10db19f82f3e9a0250f3f",
+      "contentFile": "src/content/sds/pages/ab4d45784e5cd10c19e96cb0.html",
+      "seoFile": "src/seo/sds/pages/ab4d45784e5cd10c19e96cb0.json",
+      "originalTextSha256": "1655ef2c1187f71bd5c66bf22638d2b188c81cece7dc0977610d7d050c686c2f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/complaints/www.legalombudsman.org.uk",
+      "sourceUrl": "https://www.sds-solicitors.com/complaints/www.legalombudsman.org.uk",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/complaints/",
+      "sourceSha256": "f2c760c438868ba6df48b1c9033f8ca896e7808d9091dde5a4672705716bf6f1",
+      "contentFile": "src/content/sds/pages/da5f6899a77e1f805385fcbc.html",
+      "seoFile": "src/seo/sds/pages/da5f6899a77e1f805385fcbc.json",
+      "originalTextSha256": "61939aa6b4e08ddde7db6b0be3c63ab5558a54bc1f70e907261350113c8454e8",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/complaints/www.ombudsman-services.org",
+      "sourceUrl": "https://www.sds-solicitors.com/complaints/www.ombudsman-services.org",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/complaints/",
+      "sourceSha256": "f2c760c438868ba6df48b1c9033f8ca896e7808d9091dde5a4672705716bf6f1",
+      "contentFile": "src/content/sds/pages/42cd67a911c3fdf48f892fa1.html",
+      "seoFile": "src/seo/sds/pages/42cd67a911c3fdf48f892fa1.json",
+      "originalTextSha256": "61939aa6b4e08ddde7db6b0be3c63ab5558a54bc1f70e907261350113c8454e8",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/complaints/www.small-claims-mediation.co.uk",
+      "sourceUrl": "https://www.sds-solicitors.com/complaints/www.small-claims-mediation.co.uk",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/complaints/",
+      "sourceSha256": "f2c760c438868ba6df48b1c9033f8ca896e7808d9091dde5a4672705716bf6f1",
+      "contentFile": "src/content/sds/pages/bc4a14d7d6922fb4f31db1f1.html",
+      "seoFile": "src/seo/sds/pages/bc4a14d7d6922fb4f31db1f1.json",
+      "originalTextSha256": "61939aa6b4e08ddde7db6b0be3c63ab5558a54bc1f70e907261350113c8454e8",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/contact-us",
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us",
+      "finalUrl": "https://www.sds-solicitors.com/contact-us/",
+      "sourceSha256": "8c961bb86b1ab5d46149f4db53259ab7016f5eb627118cc46c6de3f01ad21168",
+      "contentFile": "src/content/sds/pages/b02cdba7fddf5d3525463655.html",
+      "seoFile": "src/seo/sds/pages/b02cdba7fddf5d3525463655.json",
+      "originalTextSha256": "21949e23a4a2f9ca3c6ea46bfb992e9ba09cdcb6255e0ce58d8294676824d914",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/flooding-water-damage-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/flooding-water-damage-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/flooding-water-damage-claims/",
+      "sourceSha256": "2b322e51d3e4a58290edaf40b1a37935ff30f30d23c87b269162f8eff1ffc64f",
+      "contentFile": "src/content/sds/pages/0696dd2e734a70fed36804e4.html",
+      "seoFile": "src/seo/sds/pages/0696dd2e734a70fed36804e4.json",
+      "originalTextSha256": "21dfdf9ea27211ec6eb68a5550202408434ac5faa0213ab24abcb2758edc01a3",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/",
+      "sourceSha256": "23eed4743921a638d6f1b284dd0fe7581cbbad4eba41c3f16df865efa2db8fe2",
+      "contentFile": "src/content/sds/pages/e72ccd554dc4d1d0a071f962.html",
+      "seoFile": "src/seo/sds/pages/e72ccd554dc4d1d0a071f962.json",
+      "originalTextSha256": "4c855e69bc1efcb10fe3ce55867568095a8ec0012bee940134660f0e514c98e9",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/housing-disrepair/leaks-plumbing-drainage-claims/",
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/leaks-plumbing-drainage-claims/",
+      "finalUrl": "https://www.sds-solicitors.com/housing-disrepair/plumbing-drainage-claims/",
+      "sourceSha256": "d1edde6369bfa636fba8890b7f64b1291d010f3aee3cbf6967a587892c43f49e",
+      "contentFile": "src/content/sds/pages/66177ce58a894711d5e63fda.html",
+      "seoFile": "src/seo/sds/pages/66177ce58a894711d5e63fda.json",
+      "originalTextSha256": "24b2391b19579375b4b9b3a2f6e9caa4c7564cbc4a64604ad62439d7848a1a63",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/privacy-policy/",
+      "sourceUrl": "https://www.sds-solicitors.com/privacy-policy/",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/privacy-policy/",
+      "sourceSha256": "31e78b5da81cad674979a9d45ea6098339dca9ba08d10db19f82f3e9a0250f3f",
+      "contentFile": "src/content/sds/pages/7489bcb8a1916477ae138417.html",
+      "seoFile": "src/seo/sds/pages/7489bcb8a1916477ae138417.json",
+      "originalTextSha256": "1655ef2c1187f71bd5c66bf22638d2b188c81cece7dc0977610d7d050c686c2f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/?ccm_paging_p_b2385=2",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/?ccm_paging_p_b2385=2",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/?ccm_paging_p_b2385=2",
+      "sourceSha256": "a61bc50cf5a74e7072725a92d3636317db991ff2648862f246e27aa305733062",
+      "contentFile": "src/content/sds/pages/7656e00e61df1d279ea383df.html",
+      "seoFile": "src/seo/sds/pages/7656e00e61df1d279ea383df.json",
+      "originalTextSha256": "899d830b90b622d3bb821d5bf7d3d20eaeb643739cb686e65f2b014404dc8aab",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=2",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=2",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=2",
+      "sourceSha256": "8c0a6d42a5f1cee5ca1c4a069525d2337b629a8a6a9dd261f481d473d109d5ed",
+      "contentFile": "src/content/sds/pages/e476a07d485b1bf2bc88d555.html",
+      "seoFile": "src/seo/sds/pages/e476a07d485b1bf2bc88d555.json",
+      "originalTextSha256": "a94dddfb74960ced9ae11940e7d51baf99e50d19e3318c9de3a05b67892a96d8",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/?ccm_paging_p_b1269=2",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=2",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=2",
+      "sourceSha256": "cf76fbfa4c4159b5926522ed16860b6ad103249ce137a482e904883ff785ddaa",
+      "contentFile": "src/content/sds/pages/f433ff99d2dd0d616d46ff3b.html",
+      "seoFile": "src/seo/sds/pages/f433ff99d2dd0d616d46ff3b.json",
+      "originalTextSha256": "79cbdabae1d2b82ac117dc8e796e4d65fbf163303b3698a13eb8c782606a0e50",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=2",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=2",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=2",
+      "sourceSha256": "7ebdb9a6376c15eb7806441ad2aff19afaad81756b77fa2e863704e3cc5d48bd",
+      "contentFile": "src/content/sds/pages/4e0c6cb6a6a12db3da08d415.html",
+      "seoFile": "src/seo/sds/pages/4e0c6cb6a6a12db3da08d415.json",
+      "originalTextSha256": "aa4333413d72bda7460caaf9b9361421d9ec4ff786eb9711c0eab138214bca6e",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/?ccm_paging_p_b2385=1",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/?ccm_paging_p_b2385=1",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/?ccm_paging_p_b2385=1",
+      "sourceSha256": "8592a33bd0a40cb96c646e8900d5a838bec777e7ec096d541af63599a276de0b",
+      "contentFile": "src/content/sds/pages/03cd720da95581c7b72b735e.html",
+      "seoFile": "src/seo/sds/pages/03cd720da95581c7b72b735e.json",
+      "originalTextSha256": "551178ed7b910451fae7e50f1f81e83ca6f63589504901809d72e0333b251a88",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=1",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=1",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=1",
+      "sourceSha256": "71b66d05c27dcfb1cad00dd8e8a283b380a9689510be4ef51752fdfc09ce089d",
+      "contentFile": "src/content/sds/pages/9db76facae7a0dd9475861a8.html",
+      "seoFile": "src/seo/sds/pages/9db76facae7a0dd9475861a8.json",
+      "originalTextSha256": "551178ed7b910451fae7e50f1f81e83ca6f63589504901809d72e0333b251a88",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/?ccm_paging_p_b1269=1",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=1",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=1",
+      "sourceSha256": "a1f9adab965be75d0f9589b06b4d425472c8085b9afe5e45b10bc33086b5cefd",
+      "contentFile": "src/content/sds/pages/13c033b7de7184dfa16bc172.html",
+      "seoFile": "src/seo/sds/pages/13c033b7de7184dfa16bc172.json",
+      "originalTextSha256": "05905ec5a940b634748ec22e893f4424b65652335ebbe7835ebe872061a1288f",
+      "sourceStatus": 200
+    },
+    {
+      "path": "/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=1",
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=1",
+      "finalUrl": "https://www.sds-solicitors.com/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=1",
+      "sourceSha256": "a11b6425e28bb2d69ba19266299acfc95842041220115856f5d32fd893067262",
+      "contentFile": "src/content/sds/pages/64dc42adf4c7afe2396c10f6.html",
+      "seoFile": "src/seo/sds/pages/64dc42adf4c7afe2396c10f6.json",
+      "originalTextSha256": "05905ec5a940b634748ec22e893f4424b65652335ebbe7835ebe872061a1288f",
+      "sourceStatus": 200
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "title": "National Disrepair Claim Experts for England | SDS",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "We handle Housing Disrepair Claims across England. If you’re dealing with poor living conditions, we offer No Win No Fee support. Contact SDS Solicitors."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/housing-disrepair/locations/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/housing-disrepair/locations/#webpage\",\n    \"name\": \"National Disrepair Claim Experts for England | SDS\",\n    \"description\": \"We handle Housing Disrepair Claims across England. If you’re dealing with poor living conditions, we offer No Win No Fee support. Contact SDS Solicitors.\",\n    \"url\": \"https://www.sds-solicitors.com/housing-disrepair/locations/\",\n    \"headline\": \"Expert Legal Support for Tenants Across England and Wales\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"mainEntity\": {\n        \"@type\": \"Service\",\n        \"@id\": \"https://www.sds-solicitors.com/housing-disrepair/locations/#service\",\n        \"serviceType\": \"Expert Legal Support for Tenants Across England and Wales\",\n        \"description\": \"We handle Housing Disrepair Claims across England. If you’re dealing with poor living conditions, we offer No Win No Fee support. Contact SDS Solicitors.\",\n        \"name\": \"Expert Legal Support for Tenants Across England and Wales\",\n        \"provider\": {\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\"\n        },\n        \"areaServed\": {\n            \"@type\": \"Place\",\n            \"name\": \"England\"\n        },\n        \"serviceOutput\": \"Legal Support\",\n        \"offers\": [\n            {\n                \"@type\": \"Offer\",\n                \"name\": \" Areas We Serve\",\n                \"url\": \"https://www.sds-solicitors.com/contact-us/\",\n                \"availability\": \"https://schema.org/InStock\",\n                \"validFrom\": \"1997-08-01\",\n                \"eligibleRegion\": \"GB\"\n            }\n        ],\n        \"availableChannel\": {\n            \"@type\": \"ServiceChannel\",\n            \"serviceUrl\": \"https://www.sds-solicitors.com/housing-disrepair/locations/\",\n            \"availableLanguage\": \"en\",\n            \"serviceLocation\": {\n                \"@type\": \"Place\",\n                \"name\": \"Sheldon Davidson Solicitors Office\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"@id\": \"https://www.sds-solicitors.com/#mainaddress\"\n                }\n            },\n            \"servicePhone\": {\n                \"@type\": \"ContactPoint\",\n                \"telephone\": \"01617963000\"\n            }\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}",
+    "{\n    \"@context\": \"https://schema.org/\",\n    \"@type\": \"Product\",\n    \"name\": \"Legal Service & Advice\",\n    \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"bestRating\": \"5\",\n        \"ratingValue\": \"4.8\",\n        \"worstRating\": \"1\",\n        \"reviewCount\": \"243\"\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Disrepair Claim Expert Legal Advice England"
+    },
+    {
+      "tag": "h2",
+      "text": "Serving Clients nationally across England"
+    },
+    {
+      "tag": "h3",
+      "text": "Check if you have valid claim..."
+    },
+    {
+      "tag": "h3",
+      "text": "Your Home Will Be Repaired"
+    },
+    {
+      "tag": "h3",
+      "text": "Compensation Paid"
+    },
+    {
+      "tag": "h3",
+      "text": "No Win No Fee"
+    },
+    {
+      "tag": "h3",
+      "text": "SRA Regulated Solicitors"
+    },
+    {
+      "tag": "h2",
+      "text": "Housing Disrepair Specialists Across England"
+    },
+    {
+      "tag": "h6",
+      "text": "Get Advice from a Housing Disrepair Professional"
+    },
+    {
+      "tag": "h6",
+      "text": "Get Advice from a Housing Disrepair Professional"
+    }
+  ]
+}

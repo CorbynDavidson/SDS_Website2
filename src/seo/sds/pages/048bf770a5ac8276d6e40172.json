@@ -1,0 +1,205 @@
+{
+  "title": "Terms of Business - SDS Solicitors",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Read our Terms and Conditions - SDS Solicitors"
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/about-us/terms-business/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"name\": \"Terms of Business\",\n    \"url\": \"https://www.sds-solicitors.com/about-us/terms-business/\",\n    \"headline\": \"TERMS OF BUSINESS \",\n    \"inLanguage\": \"en-GB\",\n    \"description\": \"Read our Terms and Conditions - SDS Solicitors\",\n    \"publisher\": {\n        \"name\": \"Sheldon Davidson Solicitors\"\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h2",
+      "text": "Terms of Business"
+    },
+    {
+      "tag": "h1",
+      "text": "TERMS OF BUSINESS"
+    },
+    {
+      "tag": "h2",
+      "text": "OUR AIM"
+    },
+    {
+      "tag": "h2",
+      "text": "OUR OBLIGATION TO YOU"
+    },
+    {
+      "tag": "h2",
+      "text": "OUR HOURS OF BUSINESS / CONTACT DETAILS"
+    },
+    {
+      "tag": "h2",
+      "text": "PEOPLE RESPONSIBLE FOR YOUR WORK"
+    },
+    {
+      "tag": "h2",
+      "text": "LEGAL AID"
+    },
+    {
+      "tag": "h2",
+      "text": "CHARGES AND EXPENSES"
+    },
+    {
+      "tag": "h2",
+      "text": "BASIC CHARGES"
+    },
+    {
+      "tag": "h2",
+      "text": "LOW VALUE ROAD TRAFFIC ACCIDENT CLAIMS"
+    },
+    {
+      "tag": "h2",
+      "text": "Fixed costs in relation to the Low Value RTA Protocol"
+    },
+    {
+      "tag": "h2",
+      "text": "CONDITIONAL FEE AGREEMENTS (CFA) AND DAMAGED BASED AGREEMENTS (DBA)."
+    },
+    {
+      "tag": "h2",
+      "text": "DISBURSEMENTS AND EXPENSES"
+    },
+    {
+      "tag": "h2",
+      "text": "OPPONENTS LIABILITY FOR YOUR COSTS AND EXPENSES"
+    },
+    {
+      "tag": "h2",
+      "text": "INSURANCE MEDIATION ACTIVITY"
+    },
+    {
+      "tag": "h2",
+      "text": "SEPARATE BUSINESSES"
+    },
+    {
+      "tag": "h2",
+      "text": "ACCESS FIRST LEI LIMITED"
+    },
+    {
+      "tag": "h2",
+      "text": "ACCESS HIRE AND FINANCE LIMITED"
+    },
+    {
+      "tag": "h2",
+      "text": "ACCESS REPAIRER FUNDING LIMITED"
+    },
+    {
+      "tag": "h2",
+      "text": "GARAGES ADVERTISING UK LIMITED"
+    },
+    {
+      "tag": "h2",
+      "text": "MEDICAL REPORTS, TREATMENT, MEDICAL AGENCIES & OTHER AGENTS"
+    },
+    {
+      "tag": "h2",
+      "text": "YOUR OBLIGATIONS TO US"
+    },
+    {
+      "tag": "h2",
+      "text": "INTEREST"
+    },
+    {
+      "tag": "h2",
+      "text": "TAX ADVICE"
+    },
+    {
+      "tag": "h2",
+      "text": "STORAGE OF PAPERS AND DOCUMENTS"
+    },
+    {
+      "tag": "h2",
+      "text": "TERMINATION"
+    },
+    {
+      "tag": "h2",
+      "text": "LIMITED COMPANIES"
+    },
+    {
+      "tag": "h2",
+      "text": "COMMUNICATION BETWEEN YOU AND US"
+    },
+    {
+      "tag": "h2",
+      "text": "QUALITY STANDARDS AND ACCREDITATIONS"
+    },
+    {
+      "tag": "h2",
+      "text": "DATA PROTECTION"
+    },
+    {
+      "tag": "h2",
+      "text": "COMPLAINTS AND COMPLAINTS HANDLING"
+    },
+    {
+      "tag": "h2",
+      "text": "PROFESSIONAL INDEMNITY INSURANCE"
+    },
+    {
+      "tag": "h2",
+      "text": "PROFESSIONAL RULES"
+    },
+    {
+      "tag": "h2",
+      "text": "ENDING YOUR AGREEMENT / RIGHT TO CANCEL"
+    },
+    {
+      "tag": "h2",
+      "text": "TERMS AND CONDITIONS OF BUSINESS"
+    }
+  ]
+}

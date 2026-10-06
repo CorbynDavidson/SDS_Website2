@@ -1,0 +1,133 @@
+{
+  "title": "Phase 1 of the Renters’ Rights Act 2026 | SDS Blog",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Phase 1 of the Renters’ Rights Act came into force on 1 May 2026. Learn what the new rules mean for tenants, landlords, evictions, rent increases and disrepair."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/about-us/news/phase-1-of-the-renters-rights-act-2026/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/about-us/news/phase-1-of-the-renters-rights-act-2026/#webpage\",\n    \"url\": \"https://www.sds-solicitors.com/about-us/news/phase-1-of-the-renters-rights-act-2026/\",\n    \"name\": \"Phase 1 of the Renters’ Rights Act 2026 | SDS Blog\",\n    \"description\": \"Phase 1 of the Renters’ Rights Act came into force on 1 May 2026. Learn what the new rules mean for tenants, landlords, evictions, rent increases and disrepair.\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"mainEntity\": {\n        \"@type\": \"Article\",\n        \"@id\": \"https://www.sds-solicitors.com/about-us/news/phase-1-of-the-renters-rights-act-2026/#article\",\n        \"headline\": \"Phase 1 of the Renters’ Rights Act May 1st 2026\",\n        \"alternativeHeadline\": \"Phase 1 of the Renters’ Rights Act 2026\",\n        \"articleSection\": \"Blog\",\n        \"description\": \"Phase 1 of the Renters’ Rights Act came into force on 1 May 2026. Learn what the new rules mean for tenants, landlords, evictions, rent increases and disrepair.\",\n        \"url\": \"https://www.sds-solicitors.com/about-us/news/phase-1-of-the-renters-rights-act-2026/\",\n        \"image\": {\n            \"@type\": \"ImageObject\"\n        },\n        \"author\": {\n            \"@type\": \"Person\",\n            \"@id\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/#person\",\n            \"name\": \"Sheldon Davidson\",\n            \"url\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/\"\n        },\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        },\n        \"datePublished\": \"2026-05-05\",\n        \"dateModified\": \"2026-06-11\",\n        \"isAccessibleForFree\": true,\n        \"about\": [\n            [\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Housing Disrepair Claims\",\n                    \"sameAs\": \"https://www.gov.uk/government/calls-for-evidence/housing-disrepair-claims/housing-disrepair-claims\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"The Renters’ Rights Act Changes 2026\",\n                    \"sameAs\": \"https://www.gov.uk/government/publications/the-renters-rights-act-information-sheet-2026\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"The Renters’ Rights Act 2025\",\n                    \"sameAs\": \"https://www.legislation.gov.uk/ukpga/2025/26/contents\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"The Renters’ Rights Act 2025\",\n                    \"sameAs\": \"https://en.wikipedia.org/wiki/Renters%27_Rights_Act_2025\"\n                }\n            ]\n        ],\n        \"mentions\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Phase 1 of the Renters’ Rights Act May 1st 2026"
+    },
+    {
+      "tag": "h2",
+      "text": "What is Phase 1 of the Renters’ Rights Act?"
+    },
+    {
+      "tag": "h3",
+      "text": "Key changes introduced from 1 May 2026"
+    },
+    {
+      "tag": "h2",
+      "text": "Section 21 “no-fault” evictions have ended"
+    },
+    {
+      "tag": "h2",
+      "text": "Landlords must now use valid possession grounds"
+    },
+    {
+      "tag": "h2",
+      "text": "Fixed-term tenancies have largely ended"
+    },
+    {
+      "tag": "h2",
+      "text": "Tenants can end their tenancy with notice"
+    },
+    {
+      "tag": "h2",
+      "text": "Rent increases must follow stricter rules"
+    },
+    {
+      "tag": "h2",
+      "text": "Rent in advance is now capped"
+    },
+    {
+      "tag": "h2",
+      "text": "Rental bidding is banned"
+    },
+    {
+      "tag": "h2",
+      "text": "Discrimination against tenants with children or benefits is unlawful"
+    },
+    {
+      "tag": "h2",
+      "text": "Tenants have stronger rights to request pets"
+    },
+    {
+      "tag": "h2",
+      "text": "Landlords must provide the official Information Sheet"
+    },
+    {
+      "tag": "h2",
+      "text": "What should tenants do if their landlord is not following the rules?"
+    },
+    {
+      "tag": "h2",
+      "text": "Housing Disrepair Experts – SDS Solicitors"
+    },
+    {
+      "tag": "h2",
+      "text": "Get in Touch"
+    },
+    {
+      "tag": "h5",
+      "text": "News by topic:"
+    }
+  ]
+}

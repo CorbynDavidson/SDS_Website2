@@ -1,0 +1,73 @@
+{
+  "title": "Complaints Policy - SDS Solicitors",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Should you wish to complain about the services provided by Sheldon Davidson Solicitors, we will always look to resolve your issue as efficiently as we can."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/about-us/complaints/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"name\": \"Complaints\",\n    \"url\": \"https://www.sds-solicitors.com/about-us/complaints/\",\n    \"headline\": \"COMPLAINTS HANDLING PROCEDURE\",\n    \"inLanguage\": \"en-GB\",\n    \"description\": \"Should you wish to complain about the services provided by Sheldon Davidson Solicitors, we will always look to resolve your issue as efficiently as we can.\",\n    \"publisher\": {\n        \"name\": \"Sheldon Davidson Solicitors\"\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h2",
+      "text": "Complaints"
+    },
+    {
+      "tag": "h1",
+      "text": "COMPLAINTS HANDLING PROCEDURE"
+    }
+  ]
+}

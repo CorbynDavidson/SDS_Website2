@@ -1,0 +1,97 @@
+{
+  "title": "What Awaab’s Law Means for Tenants in Social Housing | SDS Blog",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Check out our blog on Awaab’s Law and how this vital new legislation protects tenants from dangerous housing conditions. SDS Solicitors."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/#webpage\",\n    \"url\": \"https://www.sds-solicitors.com/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/\",\n    \"name\": \"What Awaab’s Law Means for Tenants in Social Housing | SDS Blog\",\n    \"description\": \"Check out our blog on Awaab’s Law and how this vital new legislation protects tenants from dangerous housing conditions. SDS Solicitors.\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"mainEntity\": {\n        \"@type\": \"Article\",\n        \"@id\": \"https://www.sds-solicitors.com/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/#article\",\n        \"headline\": \"What Is Awaab’s Law and Why It Matters to Every Tenant in Social Housing\",\n        \"alternativeHeadline\": \"What Awaab’s Law Means for Tenants in Social Housing\",\n        \"articleSection\": \"Blog\",\n        \"description\": \"Check out our blog on Awaab’s Law and how this vital new legislation protects tenants from dangerous housing conditions. SDS Solicitors.\",\n        \"url\": \"https://www.sds-solicitors.com/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/\",\n        \"image\": {\n            \"@type\": \"ImageObject\"\n        },\n        \"author\": {\n            \"@type\": \"Person\",\n            \"@id\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/#person\",\n            \"name\": \"Sheldon Davidson\",\n            \"url\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/\"\n        },\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        },\n        \"datePublished\": \"2025-10-27\",\n        \"dateModified\": \"2026-06-11\",\n        \"isAccessibleForFree\": true,\n        \"about\": [\n            [\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Awaab's Law Guidance\",\n                    \"sameAs\": \"https://www.gov.uk/government/publications/awaabs-law-guidance-for-social-landlords/awaabs-law-guidance-for-social-landlords-timeframes-for-repairs-in-the-social-rented-sector\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Awaab's Law\",\n                    \"sameAs\": \"https://www.housing-ombudsman.org.uk/centre-for-learning/key-topics/awaabs-law/\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Housing Disrepair Claims\",\n                    \"sameAs\": \"https://www.gov.uk/government/calls-for-evidence/housing-disrepair-claims/housing-disrepair-claims\"\n                }\n            ]\n        ],\n        \"mentions\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "What Is Awaab’s Law and Why It Matters to Every Tenant in Social Housing"
+    },
+    {
+      "tag": "h2",
+      "text": "Awaab’s Law is a direct response to that failure."
+    },
+    {
+      "tag": "h2",
+      "text": "What is Awaab’s Law?"
+    },
+    {
+      "tag": "h2",
+      "text": "Why Awaab’s Law Matters"
+    },
+    {
+      "tag": "h2",
+      "text": "What this means for tenants"
+    },
+    {
+      "tag": "h2",
+      "text": "What this means for landlords"
+    },
+    {
+      "tag": "h2",
+      "text": "We’re Here to Help"
+    },
+    {
+      "tag": "h5",
+      "text": "News by topic:"
+    }
+  ]
+}

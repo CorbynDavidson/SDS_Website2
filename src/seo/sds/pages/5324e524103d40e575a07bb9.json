@@ -1,0 +1,117 @@
+{
+  "title": "Renters Reform Bill 2026: What Tenants Need to Know | SDS Blog",
+  "meta": [
+    {
+      "charset": "utf-8"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width,initial-scale=1"
+    },
+    {
+      "property": "og:image",
+      "content": "/packages/katalysis_sds_theme/themes/katalysis_sds_theme/images/facebook-thumbnail.png"
+    },
+    {
+      "name": "format-detection",
+      "content": "telephone=no"
+    },
+    {
+      "http-equiv": "content-type",
+      "content": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "Find out how the Renters Reform Bill will affect your rights in 2026—covering evictions, repairs, rent rises, and what tenants can do now to protect themselves."
+    },
+    {
+      "name": "generator",
+      "content": "Concrete CMS"
+    },
+    {
+      "name": "msapplication-TileImage",
+      "content": "https://www.sds-solicitors.com/application/files/2515/6723/9736/mstile-310x310.png"
+    },
+    {
+      "name": "theme-color",
+      "content": "rgb(68, 149, 208)"
+    }
+  ],
+  "links": [
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.sds-solicitors.com/application/files/5015/6723/9704/favicon-96x96.png",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.sds-solicitors.com/application/files/4515/6723/9906/apple-touch-icon-180x180.png"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.sds-solicitors.com/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/"
+    }
+  ],
+  "structuredData": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://www.sds-solicitors.com/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/#webpage\",\n    \"url\": \"https://www.sds-solicitors.com/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/\",\n    \"name\": \"Renters Reform Bill 2026: What Tenants Need to Know | SDS Blog\",\n    \"description\": \"Find out how the Renters Reform Bill will affect your rights in 2026—covering evictions, repairs, rent rises, and what tenants can do now to protect themselves.\",\n    \"inLanguage\": \"en\",\n    \"isPartOf\": {\n        \"@type\": \"WebSite\",\n        \"@id\": \"https://www.sds-solicitors.com/#website\",\n        \"name\": \"Sheldon Davidson Solicitors\",\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"mainEntity\": {\n        \"@type\": \"Article\",\n        \"@id\": \"https://www.sds-solicitors.com/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/#article\",\n        \"headline\": \"The Renters Reform Bill: What It Means for Tenants in 2026 and Beyond\",\n        \"alternativeHeadline\": \"Renters Reform Bill 2026: What Tenants Need to Know\",\n        \"articleSection\": \"Blog\",\n        \"description\": \"Find out how the Renters Reform Bill will affect your rights in 2026—covering evictions, repairs, rent rises, and what tenants can do now to protect themselves.\",\n        \"url\": \"https://www.sds-solicitors.com/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/\",\n        \"image\": {\n            \"@type\": \"ImageObject\"\n        },\n        \"author\": {\n            \"@type\": \"Person\",\n            \"@id\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/#person\",\n            \"name\": \"Sheldon Davidson\",\n            \"url\": \"https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/\"\n        },\n        \"publisher\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        },\n        \"datePublished\": \"2026-03-24\",\n        \"dateModified\": \"2026-06-11\",\n        \"isAccessibleForFree\": true,\n        \"about\": [\n            [\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Housing Disrepair Claims\",\n                    \"sameAs\": \"https://www.gov.uk/government/calls-for-evidence/housing-disrepair-claims/housing-disrepair-claims\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Housing Act 2004\",\n                    \"url\": \"https://www.legislation.gov.uk/ukpga/2004/34/contents\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Landlord and Tenant Act 1985\",\n                    \"url\": \"https://www.legislation.gov.uk/ukpga/1985/70\"\n                },\n                {\n                    \"@type\": \"Thing\",\n                    \"name\": \"Homes (Fitness for Human Habitation) Act 2018\",\n                    \"url\": \"https://www.legislation.gov.uk/ukpga/2018/34\"\n                }\n            ]\n        ],\n        \"mentions\": {\n            \"@type\": \"Corporation\",\n            \"@id\": \"https://www.sds-solicitors.com/#corporation\",\n            \"name\": \"Sheldon Davidson Solicitors\"\n        }\n    },\n    \"speakable\": {\n        \"@type\": \"SpeakableSpecification\",\n        \"xpath\": [\n            \"/html/head/title\",\n            \"/html/head/meta[@name='description']/@content\"\n        ]\n    }\n}"
+  ],
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "The Renters Reform Bill: What It Means for Tenants in 2026 and Beyond"
+    },
+    {
+      "tag": "h2",
+      "text": "What Does the Renters Reform Bill Cover?"
+    },
+    {
+      "tag": "h3",
+      "text": "1. Abolition of Section 21 'No-Fault' Evictions"
+    },
+    {
+      "tag": "h3",
+      "text": "2. Stronger Grounds for Tenant Evictions (via Section 8)"
+    },
+    {
+      "tag": "h3",
+      "text": "3. All Tenancies Become Periodic"
+    },
+    {
+      "tag": "h3",
+      "text": "4. New Ombudsman and Property Portal"
+    },
+    {
+      "tag": "h3",
+      "text": "5. Better Standards and Fitness for Human Habitation"
+    },
+    {
+      "tag": "h3",
+      "text": "6. Rent Increase Protections"
+    },
+    {
+      "tag": "h2",
+      "text": "What’s Coming in 2026?"
+    },
+    {
+      "tag": "h2",
+      "text": "What Can You Do If You’re Affected by Poor Housing or Unfair Treatment?"
+    },
+    {
+      "tag": "h2",
+      "text": "Housing Disrepair Experts – SDS Solicitors"
+    },
+    {
+      "tag": "h2",
+      "text": "Get in Touch"
+    },
+    {
+      "tag": "h5",
+      "text": "News by topic:"
+    }
+  ]
+}
