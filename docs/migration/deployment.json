@@ -28,7 +28,7 @@
   "migrationContentIntegrationIntoApprovedDesignComplete": true,
   "productionReleaseReady": false,
   "browserRecheckCompleted": false,
-  "browserRecheckBlocker": "Automatic approval review service was at capacity.",
+  "browserRecheckBlocker": "The required control-browser skill is unavailable in this execution environment.",
   "activeReviewRelease": {
     "versionNumber": 47,
     "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_41f2b1119d2881918f5b46c9076fdf6f",
@@ -132,5 +132,44 @@
     "productionDnsChanged": false,
     "productionReleaseReady": false
   },
-  "currentlyDeployedRelease": "contentMigration"
+  "currentlyDeployedRelease": "layoutCorrections",
+  "layoutCorrections": {
+    "versionNumber": 49,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_c199c3e18214819187efa28ccd0653f9",
+    "sourceCommit": "a8f2f9321de5283d53d8da797021d1bcbe951ede",
+    "githubCommit": "371bf8793bdeac06be3fe721dd9324a705637af1",
+    "deploymentId": "appgdep_6ac45f5cdc808191afc973a360a7f016",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T02:39:49.529453+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "archive": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000fd8081f4a2da72e425af38b8",
+      "content_hash": "sha256:2c9572ec2b2881a351376b5b2bd7804766569b389d23670bbaca177d6ee9fc28",
+      "size_bytes": 64163840,
+      "file_count": 277
+    },
+    "bannerRemovalRoutesVerified": 296,
+    "standardFormsUsingHomepageCard": 341,
+    "benefitRowsVerified": 168,
+    "wizardCardsVerified": 25,
+    "originalContentAndSeoRoutesVerified": 296,
+    "originalCopyBlocksVerified": 22030,
+    "originalMediaVerifiedLocally": 73,
+    "internalLinksVerified": 155,
+    "backendTestsPassed": 13,
+    "compiledFormSchemasVerifiedLocally": 7,
+    "githubFilesVerified": 187,
+    "githubAllChangedFilesMatch": true,
+    "githubCi": {
+      "id": 37405122708,
+      "conclusion": "success",
+      "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37405122708"
+    },
+    "browserVisualAuditComplete": false,
+    "browserVisualAuditBlocker": "The required control-browser skill is unavailable in this execution environment.",
+    "productionDnsChanged": false,
+    "productionReleaseReady": false
+  }
 }
