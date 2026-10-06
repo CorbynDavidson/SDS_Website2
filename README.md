@@ -14,7 +14,7 @@ The build maps all 248 live legacy sitemap URLs to preserved routes or tested si
 
 Version 53 adds verified ReviewSolicitors/Google links and examples, the homepage testimonial carousel, and the original LinkedIn recognition graphic to Reviews, with the corrected title.
 
-Location and disrepair-type introductory sections now have the requested rounded rectangular frame, keeping their existing background, headings, information, two-column layout and form controls. Only the selected sections receive `src/enquiry-panel.css`; the homepage and other page types retain their existing presentation. Scope is recorded in `config/enquiry-panel.json`.
+Location, disrepair-type and the eight Housing Guides introductory sections now have the requested rounded rectangular frame, keeping their existing background, headings, information, two-column layout and form controls. Only the selected sections receive `src/enquiry-panel.css`; the homepage and other page types retain their existing presentation. Scope is recorded in `config/enquiry-panel.json`.
 
 Version 54 prepares all metadata, sharing URLs and public internal links for `https://www.sds-solicitors.com`, adds global LegalService schema and disrepair Service schema, and applies tested Worker redirects and host-aware crawl controls. Terms of Business keeps the exact existing wording in the current design. Claim enquiry pages keep their migration URLs and all fields, with one form owner and shared styling. The user rejected the version-54 panel changes; the version-53 layout and colours are restored while keeping SEO and form fixes. No production DNS changes are included.
 

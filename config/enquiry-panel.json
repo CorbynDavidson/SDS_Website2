@@ -29,6 +29,16 @@
     "/structural-damage-and-cracks/",
     "/unsafe-electrics-housing-claims/"
   ],
+  "housingGuidePaths": [
+    "/housing-disrepair-claims/",
+    "/housing-disrepair-claims/social-housing/",
+    "/housing-disrepair-claims/tenant-rights-landlord-obligations/",
+    "/housing-disrepair-claims/council-housing/",
+    "/housing-disrepair-claims/managing-your-claim/",
+    "/housing-disrepair-claims/private-landlord/",
+    "/housing-disrepair-claims/pre-action-protocol/",
+    "/housing-disrepair-claims/housing-condition-claims/"
+  ],
   "shapeOnly": true,
   "borderRadiusCssPixels": 24,
   "preserveExistingColours": true,

@@ -34,7 +34,7 @@ const forms=await readJson('src/content/sds/forms.json');
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const enquiryPanelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
 const enquiryPanelScope=await readJson('config/enquiry-panel.json');
-const panelTypes=new Set(enquiryPanelScope.disrepairTypePaths);
+const panelTypes=new Set([...enquiryPanelScope.disrepairTypePaths,...enquiryPanelScope.housingGuidePaths]);
 const panelPath=path=>path.split('?')[0].replace(/\/+$/,'')+'/';
 const hasEnquiryPanel=path=>panelPath(path).startsWith(enquiryPanelScope.locationPrefix)||panelTypes.has(panelPath(path));
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
