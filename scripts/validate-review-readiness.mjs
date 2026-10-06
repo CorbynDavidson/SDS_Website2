@@ -8,7 +8,7 @@ const data=JSON.parse(await readFile(new URL('../build/data.json',import.meta.ur
 const worker=(await import('../dist/server/index.js')).default;
 const policy=createProductionRouting(data.config,data.routes);
 const env={RELEASE_MODE:'review',INDEXING_DISABLED:'true'};
-const report={publicTemplates:0,faqLinks:0,reviewLinks:0,sharedTrustBars:0,editorRuntimes:0,productionCanonicalsPreserved:true,indexingPausePreserved:true,explicitNoindexHeads:0,noStoreReviewPages:0,browserVisualAuditComplete:false};
+const report={publicTemplates:0,faqLinks:0,reviewLinks:0,sharedTrustBars:0,editorRuntimes:0,productionCanonicalsPreserved:true,indexingPausePreserved:true,explicitNoindexHeads:0,noStoreReviewPages:0,productionGonePathsVerified:0,reviewGoneRoutingUnchanged:true,browserVisualAuditComplete:false};
 for(const [path,page] of Object.entries(data.pages)){
   const stored=gunzipSync(Buffer.from(page.gzip,'base64')).toString('utf8'),origin='https://housingconditionclaims.org';
   const response=await worker.fetch(new Request(origin+path),env);
@@ -48,6 +48,24 @@ for(const [path,page] of Object.entries(data.pages)){
 }
 assert.equal(data.routes.redirects['/faqs'],'/faqs/');
 assert.equal((await worker.fetch(new Request(data.config.productionOrigin+'/faqs'),{RELEASE_MODE:'production'})).headers.get('location'),data.config.productionOrigin+'/faqs/');
+assert.equal(data.routes.productionGone.length,23,'The workbook identifies 23 retirement candidates.');
+for(const path of data.routes.productionGone){
+  assert.ok(!data.sitemap.includes(data.config.productionOrigin+path),'Retired path in sitemap: '+path);
+  for(const origin of [data.config.productionOrigin,'https://sds-solicitors.com']){
+    for(const method of ['GET','HEAD']){
+      const response=await worker.fetch(new Request(origin+path,{method}),{RELEASE_MODE:'production'});
+      assert.equal(response.status,410,'Future production 410: '+origin+path);
+      assert.equal(response.headers.get('location'),null,'Retired path redirected: '+path);
+      assert.equal(response.headers.get('x-robots-tag'),'noindex, nofollow');
+      if(method==='HEAD')assert.equal(await response.text(),'');
+    }
+  }
+  for(const origin of ['https://housingconditionclaims.org',data.config.productionOrigin]){
+    const response=await worker.fetch(new Request(origin+path),env);
+    assert.equal(response.status,404,'Current review route changed: '+origin+path);
+  }
+  report.productionGonePathsVerified++;
+}
 assert.match(await (await worker.fetch(new Request('https://housingconditionclaims.org/robots.txt'),env)).text(),/^Allow: \/$/m);
 const home=load(gunzipSync(Buffer.from(data.pages['/'].gzip,'base64')).toString());
 assert.ok(home('[data-source-copy]').text().includes('committed'));

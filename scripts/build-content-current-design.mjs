@@ -55,6 +55,7 @@ const hasEnquiryPanel=path=>panelPath(path).startsWith(enquiryPanelScope.locatio
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
 const legacyRouting=await readJson('config/legacy-routing.json');
 const historicRouting=await readJson('config/historic-url-routing.json');
+const productionRetirements=await readJson('config/production-retirements.json');
 legacyRouting.redirects={...legacyRouting.redirects,...historicRouting.redirects};
 legacyRouting.gone=[...new Set([...legacyRouting.gone,...historicRouting.gone])];
 const consolidation=await readJson('config/page-consolidation.json');
@@ -75,7 +76,7 @@ for(const page of index.pages){
   // canonical. Only exact duplicate content is consolidated by a 301.
   if(target.pathname!==page.path.split('?')[0]&&!target.search&&sourceText.get(targetPath)===sourceText.get(page.path))redirects[page.path.split('?')[0]]=targetPath;
 }
-const routeData={redirects,consolidations,gone:legacyRouting.gone,prefixRedirects:legacyRouting.prefixRedirects||[]};
+const routeData={redirects,consolidations,gone:legacyRouting.gone,productionGone:productionRetirements.paths,prefixRedirects:legacyRouting.prefixRedirects||[]};
 const typeByExtension={'.svg':'image/svg+xml','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.gif':'image/gif','.pdf':'application/pdf','.mp4':'video/mp4','.woff':'font/woff','.woff2':'font/woff2','.ttf':'font/ttf','.ico':'image/x-icon','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const mediaUrls={},mediaSources={},assets={};
 for(const asset of manifest.assets.filter(a=>a.status===200&&a.file)) {
@@ -183,6 +184,12 @@ for(const [path,destination] of Object.entries(redirects)){
   while(redirects[target]&&!seen.has(target)){seen.add(target);target=redirects[target];}
   if(target===path)delete redirects[path];else redirects[path]=target;
 }
+assert.equal(new Set(routeData.productionGone).size,routeData.productionGone.length,'Duplicate planned 410 path.');
+for(const path of routeData.productionGone){
+  assert.ok(path.startsWith('/')&&!path.includes('?'),'Planned 410 requires an exact pathname: '+path);
+  assert.ok(!pages[path]&&!routeData.gone.includes(path),'Planned 410 conflicts with a retained page or existing 410: '+path);
+  assert.ok(!redirects[path],'Planned 410 conflicts with an existing redirect: '+path);
+}
 const sitemap=productionSitemap(sitemapUrls,config.productionOrigin);
 await writeFile(resolve(root,'docs/migration/current-design-sitemap.xml'),sitemap);
 await writeFile(resolve(root,'public/sitemap.xml'),sitemap);
@@ -218,6 +225,7 @@ export default {async fetch(request,env={},ctx={}){
       else response=new Response('Source asset unavailable',{status:503,headers});
     }
   }else if(get&&contentData.assets[url.pathname])response=await contentBackend.fetch(request,env,ctx);
+  else if(get&&productionRouting.productionGone(url,env))response=new Response('This page is no longer available.',{status:410,headers:{'content-type':'text/plain; charset=utf-8'}});
   else if(get&&contentLookup(url))response=new Response(productionRouting.publicHtml(await contentHtml(contentLookup(url)),url,env),{headers:{'content-type':'text/html; charset=utf-8','cache-control':url.searchParams.has('edit')?'no-store':'public, max-age=300'}});
   else if(url.pathname==='/sitemap.xml'&&get)response=new Response(contentData.sitemap,{headers:{'content-type':'application/xml; charset=utf-8'}});
   else if(url.pathname==='/robots.txt'&&get)response=new Response(productionRouting.robots(url,env),{headers:{'content-type':'text/plain; charset=utf-8','cache-control':'public, max-age=300'}});
@@ -253,6 +261,6 @@ const compiled=await readFile(target);
 await writeFile(resolve(root,'docs/design-build.json'),JSON.stringify({designBaselineVersion:41,designFingerprint:policy.designFingerprint,contentRoutes:records.length,metadataRoutes:records.length,formCount:Object.keys(forms).length,workerGzipBytes:gzipSync(compiled).length,releaseMode:'review',exactSdsMigrationActive:true,productionReleaseReady:false},null,2)+'\n');
 console.log('Original SDS content and SEO rendered on '+records.length+' routes using the approved design.');
 const mappings=index.pages.map(page=>({legacyUrl:page.sourceUrl,productionUrl:productionUrl(page.sourceUrl,{origin:config.productionOrigin,path:page.path,redirects}),status:redirects[page.path.split('?')[0]]||/ccm_paging_.*=1(?:&|$)/.test(page.path)?301:200}));
-await writeFile(resolve(root,'docs/migration/production-routing.json'),JSON.stringify({productionOrigin:config.productionOrigin,originalSitemapUrls:legacySitemap('loc').length,capturedRoutes:records.length,fallbackRoutes,consolidatedDesignRoutes:consolidation.redirects,retainedStandaloneRoutes:consolidation.retainedStandaloneRoutes,sitemapUrls:new Set(sitemapUrls).size,redirects,prefixRedirects:routeData.prefixRedirects,gone:routeData.gone,legacyMappings:mappings},null,2)+'\n');
+await writeFile(resolve(root,'docs/migration/production-routing.json'),JSON.stringify({productionOrigin:config.productionOrigin,originalSitemapUrls:legacySitemap('loc').length,capturedRoutes:records.length,fallbackRoutes,consolidatedDesignRoutes:consolidation.redirects,retainedStandaloneRoutes:consolidation.retainedStandaloneRoutes,sitemapUrls:new Set(sitemapUrls).size,redirects,prefixRedirects:routeData.prefixRedirects,gone:routeData.gone,productionGone:routeData.productionGone,legacyMappings:mappings},null,2)+'\n');
 const csvCell=value=>'"'+String(value).replaceAll('"','""')+'"';
 await writeFile(resolve(root,'docs/migration/production-url-map.csv'),'Legacy URL,Production URL,Status\n'+mappings.map(row=>[row.legacyUrl,row.productionUrl,row.status].map(csvCell).join(',')).join('\n')+'\n');

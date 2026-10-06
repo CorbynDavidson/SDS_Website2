@@ -8,5 +8,7 @@
   "indexingPausePreserved": true,
   "explicitNoindexHeads": 325,
   "noStoreReviewPages": 325,
+  "productionGonePathsVerified": 23,
+  "reviewGoneRoutingUnchanged": true,
   "browserVisualAuditComplete": false
 }

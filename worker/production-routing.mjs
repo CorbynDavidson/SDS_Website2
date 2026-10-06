@@ -4,9 +4,13 @@ export function createProductionRouting(config,routes){
   const primaryHosts=new Set([production.hostname,production.hostname.replace(/^www\./,'')]);
   const indexingDisabled=env=>String(env.INDEXING_DISABLED||'').toLowerCase()==='true';
   const mode=(url,env)=>primaryHosts.has(url.hostname)&&(env.RELEASE_MODE||config.defaultReleaseMode)==='production'?'production':'review';
+  const productionGone=(url,env)=>mode(url,env)==='production'&&routes.productionGone?.includes(url.pathname);
   const privatePath=url=>/^\/(?:api(?:\/|$)|submissions(?:[./]|$)|editor(?:\/|$)|health(?:\/|$)|signin-with-chatgpt|signout-with-chatgpt|staging(?:\/|$)|preview(?:\/|$)|_preview(?:\/|$)|build(?:\/|$))/.test(url.pathname)||url.searchParams.has('edit');
   const redirect=(url,env)=>{
     const isProduction=mode(url,env)==='production';
+    // These legacy paths retire only when the replacement becomes the SDS
+    // production site. The review origin keeps its current routing responses.
+    if(productionGone(url,env))return null;
     // The selected design alternatives are retired on every host. Review
     // redirects stay on the current origin so reviewers see the new design.
     const consolidation=routes.consolidations?.[url.pathname];
@@ -52,5 +56,5 @@ export function createProductionRouting(config,routes){
     result.headers.set('x-content-type-options','nosniff');result.headers.set('referrer-policy','strict-origin-when-cross-origin');
     return result;
   };
-  return {mode,privatePath,redirect,robots,publicHtml,finish};
+  return {mode,productionGone,privatePath,redirect,robots,publicHtml,finish};
 }

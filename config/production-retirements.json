@@ -1,0 +1,29 @@
+{
+  "source": "SDS_URL_Migration_Map.xlsx / Needs Review (version 66 inventory, 6 October 2026)",
+  "activation": "SDS primary hostname in RELEASE_MODE=production only",
+  "paths": [
+    "/about-us/mass-members/",
+    "/about-us/news/who-liable-multi-vehicle-accident/",
+    "/brain-injury/",
+    "/francis-report-to-shake-up-the-nhs/",
+    "/hard_work_and_support/",
+    "/health-secretary-introduces-annual-doctor-testing/",
+    "/index.php/contact-us/road-traffic-accidents",
+    "/mass-members/",
+    "/medical-negligence-gynaecology/",
+    "/pip-implants-not-toxic",
+    "/polish-workers-fatal-accident/",
+    "/serious-injury",
+    "/serious-injury-department/",
+    "/serious-injury/fatal-accident-claims/",
+    "/serious-injury/fractures-broken-bones/",
+    "/serious-injury/head-brain-injuries/",
+    "/serious-injury/paralysis-injury/",
+    "/sheldon-davidsons-noise-induced-hearing-loss-clinics/",
+    "/time-limits-on-personal-claims",
+    "/types-of-claims/",
+    "/upper-limb-disorders",
+    "/who-is-liable-in-a-multi-vehicle-accident/",
+    "/wow_a_lot_earlier_than_i_expected/"
+  ]
+}
