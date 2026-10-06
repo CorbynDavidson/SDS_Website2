@@ -30,16 +30,16 @@
   "browserRecheckCompleted": false,
   "browserRecheckBlocker": "The required control-browser skill is unavailable in this execution environment.",
   "activeReviewRelease": {
-    "versionNumber": 55,
-    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_f5cac0ac81d881918a73a86b2c5155b2",
-    "sourceCommit": "6c2990190b55dc2226f9332a911c8a456ad22a30",
-    "deploymentId": "appgdep_6ac473e539748191bcb582770b8abba1",
+    "versionNumber": 56,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_fd74568adb808191b801fd4e9fa15a05",
+    "sourceCommit": "58b308effc19628a1c055749be8dfa26dbe988f6",
+    "deploymentId": "appgdep_6ac4765725d081918ed869cf523df54a",
     "status": "succeeded",
-    "confirmedAt": "2026-10-06T04:07:24.982346+00:00",
+    "confirmedAt": "2026-10-06T04:17:51.383952+00:00",
     "reviewUrl": "https://housingconditionclaims.org",
     "envSetRevision": 2
   },
-  "githubImplementationCommit": "1abbf4faac3609afd2c50b24a64c03ff3d5f7669",
+  "githubImplementationCommit": "8b0965a838519cf642c103d1be2dd1a36e9cecb8",
   "githubMigrationCheckpoint": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
   "validation": {
     "currentDesign": {
@@ -80,8 +80,8 @@
     }
   ],
   "sourceMirrorIntegrity": {
-    "nativeCommit": "6c2990190b55dc2226f9332a911c8a456ad22a30",
-    "githubCommit": "1abbf4faac3609afd2c50b24a64c03ff3d5f7669",
+    "nativeCommit": "58b308effc19628a1c055749be8dfa26dbe988f6",
+    "githubCommit": "8b0965a838519cf642c103d1be2dd1a36e9cecb8",
     "verifiedFiles": 9,
     "allMatched": true
   },
@@ -123,7 +123,7 @@
     "productionDnsChanged": false,
     "productionReleaseReady": false
   },
-  "currentlyDeployedRelease": "designReversion",
+  "currentlyDeployedRelease": "stylesheetRestoration",
   "layoutCorrections": {
     "versionNumber": 49,
     "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_c199c3e18214819187efa28ccd0653f9",
@@ -371,6 +371,53 @@
     "githubRunId": 37412132380,
     "githubCiConclusion": "success",
     "verifiedMirrorFiles": 9,
-    "allMatched": true
+    "allMatched": true,
+    "displayDefectFoundAfterPublication": "Production SEO had pointed brand.css and service.css at the old primary-domain host; version 55 restored layout CSS but did not fix stylesheet loading.",
+    "stylesheetLoadingCorrectedInVersion": 56
+  },
+  "stylesheetRestoration": {
+    "versionNumber": 56,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_fd74568adb808191b801fd4e9fa15a05",
+    "sourceCommit": "58b308effc19628a1c055749be8dfa26dbe988f6",
+    "githubCommit": "8b0965a838519cf642c103d1be2dd1a36e9cecb8",
+    "deploymentId": "appgdep_6ac4765725d081918ed869cf523df54a",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T04:17:51.383952+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "archive": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_000000002fb08246bbc81c39ce7026b1",
+      "content_hash": "sha256:0bb3e194ab2c04561d91eb6cc8bc12708a5979559f7502f5a8c1f2f36300be11",
+      "size_bytes": 64983040,
+      "file_count": 280
+    },
+    "visualTargetVersion": 53,
+    "rootCause": "Production SEO had pointed brand.css and service.css at the old primary-domain host; version 55 restored layout CSS but did not fix stylesheet loading.",
+    "sameOriginResourcesRepaired": true,
+    "approvedDesignStylesheetHashesVerified": 2,
+    "reviewStylesheetLinksVerified": 608,
+    "publicTemplatesVerified": 305,
+    "originalContentAndSeoRoutesVerified": 296,
+    "originalCopyBlocksVerified": 20226,
+    "backendTestsPassed": 13,
+    "productionSeoAndRoutingRetained": true,
+    "originalWordingRetained": true,
+    "formRepairsRetained": true,
+    "productionDnsChanged": false,
+    "browserVisualAuditComplete": false,
+    "sourceMirrorIntegrity": {
+      "verifiedFiles": 9,
+      "allMatched": true
+    },
+    "githubCi": {
+      "runId": 37412964987,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37412964987"
+    },
+    "publishedHomepageScreenshotReviewed": true,
+    "publishedHomepageScreenshotMatchesVersion53Layout": true,
+    "publishedHomepageScreenshotSha256": "8ecba48c807de051037f36855874ac3e387c31301b3b129912df1bb0acc619f9"
   }
 }
