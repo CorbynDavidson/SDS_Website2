@@ -12,16 +12,16 @@ The review should establish whether the design, technical implementation and mig
 
 | Item | Review reference |
 |---|---|
-| Live review website | https://housingconditionclaims.org/ — **published version 70** |
-| Code baseline | [GitHub revision 846c1d6d9948083cbbc3bb668c1cefa7f19403aa](https://github.com/CorbynDavidson/SDS_Website2/tree/846c1d6d9948083cbbc3bb668c1cefa7f19403aa) |
-| Deployed source reference | Sites commit `7e7c3b4b6223e989cb4c0066a49909f237352777` |
+| Live review website | https://housingconditionclaims.org/ — **published version 75** |
+| Code baseline | [GitHub revision 3522c7cf7873109ceb5f4ec19705a1061242e1c4](https://github.com/CorbynDavidson/SDS_Website2/tree/3522c7cf7873109ceb5f4ec19705a1061242e1c4) |
+| Deployed source reference | Sites commit `e536abdf5e98548ccb7393500bac2c5b7d03a658` |
 | Intended production domain | **https://www.sds-solicitors.com/** |
 | Existing production website | https://www.sds-solicitors.com/ |
 | Owner editor entry | https://housingconditionclaims.org/?edit=1 |
 | URL inventory | Supplied `SDS_URL_Migration_Map.xlsx`; see the version qualification in the appendix |
-| Production sitemap | [Repository sitemap at the code baseline](https://github.com/CorbynDavidson/SDS_Website2/blob/846c1d6d9948083cbbc3bb668c1cefa7f19403aa/sitemap.xml) |
+| Production sitemap | [Repository sitemap at the code baseline](https://github.com/CorbynDavidson/SDS_Website2/blob/3522c7cf7873109ceb5f4ec19705a1061242e1c4/sitemap.xml) |
 
-Please report findings against version 70 and the pinned code revision, rather than a moving `main` branch. This brief update changes documentation only. Agree and record a new baseline if implementation changes during the review.
+Please report findings against version 75 and the pinned code revision, rather than a moving `main` branch. This sync includes the latest implementation, tests and review controls. Agree and record a new baseline if implementation changes during the review.
 
 Housing Condition Claims is the **review hostname for the SDS replacement**, not the intended final primary domain. Canonicals, sharing URLs, schema and the launch sitemap deliberately identify SDS. If the business instead wants a separate Housing Condition Claims production website, resolve that strategy before recommending a migration or domain cutover.
 
@@ -82,15 +82,25 @@ Please do not switch DNS, enable production indexing, alter the current SDS site
 
 ### Review controls and completed checks
 
-Review settings remain `RELEASE_MODE=review`, `INDEXING_DISABLED=true`. Public responses carry `X-Robots-Tag: noindex, follow`, and public crawling is permitted so crawlers can read noindex. Private/admin/editor routes remain protected and disallowed. This control does not establish that previously indexed URLs have disappeared; verify that in Search Console. See [pause and restoration](TEMPORARY_INDEXING_PAUSE.md).
+Review settings remain `RELEASE_MODE=review`, `INDEXING_DISABLED=true`. Public responses carry `X-Robots-Tag: noindex, nofollow` and explicit `robots`/`googlebot` HTML meta tags containing `noindex, nofollow`. Review HTML and robots.txt have no-store cache directives, and public crawling is permitted so crawlers can read noindex. Private/admin/editor routes remain protected and disallowed. This control does not establish that previously indexed URLs have disappeared; verify that in Search Console. See [pause and restoration](TEMPORARY_INDEXING_PAUSE.md).
 
 Version 70 repairs the obsolete `/faqs` homepage redirect, provides the approved trust bar on all 325 public templates, keeps review-page links on the current review origin, improves editor sign-in/error feedback and applies two recorded homepage proofreading corrections. Immutable source captures are retained.
 
-Checks cover all 325 compiled public templates, approved copy exceptions, source hashes, SEO, routing, sitemap, assets and backend security/persistence. Local checks and the code-baseline GitHub validation passed. These are not a fresh live crawl, physical-device test or accessibility certification. Earlier version-specific hosted/browser evidence remains historical.
+Checks cover all 325 compiled public templates, approved copy exceptions, source hashes, SEO, routing, sitemap, assets and backend security/persistence. Local checks cover all 325 templates; 31 JavaScript and two Python SEO tests passed for version 75. GitHub Actions must also validate this new baseline; the earlier baseline's result is historical. These are not a fresh live crawl, physical-device test or accessibility certification. Earlier version-specific hosted/browser evidence remains historical.
+
+### Versions 71–75: validation and indexing updates
+
+Forms now share browser/server phone validation with `libphonenumber-js/max` (UK default; international country codes accepted), offer optional corrections for common email-domain typos, and normalise UK postcodes. Email-domain mail routing is checked through Cloudflare DNS; postcodes are looked up through Postcodes.io. Definitive invalid results prompt correction; provider timeouts or uncertain results permit submission. Only the domain or postcode is shared with its respective service.
+
+The same-origin `POST /api/contact-check` endpoint has origin/CSRF protection and a separate rate limit; it creates no leads. Email and postcode checks run on leaving the field and before submission. Phone checks run locally and on the server. These checks do not prove mailbox existence, an active phone line, reachability or ownership. No paid verification provider or email/SMS ownership challenge is connected.
+
+Automated tests cover browser handlers, server enforcement, provider outcomes and failure handling. Provider responses were mocked; successful live outbound DNS/Postcodes.io lookups have not yet been verified. The agency should verify these on the deployed site using approved synthetic details.
+
+Version 75 applies `noindex, nofollow` in the HTTP header and explicit HTML robots/Googlebot tags across all 325 public templates. Public crawling remains allowed so Google can read noindex. Existing search results may persist until recrawl; the Search Console property owner should request temporary prefix removal if prompt suppression is needed. No Search Console removal has been submitted.
 
 ### URL inventory and rebuilding
 
-The supplied workbook was compiled for version 66 / GitHub commit `8db9f29d91e928781e5613a6d71472e43d1aeb44`. It remains the inventory, not the version-70 release identifier: 324 captured source URLs, 248 current sitemap URLs and 243 launch sitemap URLs. The repaired non-slash `/faqs` alias is a later routing change.
+The supplied workbook was compiled for version 66 / GitHub commit `8db9f29d91e928781e5613a6d71472e43d1aeb44`. It remains the inventory, not the version-75 release identifier: 324 captured source URLs, 248 current sitemap URLs and 243 launch sitemap URLs. The repaired non-slash `/faqs` alias is a later routing change.
 
 The public repository preserves existing raw capture and generated client-story snapshots rather than re-uploading sensitive third-party material. Cached `src/content/current-design/` pages/index and generated copy/routing reports may predate the code baseline. With Node 24, run:
 
@@ -99,7 +109,7 @@ npm ci --ignore-scripts
 npm run check
 ```
 
-This regenerates the reviewed pages and reports, including `docs/migration/production-routing.json`. Compare the resulting build with published version 70. The production sitemap intentionally contains SDS URLs and is also available at `public/sitemap.xml` and the review host's `/sitemap.xml`.
+This regenerates the reviewed pages and reports, including `docs/migration/production-routing.json`. Compare the resulting build with published version 75. The production sitemap intentionally contains SDS URLs and is also available at `public/sitemap.xml` and the review host's `/sitemap.xml`.
 
 ### Further reference
 
