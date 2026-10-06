@@ -707,5 +707,48 @@
       "conclusion": "success",
       "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37422288799"
     }
+  },
+  "locationDirectory": {
+    "versionNumber": 63,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_04e2885bb258819193cc5e99e9fab630",
+    "sourceCommit": "b881f243e61b69bfd77c24ba49b439d4cd7eeec9",
+    "githubCommit": "d6916a56b9fb0102946424c9a94a93e6b56d5c97",
+    "deploymentId": "appgdep_6ac4969b18b48191adafaf05983fcbd7",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T06:35:32.481728+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "archive": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000e3a481f4860d9af55f81d121",
+      "content_hash": "sha256:3828681bbe01736e8df9f86f6d1d74b009978afff2c5179291de8cefe50f56cd",
+      "size_bytes": 64911360,
+      "file_count": 280
+    },
+    "path": "/housing-disrepair/locations/",
+    "directoryLinks": 119,
+    "productionDestinationsVerified": 119,
+    "reviewDestinationsVerified": 357,
+    "otherPublicTemplatesByteIdentical": 296,
+    "existingPageOutsideAddedDirectoryByteIdentical": true,
+    "originalLocationPathsAndMetadataPreserved": true,
+    "reviewLinksWorkWithoutJavaScript": true,
+    "sitemapUrls": 243,
+    "sitemapBytesUnchanged": true,
+    "originalFormsAndSchemasUnchanged": true,
+    "comparisonBaselineSourceCommit": "9cfdcc393d933fe441ba997d8b51f2fa4d89a345",
+    "productionDnsChanged": false,
+    "backendTestsPassed": 14,
+    "browserVisualAuditComplete": false,
+    "sourceMirrorIntegrity": {
+      "verifiedFiles": 17,
+      "allMatched": true
+    },
+    "githubCi": {
+      "runId": 37424488519,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37424488519"
+    }
   }
 }
