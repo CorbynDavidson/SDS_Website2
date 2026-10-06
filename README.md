@@ -1,6 +1,6 @@
 # SDS website
 
-Review: https://housingconditionclaims.org (**version 53**; the production SEO/design update is prepared for the next review release). The user requested the design from before the content migration, so **main builds the version-41 design**. Review responses remain noindex. The production site at https://www.sds-solicitors.com and its DNS have not changed.
+Review: https://housingconditionclaims.org (**version 54**). The user requested the design from before the content migration, so **main builds the version-41 design**. Review responses remain noindex. The production site at https://www.sds-solicitors.com and its DNS have not changed.
 
 Original SDS page content and SEO are now fitted into the approved design on **all 296 captured routes**. Headings, paragraphs, lists, FAQs, forms, profile/article images, SEO titles and metadata are preserved. Shared fonts, CSS, logo, navigation, footer and homepage carousels retain the approved design. Version 49 removes the wall/switch banners, gives page forms the homepage callback-card styling and lays out the four benefits horizontally (four columns on desktop, two on smaller screens). See [content migration](docs/CONTENT_MIGRATION.md) and its independent verification report.
 
@@ -14,7 +14,7 @@ The build maps all 248 live legacy sitemap URLs to preserved routes or tested si
 
 Version 53 adds verified ReviewSolicitors/Google links and examples, the homepage testimonial carousel, and the original LinkedIn recognition graphic to Reviews, with the corrected title.
 
-The next release prepares all metadata, sharing URLs and public internal links for `https://www.sds-solicitors.com`, adds global LegalService schema and disrepair Service schema, and applies tested Worker redirects and host-aware crawl controls. Terms of Business keeps the exact existing wording in the current design. Claim enquiry pages keep their migration URLs and all fields, with one form owner and shared styling. Rounded light-grey page panels use the same outer width as the SDS header. No production DNS changes are included.
+Version 54 prepares all metadata, sharing URLs and public internal links for `https://www.sds-solicitors.com`, adds global LegalService schema and disrepair Service schema, and applies tested Worker redirects and host-aware crawl controls. Terms of Business keeps the exact existing wording in the current design. Claim enquiry pages keep their migration URLs and all fields, with one form owner and shared styling. Rounded light-grey page panels use the same outer width as the SDS header. No production DNS changes are included.
 
 The immutable originals and earlier CMS-layout candidate remain on [migration/exact-sds-content](https://github.com/CorbynDavidson/SDS_Website2/tree/migration/exact-sds-content). Its visual layout is not the selected design.
 

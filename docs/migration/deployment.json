@@ -30,25 +30,18 @@
   "browserRecheckCompleted": false,
   "browserRecheckBlocker": "The required control-browser skill is unavailable in this execution environment.",
   "activeReviewRelease": {
-    "versionNumber": 47,
-    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_41f2b1119d2881918f5b46c9076fdf6f",
-    "sourceCommit": "ce570fd52c071791424a506202d7b622e788d4d8",
-    "deploymentId": "appgdep_6ac44f8013288191b50299a31bd15ee8",
+    "versionNumber": 54,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_3d21b1e1232881919eb7168d0a95ea4f",
+    "sourceCommit": "58ba7d3098de710987948a251ac2b6152d95cf15",
+    "deploymentId": "appgdep_6ac47281ea088191b03d4ef94286ee57",
     "status": "succeeded",
-    "confirmedAt": "2026-10-06T01:32:06.321263+00:00",
-    "url": "https://housingconditionclaims.org",
+    "confirmedAt": "2026-10-06T04:01:33.557473+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
     "designBaselineVersion": 41,
-    "reviewNoindexEnforced": true,
-    "metadataSourceCommit": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
-    "metadataRoutes": 296,
-    "existingBodiesPreserved": 283,
-    "addedRoutes": 13,
-    "addedUniquePaths": 9,
-    "originalSitemapUrls": 248,
-    "archiveSha256": "sha256:8cbab4049eb07a61cd4daabb4d6e19419d1343600ee1b3b41cc37a3b5d36acd5",
-    "archiveBytes": 32317440
+    "reviewNoindexEnforced": true
   },
-  "githubImplementationCommit": "84bcd381a984f90632bffdaa297a4753cb7b21f9",
+  "githubImplementationCommit": "4614cd03cebf92b3d3903f30a4810af621f5243a",
   "githubMigrationCheckpoint": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
   "validation": {
     "currentDesign": {
@@ -89,9 +82,9 @@
     }
   ],
   "sourceMirrorIntegrity": {
-    "nativeCommit": "ce570fd52c071791424a506202d7b622e788d4d8",
-    "githubCommit": "84bcd381a984f90632bffdaa297a4753cb7b21f9",
-    "verifiedFiles": 32,
+    "nativeCommit": "58ba7d3098de710987948a251ac2b6152d95cf15",
+    "githubCommit": "4614cd03cebf92b3d3903f30a4810af621f5243a",
+    "verifiedFiles": 304,
     "allMatched": true
   },
   "contentMigration": {
@@ -132,7 +125,7 @@
     "productionDnsChanged": false,
     "productionReleaseReady": false
   },
-  "currentlyDeployedRelease": "reviewsPage",
+  "currentlyDeployedRelease": "productionSeoPreparation",
   "layoutCorrections": {
     "versionNumber": 49,
     "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_c199c3e18214819187efa28ccd0653f9",
@@ -317,6 +310,41 @@
     "permanentRedirects": 286,
     "historicalInventoryComplete": false,
     "browserVisualAuditComplete": false,
-    "reviewPublicationStatus": "pending"
+    "reviewPublicationStatus": "succeeded",
+    "versionNumber": 54,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_3d21b1e1232881919eb7168d0a95ea4f",
+    "sourceCommit": "58ba7d3098de710987948a251ac2b6152d95cf15",
+    "githubCommit": "4614cd03cebf92b3d3903f30a4810af621f5243a",
+    "deploymentId": "appgdep_6ac47281ea088191b03d4ef94286ee57",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T04:01:33.557473+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "reviewNoindexEnforced": true,
+    "productionReleaseReady": false,
+    "designBaselineVersion": 41,
+    "designFingerprint": "aef7bd06a1f3aa341ae97a2f80c3758c08fe754c3508bad23ccfa6eadd753ed8",
+    "archive": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000da44824680d6864c9e8de917",
+      "content_hash": "sha256:12bbe79f0331468f0ef6e44f26de0c8ea46d813f150c2cbbe3510337ea9c4f3c",
+      "size_bytes": 65157120,
+      "file_count": 280
+    },
+    "validation": {
+      "githubRunId": 37411646980,
+      "conclusion": "success",
+      "sourceMirrorFiles": 304,
+      "allMatched": true,
+      "backendTestsPassed": 13,
+      "originalCopyBlocks": 20226,
+      "originalSitemapUrlsVerified": 248,
+      "productionSitemapUrlsVerified": 251,
+      "publicTemplatesVerified": 305,
+      "knownNonHousingResponsesVerified": 25,
+      "claimCtasVerified": 32,
+      "inlineScriptsParsed": 909,
+      "sharingImageAndLogoVerified": true
+    }
   }
 }
