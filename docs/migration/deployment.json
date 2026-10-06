@@ -132,7 +132,7 @@
     "productionDnsChanged": false,
     "productionReleaseReady": false
   },
-  "currentlyDeployedRelease": "welcomeAndForms",
+  "currentlyDeployedRelease": "teamLayout",
   "layoutCorrections": {
     "versionNumber": 49,
     "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_c199c3e18214819187efa28ccd0653f9",
@@ -208,6 +208,46 @@
       "id": 37406574783,
       "conclusion": "success",
       "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37406574783"
+    },
+    "browserVisualAuditComplete": false,
+    "productionDnsChanged": false,
+    "productionReleaseReady": false
+  },
+  "teamLayout": {
+    "versionNumber": 51,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_4e0d46f916808191b2505478a28fc907",
+    "sourceCommit": "d108b6025d9358ddab394bbdf30132e2d3f036f8",
+    "githubCommit": "c45847cd065a1def1c2a3452fc13a20a905284cf",
+    "deploymentId": "appgdep_6ac4665a1d988191bf94787d01b39731",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T03:09:38.824574+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "archive": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_0000000080b882439b27c8c2b1155d29",
+      "content_hash": "sha256:785fccc53d420ac67ca347f1ff464a81387e37c6eb64d103c787086f290d9e5a",
+      "size_bytes": 64163840,
+      "file_count": 277
+    },
+    "teamFrameRadiusCssPixels": 32,
+    "teamFramePaddingCssPixels": {
+      "min": 24,
+      "max": 48
+    },
+    "mobileFrameRadiusCssPixels": 24,
+    "peoplePageBackground": "#eff7f8",
+    "capturedContentAndSeoRoutesVerified": 296,
+    "retainedCopyBlocksVerified": 20228,
+    "sourceDirectoryProfiles": 24,
+    "filtersPreserved": 6,
+    "backendTestsPassed": 13,
+    "githubFilesVerified": 7,
+    "githubAllChangedFilesMatch": true,
+    "githubCi": {
+      "id": 37407616848,
+      "conclusion": "success",
+      "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37407616848"
     },
     "browserVisualAuditComplete": false,
     "productionDnsChanged": false,
