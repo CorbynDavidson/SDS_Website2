@@ -17,6 +17,15 @@ export function extractContent(html,selectors=sourceRegions) {
   // labelled widget before dropping the old sidebar navigation/presentation.
   const sidebarForms=container('#source-content .sidebar form,#source-content .side-content form,#source-content .sticky-container form').toArray().filter(node=>!container(node).closest('.modal,.kpeople-modal').length);
   for(const node of sidebarForms){const form=container(node),widget=form.closest('.ccm-block-express-form');const copy=(widget.length?widget:form).clone();container('#source-content').append('<div data-source-region="form">'+container.html(copy)+'</div>\n');}
+  // Specialist attribution is substantive page content, even when the old
+  // CMS placed it beside the article. Preserve one copy of each sidebar card.
+  const specialistCards=new Set();
+  for(const node of container('#source-content .sidebar .kpeople,#source-content .side-content .kpeople').toArray()){
+    const card=container(node).clone();card.find('script,style,.modal,.kpeople-modal').remove();
+    const text=normaliseText(card.text());if(!text||specialistCards.has(text))continue;
+    specialistCards.add(text);
+    container('#source-content').append('<div data-source-region="specialist" data-source-specialist>'+container.html(card)+'</div>\n');
+  }
   // The shared enquiry widget remains functional in the new design; old
   // accompanying staff modals and navigation are shared presentation.
   for(const node of $('#call .ccm-block-express-form').toArray())if(!$(node).closest('.modal,.kpeople-modal').length)container('#source-content').append('<div data-source-region="call-form">'+$.html(node)+'</div>\n');

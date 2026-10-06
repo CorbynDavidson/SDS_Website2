@@ -1,0 +1,22 @@
+{
+  "versionNumber": 77,
+  "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_796a36cdbb7c8191be10d27d70d74496",
+  "sourceCommit": "eadf0750a8325d5d08e17a6a6a61e327e62d08fa",
+  "deploymentId": "appgdep_6ac56dd791688191905cdddd01dbc0df",
+  "status": "succeeded",
+  "publishedUrl": "https://sds-housing-condition-claims.corbyn-davidson.chatgpt.site",
+  "customReviewOrigin": "https://housingconditionclaims.org",
+  "releaseFingerprint": "67c8b560fd25dbf960e271c6ab0be20a9515e9890ff72590caacb37826f6986b",
+  "mappingRows": 324,
+  "currentSitemapRows": 248,
+  "restoredSpecialistRouteInstances": 165,
+  "calculatorSlides": 5,
+  "sourceWordingBlocksVerified": 21752,
+  "javascriptTestsPassed": 33,
+  "pythonTestsPassed": 2,
+  "indexingPausePreserved": true,
+  "sharedFormattingAutomaticallyVerified": true,
+  "browserVisualAuditComplete": false,
+  "productionDnsChanged": false,
+  "archivePackaging": "Verified uncompressed tar; compressed upload retries rejected before deployment."
+}

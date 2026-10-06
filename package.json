@@ -8,7 +8,7 @@
     "import:sds": "node scripts/import-sds-content.mjs",
     "build": "node scripts/build-content-current-design.mjs",
     "build:sites": "node scripts/build-content-current-design.mjs",
-    "validate": "node scripts/validate-current-content.mjs && node scripts/validate-production-seo.mjs && node scripts/validate-review-readiness.mjs",
+    "validate": "node scripts/validate-current-content.mjs && node scripts/validate-content-url-map.mjs && node scripts/validate-production-seo.mjs && node scripts/validate-review-readiness.mjs",
     "test": "node scripts/finalize-static-assets.mjs && node --test tests/*.test.mjs && python3 tests/seo-audit.test.py",
     "check": "npm run build && npm run validate && npm test",
     "build:metadata": "node scripts/build-current-design.mjs",

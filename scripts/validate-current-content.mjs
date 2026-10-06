@@ -44,8 +44,14 @@ function originalContent(raw,path=''){
  const nodes=chosen.toArray().filter(node=>!chosen.toArray().some(parent=>parent!==node&&$(node).parents().toArray().includes(parent)));
  const copy=load('<div id="original"></div>',{scriptingEnabled:false});for(const node of nodes)copy('#original').append($.html(node)+'\n');
  const sidebarWidgets=copy('#original .sidebar form,#original .side-content form,#original .sticky-container form').toArray().filter(n=>!copy(n).closest('.modal,.kpeople-modal').length).map(n=>{const widget=copy(n).closest('.ccm-block-express-form');return copy.html(widget.length?widget:copy(n));});
+ const specialistTexts=new Set(),specialists=[];
+ for(const n of copy('#original .sidebar .kpeople,#original .side-content .kpeople').toArray()){
+   const card=copy(n).clone();card.find('script,style,.modal,.kpeople-modal').remove();
+   const text=normalise(card.text());if(text&&!specialistTexts.has(text)){specialistTexts.add(text);specialists.push(copy.html(card));}
+ }
  copy(exclude).remove();
  for(const widget of sidebarWidgets)copy('#original').append(widget+'\n');
+ for(const card of specialists)copy('#original').append(card+'\n');
  for(const node of $('#call .ccm-block-express-form').toArray())if(!$(node).closest('.modal,.kpeople-modal').length)copy('#original').append($.html(node)+'\n');
  copy('script,style,noscript,template,.alert-success').remove();
  const root=copy('#original'),forms=root.find('.ccm-block-express-form form,.multi-step-form form');
@@ -194,7 +200,10 @@ for(const page of report.pages){
  for(const n of $('main [data-source-copy] a[href]').toArray())if(n.attribs.href.startsWith(origin))links.add(n.attribs.href);
  for(const n of $('form[data-sds-form]').toArray()){forms.add(n.attribs['data-sds-form']);assert.ok(data.forms[n.attribs['data-sds-form']]);}
  if(page.path==='/'){
-   for(const selector of ['.rights-slide','.testimonial-slide'])assert.equal($(selector).length,b(selector).length,'Approved homepage carousel changed: '+selector);
+   assert.equal($('.rights-slide:not([data-calculator-introduction])').length,b('.rights-slide').length,'Existing homepage slides changed');
+   assert.equal($('.testimonial-slide').length,b('.testimonial-slide').length);
+   assert.equal($('.rights-slide[data-calculator-introduction]').length,1);
+   assert.equal(new URL($('.rights-slide[data-calculator-introduction] a').attr('href'),origin).pathname,'/housing-disrepair-claims/compensation-calculator/');
    const welcome=$('#aboutCarousel .about-welcome-slide');assert.equal(welcome.length,1,'Welcome message must be one Who we are slide.');
    assert.equal(welcome.find('.about-welcome-message[tabindex="0"]').length,1,'Full welcome message must be keyboard-readable.');
    assert.equal($('.source-home-welcome').length,0,'Welcome message must not be repeated outside Who we are.');
@@ -205,7 +214,9 @@ for(const page of report.pages){
    retained.find('.about-slide').each((i,n)=>$(n).attr('aria-label',b('.about-slide').eq(i).attr('aria-label')));
    for(const selector of ['.about-count > span','.about-prev','.about-next']){const old=b('#aboutCarousel').find(selector),now=retained.find(selector);if(selector.includes('span'))now.html(old.html());else now.attr('aria-label',old.attr('aria-label'));}
    assert.equal(displayFragment(retained.html(),page.path),displayFragment(b('#aboutCarousel').html(),page.path),'Existing team carousel content or controls changed.');assert.equal(displayFragment($('#testimonialCarousel').html(),page.path),displayFragment(b('#testimonialCarousel').html(),page.path));
-   for(const selector of ['.rights-controls','.reviews-widget'])assert.equal(displayFragment($(selector).html(),page.path),displayFragment(b(selector).html(),page.path));
+   const controls=$('.rights-controls').clone();controls.find('[data-calculator-introduction]').remove();
+   assert.equal(displayFragment(controls.html(),page.path),displayFragment(b('.rights-controls').html(),page.path));
+   assert.equal(displayFragment($('.reviews-widget').html(),page.path),displayFragment(b('.reviews-widget').html(),page.path));
    assert.ok(html.includes('const showSlide=')&&html.includes('const showAbout=')&&html.includes('const showTestimonial='));assert.ok(!html.includes('const editableSelector='));
    audit.homepageCarouselsVerified=true;
    layoutAudit.welcomeMessageCarouselVerified=true;

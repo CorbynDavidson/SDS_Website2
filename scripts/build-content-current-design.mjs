@@ -19,6 +19,7 @@ import {addQuestionnairePanel} from './lib/questionnaire-panel.mjs';
 import {migrationInputs} from './lib/migration-inputs.mjs';
 import {correctReviewCopy,addSharedTrustBar} from './lib/review-readiness.mjs';
 import {addEditableCopy} from './lib/editable-copy.mjs';
+import {addCompensationGuide} from './lib/compensation-guide.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
@@ -137,6 +138,7 @@ for(const page of index.pages) {
   if(panelPath(page.path)===resourceNavigation.questionnairePath)html=addQuestionnairePanel(html,questionnaireCss);
   html=addResourceNavigation(html,{policy:resourceNavigation,origin:config.productionOrigin});
   html=correctReviewCopy(html,{path:page.path,policy:reviewReadiness});
+  html=addCompensationGuide(html,page.path);
   html=addSharedTrustBar(html,reviewsHomeHtml);
   html=applyProductionSeo(html,{config,path:page.path,redirects});
   html=addEditableCopy(html,runtime,'/contact-validation.js?v='+sha256(contactBundle).slice(0,16));

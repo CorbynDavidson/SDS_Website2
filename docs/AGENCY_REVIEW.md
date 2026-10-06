@@ -129,3 +129,8 @@ This regenerates the reviewed pages and reports, including `docs/migration/produ
 - [All-template review validation](migration/review-readiness-validation.json)
 
 All seven `config/release-gates.json` entries remain false pending operational evidence. Known inherited malformed complaints links and unavailable legacy assets are recorded in the handover for assessment.
+
+## Content parity and calculator presentation update
+
+The owner authorised a further content-preservation update on 6 October 2026. Review the published content-parity release alongside the earlier version-76 baseline. `CONTENT_PARITY_UPDATE.md` and `migration/content-url-map-validation.json` document the exact workbook mapping, retained wording, restored sidebar specialist cards and calculator-slide presentation. Existing DNS, review noindex/nofollow and the provisional production-only 410 decisions are unchanged. Earlier browser screenshots remain historical; this update has automated structure/content checks and no new physical-device sign-off.
+

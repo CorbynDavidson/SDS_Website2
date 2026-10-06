@@ -1,0 +1,2275 @@
+{
+  "workbook": "SDS_URL_Migration_Map_410_plan.xlsx",
+  "workbookSha256": "8f7ebaeed7c1d51c8749254e150f357285aac8078a063ce224dc4a59afea8668",
+  "sourceDate": "2026-10-06",
+  "rows": [
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/",
+      "replacementUrl": "https://housingconditionclaims.org/",
+      "productionUrl": "https://www.sds-solicitors.com/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/careers/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/careers/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/careers/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-leaks-and-guttering-led-to-severe-damp-and-mould/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/compensation-for-tenant-after-leaks-and-guttering-led-to-severe-damp-and-mould/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-leaks-and-guttering-led-to-severe-damp-and-mould/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-roof-leak-and-widespread-damp/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/compensation-for-tenant-after-roof-leak-and-widespread-damp/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-roof-leak-and-widespread-damp/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-for-tenant-after-water-penetration-caused-extensive-internal-damage/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-recovered-following-persistent-leak-and-worsening-damp/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/compensation-recovered-following-persistent-leak-and-worsening-damp/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/compensation-recovered-following-persistent-leak-and-worsening-damp/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/damp-mould-and-unsafe-electrics-ignored-until-legal-action-was-taken/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/damp-mould-and-unsafe-electrics-ignored-until-legal-action-was-taken/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/damp-mould-and-unsafe-electrics-ignored-until-legal-action-was-taken/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/elderly-tenant-wins-settlement-after-months-without-hot-water/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/elderly-tenant-wins-settlement-after-months-without-hot-water/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/elderly-tenant-wins-settlement-after-months-without-hot-water/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/family-wins-boiler-claim-after-years-of-missed-repairs-and-stress/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/family-wins-boiler-claim-after-years-of-missed-repairs-and-stress/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/family-wins-boiler-claim-after-years-of-missed-repairs-and-stress/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/multiple-defects-and-serious-damp-in-sheffield-home/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/multiple-defects-and-serious-damp-in-sheffield-home/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/multiple-defects-and-serious-damp-in-sheffield-home/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/persistent-bathroom-leak-and-water-damage/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/persistent-bathroom-leak-and-water-damage/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/persistent-bathroom-leak-and-water-damage/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/severe-flooring-defects-and-pest-infestation/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/severe-flooring-defects-and-pest-infestation/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/severe-flooring-defects-and-pest-infestation/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/severe-pest-infestation-and-lack-of-heating/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/severe-pest-infestation-and-lack-of-heating/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/severe-pest-infestation-and-lack-of-heating/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/tenant-wins-settlement-after-unsafe-flat-damages-mental-health/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/tenant-wins-settlement-after-unsafe-flat-damages-mental-health/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/tenant-wins-settlement-after-unsafe-flat-damages-mental-health/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/tenant-with-children-wins-settlement-after-years-of-disrepair/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/tenant-with-children-wins-settlement-after-years-of-disrepair/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/tenant-with-children-wins-settlement-after-years-of-disrepair/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/tenant-with-respiratory-illness-wins-mould-claim-after-years-of-neglect/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/tenant-with-respiratory-illness-wins-mould-claim-after-years-of-neglect/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/tenant-with-respiratory-illness-wins-mould-claim-after-years-of-neglect/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/vulnerable-tenant-wins-settlement-after-living-without-heating/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/vulnerable-tenant-wins-settlement-after-living-without-heating/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/vulnerable-tenant-wins-settlement-after-living-without-heating/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/client-questionnaire/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/client-questionnaire/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/client-questionnaire/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/complaints/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/complaints/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/complaints/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/cookies/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/cookies/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/cookies/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/better-bake-macmillan/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/better-bake-macmillan/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/better-bake-macmillan/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/can-you-sue-your-landlord-unsafe-living-conditions/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/can-you-sue-your-landlord-unsafe-living-conditions/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/can-you-sue-your-landlord-unsafe-living-conditions/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/coffee-morning-success-sheldon-davidson-solicitors/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/coffee-morning-success-sheldon-davidson-solicitors/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/coffee-morning-success-sheldon-davidson-solicitors/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/damp-mould-and-heating-compensation-claims-how-much-could-you-claim/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/damp-mould-and-heating-compensation-claims-how-much-could-you-claim/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/damp-mould-and-heating-compensation-claims-how-much-could-you-claim/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/final-update-marathon/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/final-update-marathon/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/final-update-marathon/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/getting-muddy-charity/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/getting-muddy-charity/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/getting-muddy-charity/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/how-defend-against-landlord-making-false-damage-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/how-defend-against-landlord-making-false-damage-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/how-defend-against-landlord-making-false-damage-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/how-long-can-landlord-leave-you-without-heat/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/how-long-can-landlord-leave-you-without-heat/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/how-long-can-landlord-leave-you-without-heat/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/how-long-does-housing-disrepair-claim-take/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/how-long-does-housing-disrepair-claim-take/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/how-long-does-housing-disrepair-claim-take/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/london-marathon/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/london-marathon/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/london-marathon/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/olympic-torch/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/olympic-torch/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/olympic-torch/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/phase-1-of-the-renters-rights-act-2026/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/phase-1-of-the-renters-rights-act-2026/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/phase-1-of-the-renters-rights-act-2026/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/social-housing-rent-increases-in-2026/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/social-housing-rent-increases-in-2026/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/social-housing-rent-increases-in-2026/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/spot-the-early-signs-of-housing-disrepair-before-it-gets-worse/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/spot-the-early-signs-of-housing-disrepair-before-it-gets-worse/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/spot-the-early-signs-of-housing-disrepair-before-it-gets-worse/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/what-awaabs-law-means-for-tenants-in-social-housing/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/what-tenants-need-to-know-about-renters-reform-bill-in-2026/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/what-the-2026-changes-to-awaabs-law-mean-for-tenants/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/what-the-2026-changes-to-awaabs-law-mean-for-tenants/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/what-the-2026-changes-to-awaabs-law-mean-for-tenants/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/what-to-do-when-your-landlord-keeps-delaying/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/what-to-do-when-your-landlord-keeps-delaying/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/what-to-do-when-your-landlord-keeps-delaying/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/why-holding-landlords-accountable-really-matters/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/why-holding-landlords-accountable-really-matters/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/why-holding-landlords-accountable-really-matters/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/why-sheldon-davidson-solicitors-different/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/why-sheldon-davidson-solicitors-different/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/why-sheldon-davidson-solicitors-different/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/alison-sherlock/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/alison-sherlock/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/alison-sherlock/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/angela-brewis/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/angela-brewis/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/angela-brewis/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/blake-davidson/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/blake-davidson/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/blake-davidson/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/brian-tyrie/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/brian-tyrie/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/brian-tyrie/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/corbyn-lewis/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/corbyn-lewis/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/corbyn-lewis/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/daisy-kerins/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/daisy-kerins/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/daisy-kerins/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/dominique-stansfield/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/dominique-stansfield/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/dominique-stansfield/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/emma-farrington/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/emma-farrington/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/emma-farrington/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/hanane-chikhaoui/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/hanane-chikhaoui/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/hanane-chikhaoui/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/hayley-garnet/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/hayley-garnet/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/hayley-garnet/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/janine-watson/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/janine-watson/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/janine-watson/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/jen-schofield/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/jen-schofield/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/jen-schofield/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/kaneesha-zendera/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/kaneesha-zendera/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/kaneesha-zendera/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/karen-holt/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/karen-holt/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/karen-holt/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/kate-sherlock/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/kate-sherlock/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/kate-sherlock/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/katie-morgan/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/katie-morgan/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/katie-morgan/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/lauren-davies/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/lauren-davies/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/lauren-davies/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/michael-haycock/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/michael-haycock/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/michael-haycock/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/milena-bologan/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/milena-bologan/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/milena-bologan/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/modupe-somoye/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/modupe-somoye/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/modupe-somoye/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/moyin-ajidagba/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/moyin-ajidagba/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/moyin-ajidagba/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/sheldon-davidson/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/victoria-mccormack/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/victoria-mccormack/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/victoria-mccormack/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/william-webb/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/william-webb/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/william-webb/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/yulie-wagman/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/yulie-wagman/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/yulie-wagman/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/privacy-policy/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/privacy-policy/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/privacy-policy/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/reviews/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/reviews/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/reviews/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/sds-solicitors-discontinued-legal-services/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/sds-solicitors-discontinued-legal-services/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/terms-business/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/terms-business/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/terms-business/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/",
+      "replacementUrl": "https://housingconditionclaims.org/contact-us/",
+      "productionUrl": "https://www.sds-solicitors.com/contact-us/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/compensation-calculator-confirmation/",
+      "replacementUrl": "https://housingconditionclaims.org/contact-us/compensation-calculator-confirmation/",
+      "productionUrl": "https://www.sds-solicitors.com/contact-us/compensation-calculator-confirmation/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/housing-disrepair-confirmation/",
+      "replacementUrl": "https://housingconditionclaims.org/contact-us/housing-disrepair-confirmation/",
+      "productionUrl": "https://www.sds-solicitors.com/contact-us/housing-disrepair-confirmation/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/housing-disrepair-enquiries-stands/",
+      "replacementUrl": "https://housingconditionclaims.org/contact-us/housing-disrepair-enquiries-stands/",
+      "productionUrl": "https://www.sds-solicitors.com/contact-us/housing-disrepair-enquiries-stands/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/medical-negligence-confirmation/",
+      "replacementUrl": "https://housingconditionclaims.org/contact-us/medical-negligence-confirmation/",
+      "productionUrl": "https://www.sds-solicitors.com/contact-us/medical-negligence-confirmation/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/personal-injury-confirmation/",
+      "replacementUrl": "https://housingconditionclaims.org/contact-us/personal-injury-confirmation/",
+      "productionUrl": "https://www.sds-solicitors.com/contact-us/personal-injury-confirmation/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us/thank-you/",
+      "replacementUrl": "https://housingconditionclaims.org/contact-us/thank-you/",
+      "productionUrl": "https://www.sds-solicitors.com/contact-us/thank-you/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/compensation-calculator/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair-claims/compensation-calculator/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/compensation-calculator/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/council-housing/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair-claims/council-housing/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/council-housing/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/housing-condition-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair-claims/housing-condition-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/housing-condition-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/managing-your-claim/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair-claims/managing-your-claim/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/managing-your-claim/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/pre-action-protocol/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair-claims/pre-action-protocol/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/pre-action-protocol/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/private-landlord/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair-claims/private-landlord/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/private-landlord/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/social-housing/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair-claims/social-housing/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/social-housing/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/tenant-rights-landlord-obligations/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair-claims/tenant-rights-landlord-obligations/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair-claims/tenant-rights-landlord-obligations/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair-enquiries/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair-enquiries/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair-enquiries/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/bathroom-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/bathroom-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/bathroom-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/boiler-heating-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/boiler-heating-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/boiler-heating-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/brickwork-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/brickwork-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/brickwork-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/crumbling-plaster/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/crumbling-plaster/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/crumbling-plaster/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/damp-and-mould-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/damp-and-mould-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/damp-and-mould-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/dangerous-wiring-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/dangerous-wiring-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/dangerous-wiring-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/defective-sanitaryware/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/defective-sanitaryware/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/defective-sanitaryware/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/electrical-faults-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/electrical-faults-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/electrical-faults-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/flooding-water-damage-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/flooding-water-damage-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/flooding-water-damage-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/gas-appliance-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/gas-appliance-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/gas-appliance-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/berneslai/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/berneslai/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/berneslai/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/blackpool-coastal-housing/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/blackpool-coastal-housing/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/blackpool-coastal-housing/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/bromford-housing/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/bromford-housing/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/bromford-housing/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/clarion-housing-group/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/clarion-housing-group/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/clarion-housing-group/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/great-places-housing-group/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/great-places-housing-group/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/great-places-housing-group/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/guinness-partnership/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/guinness-partnership/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/guinness-partnership/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/hanover-housing-association/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/hanover-housing-association/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/hanover-housing-association/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/housing-21/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/housing-21/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/housing-21/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/london-and-quadrant-housing-trust/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/london-and-quadrant-housing-trust/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/london-and-quadrant-housing-trust/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/midland-heart/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/midland-heart/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/midland-heart/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/orbit-group/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/orbit-group/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/orbit-group/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/peabody-group/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/peabody-group/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/peabody-group/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/riverside-housing/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/riverside-housing/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/riverside-housing/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/sanctuary-housing/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/sanctuary-housing/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/sanctuary-housing/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/southern-housing-group/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/southern-housing-group/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/southern-housing-group/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/thirteen-group/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/housing-associations/thirteen-group/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/housing-associations/thirteen-group/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/insect-infestation-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/insect-infestation-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/insect-infestation-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/kitchen-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/kitchen-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/barnsley/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/barnsley/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/barnsley/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/basildon/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/basildon/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/basildon/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/basingstoke/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/basingstoke/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/basingstoke/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bath/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/bath/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bath/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bedford/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/bedford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bedford/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/birkenhead/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/birkenhead/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/birkenhead/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/birmingham/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/birmingham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/birmingham/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/blackburn/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/blackburn/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/blackburn/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/blackpool/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/blackpool/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/blackpool/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bolton/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/bolton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bolton/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bootle/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/bootle/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bootle/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bradford/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/bradford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bradford/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/brighton/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/brighton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/brighton/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bristol/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/bristol/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/bristol/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/burnley/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/burnley/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/burnley/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/canterbury/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/canterbury/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/canterbury/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/carlisle/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/carlisle/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/carlisle/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chelmsford/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/chelmsford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chelmsford/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/cheltenham/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/cheltenham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/cheltenham/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chester/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/chester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chester/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chesterfield/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/chesterfield/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chesterfield/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chichester/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/chichester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/chichester/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/colchester/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/colchester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/colchester/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/coventry/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/coventry/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/coventry/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/crawley/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/crawley/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/crawley/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/darlington/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/darlington/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/darlington/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/derby/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/derby/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/derby/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/doncaster/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/doncaster/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/doncaster/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/dover/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/dover/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/dover/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/dudley/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/dudley/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/dudley/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/durham/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/durham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/durham/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/exeter/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/exeter/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/exeter/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/folkestone/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/folkestone/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/folkestone/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gateshead/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/gateshead/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gateshead/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gillingham/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/gillingham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gillingham/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gloucester/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/gloucester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/gloucester/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/great-yarmouth/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/great-yarmouth/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/great-yarmouth/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/grimsby/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/grimsby/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/grimsby/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/harlow/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/harlow/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/harlow/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hartlepool/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/hartlepool/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hartlepool/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hastings/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/hastings/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hastings/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hereford/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/hereford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hereford/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/huddersfield/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/huddersfield/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/huddersfield/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hull/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/hull/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/hull/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/ipswich/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/ipswich/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/ipswich/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/kettering/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/kettering/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/kettering/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lancaster/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/lancaster/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lancaster/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/leeds/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/leeds/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/leeds/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/leicester/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/leicester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/leicester/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lincoln/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/lincoln/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lincoln/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/liverpool/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/liverpool/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/liverpool/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/barking/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/barking/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/barking/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/brent/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/brent/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/brent/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/camden/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/camden/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/camden/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/croydon/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/croydon/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/croydon/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/ealing/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/ealing/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/ealing/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/enfield/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/enfield/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/enfield/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/fulham/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/fulham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/fulham/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/greenwich/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/greenwich/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/greenwich/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hackney/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/hackney/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hackney/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hammersmith/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/hammersmith/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hammersmith/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/haringey/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/haringey/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/haringey/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/havering/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/havering/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/havering/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hounslow/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/hounslow/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/hounslow/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/islington/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/islington/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/islington/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/lambeth/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/lambeth/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/lambeth/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/lewisham/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/lewisham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/lewisham/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/newham/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/newham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/newham/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/redbridge/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/redbridge/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/redbridge/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/southwark/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/southwark/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/southwark/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/tower-hamlets/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/tower-hamlets/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/tower-hamlets/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/waltham-forest/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/waltham-forest/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/waltham-forest/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/wandsworth/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/london/wandsworth/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/london/wandsworth/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lowestoft/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/lowestoft/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/lowestoft/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/luton/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/luton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/luton/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/maidstone/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/maidstone/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/maidstone/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/manchester/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/manchester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/manchester/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/margate/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/margate/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/margate/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/middlesbrough/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/middlesbrough/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/middlesbrough/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/milton-keynes/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/milton-keynes/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/milton-keynes/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/newcastle/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/newcastle/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/newcastle/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/northampton/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/northampton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/northampton/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/norwich/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/norwich/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/norwich/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/nottingham/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/nottingham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/nottingham/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/nuneaton/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/nuneaton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/nuneaton/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/oldham/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/oldham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/oldham/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/peterborough/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/peterborough/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/peterborough/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/plymouth/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/plymouth/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/plymouth/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/portsmouth/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/portsmouth/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/portsmouth/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/preston/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/preston/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/preston/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/reading/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/reading/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/reading/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/rochdale/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/rochdale/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/rochdale/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/rotherham/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/rotherham/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/rotherham/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/salford/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/salford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/salford/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sandwell/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/sandwell/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sandwell/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/scunthorpe/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/scunthorpe/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/scunthorpe/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sheffield/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/sheffield/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sheffield/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/shrewsbury/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/shrewsbury/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/shrewsbury/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/slough/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/slough/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/slough/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/southampton/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/southampton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/southampton/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/southend-sea/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/southend-sea/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/southend-sea/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stevenage/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/stevenage/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stevenage/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stockport/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/stockport/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stockport/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stoke-trent/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/stoke-trent/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/stoke-trent/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sunderland/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/sunderland/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/sunderland/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/swindon/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/swindon/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/swindon/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/tameside/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/tameside/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/tameside/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/telford/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/telford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/telford/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/truro/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/truro/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/truro/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wakefield/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/wakefield/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wakefield/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/walsall/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/walsall/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/walsall/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/warrington/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/warrington/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/warrington/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/watford/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/watford/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/watford/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wigan/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/wigan/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wigan/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wolverhampton/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/wolverhampton/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/wolverhampton/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/worcester/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/worcester/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/worcester/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/worthing/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/worthing/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/worthing/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/york/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/locations/york/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/locations/york/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/plumbing-drainage-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/plumbing-drainage-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/plumbing-drainage-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/roof-gutter-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/roof-gutter-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/roof-gutter-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/spray-foam-insulation-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/spray-foam-insulation-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/spray-foam-insulation-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/unsafe-flooring-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/unsafe-flooring-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/unsafe-flooring-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/vermin-from-disrepair-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/vermin-from-disrepair-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/vermin-from-disrepair-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/windows-doors-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/windows-doors-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/windows-doors-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/referral-bonus-scheme/",
+      "replacementUrl": "https://housingconditionclaims.org/referral-bonus-scheme/",
+      "productionUrl": "https://www.sds-solicitors.com/referral-bonus-scheme/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/referral-bonus-scheme/family-and-friends-bonus-terms-and-conditions/",
+      "replacementUrl": "https://housingconditionclaims.org/referral-bonus-scheme/family-and-friends-bonus-terms-and-conditions/",
+      "productionUrl": "https://www.sds-solicitors.com/referral-bonus-scheme/family-and-friends-bonus-terms-and-conditions/",
+      "action": "Keep URL (200)",
+      "currentSitemap": true
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/careers",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/careers/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/careers/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/?ccm_paging_p_b2385=1",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/?ccm_paging_p_b2385=2",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/?ccm_paging_p_b2385=2",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/?ccm_paging_p_b2385=2",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/241/amputation/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/241/amputation/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/241/amputation/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/274/road-traffic/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/274/road-traffic/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/274/road-traffic/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/274/road-traffic/?ccm_paging_p_b2385=2",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/274/road-traffic/?ccm_paging_p_b2385=2",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/274/road-traffic/?ccm_paging_p_b2385=2",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/276/medical-negligence/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/276/medical-negligence/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/276/medical-negligence/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/289/cancer-negligence/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/289/cancer-negligence/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/289/cancer-negligence/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/359/housing-disrepair/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/359/housing-disrepair/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/359/housing-disrepair/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=1",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/359/housing-disrepair/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/359/housing-disrepair/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=2",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=2",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/359/housing-disrepair/?ccm_paging_p_b2385=2",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/81/head-injury-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/81/head-injury-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/81/head-injury-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/83/neck-injury-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/83/neck-injury-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/83/neck-injury-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/84/shoulder-injury-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/84/shoulder-injury-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/84/shoulder-injury-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/85/back-injury-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/85/back-injury-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/85/back-injury-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/87/hand-injury-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/87/hand-injury-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/87/hand-injury-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/88/leg-injury-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/88/leg-injury-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/88/leg-injury-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/89/foot-injury-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/89/foot-injury-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/89/foot-injury-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/90/serious-injury-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/90/serious-injury-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/90/serious-injury-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/91/minor-injury-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/case-studies/topic/91/minor-injury-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/case-studies/topic/91/minor-injury-claims/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/complaints",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/complaints/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/complaints/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/cookies",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/cookies/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/cookies/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=1",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=2",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/?ccm_paging_p_b1269=2",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=2",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/358/housing-disrepair/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=1",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/358/housing-disrepair/?ccm_paging_p_b1269=2",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/?ccm_paging_p_b1269=2",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=2",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/72/accidents-at-work/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/72/accidents-at-work/?ccm_paging_p_b1269=2",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/?ccm_paging_p_b1269=2",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=2",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/73/medical-negligence/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/73/medical-negligence/?ccm_paging_p_b1269=2",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/?ccm_paging_p_b1269=2",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=2",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/74/serious-injury/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/74/serious-injury/?ccm_paging_p_b1269=2",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/?ccm_paging_p_b1269=2",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=2",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/74/serious-injury/?ccm_paging_p_b1269=3",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/?ccm_paging_p_b1269=3",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=3",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/75/road-%26-bike/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/75/road-%26-bike/?ccm_paging_p_b1269=1",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/75/road-%26-bike/?ccm_paging_p_b1269=2",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/?ccm_paging_p_b1269=2",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=2",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/75/road-%26-bike/?ccm_paging_p_b1269=3",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/?ccm_paging_p_b1269=3",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=3",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/75/road-%26-bike/?ccm_paging_p_b1269=4",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/?ccm_paging_p_b1269=4",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/?ccm_paging_p_b1269=4",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/76/injury-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/news/topic/78/about-sds/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/news/topic/78/about-sds/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/news/topic/78/about-sds/",
+      "action": "Keep URL (200)",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/alison-sherlock",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/alison-sherlock/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/alison-sherlock/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/angela-brewis",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/angela-brewis/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/angela-brewis/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/blake-davidson",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/blake-davidson/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/blake-davidson/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/brian-tyrie",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/brian-tyrie/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/brian-tyrie/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/corbyn-lewis",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/corbyn-lewis/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/corbyn-lewis/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/daisy-kerins",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/daisy-kerins/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/daisy-kerins/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/dominique-stansfield",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/dominique-stansfield/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/dominique-stansfield/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/emma-farrington",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/emma-farrington/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/emma-farrington/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/hayley-garnet",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/hayley-garnet/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/hayley-garnet/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/janine-watson",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/janine-watson/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/janine-watson/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/jen-schofield",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/jen-schofield/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/jen-schofield/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/kaneesha-zendera",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/kaneesha-zendera/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/kaneesha-zendera/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/karen-holt",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/karen-holt/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/karen-holt/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/kate-sherlock",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/kate-sherlock/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/kate-sherlock/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/katie-morgan",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/katie-morgan/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/katie-morgan/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/lauren-davies",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/lauren-davies/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/lauren-davies/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/michael-haycock",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/michael-haycock/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/michael-haycock/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/milena-bologan",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/milena-bologan/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/milena-bologan/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/modupe-somoye",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/modupe-somoye/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/modupe-somoye/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/moyin-ajidagba",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/moyin-ajidagba/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/moyin-ajidagba/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/sheldon-davidson/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/sheldon-davidson/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/victoria-mccormack",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/victoria-mccormack/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/victoria-mccormack/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/william-webb",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/william-webb/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/william-webb/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/our-people/yulie-wagman",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/our-people/yulie-wagman/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/our-people/yulie-wagman/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/about-us/privacy-policy",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/privacy-policy/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/privacy-policy/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/complaints/www.legalombudsman.org.uk",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/complaints/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/complaints/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/complaints/www.ombudsman-services.org",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/complaints/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/complaints/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/complaints/www.small-claims-mediation.co.uk",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/complaints/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/complaints/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/contact-us",
+      "replacementUrl": "https://housingconditionclaims.org/contact-us/",
+      "productionUrl": "https://www.sds-solicitors.com/contact-us/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/flooding-water-damage-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/flooding-water-damage-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/flooding-water-damage-claims/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/housing-disrepair/leaks-plumbing-drainage-claims/",
+      "replacementUrl": "https://housingconditionclaims.org/housing-disrepair/plumbing-drainage-claims/",
+      "productionUrl": "https://www.sds-solicitors.com/housing-disrepair/plumbing-drainage-claims/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/index.php/about-us/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    },
+    {
+      "sourceUrl": "https://www.sds-solicitors.com/privacy-policy/",
+      "replacementUrl": "https://housingconditionclaims.org/about-us/privacy-policy/",
+      "productionUrl": "https://www.sds-solicitors.com/about-us/privacy-policy/",
+      "action": "301 redirect",
+      "currentSitemap": false
+    }
+  ]
+}

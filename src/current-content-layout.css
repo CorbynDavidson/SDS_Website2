@@ -223,3 +223,19 @@ body .hero.rights-hero.wrap { width: min(1240px, calc(100% - 64px)); margin-left
   }
   .hero.rights-hero .rights-arrow { width: 44px; height: 44px; }
 }
+
+/* Existing brand and page width; only the new guide and restored cards. */
+.compensation-guide{border:1px solid var(--line,#d8e5e9);border-left:6px solid var(--gold,#efb400);border-radius:24px;background:#f4f9fa;padding:32px;margin-block:36px}
+.compensation-guide-controls[hidden],.compensation-slide[hidden]{display:none!important}
+.compensation-guide-topics,.compensation-guide-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.compensation-guide-actions{margin:16px 0 24px}
+.compensation-guide-controls button{font:700 1rem/1.4 'DM Sans',sans-serif;padding:10px 14px;border:1px solid var(--line,#d8e5e9);border-radius:12px;color:var(--ink,#032b4c);background:#fff;cursor:pointer;white-space:normal}
+.compensation-guide-controls button[aria-current=true]{background:#006f72;color:white;border-color:#006f72}
+.compensation-guide-controls button:focus-visible,.compensation-slide h2:focus-visible{outline:3px solid #006f72;outline-offset:4px}
+.compensation-guide-count{color:var(--ink,#032b4c);font-weight:700}
+.compensation-slide{max-width:960px;margin-inline:auto;min-width:0}
+.compensation-slide h2:first-child{margin-top:0}
+.source-copy-section:has([data-source-specialist]) .team-grid{max-width:420px}
+.source-copy-section:has([data-source-specialist]) .team-card{box-shadow:none}
+@media(max-width:760px){.compensation-guide{padding:22px 18px;border-radius:24px;width:calc(100% - 36px)}.compensation-guide-actions button{flex:1 1 130px}.compensation-guide-count{flex-basis:100%;order:3}.compensation-slide h2{font-size:clamp(1.6rem,7vw,2.2rem)}}
+@media print{.compensation-guide-controls{display:none!important}.compensation-slide[hidden]{display:block!important}}
