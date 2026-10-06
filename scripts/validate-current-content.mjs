@@ -22,6 +22,7 @@ const origin='https://housingconditionclaims.org';
 const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'review',RATE_LIMIT_SECRET:'local-validation-only',ASSETS:{async fetch(request){const path=new URL(request.url).pathname;if(!data.assets[path])return new Response('Missing',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':'application/octet-stream'}});}}};
 const fetchPage=(module,path)=>module.fetch(new Request(origin+path),env);
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
+const importedByPath=new Map((await readJson('src/content/sds/index.json')).pages.map(page=>[page.path,page]));
 const sourceAssets=new Map(manifest.assets.filter(a=>a.status===200).map(a=>[new URL(a.url).pathname,a]));
 const selectors=['#banner .banner-container','#top','#central','#wide','#wrapper > .cms-container:not(#call)','#wrapper > .ccm-custom-style-container','#wrapper > .kreviews'];
 const exclude='script,style,noscript,template,.side-content,.sidebar,.sticky-container,.modal,.kpeople-modal,[data-sds-tracking],.ccm-block-express-form .alert-success';
@@ -35,7 +36,16 @@ function originalContent(raw){
  for(const widget of sidebarWidgets)copy('#original').append(widget+'\n');
  for(const node of $('#call .ccm-block-express-form').toArray())if(!$(node).closest('.modal,.kpeople-modal').length)copy('#original').append($.html(node)+'\n');
  copy('script,style,noscript,template,.alert-success').remove();
- return {copy,root:copy('#original')};
+ const root=copy('#original'),forms=root.find('.ccm-block-express-form form,.multi-step-form form');
+ const widget=form=>{const ancestor=form.closest('.multi-step-form,.ccm-block-express-form');return ancestor.length?ancestor:form;};
+ const primary=forms.length?widget(forms.first()):null;
+ let removedFormWidgets=0;
+ if(primary)for(const node of forms.toArray()){
+   if(primary[0]===node||copy(node).parents().toArray().includes(primary[0]))continue;
+   if(!copy(node).parents('#original').length)continue;
+   widget(copy(node)).remove();removedFormWidgets++;
+ }
+ return {copy,root,primary,removedFormWidgets};
 }
 function migratedContent(html){const $=load(html,{scriptingEnabled:false});const chosen=$('main [data-source-copy]'),nodes=chosen.toArray().filter(node=>!$(node).parents('[data-source-copy]').length);const copy=load('<div id="rendered"></div>',{scriptingEnabled:false});for(const node of nodes)copy('#rendered').append($.html(node)+'\n');copy('script,style,noscript,template').remove();return {copy,root:copy('#rendered')};}
 function bag(text){const result={};for(const word of normalise(text).match(/\p{L}+|\p{N}+|[^\p{L}\p{N}\s]/gu)||[])result[word]=(result[word]||0)+1;return result;}
@@ -46,7 +56,7 @@ function seo(html){const $=load(html,{scriptingEnabled:false});return {title:$('
 function styles(html){const $=load(html,{scriptingEnabled:false,sourceCodeLocationInfo:true});return $('head style:not(#sds-content-design):not(#sds-layout-adjustments),head link').toArray().filter(n=>n.tagName==='style'||!seoLink(n.attribs)).map(n=>html.slice(n.sourceCodeLocation.startOffset,n.sourceCodeLocation.endOffset));}
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const removedBannerHashes=manifest.assets.filter(a=>new URL(a.url).pathname.endsWith('/housing-disrepair-blue.webp')).map(a=>a.sha256);
-const layoutAudit={bannerRemovalRoutesVerified:0,standardFormsUsingHomepageCard:0,benefitRowsVerified:0,wizardCardsVerified:0,layoutCssMatchesGitFile:true};
+const layoutAudit={bannerRemovalRoutesVerified:0,standardFormsUsingHomepageCard:0,benefitRowsVerified:0,wizardCardsVerified:0,layoutCssMatchesGitFile:true,singleEnquiryWidgetRoutesVerified:0,secondaryEnquiryWidgetsRemoved:0,primaryFormFieldsPreserved:0,welcomeMessageCarouselVerified:false,fallbackLayoutsVerified:0};
 const audit={sourceCommit:provenance.commit,sourceFilesVerified:0,routesVerified:0,originalParagraphsAndHeadingsVerified:0,metadataRoutesVerified:0,approvedStyleRoutesVerified:0,approvedHeaderFooterRoutesVerified:0,internalLinksVerified:0,mediaVerified:0,originalUnavailableLinks:[],unavailableOriginalMedia:report.unavailableOriginalMedia,formKeys:[],homepageCarouselsVerified:false,sourceDirectoryProfiles:0,productionBlockVerified:false,reviewNoindexVerified:true,ownerProtectedAdministrationVerified:false,browserVisualAuditComplete:false,pages:[]};
 const media=new Set(),links=new Set(),forms=new Set();
 for(const [path,sha]of Object.entries(provenance.blobs)){const bytes=await readFile(resolve(root,path));assert.equal(createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),sha,'Pinned source changed: '+path);audit.sourceFilesVerified++;}
@@ -74,6 +84,16 @@ for(const page of report.pages){
  }
  assert.deepEqual(seo(html),seo(raw),'Original SEO differs: '+page.path);audit.metadataRoutesVerified++;
  const originalCopy=originalContent(raw),currentCopy=migratedContent(html);
+ const primary=$('main [data-source-enquiry]');
+ assert.equal(primary.length,originalCopy.primary?1:0,'Expected exactly one original enquiry widget: '+page.path);
+ for(const form of $('main form[data-sds-form]').toArray())assert.equal($(form).closest('[data-source-enquiry]').length,1,'Secondary enquiry form remains: '+page.path);
+ if(originalCopy.primary){
+   const importedCopy=originalContent(await readFile(resolve(root,importedByPath.get(page.path).contentFile),'utf8'));
+   const controls=(dom,widget)=>widget.find('input:not([type=hidden]),textarea,select').toArray().filter(n=>n.attribs.name&&!dom(n).hasClass('sds-honeypot')).map(n=>({name:n.attribs.name,type:n.attribs.type||n.tagName,required:'required'in n.attribs}));
+   assert.deepEqual(controls($,primary),controls(importedCopy.copy,importedCopy.primary),'Primary enquiry fields changed: '+page.path);layoutAudit.primaryFormFieldsPreserved++;
+   assert.equal(primary.closest('.service-hero,.rights-hero,.profile-hero').length,1,'Primary enquiry must be in the top content box: '+page.path);
+ }
+ layoutAudit.singleEnquiryWidgetRoutesVerified++;layoutAudit.secondaryEnquiryWidgetsRemoved+=originalCopy.removedFormWidgets;
  assert.deepEqual(bag(currentCopy.root.text()),bag(originalCopy.root.text()),'Original visible copy differs: '+page.path);
  assert.deepEqual(blocks(currentCopy),blocks(originalCopy),'Paragraph, heading, list or form-label wording differs: '+page.path);
  audit.originalParagraphsAndHeadingsVerified+=Object.values(blocks(originalCopy)).reduce((a,b)=>a+b,0);
@@ -87,11 +107,21 @@ for(const page of report.pages){
  for(const n of $('main [data-source-copy] a[href]').toArray())if(n.attribs.href.startsWith('/'))links.add(n.attribs.href);
  for(const n of $('form[data-sds-form]').toArray()){forms.add(n.attribs['data-sds-form']);assert.ok(data.forms[n.attribs['data-sds-form']]);}
  if(page.path==='/'){
-   for(const selector of ['.rights-slide','.about-slide','.testimonial-slide'])assert.equal($(selector).length,b(selector).length,'Approved homepage carousel changed: '+selector);
-   assert.equal($('#aboutCarousel').html(),b('#aboutCarousel').html());assert.equal($('#testimonialCarousel').html(),b('#testimonialCarousel').html());
+   for(const selector of ['.rights-slide','.testimonial-slide'])assert.equal($(selector).length,b(selector).length,'Approved homepage carousel changed: '+selector);
+   const welcome=$('#aboutCarousel .about-welcome-slide');assert.equal(welcome.length,1,'Welcome message must be one Who we are slide.');
+   assert.equal(welcome.find('.about-welcome-message[tabindex="0"]').length,1,'Full welcome message must be keyboard-readable.');
+   assert.equal($('.source-home-welcome').length,0,'Welcome message must not be repeated outside Who we are.');
+   assert.equal(welcome.find('[data-source-region="wide"]').length,1);
+   assert.equal($('#aboutCarousel .about-count > span').text(),'/ '+String(b('.about-slide').length+1).padStart(2,'0'));
+   const retained=$('#aboutCarousel').clone();retained.find('.about-welcome-slide').remove();
+   retained.attr('aria-label',b('#aboutCarousel').attr('aria-label'));
+   retained.find('.about-slide').each((i,n)=>$(n).attr('aria-label',b('.about-slide').eq(i).attr('aria-label')));
+   for(const selector of ['.about-count > span','.about-prev','.about-next']){const old=b('#aboutCarousel').find(selector),now=retained.find(selector);if(selector.includes('span'))now.html(old.html());else now.attr('aria-label',old.attr('aria-label'));}
+   assert.equal(retained.html(),b('#aboutCarousel').html(),'Existing team carousel content or controls changed.');assert.equal($('#testimonialCarousel').html(),b('#testimonialCarousel').html());
    for(const selector of ['.rights-controls','.reviews-widget'])assert.equal($(selector).html(),b(selector).html());
    assert.ok(html.includes('const showSlide=')&&html.includes('const showAbout=')&&html.includes('const showTestimonial='));assert.ok(!html.includes('const editableSelector='));
    audit.homepageCarouselsVerified=true;
+   layoutAudit.welcomeMessageCarouselVerified=true;
  }
  if(page.path==='/about-us/our-people/'){const originalDirectory=load(raw);const expected=originalDirectory('.team-list .kpeople-member').length;assert.equal($('.team-grid .team-card').length,expected);assert.equal($('.team-card-leadership').length,2);audit.sourceDirectoryProfiles=expected;}
  audit.routesVerified++;audit.pages.push({path:page.path,copyMatchesOriginal:true,paragraphsAndHeadingsMatch:true,seoMatchesOriginal:true,approvedStylesAndSharedDesignPreserved:true});
@@ -111,7 +141,11 @@ for(const path of ['/submissions','/submissions.csv','/editor','/api/editor/sess
 audit.ownerProtectedAdministrationVerified=true;
 assert.equal((await worker.fetch(new Request('https://www.sds-solicitors.com/'),{...env,RELEASE_MODE:'production'})).status,503);audit.productionBlockVerified=true;
 assert.equal((await fetchPage(worker,'/this-page-does-not-exist/')).status,404);
-audit.formKeys=[...forms];assert.equal(forms.size,Object.keys(data.forms).length,'Every original form must appear on a migrated page.');
+audit.formKeys=[...forms];assert.deepEqual(data.forms,await readJson('src/content/sds/forms.json'),'All original submission handlers must remain available.');
+for(const path of ['/damp-and-mould-claims','/broken-heating-and-hot-water-claims']){
+ const response=await fetchPage(worker,path);assert.equal(response.status,200,'Existing additional page unavailable: '+path);
+ const $=load(await response.text());assert.equal($('#sds-layout-adjustments').text(),layoutCss,'Additional page must share header spacing and layout rules: '+path);assert.ok($('main form').length<=1,'Additional page has repeated forms: '+path);layoutAudit.fallbackLayoutsVerified++;
+}
 await DB.close();
 await writeFile(resolve(root,'docs/migration/content-validation.json'),JSON.stringify(audit,null,2)+'\n');
 await writeFile(resolve(root,'docs/migration/layout-validation.json'),JSON.stringify(layoutAudit,null,2)+'\n');

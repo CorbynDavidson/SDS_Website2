@@ -1,7 +1,12 @@
 {
   "bannerRemovalRoutesVerified": 296,
-  "standardFormsUsingHomepageCard": 341,
+  "standardFormsUsingHomepageCard": 173,
   "benefitRowsVerified": 168,
-  "wizardCardsVerified": 25,
-  "layoutCssMatchesGitFile": true
+  "wizardCardsVerified": 10,
+  "layoutCssMatchesGitFile": true,
+  "singleEnquiryWidgetRoutesVerified": 296,
+  "secondaryEnquiryWidgetsRemoved": 172,
+  "primaryFormFieldsPreserved": 176,
+  "welcomeMessageCarouselVerified": true,
+  "fallbackLayoutsVerified": 2
 }

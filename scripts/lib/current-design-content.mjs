@@ -26,6 +26,17 @@ export function extractContent(html,selectors=sourceRegions) {
 
 export function cleanContent(html,{origin,mediaUrls,path}) {
   const {copy:$,root}=extractContent(html);
+  // Keep the first enquiry widget. A multi-step questionnaire is one widget,
+  // even when its source contains a separate submit form for each step.
+  const first=root.find('form[data-sds-form]').first();
+  const enquiryWidget=form=>{const widget=form.closest('.multi-step-form,.ccm-block-express-form');return widget.length?widget:form;};
+  if(first.length){
+    const primary=enquiryWidget(first).attr('data-source-enquiry','');
+    for(const node of root.find('form[data-sds-form]').toArray()){
+      if(primary[0]===node||$(node).parents().toArray().includes(primary[0]))continue;
+      enquiryWidget($(node)).remove();
+    }
+  }
   // User-requested removal of both colour variants and every thumbnail size.
   root.find('img[src]').each((_,node)=>{
     if(new URL(node.attribs.src,origin).pathname.endsWith('/housing-disrepair-blue.webp')){
@@ -70,6 +81,7 @@ export function cleanContent(html,{origin,mediaUrls,path}) {
     if('data-source-benefit'in node.attribs)$(node).addClass('source-benefit');
     if('data-source-benefit-card'in node.attribs)$(node).addClass('source-benefit-card');
     if('data-source-wizard-card'in node.attribs)$(node).addClass('source-wizard-card');
+    if('data-source-enquiry'in node.attribs)$(node).addClass('source-enquiry');
     if(grids.has(node))$(node).attr('class',oldClasses.includes('team-list')?'team-grid':'source-card-grid');
     if(cards.has(node))$(node).attr('class',people.has(node)?'team-card':'source-card');
     if(people.has(node)){node.tagName='article';$(node).attr('data-source-specialisms',specialisms.join(' '));if(specialisms.includes('specialism-management-team'))$(node).addClass('team-card-leadership');}
@@ -98,6 +110,11 @@ export function cleanContent(html,{origin,mediaUrls,path}) {
     }
   });
   // Wizard state is driven by the existing tested form runtime, not CMS CSS.
+  root.find('*').addBack().contents().each((_,node)=>{
+    if(node.type!=='text')return;
+    node.data=node.data.replace(/[ \t]+(?=\r?\n)/g,'').replace(/^[ \t]+/gm,indent=>indent.replace(/\t/g,'  '));
+    if(!node.data.trim()&&node.data.includes('\n'))node.data=node.data.replace(/[ \t]+$/gm,'');
+  });
   root.addClass('sds-source-copy sds-content-design ccm-page');
   return {html:root.html(),text:normaliseText(root.text())};
 }
@@ -148,7 +165,7 @@ export function renderContentPage(baseHtml,cleaned,{path,family,title}) {
       const fields=firstForm.find('.source-form-field');
       if(fields.length){fields.first().before('<div class="form-grid" data-source-fields></div>');const grid=firstForm.find('[data-source-fields]');for(const node of fields.toArray())grid.append(source(node).addClass('field'));}
       firstForm.find('fieldset [role="group"] > div').first().addClass('callback-head');
-      firstForm.attr({'id':'callback','data-source-copy':''}).addClass('callback source-form-widget sds-source-copy sds-content-design');
+      firstForm.attr({'id':'callback','data-source-copy':'','data-source-enquiry':''}).addClass('callback source-form-widget sds-source-copy sds-content-design');
       base('#callback').replaceWith(source.html(firstForm));
       firstForm.remove();
     }
@@ -158,9 +175,20 @@ export function renderContentPage(baseHtml,cleaned,{path,family,title}) {
     const central=article.find('[data-source-region="central"]');
     base('.regulatory-intro').html(sourceWrap(source.html(central)));central.remove();
     const wide=article.find('[data-source-region="wide"]');
-    base('#expertise').prepend('<div class="source-home-welcome">'+sourceWrap(source.html(wide))+'</div>');wide.remove();
-    const call=article.find('[data-source-region="call-form"]');
-    if(call.length){base('main > section').last().html(sourceWrap(call.toArray().map(node=>source.html(node)).join('\n')));call.remove();}
+    if(wide.length){
+      base('#aboutCarousel .about-slides').append('<article class="about-slide about-welcome-slide" aria-hidden="true"><div class="about-welcome-message" tabindex="0" role="region" aria-label="Sheldon Davidson’s welcome message">'+sourceWrap(source.html(wide))+'</div></article>');
+      const slides=base('#aboutCarousel .about-slide'),count=slides.length;
+      slides.each((i,node)=>{const label=base(node).attr('aria-label')||'Sheldon Davidson’s welcome message';base(node).attr('aria-label',/^[0-9]+ of [0-9]+:/.test(label)?label.replace(/^[0-9]+ of [0-9]+:/,(i+1)+' of '+count+':'):(i+1)+' of '+count+': '+label);});
+      base('#aboutCarousel').attr('aria-label','About Sheldon Davidson Solicitors');
+      base('#aboutCarousel .about-count > span').text('/ '+String(count).padStart(2,'0'));
+      base('#aboutCarousel .about-prev').attr('aria-label','Previous slide');
+      base('#aboutCarousel .about-next').attr('aria-label','Next slide');
+      wide.remove();
+    }
+    // This original layout slot previously held the duplicated footer form.
+    base('main > section').last().remove();
+    main.contents().each((_,node)=>{if(node.type==='text'&&!node.data.trim())node.data=node.data.replace(/[ \t]+$/gm,'');});
+    article.find('[data-source-region="call-form"]').remove();
     if(normaliseText(article.text()))base('.regulatory-intro').append(sourceWrap(article.html()));
     return {html:replaceMain(baseHtml,base.html(main)),family:'home'};
   }
@@ -177,8 +205,8 @@ export function renderContentPage(baseHtml,cleaned,{path,family,title}) {
     const banner=article.find('[data-source-region="banner"]');
     const panel=banner.find('[data-source-hero]');
     if(panel.length){heroLead=panel.html();panel.remove();}
-    const form=banner.find('form[data-sds-form]').first();
-    if(form.length){formPanel='<aside id="callback" class="source-form-panel">'+sourceWrap(source.html(form))+'</aside>';form.remove();}
+    const widget=article.find('[data-source-enquiry]').first();
+    if(widget.length){formPanel='<aside id="callback" class="source-form-panel">'+sourceWrap(source.html(widget))+'</aside>';widget.remove();}
     // Keep non-form banner material, including any image or supporting copy.
     if(banner.length&&!normaliseText(banner.text())&&!banner.find('img').length)banner.remove();
     const klass=family==='blog-entry'?'news-article-hero':'service-hero';

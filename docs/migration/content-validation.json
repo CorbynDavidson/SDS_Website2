@@ -2,7 +2,7 @@
   "sourceCommit": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
   "sourceFilesVerified": 298,
   "routesVerified": 296,
-  "originalParagraphsAndHeadingsVerified": 22030,
+  "originalParagraphsAndHeadingsVerified": 20228,
   "metadataRoutesVerified": 296,
   "approvedStyleRoutesVerified": 296,
   "approvedHeaderFooterRoutesVerified": 296,
@@ -12,12 +12,11 @@
   "unavailableOriginalMedia": [],
   "formKeys": [
     "d4ec9836d21b4cb3",
-    "9c7f5147430d0487",
     "b3093dba8576c8ab",
     "07100587fed77416",
+    "9c7f5147430d0487",
     "59564e3bd5db02a2",
-    "3a264213698a28a7",
-    "0ef9dced239c0212"
+    "3a264213698a28a7"
   ],
   "homepageCarouselsVerified": true,
   "sourceDirectoryProfiles": 24,

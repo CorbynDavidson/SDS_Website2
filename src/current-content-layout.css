@@ -1,4 +1,11 @@
 /* Shared presentation corrections requested after the original-copy migration. */
+body > main { padding-top: 48px; }
+body .hero.rights-hero.wrap { width: min(1240px, calc(100% - 64px)); margin-left: auto; margin-right: auto; }
+.about-welcome-slide { grid-template-columns: minmax(0, 1fr); align-items: stretch; }
+.about-welcome-message { min-height: 0; height: 100%; overflow-y: auto; overscroll-behavior: contain; padding-right: 12px; scrollbar-color: #008b8c #d8e5e9; }
+.about-welcome-message:focus-visible { outline: 3px solid #008b8c; outline-offset: 3px; }
+.about-welcome-message .sds-source-copy p { display: block; max-width: none; margin: 0 0 16px; overflow: visible; font-size: 1rem; line-height: 1.7; -webkit-line-clamp: unset; }
+.about-welcome-message .sds-source-copy img { max-width: min(100%, 380px); margin: 16px 0; }
 .source-form-panel { min-width: 0; align-self: start; }
 .page-callback.callback {
   width: 100%;
@@ -55,6 +62,13 @@
 .page-callback [data-error="true"], .source-wizard-card [data-error="true"] { color: #841f14; background: #ffe0dc; }
 @media (max-width: 900px) {
   .sds-source-copy .source-benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  body .hero.rights-hero.wrap { width: calc(100% - 36px); }
+}
+@media (min-width: 901px) and (max-width: 1439px) {
+  /* Keep the fixed review tab clear of the enquiry card on smaller laptops. */
+  body .hero.rights-hero.wrap { width: calc(100% - 148px); margin-left: 32px; margin-right: auto; }
 }
 @media (max-width: 620px) {
   .page-callback .form-grid { grid-template-columns: minmax(0, 1fr); }

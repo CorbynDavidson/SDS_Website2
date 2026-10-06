@@ -77,6 +77,7 @@ for(const page of index.pages) {
   records.push({path:page.path,sourceUrl:page.sourceUrl,sourceSha256:original.sha256,seoFile:page.seoFile,contentFile,family,originalCopySha256:sha256(source.text),renderedMainSha256:sha256(content),metadataTransferred:true,contentTransferred:true});
 }
 const data={config,pages,forms,assets,sourceCapturedAt:manifest.completed_at,sitemap:await readFile(resolve(root,'docs/migration/current-design-sitemap.xml'),'utf8'),robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
+const fallbackLayoutHead='<style id="sds-layout-adjustments">'+layoutCss+'</style>';
 const backendRuntime=(await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace('export function createWorker','function createWorker');
 data.releaseFingerprint=sha256(backendRuntime+JSON.stringify(data));
 await writeFile(resolve(root,'build/data.json'),JSON.stringify(data));
@@ -105,7 +106,9 @@ export default {async fetch(request,env={},ctx={}){
   else if(url.pathname==='/sitemap.xml'&&get)response=new Response(contentData.sitemap,{headers:{'content-type':'application/xml; charset=utf-8'}});
   else if(url.pathname==='/robots.txt'&&get)response=new Response('User-agent: *\\nAllow: /\\n\\nSitemap: '+contentData.config.reviewOrigin+'/sitemap.xml\\n',{headers:{'content-type':'text/plain; charset=utf-8'}});
   else if(url.pathname==='/health'||url.pathname.startsWith('/api/forms/')||url.pathname.startsWith('/api/editor/')||url.pathname==='/editor'||url.pathname.startsWith('/submissions'))response=await contentBackend.fetch(request,env,ctx);
-  else {if(url.pathname==='/api/leads'&&request.method==='POST'&&(request.headers.get('origin')!==url.origin||request.headers.get('sec-fetch-site')==='cross-site'))return Response.json({error:'Please submit from this website.'},{status:403});response=await approvedDesignWorker.fetch(head?new Request(request.url,{headers:request.headers}):request,env,ctx);}
+  else {if(url.pathname==='/api/leads'&&request.method==='POST'&&(request.headers.get('origin')!==url.origin||request.headers.get('sec-fetch-site')==='cross-site'))return Response.json({error:'Please submit from this website.'},{status:403});response=await approvedDesignWorker.fetch(head?new Request(request.url,{headers:request.headers}):request,env,ctx);
+    if(get&&response.status===200&&response.headers.get('content-type')?.includes('text/html'))response=new Response((await response.text()).replace('</head>',${JSON.stringify(fallbackLayoutHead)}+'</head>'),response);
+  }
   const result=new Response(head?null:response.body,response);result.headers.set('x-robots-tag','noindex, follow');result.headers.set('x-content-type-options','nosniff');result.headers.set('referrer-policy','strict-origin-when-cross-origin');return result;
 }};
 `;
