@@ -1,6 +1,15 @@
 /* Shared presentation corrections requested after the original-copy migration. */
 body > main { padding-top: 48px; }
 body .hero.rights-hero.wrap { width: min(1240px, calc(100% - 64px)); margin-left: auto; margin-right: auto; }
+.sds-content-page .team-section.wrap.source-copy-section {
+  margin-top: 32px;
+  margin-bottom: 48px;
+  padding: clamp(24px, 4vw, 48px);
+  border: 1px solid #d8e5e9;
+  border-radius: 32px;
+  background: #eff7f8;
+}
+.sds-people-page, .sds-people-page .service-hero { background: #eff7f8; }
 .about-welcome-slide { grid-template-columns: minmax(0, 1fr); align-items: stretch; }
 .about-welcome-message { min-height: 0; height: 100%; overflow-y: auto; overscroll-behavior: contain; padding-right: 12px; scrollbar-color: #008b8c #d8e5e9; }
 .about-welcome-message:focus-visible { outline: 3px solid #008b8c; outline-offset: 3px; }
@@ -71,6 +80,7 @@ body .hero.rights-hero.wrap { width: min(1240px, calc(100% - 64px)); margin-left
   body .hero.rights-hero.wrap { width: calc(100% - 148px); margin-left: 32px; margin-right: auto; }
 }
 @media (max-width: 620px) {
+  .sds-content-page .team-section.wrap.source-copy-section { padding: 24px 20px; border-radius: 24px; margin-top: 24px; margin-bottom: 32px; }
   .page-callback .form-grid { grid-template-columns: minmax(0, 1fr); }
   .page-callback.callback, .source-wizard-card { padding: 24px 18px; }
   .sds-source-copy .source-benefits { gap: 24px 16px; }

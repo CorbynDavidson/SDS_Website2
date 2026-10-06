@@ -228,7 +228,8 @@ export function renderContentPage(baseHtml,cleaned,{path,family,title}) {
     const toc=headings.map((node,i)=>{const id=node.attribs.id||'article-section-'+i;source(node).attr('id',id);return '<li><a href="#'+escape(id)+'">'+escape(source(node).text())+'</a></li>';}).join('');
     content='<article class="news-article"><div class="wrap news-layout">'+(toc?'<aside class="news-summary"><ul>'+toc+'</ul></aside>':'')+'<div class="news-prose">'+sourceWrap(article.html())+'</div></div></article>';
   }
-  const mainHtml='<main class="ccm-page sds-content-page">'+crumbHtml+hero+content+'</main>';
+  const pageClass=path.replace(/\/+$/,'')==='/about-us/our-people'?' sds-people-page':'';
+  const mainHtml='<main class="ccm-page sds-content-page'+pageClass+'">'+crumbHtml+hero+content+'</main>';
   return {html:replaceMain(baseHtml,mainHtml),family};
 }
 

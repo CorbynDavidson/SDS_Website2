@@ -65,3 +65,7 @@ This requested form removal is an explicit exception to the earlier full-copy pa
 Published successfully as **Site version 50** at https://housingconditionclaims.org on 6 October 2026. Native source: `c651e0e3dec5fe903f3b027beae4a4b5143c6f7b`. GitHub implementation: [`e389c9e77965ce6b0724af479db73758f95f9c16`](https://github.com/CorbynDavidson/SDS_Website2/commit/e389c9e77965ce6b0724af479db73758f95f9c16). [GitHub CI](https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37406574783) passed. All 306 changed GitHub files matched local Git blob hashes.
 
 Checks cover 296 content/SEO routes, 20,228 retained copy blocks, 176 primary enquiry widgets with unchanged fields, removal of 172 secondary widgets, the complete welcome message in the homepage carousel, two additional design-only routes and thirteen backend tests. Route counts include aliases. Six enquiry schemas remain displayed; all seven original backend handlers remain available. Browser visual sign-off is still outstanding.
+
+## Rounded team frame and Our People background after version 50
+
+The team sections use a 32px rounded outer frame, a subtle border and 24–48px of internal space so headings and profile cards do not sit against the edges. Narrow screens use a 24px corner radius and 20px horizontal padding. The Our People content area and its hero use the same secondary grey (#eff7f8) across the full page width, removing white strips beside the directory. Card surfaces, filtering, profile links, wording and metadata are unchanged.
