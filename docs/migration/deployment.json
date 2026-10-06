@@ -30,20 +30,29 @@
   "browserRecheckCompleted": false,
   "browserRecheckBlocker": "Automatic approval review service was at capacity.",
   "activeReviewRelease": {
-    "versionNumber": 46,
-    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_168e616b8e5c8191a952ad455b18e967",
-    "sourceCommit": "73719df9dc92e9d0ebb5b6c3bdd0896ad6072c02",
-    "deploymentId": "appgdep_6ac447591460819183ce9969fdd9a579",
+    "versionNumber": 47,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_41f2b1119d2881918f5b46c9076fdf6f",
+    "sourceCommit": "ce570fd52c071791424a506202d7b622e788d4d8",
+    "deploymentId": "appgdep_6ac44f8013288191b50299a31bd15ee8",
     "status": "succeeded",
-    "confirmedAt": "2026-10-06T00:57:19.410259+00:00",
+    "confirmedAt": "2026-10-06T01:32:06.321263+00:00",
+    "url": "https://housingconditionclaims.org",
     "designBaselineVersion": 41,
-    "reviewNoindexEnforced": true
+    "reviewNoindexEnforced": true,
+    "metadataSourceCommit": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
+    "metadataRoutes": 296,
+    "existingBodiesPreserved": 283,
+    "addedRoutes": 13,
+    "addedUniquePaths": 9,
+    "originalSitemapUrls": 248,
+    "archiveSha256": "sha256:8cbab4049eb07a61cd4daabb4d6e19419d1343600ee1b3b41cc37a3b5d36acd5",
+    "archiveBytes": 32317440
   },
-  "githubImplementationCommit": "ffd41643d2c66e7f2e0160ee1d3c53ca57d4d5f5",
+  "githubImplementationCommit": "84bcd381a984f90632bffdaa297a4753cb7b21f9",
   "githubMigrationCheckpoint": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
   "validation": {
     "currentDesign": {
-      "githubRunId": 37396458394,
+      "githubRunId": 37399509344,
       "conclusion": "success",
       "validatedContentPages": 80,
       "internalTargets": 124
@@ -53,6 +62,36 @@
       "conclusion": "success",
       "backendTests": 13,
       "capturedRoutes": 296
+    },
+    "metadataAndAddedPages": {
+      "githubRunId": 37399509344,
+      "conclusion": "success",
+      "sourceBranchFilesVerified": 298,
+      "originalMetadataRoutesVerified": 296,
+      "existingBodyCssScriptComparisons": 283,
+      "addedArticleRoutesVerified": 13,
+      "addedInternalLinksVerified": 53,
+      "addedImagesVerified": 12,
+      "originalSitemapUrlsVerified": 248,
+      "productionBlockVerified": true
     }
+  },
+  "reviewReleaseHistory": [
+    {
+      "versionNumber": 46,
+      "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_168e616b8e5c8191a952ad455b18e967",
+      "sourceCommit": "73719df9dc92e9d0ebb5b6c3bdd0896ad6072c02",
+      "deploymentId": "appgdep_6ac447591460819183ce9969fdd9a579",
+      "status": "succeeded",
+      "confirmedAt": "2026-10-06T00:57:19.410259+00:00",
+      "designBaselineVersion": 41,
+      "reviewNoindexEnforced": true
+    }
+  ],
+  "sourceMirrorIntegrity": {
+    "nativeCommit": "ce570fd52c071791424a506202d7b622e788d4d8",
+    "githubCommit": "84bcd381a984f90632bffdaa297a4753cb7b21f9",
+    "verifiedFiles": 32,
+    "allMatched": true
   }
 }

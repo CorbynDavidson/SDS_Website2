@@ -49,3 +49,9 @@ The build regenerates corresponding added-page HTML and reports. Validation inde
 Reports: `docs/migration/metadata-to-current-design.json`, `docs/migration/metadata-validation.json`, `docs/migration/current-design-sitemap.xml` and `docs/design-build.json`. GitHub CI runs the same checks and retains these artifacts. GitHub source updates and Sites publication are both part of this authorised change; future GitHub pushes alone do not publish Sites.
 
 The previous final browser review was blocked when the automatic approval review service was at capacity. No completed browser/device audit is claimed by these source and served-response checks.
+
+## Publication evidence
+
+Published successfully as **Site version 47** at https://housingconditionclaims.org on 6 October 2026. Native source commit: `ce570fd52c071791424a506202d7b622e788d4d8`. GitHub implementation commit: [`84bcd381a984f90632bffdaa297a4753cb7b21f9`](https://github.com/CorbynDavidson/SDS_Website2/commit/84bcd381a984f90632bffdaa297a4753cb7b21f9).
+
+[GitHub validation run 37399509344](https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37399509344) completed successfully. All 32 implementation and generated files were compared by Git blob hash between the published source and GitHub and matched. The confirmed version, deployment, archive hash and validation counts are retained in `docs/migration/deployment.json`.
