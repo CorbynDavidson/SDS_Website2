@@ -9,7 +9,7 @@
   "reviewOrigin": "https://housingconditionclaims.org",
   "primaryDnsChanged": false,
   "artifactVerification": {
-    "archive": "/workspace/scratch/4d61a0184e5e/sds-seo-actions-verified.tar",
+    "archive": "sds-seo-actions-verified.tar",
     "fileCount": 267,
     "sha256": "84d2d4c95cd3a19f615d596b903a0dc07be8692c51f8ecb532debc691e07dee5",
     "everyArchivedFileVerified": true,
@@ -25,7 +25,35 @@
     "runtimeTests": 16,
     "privateImportTests": 2
   },
-  "livePageAndAssetAuditStatus": "running",
+  "livePageAndAssetAuditStatus": "complete",
   "verifiedGooglebot": false,
-  "performanceStatus": "PageSpeed API returned HTTP 429; Lighthouse/field Core Web Vitals pending"
+  "performanceStatus": "PageSpeed API returned HTTP 429; Lighthouse/field Core Web Vitals pending",
+  "githubImplementationCommit": "7f40879ef0aea33ed5cf08bc6edf67975429ea14",
+  "githubImplementationCi": {
+    "runId": 37439195849,
+    "conclusion": "success"
+  },
+  "hostedAudits": {
+    "pages": {
+      "expected": 325,
+      "verified": 325,
+      "allVerified": true,
+      "connectionFailuresRechecked": 6,
+      "checkedAt": "2026-10-06T08:58:24.546137+00:00"
+    },
+    "assets": {
+      "expected": 270,
+      "verified": 270,
+      "allVerified": true,
+      "connectionFailuresRechecked": 8,
+      "checkedAt": "2026-10-06T09:00:16.987979+00:00"
+    }
+  },
+  "completedAt": "2026-10-06T09:02:31.377244+00:00",
+  "remainingLaunchRequirements": [
+    "Search Console/analytics/backlink/old-server URL evidence and review of 23 broken/private historic routes",
+    "Verified Googlebot access from Search Console or verified crawler/WAF logs",
+    "Domain ownership/TLS validation, operational release-gate signoff and primary DNS cutover",
+    "Real Lighthouse/mobile and production field Core Web Vitals evidence"
+  ]
 }
