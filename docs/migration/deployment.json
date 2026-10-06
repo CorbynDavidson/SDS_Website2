@@ -549,5 +549,60 @@
       "conclusion": "success",
       "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37415877509"
     }
+  },
+  "selectedSdsPageConsolidation": {
+    "versionNumber": 60,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_6768b413b65c8191a654d4813b2e1a7b",
+    "sourceCommit": "a2618610781030177904c16181a994ecc64725e1",
+    "githubCommit": "2358366c418dd73a33e2015a5b46e3b50c0a3e9d",
+    "deploymentId": "appgdep_6ac4891ac2c481918ed5640e12cf4e1c",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T05:37:56.930238+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "archive": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_000000006cdc820a80329b8ff06b3b32",
+      "content_hash": "sha256:6788cf33161dde4896fdf56fa82537a55b891726b8570e258a6ed9c6ca100cdf",
+      "size_bytes": 64911360,
+      "file_count": 280
+    },
+    "selection": "Original SDS content and URLs in the approved design",
+    "alternativesRetired": 8,
+    "redirectVariants": 16,
+    "redirectResponsesVerified": 160,
+    "permanentRedirectsVerified": 294,
+    "originalSitemapUrlsRemainAvailable": 248,
+    "originalIndexableSitemapUrlsRetained": 242,
+    "noindexUtilityUrlsRetainedOutsideSitemap": 6,
+    "retainedStandaloneRoutes": [
+      "/faqs/"
+    ],
+    "productionSitemapUrls": 243,
+    "publicTemplates": 297,
+    "retainedRoundedEnquiryTemplates": 147,
+    "internalLinksToRetiredPages": 0,
+    "comparisonBaselineSourceCommit": "79e1aaf6a4e6013e44ea2cc109ef6b22a9ef9278",
+    "retainedMainContentIdentical": 297,
+    "retainedPageStylesIdentical": 297,
+    "retainedTitlesAndDescriptionsIdentical": 297,
+    "originalWordingAndMetadataPreserved": true,
+    "approvedDesignPreserved": true,
+    "formsPreserved": true,
+    "termsExactWordingPreserved": true,
+    "productionDnsChanged": false,
+    "primaryDomainCutoverCompleted": false,
+    "backendTestsPassed": 13,
+    "browserVisualAuditComplete": false,
+    "sourceMirrorIntegrity": {
+      "verifiedFiles": 16,
+      "allMatched": true
+    },
+    "githubCi": {
+      "runId": 37419385876,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37419385876"
+    }
   }
 }
