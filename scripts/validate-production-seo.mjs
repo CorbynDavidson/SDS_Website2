@@ -16,7 +16,9 @@ const DB=await localD1();
 const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'production',ASSETS:{async fetch(request){const path=new URL(request.url).pathname;if(!data.assets[path])return new Response('Missing',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':data.assets[path].type}});}}};
 const request=(url,method='GET')=>worker.fetch(new Request(url,{method}),env);
 const flatten=value=>Array.isArray(value)?value.flatMap(flatten):value&&typeof value==='object'?[value,...Object.values(value).flatMap(flatten)]:[];
+const stylesheetRequests=new Set();
 const report={productionOrigin:origin,capturedRoutesVerified:0,allPublicBuildRoutesVerified:0,originalSitemapUrlsVerified:0,productionSitemapUrlsVerified:0,legalServiceSchemasVerified:0,disrepairServiceSchemasVerified:0,permanentRedirectsVerified:0,knownNonHousingRoutesVerified:0,internalAbsoluteLinksVerified:0,reviewNoindexVerified:false,productionRobotsVerified:false,privateRoutesNoindexVerified:false,termsExactWordingVerified:false,claimCtaDestinationPreserved:false,wizardFormsConsistent:false,sharedRoundedPanelsVerified:false,historicalInventoryComplete:false};
+report.sameOriginHeadResourcesVerified=0;report.reviewStylesheetLinksVerified=0;report.approvedStylesheetAssetsVerified=0;
 for(const [path,page] of Object.entries(data.pages)){
   const html=gunzipSync(Buffer.from(page.gzip,'base64')).toString(),$=load(html);
   assert.ok(!/housingconditionclaims\.org|https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?|https?:\/\/[^/]+\.chatgpt\.site/i.test(html),'Non-production reference: '+path);
@@ -33,6 +35,16 @@ for(const [path,page] of Object.entries(data.pages)){
   for(const node of $('a[href]').toArray()){
     const href=node.attribs.href;if(/^(?:#|\/)(?!\/)/.test(href))throw new Error('Internal link is not absolute: '+path+' '+href);
     if(href.startsWith(origin+'/'))report.internalAbsoluteLinksVerified++;
+  }
+  for(const node of $('head link[href]').toArray()){
+    const rel=(node.attribs.rel||'').toLowerCase().split(/\s+/);
+    if(rel.some(value=>value==='canonical'||value==='alternate'))continue;
+    const productionResource=new URL(node.attribs.href,origin+path);
+    if(productionResource.origin!==origin)continue;
+    const reviewResource=new URL(node.attribs.href,review+path);
+    assert.equal(reviewResource.origin,review,'Design resource loads from old production host: '+path+' '+node.attribs.href);
+    report.sameOriginHeadResourcesVerified++;
+    if(rel.includes('stylesheet')){stylesheetRequests.add(reviewResource.pathname+reviewResource.search);report.reviewStylesheetLinksVerified++;}
   }
   const response=await request(origin+path);
   assert.ok([200,301].includes(response.status),path+' '+response.status);
@@ -92,4 +104,15 @@ let ctas=0;
 for(const page of Object.values(data.pages)){const $=load(gunzipSync(Buffer.from(page.gzip,'base64')).toString());for(const node of $('a[href]').toArray())if(/^(?:CLAIM NOW|START YOUR CLAIM NOW)$/i.test($(node).text().trim())){assert.equal(new URL(node.attribs.href).pathname,'/housing-disrepair-enquiries/');ctas++;}}
 assert.ok(ctas>0);report.claimCtaDestinationPreserved=true;report.claimCtasVerified=ctas;
 const css=await readFile(resolve(root,'src/current-content-layout.css'),'utf8'),presentation=await readJson('config/presentation-baseline.json');const approvedCss=css.slice(0,css.indexOf(presentation.repairMarker)-1);assert.equal(createHash('sha256').update(approvedCss).digest('hex'),presentation.layoutSha256,'Version-53 visual stylesheet changed');report.sharedRoundedPanelsVerified=false;report.approvedVersion53DesignRestored=true;
+for(const [path,expectedHash] of Object.entries(presentation.stylesheetHashes)){
+  assert.ok(stylesheetRequests.has(path),'Approved stylesheet is missing from public pages: '+path);
+  for(const host of [origin,review]){
+    const response=await request(host+path);assert.equal(response.status,200,'Missing design stylesheet: '+host+path);
+    assert.match(response.headers.get('content-type'),/^text\/css\b/);
+    assert.equal(createHash('sha256').update(await response.text()).digest('hex'),expectedHash,'Approved design stylesheet differs: '+host+path);
+  }
+  report.approvedStylesheetAssetsVerified++;
+}
+assert.ok(report.reviewStylesheetLinksVerified>=report.allPublicBuildRoutesVerified);
+report.reviewStylesheetsLoadFromCurrentBuild=true;
 await DB.close();await writeFile(resolve(root,'docs/migration/production-seo-validation.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

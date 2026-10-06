@@ -13,3 +13,9 @@ To continue the replacement, map the captured original wording and metadata into
 Earlier `enquiries`, new migration submissions, drafts and private R2 evidence remain in their existing stores. Code rollback must not drop tables or erase submissions. The restored earlier submissions screen reads the legacy `enquiries` table; the migration candidate's new records are retained separately.
 
 The production SDS domain and email DNS have not changed. All production release gates remain pending.
+
+## Follow-up restoration
+
+The original content and metadata are now integrated across all 296 captured routes, with the later requested layout adjustments through version 53 retained. The version-54 global grey-panel restyling was rejected and the version-53 layout stylesheet restored in version 55.
+
+That first rollback still displayed incorrectly: the production SEO pass had changed the `brand.css` and `service.css` resource links to absolute primary-domain URLs. On the review domain they loaded from the old SDS hosting instead of the new build, leaving the base cream/coral styles and broken header/form sizing visible. The correction keeps local resources root-relative while preserving production canonicals, sharing metadata and navigation links. Both served stylesheet hashes must match the saved version-53 files on review and production hosts. Content, SEO, forms, private data and the primary-domain DNS are retained.

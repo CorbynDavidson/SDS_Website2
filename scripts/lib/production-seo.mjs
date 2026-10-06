@@ -28,9 +28,22 @@ export function applyProductionSeo(html,{config,path,redirects={}}){
     const location=node.sourceCodeLocation?.attrs?.[attribute];
     if(location&&node.attribs[attribute]!==value)changes.push({start:location.startOffset,end:location.endOffset,value:attribute+'="'+escape(value)+'"'});
   };
-  for(const node of $('a[href],area[href],head link[href]').toArray()){
+  for(const node of $('a[href],area[href]').toArray()){
     const claim=node.tagName==='a'&&/^(CLAIM NOW|START YOUR CLAIM NOW)$/i.test($(node).text().replace(/[→›»]/g,'').trim());
     update(node,'href',claim?origin+'/housing-disrepair-enquiries/':productionUrl(node.attribs.href,options));
+  }
+  // SEO links identify the production page. Stylesheets, icons and resource
+  // hints must load from the build being viewed, including before DNS cutover.
+  // Otherwise the review site requests brand.css from the old live SDS site
+  // and falls back to the original unbranded styles.
+  for(const node of $('head link[href]').toArray()){
+    const relations=(node.attribs.rel||'').toLowerCase().split(/\s+/);
+    if(relations.some(rel=>rel==='canonical'||rel==='alternate')){
+      update(node,'href',productionUrl(node.attribs.href,options));
+      continue;
+    }
+    const resource=new URL(node.attribs.href,origin+path);
+    if(internalHost(resource.hostname,new URL(origin)))update(node,'href',resource.pathname+resource.search+resource.hash);
   }
   for(const node of $('meta[content]').toArray()){
     const key=(node.attribs.property||node.attribs.name||'').toLowerCase();

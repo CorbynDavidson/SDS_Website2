@@ -17,6 +17,10 @@
   "wizardFormsConsistent": true,
   "sharedRoundedPanelsVerified": false,
   "historicalInventoryComplete": false,
+  "sameOriginHeadResourcesVerified": 608,
+  "reviewStylesheetLinksVerified": 608,
+  "approvedStylesheetAssetsVerified": 2,
   "claimCtasVerified": 32,
-  "approvedVersion53DesignRestored": true
+  "approvedVersion53DesignRestored": true,
+  "reviewStylesheetsLoadFromCurrentBuild": true
 }
