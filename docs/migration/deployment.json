@@ -30,16 +30,16 @@
   "browserRecheckCompleted": false,
   "browserRecheckBlocker": "The required control-browser skill is unavailable in this execution environment.",
   "activeReviewRelease": {
-    "versionNumber": 59,
-    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_72652f81102c8191b094ac60b6a8cb47",
-    "sourceCommit": "52286d397045db67d89d55e8437b3084827b07d8",
-    "deploymentId": "appgdep_6ac47f145b5c81918a05499be8b84915",
+    "versionNumber": 64,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_c30d1a2debf881918c599b4d60192274",
+    "sourceCommit": "c969447ccdc30fe73f129f7461293d02f516a610",
+    "deploymentId": "appgdep_6ac49e5cf70881918664286559244e3c",
     "status": "succeeded",
-    "confirmedAt": "2026-10-06T04:55:08.426508+00:00",
+    "confirmedAt": "2026-10-06T07:08:38.305078+00:00",
     "reviewUrl": "https://housingconditionclaims.org",
     "envSetRevision": 2
   },
-  "githubImplementationCommit": "e555cffa60b6774534f6087dff219cdda00edc9d",
+  "githubImplementationCommit": "44836f6b9c81d66524451bdad19b7f4c24947589",
   "githubMigrationCheckpoint": "85624a3bd76c8fde9290c1b3425971a8e68d622f",
   "validation": {
     "currentDesign": {
@@ -123,7 +123,7 @@
     "productionDnsChanged": false,
     "productionReleaseReady": false
   },
-  "currentlyDeployedRelease": "termsBusinessPage",
+  "currentlyDeployedRelease": "questionnaireAndResourceNavigation",
   "layoutCorrections": {
     "versionNumber": 49,
     "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_c199c3e18214819187efa28ccd0653f9",
@@ -750,5 +750,72 @@
       "conclusion": "success",
       "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37424488519"
     }
+  },
+  "questionnaireAndResourceNavigation": {
+    "versionNumber": 64,
+    "versionId": "appgprj_6ab2ddc9120881918f89e316c048a437~appgver_c30d1a2debf881918c599b4d60192274",
+    "sourceCommit": "c969447ccdc30fe73f129f7461293d02f516a610",
+    "deploymentId": "appgdep_6ac49e5cf70881918664286559244e3c",
+    "status": "succeeded",
+    "confirmedAt": "2026-10-06T07:08:38.305078+00:00",
+    "reviewUrl": "https://housingconditionclaims.org",
+    "envSetRevision": 2,
+    "githubCommit": "44836f6b9c81d66524451bdad19b7f4c24947589",
+    "nativeUrl": "https://sds-housing-condition-claims.corbyn-davidson.chatgpt.site",
+    "archive": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000dce882468c061bfe0b651f1d",
+      "content_hash": "sha256:cd4897483b6ece80aabf04ca13c7d9d4ed66d8aecd7ad1e741ee43bf49a4b005",
+      "size_bytes": 64921600,
+      "file_count": 275
+    },
+    "resourceLinks": [
+      {
+        "label": "Client questionnaire",
+        "path": "/about-us/client-questionnaire/"
+      },
+      {
+        "label": "Careers",
+        "path": "/about-us/careers/"
+      },
+      {
+        "label": "Privacy policy",
+        "path": "/about-us/privacy-policy/"
+      },
+      {
+        "label": "Cookies",
+        "path": "/about-us/cookies/"
+      }
+    ],
+    "questionnairePath": "/about-us/client-questionnaire/",
+    "questionnaireTitleAndIntroductionAboveForm": true,
+    "originalQuestionnaireFormMarkupAndHandlerIdentical": true,
+    "otherMainTemplatesByteIdentical": 296,
+    "otherPagesUnchangedApartFromRequestedNavigation": 296,
+    "desktopExploreGroupsUpdated": 296,
+    "existingMobileMenuGroupsUpdated": 1,
+    "reviewResourceLinksVerified": 1188,
+    "destinationResponsesVerified": 36,
+    "allOriginalMetadataPreserved": true,
+    "allFormSchemasUnchanged": true,
+    "allOriginalStylesheetAssetsUnchanged": true,
+    "sitemapUrls": 243,
+    "sitemapBytesUnchanged": true,
+    "routeConfigurationUnchanged": true,
+    "comparisonBaselineSourceCommit": "5acbb6098582ebb4ad8634164d6b2ed27ee06163",
+    "productionDnsChanged": false,
+    "backendTestsPassed": 14,
+    "browserVisualAuditComplete": false,
+    "sourceMirrorIntegrity": {
+      "verifiedFiles": 17,
+      "allMatched": true
+    },
+    "githubCi": {
+      "runId": 37427003778,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/CorbynDavidson/SDS_Website2/actions/runs/37427003778"
+    },
+    "packagingRecovery": "Complete build output repacked as a tar archive after compressed archives were truncated."
   }
 }
