@@ -1,0 +1,23 @@
+// Temporary Cloudflare review deployment. No production domain routes.
+// Account-specific DB, private uploads and admin authentication must be configured
+// separately before enquiries/admin features are enabled on Cloudflare.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sds-website2",
+  "main": "dist/server/cloudflare.js",
+  "compatibility_date": "2026-10-01",
+  "no_bundle": true,
+  "workers_dev": true,
+  "preview_urls": true,
+  "assets": {
+    "directory": "dist/client",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "vars": {
+    "RELEASE_MODE": "review"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

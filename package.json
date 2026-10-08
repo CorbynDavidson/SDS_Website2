@@ -6,7 +6,7 @@
     "dev": "node scripts/dev.mjs",
     "preview": "node scripts/dev.mjs",
     "import:sds": "node scripts/import-sds-content.mjs",
-    "build": "node scripts/build-content-current-design.mjs",
+    "build": "node scripts/build-content-current-design.mjs && node scripts/package-cloudflare.mjs",
     "build:sites": "node scripts/build-content-current-design.mjs",
     "validate": "node scripts/validate-current-content.mjs && node scripts/validate-content-url-map.mjs && node scripts/validate-production-seo.mjs && node scripts/validate-review-readiness.mjs",
     "test": "node scripts/finalize-static-assets.mjs && node --test tests/*.test.mjs && python3 tests/seo-audit.test.py",
@@ -19,7 +19,10 @@
     "db:generate": "drizzle-kit generate",
     "capture:sds": "python scripts/capture-sds.py",
     "publish:patch": "node scripts/apply-page-change.mjs",
-    "validate:production": "node scripts/validate-production-seo.mjs"
+    "validate:production": "node scripts/validate-production-seo.mjs",
+    "deploy": "node scripts/package-cloudflare.mjs && wrangler deploy",
+    "deploy:check": "node scripts/package-cloudflare.mjs && wrangler deploy --dry-run --outdir build/cloudflare-dry-run",
+    "preview:cloudflare": "wrangler dev"
   },
   "engines": {
     "node": ">=24.0.0"
@@ -28,7 +31,7 @@
     "cheerio": "1.1.2",
     "drizzle-kit": "^0.31.4",
     "drizzle-orm": "^0.44.5",
-    "esbuild": "0.28.2",
+    "esbuild": "0.28.1",
     "wrangler": "4.147.0"
   },
   "dependencies": {
