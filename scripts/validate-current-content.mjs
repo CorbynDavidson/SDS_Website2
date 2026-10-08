@@ -96,7 +96,7 @@ function displayFragment(html,path){
  }
  return $.html();
 }
-function styles(html){const $=load(html,{scriptingEnabled:false,sourceCodeLocationInfo:true});return $('head style:not(#sds-content-design):not(#sds-layout-adjustments):not(#sds-enquiry-panel):not(#sds-terms-business):not(#sds-claim-enquiry):not(#sds-location-directory):not(#sds-questionnaire),head link').toArray().filter(n=>n.tagName==='style'||!seoLink(n.attribs)).map(n=>html.slice(n.sourceCodeLocation.startOffset,n.sourceCodeLocation.endOffset));}
+function styles(html){const $=load(html,{scriptingEnabled:false,sourceCodeLocationInfo:true});return $('head style:not(#sds-content-design):not(#sds-layout-adjustments):not(#sds-enquiry-panel):not(#sds-terms-business):not(#sds-claim-enquiry):not(#sds-location-directory):not(#sds-questionnaire):not(#claim-assistant-style),head link').toArray().filter(n=>n.tagName==='style'||!seoLink(n.attribs)).map(n=>html.slice(n.sourceCodeLocation.startOffset,n.sourceCodeLocation.endOffset));}
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const removedBannerHashes=manifest.assets.filter(a=>/\/(housing-disrepair-blue|housing-disrepair-estate-banner)\.webp$/.test(new URL(a.url).pathname)).map(a=>a.sha256);
 const layoutAudit={bannerRemovalRoutesVerified:0,standardFormsUsingHomepageCard:0,benefitRowsVerified:0,processRowsVerified:0,twoColumnDisrepairGridsVerified:0,centredLocationTeamRoutesVerified:0,duplicateLocationProfileCardsRemoved:0,wizardCardsVerified:0,layoutCssMatchesGitFile:true,singleEnquiryWidgetRoutesVerified:0,secondaryEnquiryWidgetsRemoved:0,primaryFormFieldsPreserved:0,welcomeMessageCarouselVerified:false,fallbackLayoutsVerified:0};
