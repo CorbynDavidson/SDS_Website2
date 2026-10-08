@@ -16,3 +16,19 @@
 .claim-chat-form{display:flex;gap:8px}.claim-chat-form input{min-width:0;flex:1;border:1px solid #b4cccf;border-radius:9px;padding:10px;font:16px system-ui}.claim-chat-form button{border:0;border-radius:9px;background:#08767b;color:#fff;padding:10px 14px;font:600 14px system-ui;cursor:pointer}
 .claim-chat-note{margin:8px 0 0;color:#55727b;font:12px/1.35 system-ui}
 @media(max-width:600px){.claim-chat-launch{right:16px;bottom:16px;width:56px;height:56px}.claim-chat-panel{right:8px;bottom:82px;width:calc(100vw - 16px);height:min(650px,calc(100dvh - 100px))}}
+
+/* Reserve the fixed rail's footprint on inner pages; keep the homepage layout. */
+@media(min-width:901px){
+  main[data-trust-gutter]{padding-right:124px;box-sizing:border-box;min-width:0}
+  .claim-chat-launch,.claim-chat-panel{right:124px}
+  .claim-chat-panel{width:min(400px,calc(100vw - 148px))}
+}
+/* The gutter reduces the usable tablet width, so stack the introduction/form. */
+@media(min-width:901px) and (max-width:1100px){
+  main[data-trust-gutter] .service-hero-grid{grid-template-columns:minmax(0,1fr);gap:32px}
+}
+/* Keep the complete trust stack reachable in short desktop/iPad viewports. */
+@media(min-width:901px) and (max-height:760px){
+  .reviews-widget{top:16px;transform:none;height:clamp(118px,calc(100dvh - 222px),310px)}
+  .reviews-tab{height:100%}
+}

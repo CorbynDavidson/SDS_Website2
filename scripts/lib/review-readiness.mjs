@@ -25,6 +25,7 @@ export function correctReviewCopy(html,{path,policy}){
 export function addSharedTrustBar(html,homeHtml){
   const $=load(html,{scriptingEnabled:false});
   if($('#reviewsWidget').length)return html;
+  html=html.replace(/<main\b/,'<main data-trust-gutter');
   const home=load(homeHtml,{scriptingEnabled:false});
   const widget=home('#reviewsWidget').clone();
   if(widget.length!==1)throw new Error('Expected the approved homepage trust bar.');
