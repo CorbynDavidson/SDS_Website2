@@ -36,6 +36,10 @@ const directoryRaw=load(gunzipSync(await readFile(resolve(root,directorySource.s
 const victoriaSource=directoryRaw('.team-list > .kpeople-member').filter((_,node)=>normalise(directoryRaw(node).find('.kpeople-name').text())==='Victoria McCormack');
 assert.equal(victoriaSource.length,1);
 const victoriaCard=directoryRaw.html(victoriaSource);
+const housingScope=await readJson('config/enquiry-panel.json');
+const housingPaths=new Set(housingScope.disrepairTypePaths);
+const housingNames=directoryRaw('.team-list > .kpeople-member').filter((_,n)=>directoryRaw(n).hasClass('specialism-housing-disrepair')||normalise(directoryRaw(n).find('.kpeople-name').text())==='Victoria McCormack').toArray().map(n=>normalise(directoryRaw(n).find('.kpeople-name').text()));
+assert.equal(housingNames.length,14);
 const selectors=['#banner .banner-container','#top','#central','#wide','#wrapper > .cms-container:not(#call)','#wrapper > .ccm-custom-style-container','#wrapper > .kreviews'];
 const exclude='script,style,noscript,template,.side-content,.sidebar,.sticky-container,.modal,.kpeople-modal,[data-sds-tracking],.ccm-block-express-form .alert-success';
 // This reader works from captured HTML, independently of the page adapter.
@@ -78,7 +82,7 @@ function originalContent(raw,path=''){
  }
  return {copy,root,primary,removedFormWidgets,removedProfileCards};
 }
-function migratedContent(html){const $=load(html,{scriptingEnabled:false});const chosen=$('main [data-source-copy]'),nodes=chosen.toArray().filter(node=>!$(node).parents('[data-source-copy]').length);const copy=load('<div id="rendered"></div>',{scriptingEnabled:false});for(const node of nodes)copy('#rendered').append($.html(node)+'\n');copy('script,style,noscript,template').remove();return {copy,root:copy('#rendered')};}
+function migratedContent(html){const $=load(html,{scriptingEnabled:false});const chosen=$('main [data-source-copy]'),nodes=chosen.toArray().filter(node=>!$(node).parents('[data-source-copy]').length);const copy=load('<div id="rendered"></div>',{scriptingEnabled:false});for(const node of nodes)copy('#rendered').append($.html(node)+'\n');copy('script,style,noscript,template,[data-housing-team-addition]').remove();return {copy,root:copy('#rendered')};}
 function bag(text){const result={};for(const word of normalise(text).match(/\p{L}+|\p{N}+|[^\p{L}\p{N}\s]/gu)||[])result[word]=(result[word]||0)+1;return result;}
 function blocks({copy:$,root}){const result={};root.find('p,h1,h2,h3,h4,h5,h6,summary,li,label,button,option,legend,td,th').each((_,node)=>{if($(node).find('p,h1,h2,h3,h4,h5,h6,summary,li,label,button,option,legend,td,th').length)return;const text=normalise($(node).text());if(text)result[text]=(result[text]||0)+1;});return result;}
 const seoMeta=attrs=>!('charset'in attrs)&&!('http-equiv'in attrs)&&!policy.preservedMetaNames.includes((attrs.name||'').toLowerCase());
@@ -159,6 +163,21 @@ for(const page of report.pages){
    const imageBytes=Buffer.from(await image.arrayBuffer());assert.equal(hash(imageBytes),reviewsContent.recognition.imageSha256);assert.equal(hash(await readFile(resolve(root,'public'+reviewsContent.recognition.imagePath))),reviewsContent.recognition.imageSha256);reviewsAudit.originalRecognitionImageVerified=true;
  }
  const originalCopy=originalContent(raw,page.path),currentCopy=migratedContent(html);
+ if(housingPaths.has(page.path.replace(/\/+$/,'')+'/')){
+   const team=$('[data-housing-team]');assert.equal(team.length,1,'Missing housing team: '+page.path);
+   const names=team.find('.source-person-name').toArray().map(n=>normalise($(n).text()));
+   assert.deepEqual([...names].sort(),[...housingNames].sort(),'Full housing roster differs: '+page.path);
+   assert.equal(team.find('[data-housing-team-addition]').length,13);
+   originalCopy.root.find('h2,h3').filter((_,n)=>normalise(originalCopy.copy(n).text())==='Housing Disrepair Specialist').text('Meet our Housing Disrepair Team');
+   for(const card of team.find('[data-housing-team-addition]').toArray()){
+     const name=normalise($(card).find('.source-person-name').text());
+     const rawCard=directoryRaw('.team-list > .kpeople-member').filter((_,n)=>normalise(directoryRaw(n).find('.kpeople-name').text())===name);
+     assert.equal(normalise($(card).text()),normalise(rawCard.text()),'Added profile copy differs: '+name);
+     const sourcePath=new URL(rawCard.find('img').attr('src'),origin).pathname;
+     assert.equal($(card).find('img').attr('src'),'/assets/sds-source/'+sourceAssets.get(sourcePath).sha256+'.webp');
+   }
+ }
+
  const copyPolicy=JSON.parse(await readFile(resolve(root,'config/review-readiness.json'),'utf8'));
  const corrections=copyPolicy.copyCorrections.filter(rule=>rule.path===page.path);
  function correctExpected(node){

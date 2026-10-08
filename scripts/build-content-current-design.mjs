@@ -19,6 +19,7 @@ import {addQuestionnairePanel} from './lib/questionnaire-panel.mjs';
 import {migrationInputs} from './lib/migration-inputs.mjs';
 import {correctReviewCopy,addSharedTrustBar} from './lib/review-readiness.mjs';
 import {addEditableCopy} from './lib/editable-copy.mjs';
+import {addHousingTeam} from './lib/housing-team.mjs';
 import {addCompensationGuide} from './lib/compensation-guide.mjs';
 
 const root=resolve(import.meta.dirname,'..');
@@ -53,6 +54,7 @@ const resourceNavigation=await readJson('config/resource-navigation.json');
 const questionnaireCss=await readFile(resolve(root,'src/questionnaire.css'),'utf8');
 const enquiryPanelScope=await readJson('config/enquiry-panel.json');
 const panelTypes=new Set([...enquiryPanelScope.disrepairTypePaths,...enquiryPanelScope.housingGuidePaths]);
+
 const panelPath=path=>path.split('?')[0].replace(/\/+$/,'')+'/';
 const hasEnquiryPanel=path=>panelPath(path).startsWith(enquiryPanelScope.locationPrefix)||panelTypes.has(panelPath(path));
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
@@ -101,6 +103,10 @@ for(const path of ['/sds-theme.css','/sds-runtime.js','/claim-assistant.js','/as
 assets['/contact-validation.js']={sha256:sha256(contactBundle),bytes:Buffer.byteLength(contactBundle),type:'application/javascript; charset=utf-8',base64:Buffer.from(contactBundle).toString('base64')};
 const runtime=(await readFile(resolve(root,'public/sds-runtime.js'),'utf8')).replace("'#banner .content-panel h1", "'[data-source-copy] h1,[data-source-copy] h2,[data-source-copy] h3,[data-source-copy] p,[data-source-copy] li,h1[data-source-copy],#banner .content-panel h1");
 const referencePage=index.pages.find(page=>page.path===claimEnquiry.referencePath);
+const cleanedDirectory=cleanContent(await readFile(resolve(root,directory.contentFile),'utf8'),{origin:index.sourceOrigin,mediaUrls,path:directory.path,locationProfileCard});
+const teamDirectory=load(cleanedDirectory.html,{scriptingEnabled:false});
+const housingTeamCards=teamDirectory('.team-card').filter((_,node)=>(teamDirectory(node).attr('data-source-specialisms')||'').split(' ').includes('specialism-housing-disrepair')||normaliseText(teamDirectory(node).find('.source-person-name').text())==='Victoria McCormack').toArray().map(node=>teamDirectory.html(node));
+assert.equal(housingTeamCards.length,14,'Expected the captured housing team plus Victoria.');
 const referenceContent=cleanContent(await readFile(resolve(root,referencePage.contentFile),'utf8'),{origin:index.sourceOrigin,mediaUrls,path:referencePage.path,locationProfileCard});
 const referenceHtml=renderContentPage(reviewsHomeHtml,referenceContent,{path:referencePage.path,family:'home',title:'Home'}).html;
 const pages={},records=[],unavailableMedia=[];
@@ -141,6 +147,7 @@ for(const page of index.pages) {
   html=addResourceNavigation(html,{policy:resourceNavigation,origin:config.productionOrigin});
   html=correctReviewCopy(html,{path:page.path,policy:reviewReadiness});
   html=addCompensationGuide(html,page.path);
+  html=addHousingTeam(html,{path:page.path,scope:enquiryPanelScope,cards:housingTeamCards});
   html=addSharedTrustBar(html,reviewsHomeHtml);
   html=applyProductionSeo(html,{config,path:page.path,redirects});
   html=addEditableCopy(html,runtime,'/contact-validation.js?v='+sha256(contactBundle).slice(0,16));

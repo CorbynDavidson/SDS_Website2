@@ -235,7 +235,16 @@ body .hero.rights-hero.wrap { width: min(1240px, calc(100% - 64px)); margin-left
 .compensation-guide-count{color:var(--ink,#032b4c);font-weight:700}
 .compensation-slide{max-width:960px;margin-inline:auto;min-width:0}
 .compensation-slide h2:first-child{margin-top:0}
-.source-copy-section:has([data-source-specialist]) .team-grid{max-width:420px}
+.source-copy-section:has([data-source-specialist]) .team-grid{max-width:none;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px}
 .source-copy-section:has([data-source-specialist]) .team-card{box-shadow:none}
 @media(max-width:760px){.compensation-guide{padding:22px 18px;border-radius:24px;width:calc(100% - 36px)}.compensation-guide-actions button{flex:1 1 130px}.compensation-guide-count{flex-basis:100%;order:3}.compensation-slide h2{font-size:clamp(1.6rem,7vw,2.2rem)}}
 @media print{.compensation-guide-controls{display:none!important}.compensation-slide[hidden]{display:block!important}}
+
+/* Specialist cards need enough width for names and intact contact details. */
+.source-copy-section:has([data-source-specialist]) .team-card{min-width:0;width:100%;max-width:420px;justify-self:center}
+.source-copy-section:has([data-source-specialist]) .team-card-copy{min-width:0;align-items:stretch}
+.source-copy-section:has([data-source-specialist]) .source-person-name{font-size:1.25rem;line-height:1.35;overflow-wrap:normal;word-break:normal}
+.source-copy-section:has([data-source-specialist]) .team-card-copy p{display:block;-webkit-line-clamp:unset;overflow:visible;flex:none}
+.source-copy-section:has([data-source-specialist]) a[href^="tel:"]{white-space:nowrap;word-break:normal;overflow-wrap:normal}
+.source-copy-section:has([data-source-specialist]) a[href^="mailto:"]{overflow-wrap:anywhere}
+.source-copy-section:has([data-source-specialist]) .contact-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
