@@ -42,6 +42,8 @@ const reviewsHomeHtml=await (await approved.fetch(new Request(config.productionO
 const claimEnquiry=await readJson('config/claim-enquiry.json');
 const forms=callbackFormDefinitions(inputForms,claimEnquiry);
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
+const assistantCss=await readFile(resolve(root,'src/claim-assistant.css'),'utf8');
+const addAssistant=html=>html.includes('id="claimChatLaunch"')?html:html.replace('</head>','<style id="claim-assistant-style">'+assistantCss+'</style></head>').replace('</body>','<script src="/claim-assistant.js" defer></script></body>');
 const enquiryPanelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
 const termsBusinessCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
 const claimEnquiryCss=await readFile(resolve(root,'src/claim-enquiry.css'),'utf8');
@@ -92,7 +94,7 @@ for(const asset of manifest.assets.filter(a=>a.status===200&&a.file)) {
   assets[sourcePath]={sha256:asset.sha256,bytes:bytes.length,type,storagePath};
   mediaSources[path].storagePath=storagePath;
 }
-for(const path of ['/sds-theme.css','/sds-runtime.js','/assets/sheldon-davidson-solicitors-logo.png',reviewsContent.recognition.imagePath]){
+for(const path of ['/sds-theme.css','/sds-runtime.js','/claim-assistant.js','/assets/sheldon-davidson-solicitors-logo.png',reviewsContent.recognition.imagePath]){
   const bytes=path==='/sds-runtime.js' ? Buffer.from(contactBundle+'\n'+await readFile(resolve(root,'public'+path),'utf8')) : await readFile(resolve(root,'public'+path));
   assets[path]={sha256:sha256(bytes),bytes:bytes.length,type:typeByExtension[extname(path)],base64:bytes.toString('base64')};
 }
@@ -201,6 +203,7 @@ const routingRuntime=(await readFile(resolve(root,'worker/production-routing.mjs
 const data={config,pages,forms,assets,routes:routeData,sourceCapturedAt:manifest.completed_at,sitemap,robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
 const fallbackLayoutHead='<style id="sds-layout-adjustments">'+layoutCss+'</style>';
 const backendRuntime=embedContactValidation((await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace("import { checkPostcode } from './postcode-lookup.mjs';", (await readFile(resolve(root,'worker/postcode-lookup.mjs'),'utf8')).replace('export async function','async function')).replace("import { checkEmailDomain } from './email-domain.mjs';", (await readFile(resolve(root,'worker/email-domain.mjs'),'utf8')).replace('export async function','async function'))).replace('export function createWorker','function createWorker');
+const assistantRuntime=(await readFile(resolve(root,'worker/claim-assistant.mjs'),'utf8')).replace('export async function respondToClaimQuestion','async function respondToClaimQuestion');
 data.releaseFingerprint=sha256(backendRuntime+JSON.stringify(data));
 await writeFile(resolve(root,'build/data.json'),JSON.stringify(data));
 const originalDesign=await readFile(resolve(root,'build/design-before-metadata.mjs'),'utf8');
@@ -208,6 +211,9 @@ const wrapper=`
 const contentData=${JSON.stringify(data)};
 const contentMedia=${JSON.stringify(mediaSources)};
 const contentBackend=(()=>{${backendRuntime}\nreturn createWorker(contentData);})();
+${assistantRuntime}
+const assistantCss=${JSON.stringify(assistantCss)};
+const addAssistant=${addAssistant.toString()};
 ${routingRuntime}
 const productionRouting=createProductionRouting(contentData.config,contentData.routes);
 const contentPageCache=new Map();
@@ -216,6 +222,7 @@ function contentLookup(url){return contentData.pages[contentKey(url)]?contentKey
 async function contentHtml(key){if(!contentPageCache.has(key)){const bytes=Uint8Array.from(atob(contentData.pages[key].gzip),c=>c.charCodeAt(0));const html=await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();if(contentPageCache.size>12)contentPageCache.delete(contentPageCache.keys().next().value);contentPageCache.set(key,html);}return contentPageCache.get(key);}
 export default {async fetch(request,env={},ctx={}){
   const url=new URL(request.url);
+  if(url.pathname==='/api/claim-assistant')return respondToClaimQuestion(request,env);
   const redirect=productionRouting.redirect(url,env);if(redirect)return productionRouting.finish(redirect,url,env,request.method==='HEAD');
   const head=request.method==='HEAD',get=head||request.method==='GET';let response;
   if(get&&contentMedia[url.pathname]){
@@ -228,13 +235,13 @@ export default {async fetch(request,env={},ctx={}){
     }
   }else if(get&&contentData.assets[url.pathname])response=await contentBackend.fetch(request,env,ctx);
   else if(get&&productionRouting.productionGone(url,env))response=new Response('This page is no longer available.',{status:410,headers:{'content-type':'text/plain; charset=utf-8'}});
-  else if(get&&contentLookup(url))response=new Response(productionRouting.publicHtml(await contentHtml(contentLookup(url)),url,env),{headers:{'content-type':'text/html; charset=utf-8','cache-control':url.searchParams.has('edit')?'no-store':'public, max-age=300'}});
+  else if(get&&contentLookup(url))response=new Response(productionRouting.publicHtml(addAssistant(await contentHtml(contentLookup(url))),url,env),{headers:{'content-type':'text/html; charset=utf-8','cache-control':url.searchParams.has('edit')?'no-store':'public, max-age=300'}});
   else if(url.pathname==='/sitemap.xml'&&get)response=new Response(contentData.sitemap,{headers:{'content-type':'application/xml; charset=utf-8'}});
   else if(url.pathname==='/robots.txt'&&get)response=new Response(productionRouting.robots(url,env),{headers:{'content-type':'text/plain; charset=utf-8','cache-control':'public, max-age=300'}});
   else if(get&&contentData.routes.gone.includes(url.pathname))response=new Response('This page is no longer available.',{status:410,headers:{'content-type':'text/plain; charset=utf-8'}});
   else if(url.pathname==='/health'||url.pathname.startsWith('/api/forms/')||url.pathname.startsWith('/api/editor/')||url.pathname==='/editor'||url.pathname.startsWith('/submissions'))response=await contentBackend.fetch(request,env,ctx);
   else {if(url.pathname==='/api/leads'&&request.method==='POST'&&(request.headers.get('origin')!==url.origin||request.headers.get('sec-fetch-site')==='cross-site'))return Response.json({error:'Please submit from this website.'},{status:403});response=await approvedDesignWorker.fetch(head?new Request(request.url,{headers:request.headers}):request,env,ctx);
-    if(get&&response.headers.get('content-type')?.includes('text/html'))response=new Response(productionRouting.publicHtml((await response.text()).replace('</head>',${JSON.stringify(fallbackLayoutHead)}+'</head>'),url,env),response);
+    if(get&&response.headers.get('content-type')?.includes('text/html'))response=new Response(productionRouting.publicHtml(addAssistant((await response.text()).replace('</head>',${JSON.stringify(fallbackLayoutHead)}+'</head>')),url,env),response);
   }
   return productionRouting.finish(response,url,env,head);
 }};
