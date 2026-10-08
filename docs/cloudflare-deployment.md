@@ -28,7 +28,17 @@ A dry run verifies deployment packaging; it does not upload to Cloudflare or pro
 
 The temporary deployment can display the website and its public assets. Form persistence and server-side contact checks require a Cloudflare D1 binding named `DB`, the existing SQL schema/migrations, and a `RATE_LIMIT_SECRET`. Private uploads require the separate R2 binding `ASSET_STORAGE`. Administration requires the configured Cloudflare Access application and its verified audience/team settings. Existing Sites bindings and data do not automatically transfer to Cloudflare; missing services remain unavailable rather than reporting a successful submission.
 
-`scripts/configure-cloudflare.mjs` remains the account-specific setup helper. It generates a separate `wrangler.json`; use an explicit `--config wrangler.json` for that configuration and review its Worker name before deploying. Do not switch production domains until the full backend migration is verified.
+The account-specific helper now updates the existing `wrangler.jsonc` for `sds-website2` and refuses to target another Worker or a production release. After creating the resources and the Access application in the Cloudflare account, run it with the actual values:
+
+```sh
+CLOUDFLARE_D1_DATABASE_ID=<database UUID> \
+CLOUDFLARE_R2_BUCKET=<private bucket name> \
+CF_ACCESS_TEAM_DOMAIN=<team>.cloudflareaccess.com \
+CF_ACCESS_AUD=<application audience tag> \
+node scripts/configure-cloudflare.mjs
+```
+
+Review and commit `wrangler.jsonc`, then apply the two existing migrations to the remote D1 database with `npx wrangler d1 migrations apply sds-enquiries --remote`. Set `RATE_LIMIT_SECRET` with `npx wrangler secret put RATE_LIMIT_SECRET` using a newly generated, high-entropy value; never put the secret in Git. Deploy the same Worker. Access must protect staff paths (`/submissions*`, `/editor*`, `/api/editor/*`) while leaving public form endpoints accessible. Match the Worker audience and team domain to the Access application, and restrict the policy to the intended staff email. Test `/health` for `databaseReady: true`, a labelled test enquiry and attachment, authenticated staff viewing/download/CSV, and anonymous denial. Keep the Sites domain live and the temporary Worker in review mode while these checks are incomplete.
 
 ## Verification of this fix
 
