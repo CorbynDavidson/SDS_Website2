@@ -4,26 +4,35 @@
   root.innerHTML='<button class="claim-chat-launch" id="claimChatLaunch" type="button" aria-label="Open housing claim assistant" aria-controls="claimChatPanel" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-8 8 9 9 0 0 1-3.5-.7L4 20l1.2-4.5A8 8 0 1 1 20 11.5Z"/><path d="M8 11.5h8M8 14.5h5"/></svg></button><section class="claim-chat-panel" id="claimChatPanel" role="dialog" aria-label="Housing claim assistant" hidden><div class="claim-chat-header"><div><strong>Housing Claim Assistant</strong><small>Claim prospects &amp; FAQs</small></div><button class="claim-chat-close" type="button" aria-label="Close assistant">×</button></div><div class="claim-chat-messages" role="log" aria-live="polite"></div><div class="claim-chat-footer"><form class="claim-chat-form"><label for="claimChatInput" class="sr-only">Your question</label><input id="claimChatInput" type="text" maxlength="500" autocomplete="off" placeholder="Ask a housing question"><button type="submit">Send</button></form><p class="claim-chat-note">General information for England, not legal advice. Please do not enter personal or sensitive details.</p></div></section>';
   document.body.append(root);
   const launch=root.querySelector('#claimChatLaunch'),panel=root.querySelector('#claimChatPanel'),messages=root.querySelector('.claim-chat-messages'),input=root.querySelector('input');
-  // On small screens the trust bar is in the document flow. Lift the launcher
-  // only while its assessment link passes through the bottom corner.
-  let positionFrame;
-  function positionLauncher(){
-    positionFrame=null;
-    launch.style.bottom='';
-    if(matchMedia('(min-width:901px)').matches)return;
-    const assessment=document.querySelector('.reviews-assessment');
-    if(!assessment||!assessment.getClientRects().length)return;
-    const button=launch.getBoundingClientRect(),link=assessment.getBoundingClientRect();
-    if(button.left<link.right+12&&button.right>link.left-12&&button.top<link.bottom+12&&button.bottom>link.top-12){
-      launch.style.bottom=Math.max(16,innerHeight-link.top+12)+'px';
-    }
+  const widget=document.getElementById('reviewsWidget');
+  const assessment=widget?.querySelector('.reviews-assessment');
+  if(assessment){
+    assessment.after(launch);
+    launch.classList.add('claim-chat-in-rail');
   }
-  const schedulePosition=()=>{if(!positionFrame)positionFrame=requestAnimationFrame(positionLauncher)};
+  // Match the form's top edge, then follow it while scrolling without covering
+  // the visible header. The rail scrolls independently when the stack is tall.
+  let positionFrame;
+  function positionTrustRail(){
+    positionFrame=null;
+    if(!widget)return;
+    if(!matchMedia('(min-width:901px)').matches){
+      widget.style.removeProperty('--trust-rail-top');
+      return;
+    }
+    const anchor=document.querySelector('.hero .callback, .service-hero .page-callback, .service-hero .source-wizard-card')
+      ||document.querySelector('.service-hero, .faq-hero, main > section, main');
+    const header=document.querySelector('body > nav.nav');
+    const headerBottom=header?Math.max(0,header.getBoundingClientRect().bottom):0;
+    const anchorTop=anchor?anchor.getBoundingClientRect().top:headerBottom+16;
+    widget.style.setProperty('--trust-rail-top',Math.ceil(Math.max(16,headerBottom+16,anchorTop))+'px');
+  }
+  const schedulePosition=()=>{if(!positionFrame)positionFrame=requestAnimationFrame(positionTrustRail)};
   addEventListener('scroll',schedulePosition,{passive:true});
   addEventListener('resize',schedulePosition,{passive:true});
   if(window.visualViewport)window.visualViewport.addEventListener('resize',schedulePosition);
   if(window.ResizeObserver)new ResizeObserver(schedulePosition).observe(document.body);
-  schedulePosition();
+  positionTrustRail();
   const state={step:null,answers:{},history:[]};
   function bubble(message,who='assistant') {const el=document.createElement('div');el.className='claim-chat-bubble '+who;el.textContent=message;messages.append(el);messages.scrollTop=messages.scrollHeight;}
   function options(items){const old=messages.querySelector('.claim-chat-options');if(old)old.remove();const row=document.createElement('div');row.className='claim-chat-options';for(const [label,value] of items){const b=document.createElement('button');b.type='button';b.textContent=label;b.addEventListener('click',()=>choose(label,value));row.append(b)}messages.append(row);messages.scrollTop=messages.scrollHeight;}
