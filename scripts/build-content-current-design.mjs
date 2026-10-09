@@ -44,7 +44,7 @@ const claimEnquiry=await readJson('config/claim-enquiry.json');
 const forms=callbackFormDefinitions(inputForms,claimEnquiry);
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const assistantCss=await readFile(resolve(root,'src/claim-assistant.css'),'utf8');
-const addAssistant=html=>html.includes('id="claimChatLaunch"')?html:html.replace('</head>','<style id="claim-assistant-style">'+assistantCss+'</style></head>').replace('</body>','<script src="/claim-assistant.js?v=20261009-input2" defer></script></body>');
+const addAssistant=html=>html.includes('id="claimChatLaunch"')?html:html.replace('</head>','<style id="claim-assistant-style">'+assistantCss+'</style></head>').replace('</body>','<script src="/claim-assistant.js?v=20261009-guardrails1" defer></script></body>');
 const enquiryPanelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
 const termsBusinessCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
 const claimEnquiryCss=await readFile(resolve(root,'src/claim-enquiry.css'),'utf8');
@@ -229,7 +229,7 @@ function contentLookup(url){return contentData.pages[contentKey(url)]?contentKey
 async function contentHtml(key){if(!contentPageCache.has(key)){const bytes=Uint8Array.from(atob(contentData.pages[key].gzip),c=>c.charCodeAt(0));const html=await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();if(contentPageCache.size>12)contentPageCache.delete(contentPageCache.keys().next().value);contentPageCache.set(key,html);}return contentPageCache.get(key);}
 export default {async fetch(request,env={},ctx={}){
   const url=new URL(request.url);
-  if(url.pathname==='/api/claim-assistant')return respondToClaimQuestion(request,env);
+  if(url.pathname==='/api/claim-assistant')return respondToClaimQuestion(request,env,ctx);
   const redirect=productionRouting.redirect(url,env);if(redirect)return productionRouting.finish(redirect,url,env,request.method==='HEAD');
   const head=request.method==='HEAD',get=head||request.method==='GET';let response;
   if(get&&contentMedia[url.pathname]){
