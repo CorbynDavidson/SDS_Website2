@@ -44,7 +44,7 @@ const claimEnquiry=await readJson('config/claim-enquiry.json');
 const forms=callbackFormDefinitions(inputForms,claimEnquiry);
 const layoutCss=await readFile(resolve(root,'src/current-content-layout.css'),'utf8');
 const assistantCss=await readFile(resolve(root,'src/claim-assistant.css'),'utf8');
-const addAssistant=html=>html.includes('id="claimChatLaunch"')?html:html.replace('</head>','<style id="claim-assistant-style">'+assistantCss+'</style></head>').replace('</body>','<script src="/claim-assistant.js?v=20261008-rail2" defer></script></body>');
+const addAssistant=html=>html.includes('id="claimChatLaunch"')?html:html.replace('</head>','<style id="claim-assistant-style">'+assistantCss+'</style></head>').replace('</body>','<script src="/claim-assistant.js?v=20261009-input" defer></script></body>');
 const enquiryPanelCss=await readFile(resolve(root,'src/enquiry-panel.css'),'utf8');
 const termsBusinessCss=await readFile(resolve(root,'src/terms-business.css'),'utf8');
 const claimEnquiryCss=await readFile(resolve(root,'src/claim-enquiry.css'),'utf8');
