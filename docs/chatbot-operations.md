@@ -1,6 +1,6 @@
 # Chatbot operation
 
-The browser calls the same-origin Worker. The Worker validates input, reserves D1 allowance atomically, and then calls the fixed `gpt-5-nano` model. AI can answer the first question. Every assistant reply includes a link to `/housing-disrepair-enquiries/`.
+The initial launch uses relevant approved FAQ responses with paid AI disabled. Questions without a matching FAQ are directed to the enquiry form for a team review. The browser calls the same-origin Worker. If AI is enabled later, the Worker validates input, reserves D1 allowance atomically, and then calls the fixed `gpt-5-nano` model. Every assistant reply includes a link to `/housing-disrepair-enquiries/`.
 
 ## Configuration
 
@@ -12,7 +12,7 @@ Production uses `DB` and the existing `submission_rate_limits` table; no new mig
 
 The key created for this change belongs to the OpenAI Default project. It is a dedicated key, but not an isolated project. Project-level budget alerts are additional monitoring, not an application hard stop.
 
-Wrangler defines `CHAT_AI_ENABLED=true`, `CHAT_AI_DAILY_LIMIT=200`, and `CHAT_AI_MONTHLY_LIMIT=3000`. Preview AI is disabled. Set the enable flag to `false` or either allowance to `0` to stop paid calls. Missing secrets, unavailable D1, exhausted allowance and provider errors all return an approved factual answer with the enquiry link.
+Wrangler defines `CHAT_AI_ENABLED=false`, `CHAT_AI_DAILY_LIMIT=200`, and `CHAT_AI_MONTHLY_LIMIT=3000`. Production and preview AI are disabled for the initial FAQ launch. To enable AI later, set the production enable flag to `true` and install the production secrets. Set it back to `false` or either allowance to `0` to stop paid calls. Missing secrets, unavailable D1, exhausted allowance and provider errors all return an approved factual answer with the enquiry link.
 
 ## Limits and privacy
 

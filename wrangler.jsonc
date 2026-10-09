@@ -23,7 +23,7 @@
   ],
   "vars": {
     "RELEASE_MODE": "review",
-    "CHAT_AI_ENABLED": "true",
+    "CHAT_AI_ENABLED": "false",
     "CHAT_AI_DAILY_LIMIT": "200",
     "CHAT_AI_MONTHLY_LIMIT": "3000"
   },

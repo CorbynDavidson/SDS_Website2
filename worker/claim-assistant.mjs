@@ -9,7 +9,7 @@ const answers=[
   {pattern:/\b(leak|roof|water damage)\b/i,answer:'A leak or water damage may be relevant where the landlord is responsible for the cause and has not addressed it after a reasonable opportunity. Record each recurrence, take photographs and keep receipts for damaged belongings. See /leaking-roof-and-water-damage-claims/'},
   {pattern:/\b(housing association)\b/i,answer:'You may be able to claim against a housing association if it is responsible for the disrepair and failed to act within a reasonable time after notice. A solicitor can review the tenancy, reports, repair history and evidence. See /housing-association-disrepair-claims/'}
 ];
-const fallback='A housing disrepair claim depends on your landlord’s legal responsibility, the problem, notice and repair response, and the evidence. You can use the claim prospects check here or ask the team to review your circumstances. See /faqs/';
+const fallback='I do not have an approved FAQ answer for that question. Our team can review your housing disrepair circumstances through a free, no-obligation initial assessment.';
 const chatFormUrl='/housing-disrepair-enquiries/';
 const chatHeaders={'cache-control':'no-store','x-content-type-options':'nosniff'};
 const chatJson=(body,status=200)=>Response.json({...body,link:true,formUrl:chatFormUrl}, {status,headers:chatHeaders});
