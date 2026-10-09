@@ -33,12 +33,15 @@ The account-specific helper now updates the existing `wrangler.jsonc` for `sds-w
 ```sh
 CLOUDFLARE_D1_DATABASE_ID=<database UUID> \
 CLOUDFLARE_R2_BUCKET=<private bucket name> \
+CLOUDFLARE_R2_JURISDICTION=eu \
 CF_ACCESS_TEAM_DOMAIN=<team>.cloudflareaccess.com \
 CF_ACCESS_AUD=<application audience tag> \
 node scripts/configure-cloudflare.mjs
 ```
 
 Review and commit `wrangler.jsonc`, then apply the two existing migrations to the remote D1 database with `npx wrangler d1 migrations apply sds-enquiries --remote`. Set `RATE_LIMIT_SECRET` with `npx wrangler secret put RATE_LIMIT_SECRET` using a newly generated, high-entropy value; never put the secret in Git. Deploy the same Worker. Access must protect staff paths (`/submissions*`, `/editor*`, `/api/editor/*`) while leaving public form endpoints accessible. Match the Worker audience and team domain to the Access application, and restrict the policy to the intended staff email. Test `/health` for `databaseReady: true`, a labelled test enquiry and attachment, authenticated staff viewing/download/CSV, and anonymous denial. Keep the Sites domain live and the temporary Worker in review mode while these checks are incomplete.
+
+Use `CLOUDFLARE_R2_JURISDICTION=eu` only if the selected R2 bucket was created with the EU jurisdiction; it must match the bucket. A location hint alone is not a jurisdiction restriction. Cloudflare D1 and R2 each have their own data location choices, so confirm both before accepting real enquiries.
 
 ## Verification of this fix
 
