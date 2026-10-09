@@ -45,7 +45,20 @@ export function createIntake({forms,origin,rateLimitSecret,repository}){
     const url=new URL(request.url);
     const cors={'access-control-allow-origin':origin,'vary':'Origin'};
     if(request.headers.get('origin')!==origin)return response({error:'Please submit from this website.'},403);
-    if(request.method==='OPTIONS')return new Response(null,{status:204,headers:{...cors,'access-control-allow-methods':'POST, OPTIONS','access-control-allow-headers':'content-type','access-control-max-age':'600'}});
+    if(request.method==='OPTIONS')return new Response(null,{status:204,headers:{...cors,'access-control-allow-methods':'GET, POST, OPTIONS','access-control-allow-headers':'content-type','access-control-max-age':'600'}});
+    if(request.method==='GET'&&url.pathname==='/api/addresses'){
+      const postcode=(url.searchParams.get('postcode')||'').replace(/\s/g,'').toUpperCase();
+      if(!/^[A-Z]{1,2}\d[A-Z\d]?\d[A-Z]{2}$/.test(postcode))return response({error:'Please enter a full UK postcode.'},400,cors);
+      const hour=Math.floor(Date.now()/3600000);
+      const rateKey=createHmac('sha256',rateLimitSecret).update('address:'+hour+':'+clientIp).digest('hex');
+      try{
+        const addresses=await repository.findAddresses({postcode,rateKey,expiresAt:(hour+2)*3600000});
+        return response({postcode,addresses},200,cors);
+      }catch(error){
+        if(error.code==='RATE_LIMIT')return response({error:'Please wait before searching again.'},429,{...cors,'retry-after':'3600'});
+        return response({error:'Address lookup is temporarily unavailable. Please enter the address manually.'},503,cors);
+      }
+    }
     if(request.method==='POST'&&url.pathname==='/api/contact-check'){
       let details;
       try{const body=await request.text();if(Buffer.byteLength(body)>2048)throw new Error('too-large');details=JSON.parse(body);}catch{return response({error:'Invalid contact details.'},400,cors);}
