@@ -1,6 +1,6 @@
 # Chatbot operation
 
-The initial launch uses relevant approved FAQ responses with paid AI disabled. Direct FAQ questions always receive approved responses for free. Other relevant housing questions can use AI when enabled; unrelated questions go straight to the enquiry form. With AI disabled, unmatched housing questions receive approved guidance or a team-review handoff. The browser calls the same-origin Worker. If AI is enabled later, the Worker validates input, reserves D1 allowance atomically, and then calls the fixed `gpt-5-nano` model. AI receives only the fixed approved knowledge, bounded question and history, and is instructed to hand off unsupported questions rather than invent advice. Every assistant reply includes a link to `/housing-disrepair-enquiries/`.
+Direct FAQ questions always receive approved responses for free. The production AI switch is enabled for the small trial; paid calls require the production key and working D1 controls. Other relevant housing questions can use AI; unrelated questions go straight to the enquiry form. With AI disabled or the key missing, unmatched housing questions receive approved guidance or a team-review handoff. The browser calls the same-origin Worker. Before an AI call, the Worker validates input, reserves D1 allowance atomically, and then calls the fixed `gpt-5-nano` model. AI receives only the fixed approved knowledge, bounded question and history, and is instructed to hand off unsupported questions rather than invent advice. Every assistant reply includes a link to `/housing-disrepair-enquiries/`.
 
 ## Configuration
 
@@ -12,7 +12,7 @@ Production uses `DB` and the existing `submission_rate_limits` table; no new mig
 
 The key created for this change belongs to the OpenAI Default project. It is a dedicated key, but not an isolated project. Project-level budget alerts are additional monitoring, not an application hard stop.
 
-Wrangler defines `CHAT_AI_ENABLED=false`, `CHAT_AI_DAILY_LIMIT=20`, and `CHAT_AI_MONTHLY_LIMIT=300`. Production and preview AI are disabled for the initial FAQ launch. To enable AI later, set the production enable flag to `true` and install the production secrets. Set it back to `false` or either allowance to `0` to stop paid calls. Missing secrets, unavailable D1, exhausted allowance and provider errors all return an approved factual answer with the enquiry link.
+Wrangler defines production `CHAT_AI_ENABLED=true`, `CHAT_AI_DAILY_LIMIT=20`, and `CHAT_AI_MONTHLY_LIMIT=300`. Preview AI remains disabled. Install the production secrets to activate the trial. Set the production flag to `false` or either allowance to `0` to stop paid calls. Keep Wrangler in sync with dashboard switch changes so future deployments retain the intended state. Missing secrets, unavailable D1, exhausted allowance and provider errors all return an approved factual answer with the enquiry link.
 
 ## Limits and privacy
 
