@@ -51,6 +51,8 @@ test('Contact hints validate locally without sending details to an external look
   const handle=createIntake({forms,origin,rateLimitSecret:'local-test-only',repository:{async submit(){throw new Error('unexpected storage');}}});
   const check=async value=>handle(new Request('https://intake.example.org/api/contact-check',{method:'POST',headers:{origin,'content-type':'application/json'},body:JSON.stringify({type:'postcode',value})}));
   assert.equal((await (await check('invalid')).json()).status,'invalid');
-  assert.equal((await (await check('M1 1AA')).json()).status,'unknown');
+  for(const postcode of ['M1 1AA','SW1A 1AA','CF10 1EP','EH1 1YZ','BT1 5GS']){
+    assert.equal((await (await check(postcode)).json()).status,'unknown',postcode);
+  }
   assert.equal((await check('M1 1AA')).headers.get('access-control-allow-origin'),origin);
 });
