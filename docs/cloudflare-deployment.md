@@ -26,22 +26,11 @@ A dry run verifies deployment packaging; it does not upload to Cloudflare or pro
 
 ## Enquiries and administration
 
-The temporary deployment can display the website and its public assets. Form persistence and server-side contact checks require a Cloudflare D1 binding named `DB`, the existing SQL schema/migrations, and a `RATE_LIMIT_SECRET`. Private uploads require the separate R2 binding `ASSET_STORAGE`. Administration requires the configured Cloudflare Access application and its verified audience/team settings. Existing Sites bindings and data do not automatically transfer to Cloudflare; missing services remain unavailable rather than reporting a successful submission.
+**UK-only data residency requirement (9 October 2026): Do not create or bind a D1 database or R2 bucket for enquiries or evidence.** Their documented jurisdictional restrictions offer the EU, US and FedRAMP, but no UK jurisdiction. An automatic location or Western Europe hint is not a UK storage guarantee. The earlier EU database recommendation was withdrawn before creation. `scripts/configure-cloudflare.mjs` now refuses to configure this path unless the residency requirement is explicitly changed.
 
-The account-specific helper now updates the existing `wrangler.jsonc` for `sds-website2` and refuses to target another Worker or a production release. After creating the resources and the Access application in the Cloudflare account, run it with the actual values:
+The temporary Worker can serve the public website in review mode. Its current form backend expects a D1 binding named `DB`, a `RATE_LIMIT_SECRET` and, for uploads, an R2 binding named `ASSET_STORAGE`. Without these it must not be treated as an operational enquiry channel. Cloudflare Access alone does not resolve the location of enquiry storage, request processing, uploads, logs or backups. Existing Sites resources and data do not automatically transfer.
 
-```sh
-CLOUDFLARE_D1_DATABASE_ID=<database UUID> \
-CLOUDFLARE_R2_BUCKET=<private bucket name> \
-CLOUDFLARE_R2_JURISDICTION=eu \
-CF_ACCESS_TEAM_DOMAIN=<team>.cloudflareaccess.com \
-CF_ACCESS_AUD=<application audience tag> \
-node scripts/configure-cloudflare.mjs
-```
-
-Review and commit `wrangler.jsonc`, then apply the two existing migrations to the remote D1 database with `npx wrangler d1 migrations apply sds-enquiries --remote`. Set `RATE_LIMIT_SECRET` with `npx wrangler secret put RATE_LIMIT_SECRET` using a newly generated, high-entropy value; never put the secret in Git. Deploy the same Worker. Access must protect staff paths (`/submissions*`, `/editor*`, `/api/editor/*`) while leaving public form endpoints accessible. Match the Worker audience and team domain to the Access application, and restrict the policy to the intended staff email. Test `/health` for `databaseReady: true`, a labelled test enquiry and attachment, authenticated staff viewing/download/CSV, and anonymous denial. Keep the Sites domain live and the temporary Worker in review mode while these checks are incomplete.
-
-Use `CLOUDFLARE_R2_JURISDICTION=eu` only if the selected R2 bucket was created with the EU jurisdiction; it must match the bucket. A location hint alone is not a jurisdiction restriction. Cloudflare D1 and R2 each have their own data location choices, so confirm both before accepting real enquiries.
+Next, choose and verify a UK-resident architecture for the entire enquiry flow: the form endpoint and processing, database, private file storage, staff access, logs and backups. Then adapt the Worker form integration and staff interface to that architecture, test a labelled submission and upload, verify anonymous denial and staff download/CSV, and review the provider's data processing terms. Keep the current Sites domain live and the temporary Worker in review mode until the replacement passes those checks. Do not move a production domain or send real enquiries to the temporary Worker on the basis of the site deployment alone.
 
 ## Verification of this fix
 
