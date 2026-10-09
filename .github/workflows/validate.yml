@@ -21,6 +21,8 @@ jobs:
           if [ ! -f src/content/sds/index.json ]; then npm run import:sds; fi
       - name: Build and validate the selected source
         run: npm run check
+      - name: Check Cloudflare deployment package without publishing
+        run: npm run deploy:check
       - uses: actions/upload-artifact@v4
         if: always()
         with:
