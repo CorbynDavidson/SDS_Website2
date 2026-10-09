@@ -56,3 +56,21 @@ test('Contact hints validate locally without sending details to an external look
   }
   assert.equal((await check('M1 1AA')).headers.get('access-control-allow-origin'),origin);
 });
+
+test('Nationwide address lookup uses the local directory and fails closed without licensed data',async()=>{
+  const seen=[];
+  const repository={async findAddresses(query){seen.push(query);return [{id:'local-fixture-1',line1:'1 Example Street',line2:'',town:'Belfast',postcode:'BT1 5GS'}];}};
+  const handle=createIntake({forms,origin,rateLimitSecret:'local-test-only',repository});
+  const lookup=(postcode,requestOrigin=origin)=>handle(new Request('https://intake.example.org/api/addresses?postcode='+encodeURIComponent(postcode),{headers:{origin:requestOrigin}}),'192.0.2.9');
+  assert.equal((await lookup('BT1 5GS','https://untrusted.example')).status,403);
+  assert.equal((await lookup('invalid')).status,400);
+  assert.equal(seen.length,0);
+  const result=await lookup('BT1 5GS');
+  assert.equal(result.status,200);
+  assert.equal((await result.json()).addresses[0].town,'Belfast');
+  assert.equal(seen[0].postcode,'BT15GS');
+  const unavailable=createIntake({forms,origin,rateLimitSecret:'local-test-only',repository:{async findAddresses(){throw new Error('No licensed dataset');}}});
+  const noData=await unavailable(new Request('https://intake.example.org/api/addresses?postcode=BT1%205GS',{headers:{origin}}));
+  assert.equal(noData.status,503);
+  assert.match((await noData.json()).error,/manually/);
+});
