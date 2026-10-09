@@ -1,3 +1,4 @@
+import { handleEditorPublish, syncEditorPublishes, editorPublishConfigured } from './editor-publish.mjs';
 import { checkPostcode } from './postcode-lookup.mjs';
 import { validateContact } from '../scripts/lib/contact-validation.mjs';
 import { checkEmailDomain } from './email-domain.mjs';
@@ -48,7 +49,7 @@ async function authorise(request, env, config) {
   else if (provider === 'cloudflare-access') email = await verifyAccess(request, env);
   else return { response: json({ error: 'Administrative access is not configured.' }, 503) };
   if (!email) {
-    if (new URL(request.url).pathname.startsWith('/api/')) return { response: json({ error: 'Sign in to access this page.' }, 401, noStore) };
+    if (new URL(request.url).pathname.startsWith('/api/')) return { response: json({ error: 'Sign in to access this page.', signInUrl: provider==='cloudflare-access'?'/editor':null }, 401, noStore) };
     if (provider === 'sites') return { response: Response.redirect(new URL('/signin-with-chatgpt?return_to=' + encodeURIComponent(new URL(request.url).pathname + new URL(request.url).search), request.url), 302) };
     return { response: json({ error: 'Sign in to access this page.' }, 401) };
   }
@@ -110,7 +111,7 @@ function adminHtml(rows, oldRows, requestUrl) {
 }
 
 function editorHtml(pages, config) {
-  return '<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>SDS content editor</title><style>body{margin:0;color:#032b4c;background:#f3f8f8;font:16px/1.6 system-ui}main{width:min(1000px,calc(100% - 40px));margin:40px auto}a{color:#007576}li{margin:8px 0}input{font:inherit;padding:10px;width:min(500px,100%);border:1px solid #ccdfe5;border-radius:8px}</style></head><body><main><h1>Content editor</h1><p>Open a page and edit the outlined wording, or use All wording to edit text across every slide, navigation, buttons and footer. Forms stay unchanged. Save a draft to keep your changes securely and reopen them later. Download a change request when ready to publish.</p><p>Saving a draft does not change the public website.</p><p><a href="/submissions">Form submissions</a> · <a href="https://github.com/' + escapeHtml(config.repository) + '">GitHub repository</a></p><label for="filter">Find a page</label><br><input id="filter" type="search"><ul id="pages">' + Object.keys(pages).sort().map(path => '<li><a href="' + escapeHtml(path) + (path.includes('?') ? '&amp;edit=1' : '?edit=1') + '">' + escapeHtml(path) + '</a></li>').join('') + '</ul></main><script>document.getElementById("filter").oninput=e=>{document.querySelectorAll("#pages li").forEach(li=>li.hidden=!li.textContent.toLowerCase().includes(e.target.value.toLowerCase()))}</script></body></html>';
+  return '<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>SDS content editor</title><style>body{margin:0;color:#032b4c;background:#f3f8f8;font:16px/1.6 system-ui}main{width:min(1000px,calc(100% - 40px));margin:40px auto}a{color:#007576}li{margin:8px 0}input{font:inherit;padding:10px;width:min(500px,100%);border:1px solid #ccdfe5;border-radius:8px}</style></head><body><main><h1>Content editor</h1><p>Open a page and edit the outlined wording, or use All wording to edit text across every slide, navigation, buttons and footer. Forms stay unchanged. Save a draft to keep your changes securely and reopen them later. Use Publish changes to send approved wording through GitHub checks and Cloudflare deployment once the publishing App is connected.</p><p>Saving a draft does not change the public website.</p><p><a href="/submissions">Form submissions</a> · <a href="https://github.com/' + escapeHtml(config.repository) + '">GitHub repository</a></p><label for="filter">Find a page</label><br><input id="filter" type="search"><ul id="pages">' + Object.keys(pages).sort().map(path => '<li><a href="' + escapeHtml(path) + (path.includes('?') ? '&amp;edit=1' : '?edit=1') + '">' + escapeHtml(path) + '</a></li>').join('') + '</ul></main><script>document.getElementById("filter").oninput=e=>{document.querySelectorAll("#pages li").forEach(li=>li.hidden=!li.textContent.toLowerCase().includes(e.target.value.toLowerCase()))}</script></body></html>';
 }
 
 export function createWorker(data, services = {}) {
@@ -125,6 +126,7 @@ export function createWorker(data, services = {}) {
     return pageCache.get(path);
   }
   return {
+    async scheduled(event,env,ctx){await syncEditorPublishes(data,env);},
     async fetch(request, env = {}, ctx = {}) {
       try { return securityResponse(await dispatch(request, env, ctx)); }
       catch (error) { console.error('SDS request failed:', error?.name || 'Error'); return securityResponse(json({ error: 'This service is temporarily unavailable. Please try again.' }, 503)); }
@@ -264,10 +266,15 @@ export function createWorker(data, services = {}) {
       const next = new Request(new URL('/api/forms/' + leadForm.key, request.url), { method: 'POST', headers: { ...Object.fromEntries(request.headers), 'content-type': 'application/json' }, body: JSON.stringify({ fields, sourcePath: '/', requestKey: body.requestKey || crypto.randomUUID() }) });
       return dispatch(next, env, ctx);
     }
-    if (['/submissions', '/submissions.csv', '/editor', '/api/editor/session', '/api/editor/draft'].includes(url.pathname) || url.pathname.startsWith('/submissions/files/')) {
+    if (['/submissions', '/submissions.csv', '/editor', '/api/editor/session', '/api/editor/draft', '/api/editor/publish'].includes(url.pathname) || url.pathname.startsWith('/submissions/files/')) {
       const auth = await authorise(request, env, data.config);
       if (auth.response) { const response = new Response(auth.response.body, auth.response); for (const [key,value] of Object.entries(noStore)) response.headers.set(key,value); return response; }
-      if (url.pathname === '/api/editor/session' && request.method === 'GET') return json({ authorised: true, copyFrozen: data.config.preserveOriginalCopy, repository: data.config.repository });
+      if (url.pathname === '/api/editor/session' && request.method === 'GET') return json({ authorised: true, copyFrozen: data.config.preserveOriginalCopy, repository: data.config.repository, publishingConfigured: editorPublishConfigured(env) });
+      if (url.pathname === '/api/editor/publish') {
+        if(request.method==='POST'&&!csrfSafe(request))return json({error:'Please publish from this website.'},403);
+        let payload={};if(request.method==='POST'){try{payload=await readPayload(request)}catch{return json({error:'Invalid publication.'},400)}}
+        return handleEditorPublish(request,env,data,auth.email,payload);
+      }
       if (url.pathname === '/editor' && request.method === 'GET') return new Response(editorHtml(data.pages, data.config), { headers: { ...noStore, 'content-type': 'text/html; charset=utf-8' } });
       if (!env.DB) return json({ error: 'The database is temporarily unavailable.' }, 503);
       if (url.pathname.startsWith('/submissions/files/') && request.method === 'GET') {
@@ -282,7 +289,7 @@ export function createWorker(data, services = {}) {
         if (request.method === 'GET') {
           if (!data.pages[path]) return json({ error: 'Page not found.' }, 404);
           const draft = await env.DB.prepare('SELECT body_html, base_sha256, updated_at FROM content_drafts WHERE page_path = ? AND author_email = ?').bind(path, auth.email).first();
-          return json({ draft: draft || null, baseSha256: await digest(await pageHtml(path)) });
+          return json({ draft: draft || null, baseSha256: await digest(await pageHtml(path)), copyCatalog: data.editorCopy?.[path] || null });
         }
         if (request.method !== 'POST') return json({ error: 'Method not allowed.' }, 405, { allow: 'GET, POST' });
         if (!csrfSafe(request)) return json({ error: 'Please save from this website.' }, 403);
@@ -295,7 +302,7 @@ export function createWorker(data, services = {}) {
         const currentHash = await digest(await pageHtml(payload.path));
         if (payload.baseSha256 !== currentHash) return json({ error: 'The published page changed. Reload it before editing.' }, 409);
         await env.DB.prepare('INSERT INTO content_drafts (page_path, author_email, base_sha256, body_html) VALUES (?, ?, ?, ?) ON CONFLICT(page_path, author_email) DO UPDATE SET base_sha256 = excluded.base_sha256, body_html = excluded.body_html, updated_at = CURRENT_TIMESTAMP').bind(payload.path, auth.email, currentHash, payload.bodyHtml).run();
-        return json({ ok: true, message: 'Draft saved securely. Download the change request for GitHub review.' });
+        return json({ ok: true, message: 'Draft saved securely. Use Publish changes when ready for GitHub review.' });
       }
       if (request.method !== 'GET') return json({ error: 'Method not allowed.' }, 405, { allow: 'GET' });
       const rows = (await env.DB.prepare('SELECT id, created_at, source_path, form_key, payload_json FROM form_submissions ORDER BY id DESC LIMIT 500').all()).results || [];
