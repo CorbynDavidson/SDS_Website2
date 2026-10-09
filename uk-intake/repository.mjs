@@ -15,6 +15,19 @@ export function createRepository({databaseUrl,bucket,region='eu-west-2'}){
       if(location.LocationConstraint!=='eu-west-2')throw new Error('Evidence bucket must be in AWS London.');
       await pool.query('SELECT 1');
     },
+    async findAddresses({postcode,rateKey,expiresAt}){
+      const client=await pool.connect();
+      try{
+        await client.query('BEGIN');
+        const status=await client.query("SELECT 1 FROM address_dataset_state WHERE id=1 AND active=true AND address_count>0");
+        if(!status.rows.length){const error=new Error('Address directory is not licensed and loaded.');error.code='ADDRESS_UNAVAILABLE';throw error;}
+        const rate=await client.query('INSERT INTO submission_rate_limits(bucket_key,count,expires_at) VALUES($1,1,$2) ON CONFLICT(bucket_key) DO UPDATE SET count=submission_rate_limits.count+1 RETURNING count',[rateKey,expiresAt]);
+        if(rate.rows[0].count>60){const error=new Error('Rate limit');error.code='RATE_LIMIT';throw error;}
+        const result=await client.query('SELECT address_id,line_1,line_2,post_town,postcode FROM address_directory WHERE postcode_normalized=$1 ORDER BY line_1,line_2 LIMIT 100',[postcode]);
+        await client.query('COMMIT');
+        return result.rows.map(row=>({id:row.address_id,line1:row.line_1,line2:row.line_2,town:row.post_town,postcode:row.postcode}));
+      }catch(error){await client.query('ROLLBACK').catch(()=>{});throw error;}finally{client.release();}
+    },
     async submit({requestKey,formKey,sourcePath,fields,files,rateKey,expiresAt}){
       const client=await pool.connect(),uploaded=[];
       try{
