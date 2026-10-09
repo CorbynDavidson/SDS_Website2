@@ -17,6 +17,11 @@
   "vars": {
     "RELEASE_MODE": "review"
   },
+  "previews": {
+    "vars": {
+      "RELEASE_MODE": "review"
+    }
+  },
   "observability": {
     "enabled": true
   }
