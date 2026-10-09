@@ -1,5 +1,7 @@
 (() => {
   'use strict';
+  // Enable only after the London intake passes deployment checks.
+  const ukIntakeOrigin = typeof window.SDS_UK_INTAKE_ORIGIN === 'string' && /^https:\/\/[^/]+$/.test(window.SDS_UK_INTAKE_ORIGIN) ? window.SDS_UK_INTAKE_ORIGIN : '';
   document.querySelectorAll('.ccm-form').forEach(form => form.classList.add('sds-floating-labels'));
   const associated = form => [...new Set([...form.querySelectorAll('input,select,textarea'), ...Array.from(document.querySelectorAll('[form]')).filter(e => e.getAttribute('form') === form.id && /^(INPUT|SELECT|TEXTAREA)$/.test(e.tagName))])];
   const status = (form, message, error = false) => {
@@ -36,7 +38,7 @@
       remoteHint(input,'Checking '+(type==='postcode' ? 'postcode' : 'email domain')+'…');
       const promise=(async()=>{
         try {
-          const response=await fetch('/api/contact-check',{method:'POST',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify({type,value:candidate}),signal:AbortSignal.timeout(4000)});
+          const response=await fetch((ukIntakeOrigin || '')+'/api/contact-check',{method:'POST',credentials:ukIntakeOrigin?'omit':'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify({type,value:candidate}),signal:AbortSignal.timeout(4000)});
           if(!response.ok)return {status:'unknown'};
           return await response.json();
         }catch{return {status:'unknown'};}
@@ -127,7 +129,7 @@
         body = new FormData(); body.append('payload', JSON.stringify(payload));
         files.forEach(file => body.append('attachments', file)); headers = {};
       } else { body = JSON.stringify(payload); headers = { 'content-type': 'application/json' }; }
-      const response = await fetch(form.action, { method: 'POST', credentials: 'same-origin', headers, body });
+      const response = await fetch(ukIntakeOrigin ? ukIntakeOrigin+'/api/forms/'+encodeURIComponent(form.dataset.sdsForm) : form.action, { method: 'POST', credentials: ukIntakeOrigin ? 'omit' : 'same-origin', headers, body });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Your enquiry could not be sent. Please try again.');
       if (!result.ok) throw new Error('Your enquiry could not be sent. Please try again.');
@@ -167,6 +169,35 @@
     associated(wizards.get(name).form).forEach(input => input.disabled = false);
   }
   for (const name of wizards.keys()) showStep(name, 1);
+  if (ukIntakeOrigin) for (const {form} of wizards.values()) {
+    const inputs=associated(form), postcode=inputs.find(input=>input.name==='postcode'), line1=inputs.find(input=>input.name==='address_1');
+    if (!postcode || !line1) continue;
+    const line2=inputs.find(input=>input.name==='address_2'), town=inputs.find(input=>input.name==='town');
+    const container=document.createElement('div');container.dataset.ukAddressFinder='';container.style.cssText='margin:12px 0;max-width:100%';
+    const button=document.createElement('button');button.type='button';button.textContent='Find my address';button.style.cssText='position:static;width:auto;height:auto;padding:10px 16px';
+    const message=document.createElement('p');message.setAttribute('role','status');message.setAttribute('aria-live','polite');
+    const choices=document.createElement('select');choices.setAttribute('aria-label','Choose your address');choices.hidden=true;choices.style.cssText='width:100%;max-width:500px;margin:8px 0';
+    container.append(button,message,choices);postcode.parentElement.append(container);
+    button.addEventListener('click',async()=>{
+      choices.hidden=true;choices.replaceChildren();message.textContent='Looking up addresses…';button.disabled=true;
+      try {
+        const response=await fetch(ukIntakeOrigin+'/api/addresses?postcode='+encodeURIComponent(postcode.value.trim()),{credentials:'omit',signal:AbortSignal.timeout(6000)});
+        const result=await response.json();
+        if(!response.ok)throw new Error(result.error||'Address lookup is unavailable.');
+        if(!result.addresses.length){message.textContent='No address found. Please enter it manually.';return;}
+        choices.append(new Option('Choose your address',''));
+        for(const address of result.addresses)choices.append(new Option([address.line1,address.line2,address.town,address.postcode].filter(Boolean).join(', '),address.id));
+        choices.hidden=false;message.textContent='Choose an address, or enter it manually.';
+        choices.onchange=()=>{
+          const selected=result.addresses.find(address=>address.id===choices.value);
+          if(!selected)return;
+          for(const [input,value] of [[line1,selected.line1],[line2,selected.line2],[town,selected.town],[postcode,selected.postcode]])if(input){input.value=value||'';input.dispatchEvent(new Event('input',{bubbles:true}));}
+          message.textContent='Address selected. Please check the details.';
+        };
+      }catch(error){message.textContent=(error.message||'Address lookup is unavailable.')+' You can enter the address manually.';}
+      finally{button.disabled=false;}
+    });
+  }
   document.addEventListener('click', async event => {
     const button = event.target.closest('button[data-sds-wizard-button]');
     if (!button) return;
