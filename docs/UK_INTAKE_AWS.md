@@ -2,6 +2,8 @@
 
 The owner requires UK-only enquiry data. The existing `sds-website2` Cloudflare Worker remains a review website with no D1/R2 enquiry bindings. Do **not** direct live forms or real client files to it. This implementation is isolated under `uk-intake/`; there is no deployed AWS service or form switch yet.
 
+**Coverage is nationwide.** London (`eu-west-2`) is the location of the servers and stored enquiry data, not a restriction on which UK properties can submit an enquiry. The current contact check checks the shape of a UK postcode for England, Wales, Scotland and Northern Ireland. It returns `unknown` for a well-formed postcode because it does **not** verify that the postcode or a particular street address exists. Before offering a genuine address finder, license a UK-wide address source such as Royal Mail PAF, confirm its permitted use and processing location, and load or query it from the London service. An ONS postcode directory can verify live postcodes nationwide but cannot verify a house or flat; refresh it on its publication cycle. Do not tell a visitor that their address was verified until a matching address record was found. Allow manual entry and review for new or missing addresses.
+
 ## Proposed AWS London topology
 
 | Component | Configuration to create |
