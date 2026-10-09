@@ -1,9 +1,9 @@
 import {readFile,writeFile} from 'node:fs/promises';
 
-// The client currently requires UK-only enquiry data residency. Cloudflare D1
-// and R2 do not offer a UK jurisdiction. Do not provision them by accident.
+// The owner explicitly selected Cloudflare D1/R2 after the UK-only limitation
+// was explained. Keep a per-run acknowledgement to prevent accidental setup.
 if(process.env.SDS_ALLOW_NON_UK_DATA_RESIDENCY!=='explicitly-approved'){
-  throw new Error('UK-only data residency is required: do not configure Cloudflare D1/R2 for enquiries. Choose UK-resident data services and redesign the form backend first.');
+  throw new Error('Cloudflare D1/R2 do not guarantee UK-only data residency. Set SDS_ALLOW_NON_UK_DATA_RESIDENCY=explicitly-approved for the owner-approved setup.');
 }
 
 const databaseId=process.env.CLOUDFLARE_D1_DATABASE_ID;
@@ -15,7 +15,7 @@ const emails=process.env.ADMIN_EMAILS||'corbyn.davidson@hotmail.com';
 
 if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(databaseId||''))throw new Error('Supply the actual Cloudflare D1 database ID.');
 if(!/^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$/.test(bucket||''))throw new Error('Supply the actual private R2 bucket name.');
-if(bucketJurisdiction&&!['eu','us','fedramp','fedramp-high'].includes(bucketJurisdiction))throw new Error('Supply a supported R2 bucket jurisdiction.');
+if(bucketJurisdiction)throw new Error('The owner selected automatic R2 placement without a jurisdiction restriction. Leave CLOUDFLARE_R2_JURISDICTION unset.');
 if(!/^[a-z0-9-]+\.cloudflareaccess\.com$/.test(team||'')||!aud)throw new Error('Configure the verified Cloudflare Access application before portable administration.');
 if(!emails.split(',').every(email=>/^[^\s@,]+@[^\s@,]+\.[^\s@,]+$/.test(email.trim())))throw new Error('Supply valid comma-separated admin email addresses.');
 
@@ -27,7 +27,7 @@ if(config.name!=='sds-website2'||config.main!=='dist/server/cloudflare.js'||conf
   throw new Error('Expected the temporary sds-website2 review Worker configuration.');
 }
 config.d1_databases=[{binding:'DB',database_name:'sds-enquiries',database_id:databaseId,migrations_dir:'drizzle'}];
-config.r2_buckets=[{binding:'ASSET_STORAGE',bucket_name:bucket,...(bucketJurisdiction?{jurisdiction:bucketJurisdiction}:{})}];
+config.r2_buckets=[{binding:'ASSET_STORAGE',bucket_name:bucket}];
 Object.assign(config.vars,{AUTH_PROVIDER:'cloudflare-access',CF_ACCESS_TEAM_DOMAIN:team,CF_ACCESS_AUD:aud,ADMIN_EMAILS:emails});
 await writeFile(path,prefix+JSON.stringify(config,null,2)+'\n');
 console.log('Updated wrangler.jsonc for sds-website2 review deployment. Apply D1 migrations, set RATE_LIMIT_SECRET as a Worker secret, then deploy and verify.');
