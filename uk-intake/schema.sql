@@ -23,3 +23,22 @@ CREATE TABLE IF NOT EXISTS submission_rate_limits (
   count INTEGER NOT NULL,
   expires_at BIGINT NOT NULL
 );
+
+-- Populate only with a licensed UK-wide address dataset. No address records ship with this repository.
+CREATE TABLE IF NOT EXISTS address_directory (
+  address_id TEXT PRIMARY KEY,
+  postcode TEXT NOT NULL,
+  postcode_normalized TEXT NOT NULL,
+  line_1 TEXT NOT NULL,
+  line_2 TEXT NOT NULL DEFAULT '',
+  post_town TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_address_directory_postcode ON address_directory(postcode_normalized);
+CREATE TABLE IF NOT EXISTS address_dataset_state (
+  id INTEGER PRIMARY KEY CHECK(id=1),
+  source TEXT NOT NULL,
+  licence_reference TEXT NOT NULL,
+  imported_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  address_count BIGINT NOT NULL CHECK(address_count>0),
+  active BOOLEAN NOT NULL DEFAULT false
+);
