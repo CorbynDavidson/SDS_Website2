@@ -9,7 +9,7 @@ const answers=[
   {pattern:/\b(leak|roof|water damage)\b/i,answer:'A leak or water damage may be relevant where the landlord is responsible for the cause and has not addressed it after a reasonable opportunity. Record each recurrence, take photographs and keep receipts for damaged belongings. See /leaking-roof-and-water-damage-claims/'},
   {pattern:/\b(housing association)\b/i,answer:'You may be able to claim against a housing association if it is responsible for the disrepair and failed to act within a reasonable time after notice. A solicitor can review the tenancy, reports, repair history and evidence. See /housing-association-disrepair-claims/'}
 ];
-const fallback='I do not have an approved FAQ answer for that question. Our team can review your housing disrepair circumstances through a free, no-obligation initial assessment.';
+const fallback='A housing disrepair claim depends on your landlord’s legal responsibility, the problem, notice and repair response, and the evidence. You can use the claim prospects check here or ask the team to review your circumstances. See /faqs/';
 const chatFormUrl='/housing-disrepair-enquiries/';
 const chatHeaders={'cache-control':'no-store','x-content-type-options':'nosniff'};
 const chatJson=(body,status=200)=>Response.json({...body,link:true,formUrl:chatFormUrl}, {status,headers:chatHeaders});
@@ -65,8 +65,8 @@ export async function respondToClaimQuestion(request,env,ctx={},services={}){
   const canonical=message.toLowerCase().replace(/[’']/g,'').replace(/[?.!]+$/,'').replace(/\s+/g,' ').trim();
   const faqIndex=chatFaqPatterns.findIndex(pattern=>pattern.test(canonical));
   if(faqIndex!==-1)return chatApproved(answers[faqIndex].answer,'faq-match');
-  if(!chatHousingScope.test(message))return chatApproved(fallback,'outside-scope');
   if(!env.OPENAI_API_KEY||env.CHAT_AI_ENABLED!=='true')return chatApproved(approved,'ai-disabled');
+  if(!chatHousingScope.test(message))return chatApproved(fallback,'outside-scope');
   // No paid call is permitted when shared counters cannot be enforced.
   if(!env.DB||!env.RATE_LIMIT_SECRET)return chatApproved(approved,'limits-unavailable');
   const now=(services.now||Date.now)(),date=new Date(now),day=date.toISOString().slice(0,10),month=day.slice(0,7);
