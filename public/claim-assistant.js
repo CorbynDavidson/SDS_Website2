@@ -34,7 +34,31 @@
   if(window.ResizeObserver)new ResizeObserver(schedulePosition).observe(document.body);
   positionTrustRail();
   const state={step:null,answers:{},history:[]};
-  function bubble(message,who='assistant') {const el=document.createElement('div');el.className='claim-chat-bubble '+who;el.textContent=message;messages.append(el);if(who==='assistant')link();messages.scrollTop=messages.scrollHeight;}
+  const pageLinks=new Map([
+    ['/faqs/',['FAQs','/faqs/']],
+    ['/council-housing-disrepair-claims/',['Council housing claims','/housing-disrepair-claims/council-housing/']],
+    ['/damp-and-mould-claims/',['Damp and mould claims','/housing-disrepair/damp-and-mould-claims/']],
+    ['/housing-disrepair-claims/compensation-calculator/',['Compensation calculator','/housing-disrepair-claims/compensation-calculator/']],
+    ['/broken-heating-and-hot-water-claims/',['Heating and hot water claims','/housing-disrepair/boiler-heating-claims/']],
+    ['/leaking-roof-and-water-damage-claims/',['Leaks and water damage claims','/housing-disrepair/roof-gutter-claims/']],
+    ['/housing-association-disrepair-claims/',['Housing association claims','/housing-disrepair/housing-associations/']],
+    ['/housing-disrepair-enquiries/',['Free claim assessment','/housing-disrepair-enquiries/']]
+  ]);
+  // Render only recognised standalone site paths. All other reply content stays
+  // plain text, including HTML and external URLs supplied by the model.
+  function appendReply(el,message){
+    const paths=/(^|[\s(])(\/[a-z0-9/-]+\/)(?=$|[\s).,!?:;])/g;
+    let end=0;
+    for(const match of message.matchAll(paths)){
+      const page=pageLinks.get(match[2]);if(!page)continue;
+      const start=match.index+match[1].length;
+      el.append(document.createTextNode(message.slice(end,start)));
+      const a=document.createElement('a');a.className='claim-chat-page-link';a.href=page[1];a.textContent=page[0];el.append(a);
+      end=start+match[2].length;
+    }
+    el.append(document.createTextNode(message.slice(end)));
+  }
+  function bubble(message,who='assistant') {const el=document.createElement('div');el.className='claim-chat-bubble '+who;if(who==='assistant')appendReply(el,message);else el.textContent=message;messages.append(el);if(who==='assistant')link();messages.scrollTop=messages.scrollHeight;}
   function options(items){const old=messages.querySelector('.claim-chat-options');if(old)old.remove();const row=document.createElement('div');row.className='claim-chat-options';for(const [label,value] of items){const b=document.createElement('button');b.type='button';b.textContent=label;b.addEventListener('click',()=>choose(label,value));row.append(b)}messages.append(row);messages.scrollTop=messages.scrollHeight;}
   function link(){const a=document.createElement('a');a.className='claim-chat-link';a.href='/housing-disrepair-enquiries/';a.textContent='Get a free claim assessment';messages.append(a);messages.scrollTop=messages.scrollHeight;}
   const questions=[
