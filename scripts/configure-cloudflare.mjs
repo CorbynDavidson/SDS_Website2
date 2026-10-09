@@ -1,5 +1,11 @@
 import {readFile,writeFile} from 'node:fs/promises';
 
+// The client currently requires UK-only enquiry data residency. Cloudflare D1
+// and R2 do not offer a UK jurisdiction. Do not provision them by accident.
+if(process.env.SDS_ALLOW_NON_UK_DATA_RESIDENCY!=='explicitly-approved'){
+  throw new Error('UK-only data residency is required: do not configure Cloudflare D1/R2 for enquiries. Choose UK-resident data services and redesign the form backend first.');
+}
+
 const databaseId=process.env.CLOUDFLARE_D1_DATABASE_ID;
 const bucket=process.env.CLOUDFLARE_R2_BUCKET;
 const bucketJurisdiction=process.env.CLOUDFLARE_R2_JURISDICTION;
