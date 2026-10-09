@@ -1,6 +1,6 @@
 // Temporary Cloudflare review deployment. No production domain routes.
-// Account-specific DB, private uploads and admin authentication must be configured
-// separately before enquiries/admin features are enabled on Cloudflare.
+// Existing review enquiry database is explicitly bound for the main workers.dev URL.
+// Preview deployments intentionally have no access to this database.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "sds-website2",
@@ -14,6 +14,13 @@
     "binding": "ASSETS",
     "run_worker_first": true
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "sds-enquiries",
+      "database_id": "bb14ab54-b4eb-4300-9b5d-569636ec64fb"
+    }
+  ],
   "vars": {
     "RELEASE_MODE": "review"
   },
