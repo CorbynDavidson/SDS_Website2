@@ -42,3 +42,18 @@ export const formUploads = sqliteTable("form_uploads", {
   contentType: text("content_type").notNull(),
   bytes: integer("bytes").notNull(),
 }, table => [index("idx_form_uploads_submission").on(table.submissionId)]);
+
+export const editorPublications = sqliteTable("editor_publications", {
+  id: text("id").primaryKey(),
+  authorEmail: text("author_email").notNull(),
+  pagePath: text("page_path").notNull(),
+  patchJson: text("patch_json").notNull(),
+  status: text("status").notNull().default("creating"),
+  baseSha: text("base_sha"),
+  headSha: text("head_sha"),
+  prNumber: integer("pr_number"),
+  mergeSha: text("merge_sha"),
+  error: text("error"),
+  leaseUntil: integer("lease_until").notNull().default(0),
+  updatedAt: integer("updated_at").notNull(),
+});

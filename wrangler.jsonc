@@ -23,6 +23,7 @@
   ],
   "vars": {
     "RELEASE_MODE": "review",
+    "EDITOR_PUBLISH_ENABLED": "false",
     "CHAT_AI_ENABLED": "false",
     "CHAT_AI_DAILY_LIMIT": "20",
     "CHAT_AI_MONTHLY_LIMIT": "300"
@@ -33,6 +34,7 @@
       "CHAT_AI_ENABLED": "false"
     }
   },
+  "triggers": { "crons": ["* * * * *"] },
   "observability": {
     "enabled": true
   }

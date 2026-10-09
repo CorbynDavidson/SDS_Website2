@@ -1,6 +1,6 @@
 import { contactBundle, embedContactValidation } from './lib/contact-validation-bundle.mjs';
 import {execFileSync} from 'node:child_process';
-import {readFile,writeFile,mkdir,cp,rm} from 'node:fs/promises';
+import {readFile,writeFile,mkdir,cp,rm,readdir} from 'node:fs/promises';
 import {resolve,extname} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {gzipSync,gunzipSync} from 'node:zlib';
@@ -18,6 +18,7 @@ import {addResourceNavigation} from './lib/resource-navigation.mjs';
 import {addQuestionnairePanel} from './lib/questionnaire-panel.mjs';
 import {migrationInputs} from './lib/migration-inputs.mjs';
 import {correctReviewCopy,addSharedTrustBar} from './lib/review-readiness.mjs';
+import {applyContentOverrides,overrideFile} from './lib/content-overrides.mjs';
 import {addEditableCopy} from './lib/editable-copy.mjs';
 import {addHousingTeam} from './lib/housing-team.mjs';
 import {addCompensationGuide} from './lib/compensation-guide.mjs';
@@ -201,21 +202,35 @@ for(const path of routeData.productionGone){
   assert.ok(!pages[path]&&!routeData.gone.includes(path),'Planned 410 conflicts with a retained page or existing 410: '+path);
   assert.ok(!redirects[path],'Planned 410 conflicts with an existing redirect: '+path);
 }
+const editorCopy={},editorOverrides={};
+const overrideNames=(await readdir(resolve(root,'src/content-overrides'))).filter(name=>name.endsWith('.json'));
+const expectedFiles=new Set(Object.keys(pages).map(path=>overrideFile(path).split('/').pop()));
+for(const name of overrideNames)assert.ok(expectedFiles.has(name),'Override refers to an unknown page: '+name);
+for(const [path,page] of Object.entries(pages)){
+  const name=overrideFile(path).split('/').pop();
+  const record=overrideNames.includes(name)?await readJson(overrideFile(path)):null;
+  const original=gunzipSync(Buffer.from(page.gzip,'base64')).toString('utf8');
+  const result=applyContentOverrides(original,path,record);
+  editorCopy[path]=result.catalog;
+  if(record)editorOverrides[path]=record;
+  pages[path]={...page,gzip:gzipSync(Buffer.from(result.html),{level:9}).toString('base64'),sha256:sha256(result.html)};
+}
 const sitemap=productionSitemap(sitemapUrls,config.productionOrigin);
 await writeFile(resolve(root,'docs/migration/current-design-sitemap.xml'),sitemap);
 await writeFile(resolve(root,'public/sitemap.xml'),sitemap);
 await writeFile(resolve(root,'sitemap.xml'),sitemap);
 await writeFile(resolve(root,'public/robots.txt'),createProductionRouting(config,routeData).robots(new URL(config.productionOrigin),{RELEASE_MODE:'production'}));
 const routingRuntime=(await readFile(resolve(root,'worker/production-routing.mjs'),'utf8')).replace('export function createProductionRouting','function createProductionRouting');
-const data={config,pages,forms,assets,routes:routeData,sourceCapturedAt:manifest.completed_at,sitemap,robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
+const editorSourceCommit=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
+const data={config,pages,forms,assets,editorCopy,editorOverrides,editorSourceCommit,routes:routeData,sourceCapturedAt:manifest.completed_at,sitemap,robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
 const fallbackLayoutHead='<style id="sds-layout-adjustments">'+layoutCss+'</style>';
-const backendRuntime=embedContactValidation((await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace("import { checkPostcode } from './postcode-lookup.mjs';", (await readFile(resolve(root,'worker/postcode-lookup.mjs'),'utf8')).replace('export async function','async function')).replace("import { checkEmailDomain } from './email-domain.mjs';", (await readFile(resolve(root,'worker/email-domain.mjs'),'utf8')).replace('export async function','async function'))).replace('export function createWorker','function createWorker');
+const backendRuntime=embedContactValidation((await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace("import { checkPostcode } from './postcode-lookup.mjs';", (await readFile(resolve(root,'worker/postcode-lookup.mjs'),'utf8')).replace('export async function','async function')).replace("import { checkEmailDomain } from './email-domain.mjs';", (await readFile(resolve(root,'worker/email-domain.mjs'),'utf8')).replace('export async function','async function'))).replace("import { handleEditorPublish, syncEditorPublishes, editorPublishConfigured } from './editor-publish.mjs';",(await readFile(resolve(root,'worker/editor-publish.mjs'),'utf8')).replaceAll('export ','')).replace('export function createWorker','function createWorker');
 const assistantRuntime=(await readFile(resolve(root,'worker/claim-assistant.mjs'),'utf8')).replace('export async function respondToClaimQuestion','async function respondToClaimQuestion');
 data.releaseFingerprint=sha256(backendRuntime+JSON.stringify(data));
 await writeFile(resolve(root,'build/data.json'),JSON.stringify(data));
 const originalDesign=await readFile(resolve(root,'build/design-before-metadata.mjs'),'utf8');
 const wrapper=`
-const contentData=${JSON.stringify(data)};
+const contentData=${JSON.stringify(data).replaceAll('\u2028','\\u2028').replaceAll('\u2029','\\u2029')};
 const contentMedia=${JSON.stringify(mediaSources)};
 const contentBackend=(()=>{${backendRuntime}\nreturn createWorker(contentData);})();
 ${assistantRuntime}
@@ -227,7 +242,7 @@ const contentPageCache=new Map();
 function contentKey(url){const entries=[...url.searchParams].filter(([name])=>name.startsWith('ccm_paging_'));const query=new URLSearchParams(entries).toString();return url.pathname+(query?'?'+query:'');}
 function contentLookup(url){return contentData.pages[contentKey(url)]?contentKey(url):contentData.pages[url.pathname]?url.pathname:contentData.pages[url.pathname.endsWith('/')?url.pathname.slice(0,-1):url.pathname+'/']?(url.pathname.endsWith('/')?url.pathname.slice(0,-1):url.pathname+'/'):null;}
 async function contentHtml(key){if(!contentPageCache.has(key)){const bytes=Uint8Array.from(atob(contentData.pages[key].gzip),c=>c.charCodeAt(0));const html=await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();if(contentPageCache.size>12)contentPageCache.delete(contentPageCache.keys().next().value);contentPageCache.set(key,html);}return contentPageCache.get(key);}
-export default {async fetch(request,env={},ctx={}){
+export default {async scheduled(event,env,ctx){ctx.waitUntil(contentBackend.scheduled(event,env,ctx));},async fetch(request,env={},ctx={}){
   const url=new URL(request.url);
   if(url.pathname==='/api/claim-assistant')return respondToClaimQuestion(request,env,ctx);
   const redirect=productionRouting.redirect(url,env);if(redirect)return productionRouting.finish(redirect,url,env,request.method==='HEAD');
