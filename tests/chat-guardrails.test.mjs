@@ -51,6 +51,17 @@ test('off-topic questions never use AI',async t=>{
   const body=await (await respondToClaimQuestion(request('Write me a Bitcoin trading bot'),env,{}, {fetch:async()=>{calls++;return success()}})).json();
   assert.equal(body.reason,'outside-scope');assert.equal(body.link,true);assert.equal(calls,0);
 });
+test('free mode restores earlier topic guidance and general answer while retaining a configured key',async t=>{
+  const env=await setup(t,{CHAT_AI_ENABLED:'false'});let calls=0;
+  const services={fetch:async()=>{calls++;return success()}};
+  const topic=await (await respondToClaimQuestion(request('What factors affect the compensation amount?'),env,{},services)).json();
+  assert.match(topic.answer,/Compensation is not guaranteed/);
+  const general=await (await respondToClaimQuestion(request('Where should I start?'),env,{},services)).json();
+  assert.match(general.answer,/A housing disrepair claim depends/);
+  assert.equal(general.formUrl,'/housing-disrepair-enquiries/');assert.equal(calls,0);
+  assert.equal(env.DB.sqlite.prepare('SELECT COUNT(*) AS n FROM submission_rate_limits').get().n,0);
+  assert.equal(env.OPENAI_API_KEY,'test-key');
+});
 test('specific housing questions use bounded AI knowledge and never shared caching',async t=>{
   const env=await setup(t);let payload;
   const services={now:()=>now,cache:{match:()=>{throw Error('Do not cache personal input')},put:()=>{throw Error('Do not cache AI output')}},fetch:async(_url,options)=>{payload=JSON.parse(options.body);return success()}};

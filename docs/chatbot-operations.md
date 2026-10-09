@@ -1,6 +1,8 @@
 # Chatbot operation
 
-Direct FAQ questions always receive approved responses for free. The production AI switch is enabled for the small trial; paid calls require the production key and working D1 controls. Other relevant housing questions can use AI; unrelated questions go straight to the enquiry form. With AI disabled or the key missing, unmatched housing questions receive approved guidance or a team-review handoff. The browser calls the same-origin Worker. Before an AI call, the Worker validates input, reserves D1 allowance atomically, and then calls the fixed `gpt-5-nano` model. AI receives only the fixed approved knowledge, bounded question and history, and is instructed to hand off unsupported questions rather than invent advice. Every assistant reply includes a link to `/housing-disrepair-enquiries/`.
+The chatbot runs in free mode with the earlier topic-based approved answers and general housing-disrepair guidance restored. The claim-prospects questionnaire is unchanged. Every assistant reply includes a link to `/housing-disrepair-enquiries/`. The installed production API key is retained for later activation; free mode never calls OpenAI or reserves AI allowance.
+
+If AI is enabled later, direct FAQs still receive approved responses for free. Other relevant housing questions can use AI; unrelated questions receive a team-review handoff. Before an AI call, the same-origin Worker validates input and reserves D1 allowance atomically, then calls the fixed `gpt-5-nano` model. AI receives only fixed approved knowledge, bounded question and history, and is instructed to hand off unsupported questions rather than invent advice.
 
 ## Configuration
 
@@ -12,7 +14,7 @@ Production uses `DB` and the existing `submission_rate_limits` table; no new mig
 
 The key created for this change belongs to the OpenAI Default project. It is a dedicated key, but not an isolated project. Project-level budget alerts are additional monitoring, not an application hard stop.
 
-Wrangler defines production `CHAT_AI_ENABLED=true`, `CHAT_AI_DAILY_LIMIT=20`, and `CHAT_AI_MONTHLY_LIMIT=300`. Preview AI remains disabled. Install the production secrets to activate the trial. Set the production flag to `false` or either allowance to `0` to stop paid calls. Keep Wrangler in sync with dashboard switch changes so future deployments retain the intended state. Missing secrets, unavailable D1, exhausted allowance and provider errors all return an approved factual answer with the enquiry link.
+Wrangler defines production `CHAT_AI_ENABLED=false`, `CHAT_AI_DAILY_LIMIT=20`, and `CHAT_AI_MONTHLY_LIMIT=300`. Preview AI remains disabled. The production secret is already installed; OpenAI reported an exhausted API credit balance during activation testing. To activate later, fund the correct OpenAI organisation and set the production flag to `true`. Set it back to `false` or either allowance to `0` to stop paid calls. Keep Wrangler in sync with dashboard switch changes so future deployments retain the intended state. Missing secrets, unavailable D1, exhausted allowance and provider errors all return approved guidance with the enquiry link. Deploying this free-mode change does not remove or rotate the production secret.
 
 ## Limits and privacy
 
