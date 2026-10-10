@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {generateKeyPairSync} from 'node:crypto';
 import {gzipSync} from 'node:zlib';
+import {load} from 'cheerio';
 import {applyContentOverrides,overrideFile} from '../scripts/lib/content-overrides.mjs';
 import {localD1} from '../scripts/lib/local-d1.mjs';
 import {createWorker} from '../worker/runtime.mjs';
@@ -47,6 +48,25 @@ test('wording overrides escape markup, exclude forms, preserve head and reject s
  assert.throws(()=>applyContentOverrides(html.replace('Original heading','Changed heading'),'/',record),/baseline changed/);
  assert.throws(()=>applyContentOverrides(html,'/',{...record,copy:{'copy-9999':{before:'x',after:'y'}}}),/Unknown wording/);
  assert.throws(()=>applyContentOverrides(html,'/other/',record),/Invalid content override/);
+});
+
+test('browser number detection preserves server field IDs and the publishing wording map',()=>{
+ const source='<html><head></head><body><p>Company No. 06958532. Registered in England.</p><p>Next field</p><form><label>Phone</label><input></form></body></html>';
+ const result=applyContentOverrides(source,'/',null),$=load(result.html);
+ // Safari may turn a number into a detected telephone link after HTML parsing.
+ $('sds-copy').first().html('Company No. <a href="tel:06958532" x-apple-data-detectors="true">06958532</a>. Registered in England.');
+ const fields=$('sds-copy[data-sds-copy-id]').toArray();
+ assert.equal(fields.length,Object.keys(result.catalog).length);
+ for(const field of fields)assert.equal($(field).text(),result.catalog[$(field).attr('data-sds-copy-id')]);
+ assert.equal($(fields[1]).attr('data-sds-copy-id'),'copy-0002');
+ assert.equal($('form sds-copy').length,0);
+ assert.equal($(fields[0]).attr('style'),'display:contents');
+});
+
+test('stable fields preserve the exact original HTML entities and whitespace',()=>{
+ const source='<html><head></head><body><p>Original&nbsp;copy &#38; punctuation.\n  Next line.</p></body></html>';
+ const result=applyContentOverrides(source,'/',null);
+ assert.equal(result.html.replace(/<sds-copy data-sds-copy-id="copy-\d{4,}" style="display:contents">|<\/sds-copy>/g,''),source);
 });
 
 test('owner, origin, configuration, page version and field validation precede GitHub writes',async t=>{

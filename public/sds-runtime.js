@@ -194,7 +194,14 @@
     initialStyle.textContent = '.sds-editor-bar{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:10000;display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:16px;border-radius:14px;background:#032b4c;color:#fff;box-sizing:border-box;width:min(1000px,calc(100% - 24px));max-height:35vh;overflow:auto;font:16px/1.5 system-ui}.sds-editor-bar a{color:#fff}.sds-editor-bar span{flex:1;min-width:180px}';
     document.head.append(initialStyle);
     document.body.append(bar);
-    const response = await fetch('/api/editor/session', { credentials: 'same-origin' });
+    let response;
+    try {
+      response = await fetch('/api/editor/session', { credentials: 'same-origin' });
+      if (response.redirected || !response.headers.get('content-type')?.includes('application/json')) throw Error('Sign-in required');
+    } catch {
+      message.textContent = 'Sign in with the website owner’s account to open the editor.';
+      const login = document.createElement('a'); login.href = '/editor'; login.textContent = 'Sign in to edit'; bar.append(login); return;
+    }
     if (response.status === 401) {
       const signInInfo=await response.json();
       message.textContent = 'Sign in with the website owner’s account to edit. Drafts are private until published.';
@@ -212,11 +219,12 @@
       const node = walker.currentNode;
       if (/[\p{L}\p{N}]/u.test(node.textContent) && !node.parentElement.closest(excluded)) texts.push(node);
     }
-    const editable = texts.map((node, index) => {
+    const stableFields = [...document.querySelectorAll('sds-copy[data-sds-copy-id]')];
+    const editable = stableFields.length ? stableFields : texts.map((node, index) => {
       const copy = document.createElement('sds-copy'); copy.dataset.sdsCopyId = 'copy-' + String(index + 1).padStart(4, '0'); copy.textContent = node.textContent; node.replaceWith(copy); return copy;
     });
     const editorStyle = document.createElement('style'); editorStyle.dataset.editorUi = ''; editorStyle.textContent = 'sds-copy{display:contents}body.sds-editing sds-copy[contenteditable]{display:inline;outline:1px dashed #008b8c;outline-offset:3px;cursor:text}body.sds-editing sds-copy:focus{outline:2px solid #008b8c;background:#008b8c18}.sds-wording-panel{position:fixed;inset:12px 12px 110px auto;z-index:10001;width:min(390px,calc(100vw - 24px));background:#fff;color:#032b4c;border:1px solid #b9cdd5;border-radius:12px;box-shadow:0 12px 50px #032b4c30;padding:16px;box-sizing:border-box;overflow:auto;font:16px/1.5 system-ui}.sds-wording-panel[hidden]{display:none}.sds-wording-panel label{display:block;margin:16px 0 6px;font-size:14px}.sds-wording-panel input,.sds-wording-panel textarea{box-sizing:border-box;width:100%;font:16px/1.5 system-ui;border:1px solid #b9cdd5;border-radius:6px;padding:8px}.sds-wording-panel textarea{min-height:74px;resize:vertical}.sds-editor-bar{box-sizing:border-box;width:min(1000px,calc(100% - 24px));max-height:35vh;overflow:auto}.sds-editor-bar a{color:#fff}.sds-editor-bar button,.sds-editor-bar a{font:14px/1.5 system-ui}.sds-editor-bar span{flex:1;min-width:180px}body.sds-editing{padding-bottom:160px!important}@media(max-width:620px){.sds-editor-bar{bottom:8px;padding:12px;gap:8px}.sds-wording-panel{bottom:180px}}'; document.head.append(editorStyle);
-    const publishable = !!draftInfo.copyCatalog && editable.length === Object.keys(draftInfo.copyCatalog).length && editable.every(node => draftInfo.copyCatalog[node.dataset.sdsCopyId] === node.textContent);
+    const publishable = !!draftInfo.copyCatalog && editable.length === Object.keys(draftInfo.copyCatalog).length && new Set(editable.map(node => node.dataset.sdsCopyId)).size === editable.length && editable.every(node => draftInfo.copyCatalog[node.dataset.sdsCopyId] === node.textContent);
     const originals = new Map(editable.map(node => [node.dataset.sdsCopyId, node.textContent]));
     let dirty = false;
     let restored = false;
@@ -230,7 +238,7 @@
       } catch { /* Earlier full-page drafts remain available through Saved draft. */ }
     }
     document.body.classList.add('sds-editing');
-    editable.forEach(node => { node.setAttribute('contenteditable', 'plaintext-only'); node.setAttribute('spellcheck', 'true'); node.tabIndex = 0; });
+    editable.forEach(node => { node.style.removeProperty('display'); node.setAttribute('contenteditable', 'plaintext-only'); node.setAttribute('spellcheck', 'true'); node.tabIndex = 0; });
     message.textContent = restored ? 'Saved draft loaded. Changes stay in your draft until published.' : 'Edit outlined text or open All wording. Save a draft when ready.';
     if (draftInfo.draft && draftInfo.draft.base_sha256 !== draftInfo.baseSha256) message.textContent = 'The page has changed since your saved draft. Edit the current wording; the earlier draft is available below.';
     const changed = () => { dirty = true; message.textContent = 'Unsaved wording changes.'; };
@@ -298,6 +306,8 @@
     });discard.hidden=true;
     publish.disabled=!sessionInfo.publishingConfigured||!publishable;
     publish.title=!sessionInfo.publishingConfigured?'Connect the publishing GitHub App first':!publishable?'Reload the page to refresh the wording map':'Commit and check these wording edits before publication';
+    if (!sessionInfo.publishingConfigured) message.textContent = 'Draft editing is available. Publishing needs the GitHub App settings and private-key secret in Cloudflare.';
+    else if (!publishable) message.textContent = 'Publishing is paused because this page’s wording map differs from the current version. Reload the page before publishing.';
     async function publicationRequest(body){
       const result=await fetch('/api/editor/publish',{method:'POST',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
       const resultData=await result.json();if(!result.ok)throw Error(resultData.error||'Publishing is unavailable.');return resultData;
