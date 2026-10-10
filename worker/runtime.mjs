@@ -116,10 +116,18 @@ function editorHtml(pages, config) {
 
 export function createWorker(data, services = {}) {
   const pageCache = new Map();
-  async function pageHtml(path) {
+  async function pageHtml(path, env) {
     if (!pageCache.has(path)) {
-      const bytes = bytesFrom64(data.pages[path].gzip);
-      const text = await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+      const page = data.pages[path];
+      let text;
+      if (page.storagePath) {
+        const asset = await env.ASSETS.fetch(new Request('https://assets.invalid' + page.storagePath));
+        if (!asset.ok) throw new Error('Packaged page unavailable');
+        text = await asset.text();
+      } else {
+        const bytes = bytesFrom64(page.gzip);
+        text = await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+      }
       if (pageCache.size > 12) pageCache.delete(pageCache.keys().next().value);
       pageCache.set(path, text);
     }
@@ -289,7 +297,7 @@ export function createWorker(data, services = {}) {
         if (request.method === 'GET') {
           if (!data.pages[path]) return json({ error: 'Page not found.' }, 404);
           const draft = await env.DB.prepare('SELECT body_html, base_sha256, updated_at FROM content_drafts WHERE page_path = ? AND author_email = ?').bind(path, auth.email).first();
-          return json({ draft: draft || null, baseSha256: await digest(await pageHtml(path)), copyCatalog: data.editorCopy?.[path] || null });
+          return json({ draft: draft || null, baseSha256: await digest(await pageHtml(path, env)), copyCatalog: data.editorCopy?.[path] || null });
         }
         if (request.method !== 'POST') return json({ error: 'Method not allowed.' }, 405, { allow: 'GET, POST' });
         if (!csrfSafe(request)) return json({ error: 'Please save from this website.' }, 403);
@@ -299,7 +307,7 @@ export function createWorker(data, services = {}) {
           payload.bodyHtml = JSON.stringify({ version: 2, copy: payload.copy });
         }
         if (!data.pages[payload.path] || typeof payload.bodyHtml !== 'string' || encoder.encode(payload.bodyHtml).length > 110000) return json({ error: 'Invalid page draft.' }, 400);
-        const currentHash = await digest(await pageHtml(payload.path));
+        const currentHash = await digest(await pageHtml(payload.path, env));
         if (payload.baseSha256 !== currentHash) return json({ error: 'The published page changed. Reload it before editing.' }, 409);
         await env.DB.prepare('INSERT INTO content_drafts (page_path, author_email, base_sha256, body_html) VALUES (?, ?, ?, ?) ON CONFLICT(page_path, author_email) DO UPDATE SET base_sha256 = excluded.base_sha256, body_html = excluded.body_html, updated_at = CURRENT_TIMESTAMP').bind(payload.path, auth.email, currentHash, payload.bodyHtml).run();
         return json({ ok: true, message: 'Draft saved securely. Use Publish changes when ready for GitHub review.' });
@@ -342,7 +350,7 @@ export function createWorker(data, services = {}) {
     }
     const pageKey = data.pages[url.pathname + url.search] ? url.pathname + url.search : url.pathname;
     if (data.pages[pageKey]) {
-      let text = await pageHtml(pageKey);
+      let text = await pageHtml(pageKey, env);
       if (mode === 'review') {
         text = text.replace(/<script\b([^>]*\bdata-sds-tracking="true"[^>]*)>[\s\S]*?<\/script>/gi, '').replace(/<(?:iframe|img)\b[^>]*\bdata-sds-tracking="true"[^>]*>(?:<\/iframe>)?/gi, '');
         text = text.replace('</head>', '<meta name="robots" content="noindex,follow"></head>');
