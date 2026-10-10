@@ -24,6 +24,8 @@
   "vars": {
     "RELEASE_MODE": "review",
     "AUTH_PROVIDER": "cloudflare-access",
+    "CF_ACCESS_AUD": "42381871f2bf3d75b5dd6b6d977cd6e25f532d72d1b0c28a7582136ea74f828d",
+    "CF_ACCESS_TEAM_DOMAIN": "odd-limit-b3c6.cloudflareaccess.com",
     "EDITOR_PUBLISH_ENABLED": "true",
     "GITHUB_APP_ID": "5257347",
     "GITHUB_APP_INSTALLATION_ID": "169779665",
