@@ -322,7 +322,11 @@
       message.textContent=(labels[value.status]||value.status)+(value.error?' '+value.error:'');
       clearTimeout(publishTimer);
       if(active)publishTimer=setTimeout(pollPublication,15000);
-      if(value.status==='live'){dirty=false;publish.disabled=true;retry.hidden=true;discard.hidden=true}
+      if(value.status==='live'){
+        retry.hidden=true;discard.hidden=true;
+        if(publishId){dirty=false;publish.disabled=true}
+        else message.textContent='Previous changes are live. Edit wording to publish another change.';
+      }
     }
     async function pollPublication(){
       try{const result=await fetch('/api/editor/publish?id='+encodeURIComponent(publication.id),{credentials:'same-origin'});const value=await result.json();if(!result.ok)throw Error(value.error);showPublication(value.publication)}
