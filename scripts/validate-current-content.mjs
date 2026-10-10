@@ -25,6 +25,7 @@ const origin='https://www.sds-solicitors.com';
 const storedAssets=new Map(Object.entries(data.assets).filter(([,asset])=>asset.storagePath).map(([path,asset])=>[asset.storagePath,{path,asset}]));
 const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'review',RATE_LIMIT_SECRET:'local-validation-only',ASSETS:{async fetch(request){const requested=new URL(request.url).pathname,stored=storedAssets.get(requested),path=stored?.path||requested,asset=stored?.asset||data.assets[path];if(!asset)return new Response('Missing',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':'application/octet-stream'}});}}};
 const fetchPage=(module,path)=>module.fetch(new Request(origin+path),env);
+const withoutEditorFields=html=>html.replace(/<sds-copy data-sds-copy-id="copy-\d{4,}" style="display:contents">|<\/sds-copy>/g,'');
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
 const claimEnquiry=await readJson('config/claim-enquiry.json');
 const callbackOriginal=sourceByUrl.get(origin+claimEnquiry.referencePath);
@@ -112,7 +113,18 @@ assert.equal(hash(await readFile(resolve(root,'build/design-before-metadata.mjs'
 for(const page of report.pages){
  const original=sourceByUrl.get(page.sourceUrl),bytes=gunzipSync(await readFile(resolve(root,original.source_file)));assert.equal(hash(bytes),original.sha256);
  const raw=bytes.toString('utf8'),response=await fetchPage(worker,page.path);assert.equal(response.status,200,page.path);assert.equal(response.headers.get('x-robots-tag'),'noindex, nofollow');
- const html=await response.text(),$=load(html,{scriptingEnabled:false}),before=await(await fetchPage(baseline,page.path)).text(),b=load(before,{scriptingEnabled:false});
+ const served=await response.text(),fieldDom=load(served,{scriptingEnabled:false});
+ const fields=fieldDom('sds-copy[data-sds-copy-id]').toArray(),catalog=data.editorCopy[page.path];
+ assert.equal(fields.length,Object.keys(catalog).length,'Stable editor field count differs: '+page.path);
+ const ids=new Set();
+ for(const field of fields){
+   const id=fieldDom(field).attr('data-sds-copy-id');assert.ok(!ids.has(id),'Duplicate editor field: '+page.path+' '+id);ids.add(id);
+   assert.equal(fieldDom(field).text(),catalog[id],'Stable editor wording differs: '+page.path+' '+id);
+   assert.equal(fieldDom(field).attr('style'),'display:contents','Editor wrapper must not change layout: '+page.path+' '+id);
+ }
+ // Validate field boundaries above, then compare the original presentation
+ // without the transparent editor wrappers. All original content checks remain.
+ const html=withoutEditorFields(served),$=load(html,{scriptingEnabled:false}),before=await(await fetchPage(baseline,page.path)).text(),b=load(before,{scriptingEnabled:false});
  assert.equal($('#sds-layout-adjustments').text(),layoutCss,'Layout CSS differs from its Git file: '+page.path);
  for(const n of $('img[src],source[srcset]').toArray())assert.ok(!removedBannerHashes.some(sha=>Object.values(n.attribs).some(value=>value.includes(sha)))&&!Object.values(n.attribs).some(value=>/\/(housing-disrepair-blue|housing-disrepair-estate-banner)\.webp/.test(value)),'Removed wall/switch or estate banner remains: '+page.path);
  layoutAudit.bannerRemovalRoutesVerified++;
@@ -153,7 +165,7 @@ for(const page of report.pages){
  audit.metadataRoutesVerified++;
  if(page.path===reviewsContent.path){
    assert.equal($('main h1').text(),'Reviews');assert.ok(!$('head title').text().includes('::'));reviewsAudit.titleCorrected=true;
-   const home=load(await(await fetchPage(worker,'/')).text());assert.equal($('section.testimonials').html(),home('section.testimonials').html());
+   const home=load(withoutEditorFields(await(await fetchPage(worker,'/')).text()));assert.equal($('section.testimonials').html(),home('section.testimonials').html());
    assert.ok($('#sds-review-controls').text().includes('const showTestimonial='));reviewsAudit.homepageTestimonialsPreserved=true;
    const frame=$('iframe[data-review-widget-url]');assert.equal(frame.length,1);assert.equal(frame.attr('data-review-widget-url'),'https://www.reviewsolicitors.co.uk/widget/full-page/14147/');
    assert.ok($('#sds-review-controls').text().includes("event.origin!=='https://www.reviewsolicitors.co.uk'"));reviewsAudit.officialWidgetConfigured=true;

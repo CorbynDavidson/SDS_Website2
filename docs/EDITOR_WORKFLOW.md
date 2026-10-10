@@ -9,6 +9,18 @@ Cloudflare Access authentication and the first connected live publishing test
 still need verification before this integration is considered fully activated.
 Saving a draft still only saves to D1. It does not publish.
 
+Editable field IDs are now assigned in the server build. Browser features such
+as Safari's automatic telephone links may split text inside a field without
+changing its ID or shifting later fields. The editor validates those stable
+fields against the server catalog before allowing publication. Older drafts
+from a different page version remain available through Saved draft and require
+review rather than silently remapping shifted field IDs.
+
+If Cloudflare Access redirects an editor API request to sign-in, the editor
+shows a Sign in to edit link to the protected page index instead of a generic
+connection error. Missing publishing credentials and wording-map mismatches
+also have visible status messages, including on touch devices.
+
 ## Owner journey
 
 1. Open a page with `?edit=1`, or use `/editor` to select a page. Sign in through
