@@ -26,6 +26,7 @@ const storedAssets=new Map(Object.entries(data.assets).filter(([,asset])=>asset.
 const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'review',RATE_LIMIT_SECRET:'local-validation-only',ASSETS:{async fetch(request){const requested=new URL(request.url).pathname,stored=storedAssets.get(requested),path=stored?.path||requested,asset=stored?.asset||data.assets[path];if(!asset)return new Response('Missing',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':'application/octet-stream'}});}}};
 const fetchPage=(module,path)=>module.fetch(new Request(origin+path),env);
 const withoutEditorFields=html=>html.replace(/<sds-copy data-sds-copy-id="copy-\d{4,}" style="display:contents">|<\/sds-copy>/g,'');
+const escapeCopy=text=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
 const claimEnquiry=await readJson('config/claim-enquiry.json');
 const callbackOriginal=sourceByUrl.get(origin+claimEnquiry.referencePath);
@@ -113,18 +114,26 @@ assert.equal(hash(await readFile(resolve(root,'build/design-before-metadata.mjs'
 for(const page of report.pages){
  const original=sourceByUrl.get(page.sourceUrl),bytes=gunzipSync(await readFile(resolve(root,original.source_file)));assert.equal(hash(bytes),original.sha256);
  const raw=bytes.toString('utf8'),response=await fetchPage(worker,page.path);assert.equal(response.status,200,page.path);assert.equal(response.headers.get('x-robots-tag'),'noindex, nofollow');
- const served=await response.text(),fieldDom=load(served,{scriptingEnabled:false});
+ const served=await response.text(),fieldDom=load(served,{scriptingEnabled:false,sourceCodeLocationInfo:true});
  const fields=fieldDom('sds-copy[data-sds-copy-id]').toArray(),catalog=data.editorCopy[page.path];
  assert.equal(fields.length,Object.keys(catalog).length,'Stable editor field count differs: '+page.path);
  const ids=new Set();
+ const originalCopyEdits=[];
  for(const field of fields){
    const id=fieldDom(field).attr('data-sds-copy-id');assert.ok(!ids.has(id),'Duplicate editor field: '+page.path+' '+id);ids.add(id);
    assert.equal(fieldDom(field).text(),catalog[id],'Stable editor wording differs: '+page.path+' '+id);
    assert.equal(fieldDom(field).attr('style'),'display:contents','Editor wrapper must not change layout: '+page.path+' '+id);
+   const change=data.editorOverrides[page.path]?.copy[id];
+   if(change){
+     assert.equal(fieldDom(field).text(),change.after,'Published override differs: '+page.path+' '+id);
+     originalCopyEdits.push({start:field.sourceCodeLocation.startTag.endOffset,end:field.sourceCodeLocation.endTag.startOffset,text:escapeCopy(change.before)});
+   }
  }
- // Validate field boundaries above, then compare the original presentation
- // without the transparent editor wrappers. All original content checks remain.
- const html=withoutEditorFields(served),$=load(html,{scriptingEnabled:false}),before=await(await fetchPage(baseline,page.path)).text(),b=load(before,{scriptingEnabled:false});
+ // Check the published wording above, then restore only approved text changes
+ // for the independent original-content and presentation comparisons below.
+ let originalPresentation=served;
+ for(const edit of originalCopyEdits.sort((a,b)=>b.start-a.start))originalPresentation=originalPresentation.slice(0,edit.start)+edit.text+originalPresentation.slice(edit.end);
+ const html=withoutEditorFields(originalPresentation),$=load(html,{scriptingEnabled:false}),before=await(await fetchPage(baseline,page.path)).text(),b=load(before,{scriptingEnabled:false});
  assert.equal($('#sds-layout-adjustments').text(),layoutCss,'Layout CSS differs from its Git file: '+page.path);
  for(const n of $('img[src],source[srcset]').toArray())assert.ok(!removedBannerHashes.some(sha=>Object.values(n.attribs).some(value=>value.includes(sha)))&&!Object.values(n.attribs).some(value=>/\/(housing-disrepair-blue|housing-disrepair-estate-banner)\.webp/.test(value)),'Removed wall/switch or estate banner remains: '+page.path);
  layoutAudit.bannerRemovalRoutesVerified++;
@@ -225,7 +234,8 @@ for(const page of report.pages){
  assert.deepEqual(styles(html).map(value=>displayFragment(value,page.path)),styles(before).map(value=>displayFragment(value,page.path)),'Approved fonts/CSS changed: '+page.path);audit.approvedStyleRoutesVerified++;
  for(const selector of ['body > nav','body > footer','.topbar'])assert.equal(displayFragment($(selector).html(),page.path),displayFragment(b(selector).html(),page.path),'Approved shared design changed: '+selector+' '+page.path);
  audit.approvedHeaderFooterRoutesVerified++;
- assert.equal(html.match(/<main\b[\s\S]*?<\/main>/i)[0]+'\n',await readFile(resolve(root,page.contentFile),'utf8'),'Corresponding Git content differs: '+page.path);
+ const main=html.match(/<main\b[\s\S]*?<\/main>/i)[0]+'\n',gitContent=await readFile(resolve(root,page.contentFile),'utf8');
+ assert.equal(originalCopyEdits.length?displayFragment(main,page.path):main,originalCopyEdits.length?displayFragment(gitContent,page.path):gitContent,'Corresponding Git content differs: '+page.path);
  assert.ok(!html.includes('href="/sds-theme.css"'),'Old CMS stylesheet must not be loaded.');assert.ok(!html.includes('hcc-page-copy-v3:'),'Browser-local editor must be removed.');
  for(const n of $('main [data-source-copy] img[src]').toArray())if(n.attribs.src.startsWith('/'))media.add(n.attribs.src);
  for(const n of $('main [data-source-copy] a[href]').toArray())if(n.attribs.href.startsWith(origin))links.add(n.attribs.href);
