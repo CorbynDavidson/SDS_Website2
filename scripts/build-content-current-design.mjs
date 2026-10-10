@@ -209,7 +209,9 @@ for(const name of overrideNames)assert.ok(expectedFiles.has(name),'Override refe
 for(const [path,page] of Object.entries(pages)){
   const name=overrideFile(path).split('/').pop();
   const record=overrideNames.includes(name)?await readJson(overrideFile(path)):null;
-  const original=gunzipSync(Buffer.from(page.gzip,'base64')).toString('utf8');
+  // Apply the shared logo caption before generating editable copy for each page.
+  const original=gunzipSync(Buffer.from(page.gzip,'base64')).toString('utf8')
+    .replace(/(<span\b[^>]*\bclass="[^"]*\bbrand-caption\b[^"]*"[^>]*>)[^<]*(<\/span>)/g,'$1Housing Disrepair Claim Specialists$2');
   const result=applyContentOverrides(original,path,record);
   editorCopy[path]=result.catalog;
   if(record)editorOverrides[path]=record;

@@ -134,6 +134,9 @@ for(const page of report.pages){
  let originalPresentation=served;
  for(const edit of originalCopyEdits.sort((a,b)=>b.start-a.start))originalPresentation=originalPresentation.slice(0,edit.start)+edit.text+originalPresentation.slice(edit.end);
  const html=withoutEditorFields(originalPresentation),$=load(html,{scriptingEnabled:false}),before=await(await fetchPage(baseline,page.path)).text(),b=load(before,{scriptingEnabled:false});
+ // The shared logo caption is an approved copy change across every route.
+ for(const caption of $('.brand-caption').toArray())assert.equal($(caption).text(),'Housing Disrepair Claim Specialists','Logo caption differs: '+page.path);
+ b('.brand-caption').text('Housing Disrepair Claim Specialists');
  assert.equal($('#sds-layout-adjustments').text(),layoutCss,'Layout CSS differs from its Git file: '+page.path);
  for(const n of $('img[src],source[srcset]').toArray())assert.ok(!removedBannerHashes.some(sha=>Object.values(n.attribs).some(value=>value.includes(sha)))&&!Object.values(n.attribs).some(value=>/\/(housing-disrepair-blue|housing-disrepair-estate-banner)\.webp/.test(value)),'Removed wall/switch or estate banner remains: '+page.path);
  layoutAudit.bannerRemovalRoutesVerified++;
