@@ -23,7 +23,9 @@
   ],
   "vars": {
     "RELEASE_MODE": "review",
-    "EDITOR_PUBLISH_ENABLED": "false",
+    "EDITOR_PUBLISH_ENABLED": "true",
+    "GITHUB_APP_ID": "5257347",
+    "GITHUB_APP_INSTALLATION_ID": "169779665",
     "CHAT_AI_ENABLED": "false",
     "CHAT_AI_DAILY_LIMIT": "20",
     "CHAT_AI_MONTHLY_LIMIT": "300"
@@ -31,6 +33,7 @@
   "previews": {
     "vars": {
       "RELEASE_MODE": "review",
+      "EDITOR_PUBLISH_ENABLED": "false",
       "CHAT_AI_ENABLED": "false"
     }
   },

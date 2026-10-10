@@ -2,9 +2,11 @@
 
 ## Status — 10 October 2026
 
-The owner editor now has a Git-backed publishing implementation. It is shipped
-with `EDITOR_PUBLISH_ENABLED=false` until the repository-specific GitHub App and
-Cloudflare Access are configured and the first live publishing test passes.
+The owner editor now has a Git-backed publishing implementation. Production publishing is now enabled in `wrangler.jsonc`, with GitHub App ID
+`5257347` and installation ID `169779665`. The private key is configured separately
+as a Cloudflare production secret; preview publishing remains disabled.
+Cloudflare Access authentication and the first connected live publishing test
+still need verification before this integration is considered fully activated.
 Saving a draft still only saves to D1. It does not publish.
 
 ## Owner journey
