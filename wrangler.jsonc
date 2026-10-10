@@ -23,6 +23,7 @@
   ],
   "vars": {
     "RELEASE_MODE": "review",
+    "AUTH_PROVIDER": "cloudflare-access",
     "EDITOR_PUBLISH_ENABLED": "true",
     "GITHUB_APP_ID": "5257347",
     "GITHUB_APP_INSTALLATION_ID": "169779665",
