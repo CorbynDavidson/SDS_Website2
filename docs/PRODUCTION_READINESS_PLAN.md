@@ -1,6 +1,14 @@
 # SDS production readiness plan
 
-Updated: 7 October 2026. Production destination: `https://www.sds-solicitors.com`. Review site: `https://housingconditionclaims.org`.
+Updated: 11 October 2026. Production destination: `https://www.sds-solicitors.com`. Review site: `https://housingconditionclaims.org`.
+
+## Current review baseline — 11 October 2026
+
+The current implementation baseline is GitHub commit `1994f6d0fdb08707c6921db8a824e6ade26cce42`, deployed through the GitHub/Cloudflare workflow. The owner reports the review domain now uses Cloudflare. Verify the actual live deployment commit/ID; this documentation update does not independently certify the hosted release. Worker review URL: https://sds-website2.corbyn-davidson.workers.dev/.
+
+Use [AGENCY_REVIEW.md](AGENCY_REVIEW.md) for current review references, evidence and migration protections. Local build/validation, 56 JavaScript tests, two Python tests and the Cloudflare deployment dry run passed at that baseline. All 325 generated pages have the approved shared logo caption. These results do not replace live operational sign-offs.
+
+All seven recorded release gates remain false. Reconcile recent completed Cloudflare work with named sign-offs and evidence before changing them. Older Sites versions and dated observations below are historical evidence. Routine optimisation must preserve the agreed URL structure, mappings, redirects, canonicals, sitemap and indexing controls; exceptions need separate owner approval.
 
 ## Agreed scope
 

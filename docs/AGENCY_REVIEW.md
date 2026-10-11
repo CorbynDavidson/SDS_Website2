@@ -1,136 +1,109 @@
 # SDS website: agency SEO and development review brief
 
-Prepared 6 October 2026. **Purpose: assess the redesign, recommend the remaining work and define a safe launch plan. This is a review request, not approval to launch.**
+Updated 11 October 2026. **Purpose: review the current GitHub/Cloudflare implementation, identify launch blockers and agree a safe SDS migration. This is not approval to launch.**
 
-## 1. Business objective
+## 1. Objective and review baseline
 
-Replace the existing SDS website with the redesigned site while protecting existing organic visibility, valuable landing pages and enquiry generation. Improve the clarity, usability and conversion of the housing-disrepair journey, with particular emphasis on qualified council and housing-association tenant enquiries.
+Replace the existing SDS website while preserving its agreed URLs, organic visibility and enquiry journeys. Assess the housing-disrepair design, conversion journey, maintainability and operational readiness. Establish traffic and conversion baselines from SDS accounts; no ranking or enquiry improvement is assumed.
 
-The review should establish whether the design, technical implementation and migration approach support those objectives, and identify the work needed before launch. The agency should establish current traffic and conversion baselines from the relevant accounts before proposing numerical targets. No ranking or enquiry-volume improvement is assumed.
-
-## 2. Fixed review baseline and links
-
-| Item | Review reference |
+| Item | Current reference |
 |---|---|
-| Live review website | https://housingconditionclaims.org/ — **published version 76** |
-| Code baseline | [GitHub revision 7c9febf49162544cd0c2f8be66ade5c870cb1dde](https://github.com/CorbynDavidson/SDS_Website2/tree/7c9febf49162544cd0c2f8be66ade5c870cb1dde) |
-| Deployed source reference | Sites commit `0680198d43eab8bade6a6a6af67021ae697ebcfa` |
-| Intended production domain | **https://www.sds-solicitors.com/** |
-| Existing production website | https://www.sds-solicitors.com/ |
-| Owner editor entry | https://housingconditionclaims.org/?edit=1 |
-| URL inventory | Supplied `SDS_URL_Migration_Map.xlsx`; see the version qualification in the appendix |
-| Production sitemap | [Repository sitemap at the code baseline](https://github.com/CorbynDavidson/SDS_Website2/blob/7c9febf49162544cd0c2f8be66ade5c870cb1dde/sitemap.xml) |
+| Review website | https://housingconditionclaims.org/ |
+| Cloudflare Worker review URL | https://sds-website2.corbyn-davidson.workers.dev/ |
+| Repository | https://github.com/CorbynDavidson/SDS_Website2 |
+| Pinned implementation baseline | [1994f6d0fdb08707c6921db8a824e6ade26cce42](https://github.com/CorbynDavidson/SDS_Website2/tree/1994f6d0fdb08707c6921db8a824e6ade26cce42) |
+| Intended production origin | https://www.sds-solicitors.com/ |
+| Owner editor | https://housingconditionclaims.org/?edit=1 |
+| Owner submissions | https://housingconditionclaims.org/submissions |
+| URL inventory | Supplied SDS URL migration workbook, including its 410 plan; reconcile its dated observations with current code and private account evidence |
+| Deployment configuration | [wrangler.jsonc](../wrangler.jsonc) |
+| Launch sign-offs | [release-gates.json](../config/release-gates.json) and [launch checklist](LAUNCH_CHECKLIST.md) |
 
-Please report findings against version 76 and the pinned code revision, rather than a moving `main` branch. This sync includes the production-only 410 plan and its validation. Agree and record a new baseline if implementation changes during the review.
+GitHub is now the source for the Cloudflare deployment. The owner reports that the review domain runs on Cloudflare. This supersedes the old Sites version-76 deployment reference as the current review target. The implementation baseline above is pinned; record the actual Cloudflare deployment ID, source commit, environment and review date before reviewing the live site. Deployment of that exact commit has not been independently verified in this documentation update.
 
-Housing Condition Claims is the **review hostname for the SDS replacement**, not the intended final primary domain. Canonicals, sharing URLs, schema and the launch sitemap deliberately identify SDS. If the business instead wants a separate Housing Condition Claims production website, resolve that strategy before recommending a migration or domain cutover.
+Cloudflare build/settings URLs for authorised account users:
 
-The review site remains noindex. The existing SDS website, hosting and DNS have not been switched.
+- https://dash.cloudflare.com/6d4e6588768588102930fc80929d51d2/workers/services/view/sds-website2/production/builds
+- https://dash.cloudflare.com/6d4e6588768588102930fc80929d51d2/workers/services/view/sds-website2/production/settings
 
-## 3. Deliverables requested from the agency
+The Cloudflare environment labelled **production** is the main Worker deployment, not evidence of SDS business launch or enabled search indexing. Committed configuration remains `RELEASE_MODE=review`; preview publishing and AI chatbot answers are disabled. The intended public production origin remains SDS. Confirm effective dashboard bindings, variables, secrets, Access policies and domain configuration rather than relying only on committed configuration.
 
-| Deliverable | Required outcome |
-|---|---|
-| Prioritised SEO and development findings | A consolidated issue register stating affected URLs/templates, evidence, impact, recommended correction, priority, responsible party, estimated effort and whether each issue blocks launch. |
-| SEO migration assessment | Reconcile the URL map against Search Console, analytics, backlinks, ad destinations and legacy redirects/logs. Identify missing or valuable URLs; assess redirects, canonicals, indexation, sitemap, internal linking, content and structured data. |
-| Hosting and CMS recommendation | Recommend a maintainable setup and explain the options against content editing, approval workflow, security, lead handling, performance, costs, ownership and support. Identify the implications for the current Worker/D1/R2 implementation. Do not assume a platform change is necessary. |
-| Development and conversion assessment | Review representative templates, mobile behaviour, accessibility, performance, editor workflow and all distinct enquiry journeys. Distinguish database storage from successful notification/CRM delivery and follow-up. |
-| Measurement plan | Confirm consent requirements, analytics, conversion events and WhatConverts integration. Establish pre-launch baselines and identify gaps that prevent reliable reporting. |
-| Implementation proposal | Provide recommended scope, dependencies, owners, estimated effort/cost and proposed timetable. Separate essential launch work from optional enhancements. |
-| Launch sign-off requirements | Define objective acceptance criteria, who signs off each area, DNS/indexing cutover steps, rollback triggers and post-launch monitoring. Confirm whether launch is recommended and list unresolved blockers. |
+## 2. Migration protections — owner requirement
 
-Findings should be actionable and evidence-based. A working link or a passing code test alone is not sufficient evidence of end-to-end lead delivery or production readiness.
+Improve the website within the agreed migration structure. No URL-structure redesign is authorised as part of this review or routine optimisation.
 
-## 4. Review priorities and acceptance
+Preserve:
 
-Use these priorities, adjusting individual issues with evidence:
+- Existing page paths, slugs, slash/alias behaviour and the agreed old-to-new URL mapping.
+- Redirect rules, canonical URLs, sitemap membership, production-origin configuration and structured-data URL references.
+- Review noindex/nofollow controls and the planned production indexing transition.
+- The provisional 23 production-only 410 decisions until individually reviewed and separately approved.
 
-- **P0 — launch blocker:** broken enquiry delivery, privacy/security defects, incorrect production indexation, material URL/routing loss, failed HTTPS/domain setup, or absence of a workable backup/rollback plan.
-- **P1 — resolve before launch unless explicitly accepted:** material mobile/accessibility problems, significant content or tracking defects, unresolved high-value historical URLs and performance issues affecting core journeys.
-- **P2 — follow-up improvement:** lower-impact presentation, editorial, usability or optimisation opportunities that do not compromise the agreed launch criteria.
+Report any proposed exception with affected URLs, Search Console/backlink evidence, expected impact, mapping changes and rollback implications. Obtain separate owner approval before implementing it. The 23 proposed retirements still need SEO sign-off; preserving the current plan does not constitute approving it.
 
-Before launch, require evidence that intended public pages and redirects work on the final origin; forms reach the agreed destination and responsible staff; tracking respects the approved consent setup; representative devices and accessibility checks pass; and recovery arrangements have been tested.
+Copy, headings, titles and descriptions can be proposed on existing pages, with SDS content approval and coordinated checks for related metadata/schema. Do not switch DNS, enable indexing, rebuild the platform, change migration settings or grant editor access during assessment. Recommend enforcement of protected migration files in future automated workflows; that future policy is not claimed to be implemented by this brief.
 
-Reviewing can begin while these checks are outstanding. Production release gates must not be marked complete merely because local code checks pass.
+## 3. Current implementation and evidence
 
-## 5. Access and information required
+At the pinned implementation baseline:
 
-| Access / input | Purpose | Suggested provider |
-|---|---|---|
-| Search Console for SDS and, where available, the review domain | Performance, indexed URLs, live inspection and migration monitoring | SDS / existing SEO provider |
-| Analytics and historical landing-page/conversion exports | Traffic and conversion baselines; valuable or missing routes | SDS / marketing team |
-| Backlink exports, old redirect configuration and relevant historical request logs | Complete the legacy URL inventory beyond public sitemaps | Existing SEO / developer / host |
-| GTM, consent configuration, WhatConverts and advertising landing-page inventory | Consent, conversion and call tracking; campaign continuity | Marketing team |
-| Existing CMS/Reform rules and original form configurations | Eligibility, branching, uploads, confirmations and routing | Original CMS administrator |
-| Approved notification/CRM destination and follow-up process | Synthetic end-to-end delivery testing and operational ownership | SDS operations |
-| DNS, current hosting and proposed hosting information | Feasibility, TLS, cutover and rollback planning | Domain owner / developer |
-| Current firm-approved content, service scope and credentials | Content and regulatory-detail approval | SDS |
+- The GitHub source builds a Cloudflare Worker and packaged assets. `wrangler.jsonc` binds the review D1 database and uses Cloudflare Access authentication; main editor publishing is configured as enabled.
+- The editor implements private draft storage, page wording overrides, GitHub branches/PRs and checks before merging. **Save draft does not publish.** See [editor workflow](EDITOR_WORKFLOW.md). Verify the live sign-in, draft, publish, failure/retry and post-deployment journeys.
+- All 325 generated public pages were checked for the approved caption **Housing Disrepair Claim Specialists**, including 408 header/footer captions. The homepage's earlier wording override was removed in favour of the shared caption.
+- Local `npm run check` passed: build, content/migration/SEO/review validation, 56 JavaScript tests and two Python tests. `npm run deploy:check` passed the Cloudflare deployment dry run.
+- These checks support developer review. They do not establish live enquiry delivery, staff follow-up, real-device accessibility, live performance, production security, backup restoration or SDS-domain cutover readiness. GitHub/Cloudflare remote check results should be recorded separately.
 
-Use read-only or least-privilege access for assessment where sufficient. Confirm the named reviewers and required roles before granting additional access. Share account access and any confidential exports through an agreed secure channel; do not place credentials, lead data or private account exports in the public repository.
-
-The editor is currently owner-only. Sharing its URL does not grant agency editing permission. Saving a draft does not publish it. Agree the ongoing editing, approval and publication workflow as part of the CMS recommendation.
-
-## 6. Responsibilities and review boundaries
-
-The agency should own the SEO/development assessment, recommendations and proposed implementation plan. SDS should supply account access, approve firm/service content and confirm lead-follow-up ownership. The original CMS administrator should supply private form rules. The developer/domain owner should verify hosting, backups, TLS, cutover and rollback arrangements.
-
-The migration inventory has **23 provisional production-only 410 routes pending SEO sign-off**, and account-level reconciliation remains outstanding. Lead routing, measurement, real-device/accessibility/performance sign-off, backup/restore and production-domain readiness also remain pending. Assign named owners and deadlines in the returned issue register.
-
-Please do not switch DNS, enable production indexing, alter the current SDS site, grant additional editor access or send real test enquiries as part of the assessment. Agree any synthetic submission destinations and implementation work separately. Keep the review site on the fixed baseline while findings are gathered.
-
-## Appendix: implementation and evidence
-
-### Review controls and completed checks
-
-Review settings remain `RELEASE_MODE=review`, `INDEXING_DISABLED=true`. Public responses carry `X-Robots-Tag: noindex, nofollow` and explicit `robots`/`googlebot` HTML meta tags containing `noindex, nofollow`. Review HTML and robots.txt have no-store cache directives, and public crawling is permitted so crawlers can read noindex. Private/admin/editor routes remain protected and disallowed. This control does not establish that previously indexed URLs have disappeared; verify that in Search Console. See [pause and restoration](TEMPORARY_INDEXING_PAUSE.md).
-
-Version 70 repairs the obsolete `/faqs` homepage redirect, provides the approved trust bar on all 325 public templates, keeps review-page links on the current review origin, improves editor sign-in/error feedback and applies two recorded homepage proofreading corrections. Immutable source captures are retained.
-
-Checks cover all 325 compiled public templates, approved copy exceptions, source hashes, SEO, routing, sitemap, assets and backend security/persistence. Local checks cover all 325 templates; 31 JavaScript and two Python SEO tests passed for version 76. GitHub Actions must also validate this new baseline; the earlier baseline's result is historical. These are not a fresh live crawl, physical-device test or accessibility certification. Earlier version-specific hosted/browser evidence remains historical.
-
-### Versions 71–75: validation and indexing updates
-
-Forms now share browser/server phone validation with `libphonenumber-js/max` (UK default; international country codes accepted), offer optional corrections for common email-domain typos, and normalise UK postcodes. Email-domain mail routing is checked through Cloudflare DNS; postcodes are looked up through Postcodes.io. Definitive invalid results prompt correction; provider timeouts or uncertain results permit submission. Only the domain or postcode is shared with its respective service.
-
-The same-origin `POST /api/contact-check` endpoint has origin/CSRF protection and a separate rate limit; it creates no leads. Email and postcode checks run on leaving the field and before submission. Phone checks run locally and on the server. These checks do not prove mailbox existence, an active phone line, reachability or ownership. No paid verification provider or email/SMS ownership challenge is connected.
-
-Automated tests cover browser handlers, server enforcement, provider outcomes and failure handling. Provider responses were mocked; successful live outbound DNS/Postcodes.io lookups have not yet been verified. The agency should verify these on the deployed site using approved synthetic details.
-
-Version 75 applies `noindex, nofollow` in the HTTP header and explicit HTML robots/Googlebot tags across all 325 public templates. Public crawling remains allowed so Google can read noindex. Existing search results may persist until recrawl; the Search Console property owner should request temporary prefix removal if prompt suppression is needed. An entire-site temporary removal request was submitted in Search Console on 6 October 2026; check its current status in that account.
-
-### Version 76: provisional 410 routes at SDS cutover
-
-The 23 exact paths listed in the workbook’s **Needs Review** sheet are in [production-retirements.json](../config/production-retirements.json). They return `410 Gone` without a redirect only on the SDS hostname with `RELEASE_MODE=production`. The current Housing Condition Claims review host and SDS review mode retain their existing 404 responses; this deployment did not switch the existing SDS site or DNS.
-
-The compiled Worker audit verified GET and HEAD on both SDS host variants, all 23 unchanged review responses, sitemap exclusion, and the 325 existing public templates. The workbook’s original HTTP and new HTTP columns remain historical version-66 observations; the added **410 Cutover Plan** sheet identifies the future rule separately.
-
-Before cutover, agency SEO should review Search Console traffic, backlinks and historic redirect destinations for each URL. Where a valuable relevant replacement exists, choose a 301 instead and update the exact-path configuration and workbook. These are provisional decisions, not evidence that the original SDS site has started returning 410.
-
-### URL inventory and rebuilding
-
-The supplied workbook was compiled for version 66 / GitHub commit `8db9f29d91e928781e5613a6d71472e43d1aeb44`. It remains the inventory, not the version-75 release identifier: 324 captured source URLs, 248 current sitemap URLs and 243 launch sitemap URLs. The repaired non-slash `/faqs` alias is a later routing change.
-
-The public repository preserves existing raw capture and generated client-story snapshots rather than re-uploading sensitive third-party material. Cached `src/content/current-design/` pages/index and generated copy/routing reports may predate the code baseline. With Node 24, run:
+Reproduce from the pinned revision with Node 24:
 
 ```sh
 npm ci --ignore-scripts
 npm run check
+npm run deploy:check
 ```
 
-This regenerates the reviewed pages and reports, including `docs/migration/production-routing.json`. Compare the resulting build with published version 76. The production sitemap intentionally contains SDS URLs and is also available at `public/sitemap.xml` and the review host's `/sitemap.xml`.
+Build outputs and generated reports can predate the current source until regenerated. Original captures and older version-specific browser evidence are historical references, not current hosted sign-off.
 
-### Further reference
+## 4. Required findings and launch evidence
+
+Return one issue register with: affected URLs/templates, evidence, impact, proposed fix, priority, owner, estimated effort, acceptance test and whether it blocks launch.
+
+| Review area | Required evidence | Recorded release gate |
+|---|---|---|
+| Original questionnaire rules | Approved eligibility branches, validation, completion and failure behaviour checked against original rules | `originalWizardRulesVerified` |
+| Enquiry delivery and follow-up | Every distinct journey traced from a controlled submission through storage, notification/CRM receipt and responsible staff follow-up; retries do not duplicate leads | `leadFollowUpRoutingVerified` |
+| Analytics and consent | Consent behaviour, analytics/GTM events, enquiry conversions, call tracking/WhatConverts and pre-launch baselines | `analyticsAndConsentVerified` |
+| SEO migration | Reconciliation of SDS Search Console, analytics, backlinks, ad destinations and historic redirects/logs against the URL inventory, including all 23 provisional 410s | `searchConsoleInventoryReviewed` |
+| Security, backup and restore | Authorised editor/submission access; unauthorised access blocked; private evidence access/bindings where enabled; documented recoverable D1/asset backups and tested restoration | `productionBackupAndRestoreVerified` plus security findings |
+| Mobile, accessibility and performance | Representative iPhone/iPad/desktop journeys; forms, errors, keyboard focus, menus, trust bar, chat and carousels; measured load performance | `mobileAndAccessibilityReviewSignedOff` |
+| Final domain and recovery | Effective DNS/TLS, host redirects, preserved email DNS, exact cutover steps, previous release/hosting recovery and tested rollback | `productionDomainAndRollbackConfirmed` |
+
+All seven gate values are still `false` in the repository. Treat these as **unrecorded sign-offs**, not proof that recent Cloudflare work is absent. Reconcile completed work with evidence and named approvals; do not mark gates complete solely because automated checks pass.
+
+**Priorities:** P0 blocks launch (for example failed enquiry delivery, unauthorised private access, material routing loss or incorrect indexing). P1 is resolved before launch unless explicitly accepted (material mobile/accessibility, tracking, content or performance defects). P2 is a follow-up improvement.
+
+Confirm whether launch is recommended, list unresolved blockers and provide a staged implementation proposal. Explain any CMS/platform recommendation against the current setup, editing needs, ownership, security, lead handling, support and cost. Do not assume a WordPress rebuild is necessary.
+
+## 5. Access and operational boundaries
+
+SDS/agency account owners should provide Search Console for the original SDS property, analytics, backlinks and historic routing data; GTM/consent/call tracking access; original form rules; approved notification/CRM destinations; and DNS/hosting baselines. The review domain's Search Console data cannot establish historical SDS traffic or backlink value.
+
+Use read-only/least-privilege access for assessment. Share confidential exports and credentials through an agreed secure channel, never the public repository. Editor/submissions links do not grant permissions. Agree synthetic test details and destinations before submitting; do not send real customer enquiries for testing.
+
+SDS approves legal/service content and confirms operational ownership. The agency supplies evidence-backed SEO/development findings. The developer/domain owner verifies deployment, recovery and cutover. Record an owner and deadline for each blocker.
+
+## 6. Cutover and future automation
+
+After evidence-backed sign-off, follow [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) and [PRODUCTION_READINESS_PLAN.md](PRODUCTION_READINESS_PLAN.md). Preserve the review host's noindex controls; verify final SDS HTTPS, routing, robots/indexability, canonicals, sitemap, tracking and enquiry delivery at cutover. Monitor against pre-launch baselines and retain a named rollback owner.
+
+The proposed n8n/Jira agent workflow is future work, not a launch prerequisite or an existing integration. Intended decisions are **Disapprove**, **Approve and backlog**, or **Approve and action**. Implementation approval applies only to the ticket's scope, with migration protections, GitHub checks and human legal/content review. Assess current publication controls independently of that proposal.
+
+## Further reference
 
 - [Developer handover](HANDOVER.md)
-- [Editor and publication workflow](EDITOR_WORKFLOW.md)
+- [Editor/publication workflow](EDITOR_WORKFLOW.md)
+- [Production readiness plan](PRODUCTION_READINESS_PLAN.md)
 - [Production SEO implementation](PRODUCTION_SEO.md)
-- [SEO launch evidence and remaining checks](SEO_LAUNCH_ACTIONS.md)
-- [Launch checklist](LAUNCH_CHECKLIST.md)
-- [All-template review validation](migration/review-readiness-validation.json)
+- [SEO launch actions](SEO_LAUNCH_ACTIONS.md)
+- [Content parity evidence](CONTENT_PARITY_UPDATE.md)
 
-All seven `config/release-gates.json` entries remain false pending operational evidence. Known inherited malformed complaints links and unavailable legacy assets are recorded in the handover for assessment.
-
-## Content parity and calculator presentation update
-
-The owner authorised a further content-preservation update on 6 October 2026. Review the published content-parity release alongside the earlier version-76 baseline. `CONTENT_PARITY_UPDATE.md` and `migration/content-url-map-validation.json` document the exact workbook mapping, retained wording, restored sidebar specialist cards and calculator-slide presentation. Existing DNS, review noindex/nofollow and the provisional production-only 410 decisions are unchanged. Earlier browser screenshots remain historical; this update has automated structure/content checks and no new physical-device sign-off.
-
+For the superseded version-76 brief and historical evidence, use this file's Git history. This documentation update changes no website content, URLs, routing, indexing settings, release gates, secrets or DNS.
