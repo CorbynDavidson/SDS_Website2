@@ -1,3 +1,4 @@
+import {loadCaseStudyChanges,updateCaseStudyListing,caseStudyInventory} from './lib/editor-case-studies.mjs';
 import {buildEditorPages,addNewPageNavigation,renderedPageHeaders} from './lib/editor-pages.mjs';
 import { contactBundle, embedContactValidation } from './lib/contact-validation-bundle.mjs';
 import {execFileSync} from 'node:child_process';
@@ -25,6 +26,7 @@ import {addHousingTeam} from './lib/housing-team.mjs';
 import {addCompensationGuide} from './lib/compensation-guide.mjs';
 
 const root=resolve(import.meta.dirname,'..');
+const caseChanges=await loadCaseStudyChanges(root);
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
 execFileSync(process.execPath,[resolve(root,'scripts/build-current-design.mjs')],{cwd:root,stdio:'inherit'});
 const target=resolve(root,'dist/server/index.js');
@@ -98,7 +100,7 @@ for(const asset of manifest.assets.filter(a=>a.status===200&&a.file)) {
   assets[sourcePath]={sha256:asset.sha256,bytes:bytes.length,type,storagePath};
   mediaSources[path].storagePath=storagePath;
 }
-for(const path of ['/sds-theme.css','/sds-runtime.js','/claim-assistant.js','/editor-pages.js','/assets/sheldon-davidson-solicitors-logo.png',reviewsContent.recognition.imagePath]){
+for(const path of ['/sds-theme.css','/sds-runtime.js','/claim-assistant.js','/editor-pages.js','/editor-case-studies.js','/assets/sheldon-davidson-solicitors-logo.png',reviewsContent.recognition.imagePath]){
   const bytes=path==='/sds-runtime.js' ? Buffer.from(contactBundle+'\n'+await readFile(resolve(root,'public'+path),'utf8')) : await readFile(resolve(root,'public'+path));
   assets[path]={sha256:sha256(bytes),bytes:bytes.length,type:typeByExtension[extname(path)],base64:bytes.toString('base64')};
 }
@@ -153,6 +155,7 @@ for(const page of index.pages) {
   html=addSharedTrustBar(html,reviewsHomeHtml);
   html=applyProductionSeo(html,{config,path:page.path,redirects});
   html=addEditableCopy(html,runtime,'/contact-validation.js?v='+sha256(contactBundle).slice(0,16));
+  html=updateCaseStudyListing(html,page.path,caseChanges.added,caseChanges.archives,config.productionOrigin);
   const digest=sha256(page.sourceUrl).slice(0,24);
   const contentFile='src/content/current-design/pages/'+digest+'.html';
   const content=html.match(/<main\b[\s\S]*?<\/main>/i)[0];
@@ -227,6 +230,7 @@ for(const [path,page] of Object.entries(pages)){
   pages[path]={...page,gzip:gzipSync(Buffer.from(result.html),{level:9}).toString('base64'),sha256:sha256(result.html)};
 }
 added.pageHeaders=renderedPageHeaders(gunzipSync(Buffer.from(pages['/housing-disrepair-claims/social-housing/'].gzip,'base64')).toString());
+const caseInventory=caseStudyInventory(pages,added.records,caseChanges.archives);
 const sitemap=productionSitemap(sitemapUrls,config.productionOrigin);
 await writeFile(resolve(root,'docs/migration/current-design-sitemap.xml'),sitemap);
 await writeFile(resolve(root,'public/sitemap.xml'),sitemap);
@@ -234,9 +238,9 @@ await writeFile(resolve(root,'sitemap.xml'),sitemap);
 await writeFile(resolve(root,'public/robots.txt'),createProductionRouting(config,routeData).robots(new URL(config.productionOrigin),{RELEASE_MODE:'production'}));
 const routingRuntime=(await readFile(resolve(root,'worker/production-routing.mjs'),'utf8')).replace('export function createProductionRouting','function createProductionRouting');
 const editorSourceCommit=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
-const data={config,pages,forms,assets,pageHeaders:added.pageHeaders,newPageTemplate:added.template,addedPages:added.records,editorCopy,editorEmptyAllowed,editorOverrides,editorSourceCommit,routes:routeData,sourceCapturedAt:manifest.completed_at,sitemap,robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
+const data={config,pages,forms,assets,pageHeaders:added.pageHeaders,newPageTemplate:added.template,addedPages:added.records,caseStudyInventory:caseInventory,caseStudyArchives:caseChanges.archives,editorCopy,editorEmptyAllowed,editorOverrides,editorSourceCommit,routes:routeData,sourceCapturedAt:manifest.completed_at,sitemap,robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
 const fallbackLayoutHead='<style id="sds-layout-adjustments">'+layoutCss+'</style>';
-const backendRuntime=embedContactValidation((await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace("import { checkPostcode } from './postcode-lookup.mjs';", (await readFile(resolve(root,'worker/postcode-lookup.mjs'),'utf8')).replace('export async function','async function')).replace("import { checkEmailDomain } from './email-domain.mjs';", (await readFile(resolve(root,'worker/email-domain.mjs'),'utf8')).replace('export async function','async function'))).replace("import { handleEditorPublish, handleEditorPages, listEditorPages, syncEditorPublishes, editorPublishConfigured } from './editor-publish.mjs';",(await readFile(resolve(root,'worker/editor-publish.mjs'),'utf8')).replace("import {validateNewPage,renderNewPage} from './editor-pages.mjs';",'').replaceAll('export ','')).replace("import {newPageEditorHtml} from './editor-pages.mjs';",(await readFile(resolve(root,'worker/editor-pages.mjs'),'utf8')).replaceAll('export ','')).replace('export function createWorker','function createWorker');
+const backendRuntime=embedContactValidation((await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace("import { checkPostcode } from './postcode-lookup.mjs';", (await readFile(resolve(root,'worker/postcode-lookup.mjs'),'utf8')).replace('export async function','async function')).replace("import { checkEmailDomain } from './email-domain.mjs';", (await readFile(resolve(root,'worker/email-domain.mjs'),'utf8')).replace('export async function','async function'))).replace("import { handleEditorPublish, handleEditorPages, handleCaseStudies, listEditorPages, syncEditorPublishes, editorPublishConfigured } from './editor-publish.mjs';",(await readFile(resolve(root,'worker/editor-publish.mjs'),'utf8')).replace("import {validateNewPage,renderNewPage,addedPageFilename,renderCaseStudyCard} from './editor-pages.mjs';",'').replaceAll('export ','')).replace("import {newPageEditorHtml,caseStudyManagerHtml} from './editor-pages.mjs';",(await readFile(resolve(root,'worker/editor-pages.mjs'),'utf8')).replaceAll('export ','')).replace('export function createWorker','function createWorker');
 const assistantRuntime=(await readFile(resolve(root,'worker/claim-assistant.mjs'),'utf8')).replace('export async function respondToClaimQuestion','async function respondToClaimQuestion');
 data.releaseFingerprint=sha256(backendRuntime+JSON.stringify(data));
 await writeFile(resolve(root,'build/data.json'),JSON.stringify(data));

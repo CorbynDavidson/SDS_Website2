@@ -51,6 +51,7 @@ test('real stock page builds keep the form in its usual column and record the ne
  assert.equal($('main .service-hero-grid > aside form[data-sds-form]').length,1);
  assert.equal($('form[data-sds-form]').attr('data-source-path'),'/new-advice/');
  assert.equal($('main > section.source-copy-section').length,3);
+ assert.equal($('#reviewsWidget').length,1,'New pages must retain the shared reviews panel');
  assert.equal($('main [data-page-empty]').length,7);
  assert.equal($('link[rel=canonical]').attr('href'),d.config.productionOrigin+'/new-advice/');
  assert.equal($('meta[name=robots]').attr('content'),'noindex,nofollow');assert.equal(result.records.length,1);

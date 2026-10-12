@@ -63,3 +63,11 @@ test('packaged Add page editor is owner protected and previews the standard work
  assert.equal((await packaged.fetch(request('https://evil.example'),env)).status,403);
  const preview=await packaged.fetch(request(),env);assert.equal(preview.status,200);const {html}=await preview.json();assert.ok(html.includes('data-source-path="/preview-only-new/"'));assert.ok(html.includes('service-hero-grid'));assert.ok(html.includes('Preview only'));
 });
+
+test('packaged case study editor keeps existing Access paths and manager APIs owner protected',async t=>{
+ const packaged=(await import(pathToFileURL(resolve('dist/server/cloudflare.js')))).default;const DB=await localD1();t.after(()=>DB.close());const origin='https://sds-website2.example.workers.dev',headers={'oai-authenticated-user-email':'corbyn.davidson@hotmail.com'},env={AUTH_PROVIDER:'sites',RELEASE_MODE:'review',DB};
+ assert.equal((await packaged.fetch(new Request(origin+'/api/editor/case-studies'),env)).status,401);
+ const manager=await packaged.fetch(new Request(origin+'/editor?cases=1',{headers}),env);assert.equal(manager.status,200);assert.ok((await manager.text()).includes('Restore brings the box back'));
+ const form=await packaged.fetch(new Request(origin+'/editor?add=case-study',{headers}),env);assert.equal(form.status,200);assert.ok((await form.text()).includes('value="case-study"'));
+ const inventory=await packaged.fetch(new Request(origin+'/api/editor/case-studies',{headers}),env);assert.equal(inventory.status,200);assert.ok((await inventory.json()).cases.length>10);
+});
