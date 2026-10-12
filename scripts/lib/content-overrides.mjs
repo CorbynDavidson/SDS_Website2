@@ -9,16 +9,18 @@ export function applyContentOverrides(html,path,record){
   const $=load(html,{scriptingEnabled:false,sourceCodeLocationInfo:true});
   const nodes=[];
   function walk(node){
+    if(node.attribs?.['data-page-empty']&&node.sourceCodeLocation?.endTag&&!node.children?.length){const location=node.sourceCodeLocation;nodes.push({type:'text',data:'',parent:node,sourceCodeLocation:{startOffset:location.startTag.endOffset,endOffset:location.endTag.startOffset}});}
     if(node.type==='text'&&/[\p{L}\p{N}]/u.test(node.data)&&!$(node).parent().closest(copyExcluded).length&&node.sourceCodeLocation)nodes.push(node);
     for(const child of node.children||[])walk(child);
   }
   walk($('body')[0]);
   if(record&&(record.version!==1||record.path!==path||!record.copy||typeof record.copy!=='object'||Array.isArray(record.copy)))throw Error('Invalid content override: '+path);
-  const catalog={},edits=[];
+  const catalog={},edits=[],emptyAllowed=[];
   const copy=record?.copy||{};
   nodes.forEach((node,index)=>{
     const id='copy-'+String(index+1).padStart(4,'0'),change=copy[id];
-    if(change&&(typeof change.before!=='string'||typeof change.after!=='string'||change.after.length>50000||!/[\p{L}\p{N}]/u.test(change.after)||change.before!==node.data))throw Error('Wording baseline changed: '+path+' '+id);
+    const allowEmpty=!!$(node).parent().closest('[data-added-page-field]').length;if(allowEmpty)emptyAllowed.push(id);
+    if(change&&(typeof change.before!=='string'||typeof change.after!=='string'||change.after.length>50000||(!/[\p{L}\p{N}]/u.test(change.after)&&!(allowEmpty&&change.after===''))||change.before!==node.data))throw Error('Wording baseline changed: '+path+' '+id);
     catalog[id]=change?change.after:node.data;
     // Browser number detection can split a text node into a link and two nodes.
     // Assign field boundaries on the server so those mutations cannot shift IDs.
@@ -27,5 +29,5 @@ export function applyContentOverrides(html,path,record){
   });
   if(Object.keys(copy).some(id=>!Object.hasOwn(catalog,id)))throw Error('Unknown wording field: '+path);
   for(const edit of edits.sort((a,b)=>b.startOffset-a.startOffset))html=html.slice(0,edit.startOffset)+edit.text+html.slice(edit.endOffset);
-  return {html,catalog};
+  return {html,catalog,emptyAllowed};
 }

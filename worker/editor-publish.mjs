@@ -1,3 +1,4 @@
+import {validateNewPage,renderNewPage} from './editor-pages.mjs';
 const publisherSchema=`CREATE TABLE IF NOT EXISTS editor_publications (
  id TEXT PRIMARY KEY, author_email TEXT NOT NULL, page_path TEXT NOT NULL,
  patch_json TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'creating',
@@ -46,11 +47,11 @@ async function publisherUpdate(DB,id,values){
   await DB.prepare('UPDATE editor_publications SET '+names.map(name=>name+' = ?').join(', ')+', updated_at = ? WHERE id = ?').bind(...Object.values(values),Date.now(),id).run();
 }
 const publisherBranch=id=>'editor/'+id;
-const publisherView=(job,repository)=>({id:job.id,status:job.status,error:job.error||null,branch:publisherBranch(job.id),commit:job.head_sha||null,merged:!!job.merge_sha,prUrl:job.pr_number?'https://github.com/'+repository+'/pull/'+job.pr_number:null});
+const publisherView=(job,repository)=>({id:job.id,status:job.status,error:job.error||null,branch:publisherBranch(job.id),commit:job.head_sha||null,merged:!!job.merge_sha,path:job.page_path,branchUrl:'https://github.com/'+repository+'/tree/'+publisherBranch(job.id),prUrl:job.pr_number?'https://github.com/'+repository+'/pull/'+job.pr_number:null});
 async function publisherCreate(job,data,env,token){
   const repository=data.config.repository,api='/repos/'+repository,branch=publisherBranch(job.id);
   const patch=JSON.parse(job.patch_json);
-  if(data.pages[job.page_path]?.sha256!==patch.baseSha256)throw Error('The page changed after this publication was queued. Reload and review the latest wording before retrying.');
+  if(patch.kind!=='new-page'&&data.pages[job.page_path]?.sha256!==patch.baseSha256)throw Error('The page changed after this publication was queued. Reload and review the latest wording before retrying.');
   if(!job.base_sha){
     const main=await publisherGitHub(token,api+'/git/ref/heads/'+data.config.repositoryBranch);
     if(main.object.sha!==data.editorSourceCommit)throw Error('A newer main-branch deployment is in progress. Wait for it to go live, reload and republish.');
@@ -58,8 +59,8 @@ async function publisherCreate(job,data,env,token){
   }
   if(!job.head_sha){
     const commit=await publisherGitHub(token,api+'/git/commits/'+job.base_sha);
-    const tree=await publisherGitHub(token,api+'/git/trees','POST',{base_tree:commit.tree.sha,tree:[{path:patch.file,mode:'100644',type:'blob',content:JSON.stringify(patch.record,null,2)+'\n'}]});
-    const head=await publisherGitHub(token,api+'/git/commits','POST',{message:'Publish wording edits for '+job.page_path,tree:tree.sha,parents:[job.base_sha]});
+    const tree=await publisherGitHub(token,api+'/git/trees','POST',{base_tree:commit.tree.sha,tree:patch.files||[{path:patch.file,mode:'100644',type:'blob',content:JSON.stringify(patch.record,null,2)+'\n'}]});
+    const head=await publisherGitHub(token,api+'/git/commits','POST',{message:(patch.kind==='new-page'?'Add website page ':'Publish wording edits for ')+job.page_path,tree:tree.sha,parents:[job.base_sha]});
     job.head_sha=head.sha;await publisherUpdate(env.DB,job.id,{head_sha:job.head_sha});
   }
   const existing=await publisherGitHub(token,api+'/git/ref/heads/'+branch,'GET',undefined,true);
@@ -67,10 +68,10 @@ async function publisherCreate(job,data,env,token){
   if(!existing)await publisherGitHub(token,api+'/git/refs','POST',{ref:'refs/heads/'+branch,sha:job.head_sha});
   if(!job.pr_number){
     const previous=await publisherGitHub(token,api+'/pulls?state=all&head='+encodeURIComponent(repository.split('/')[0]+':'+branch));
-    const pr=previous[0]||await publisherGitHub(token,api+'/pulls','POST',{head:branch,base:data.config.repositoryBranch,title:'Editor: update wording on '+job.page_path,body:'Owner-approved text changes from the authenticated site editor. Original SDS captures, form controls and SEO metadata are preserved. Merge only after site validation and Cloudflare preview checks pass.'});
+    const pr=previous[0]||await publisherGitHub(token,api+'/pulls','POST',{head:branch,base:data.config.repositoryBranch,title:'Editor: '+(patch.kind==='new-page'?'add page ':'update wording on ')+job.page_path,body:(patch.kind==='new-page'?'Page creation from the authenticated editor. Includes page content, header placement and sitemap documentation. Publication requires an explicit Publish page action in the editor. ':'')+'Owner-approved text changes from the authenticated site editor. Original SDS captures, form controls and SEO metadata are preserved. Merge only after site validation and Cloudflare preview checks pass.'});
     job.pr_number=pr.number;await publisherUpdate(env.DB,job.id,{pr_number:job.pr_number});
   }
-  await publisherUpdate(env.DB,job.id,{status:'checking',error:null});job.status='checking';job.error=null;
+  const status=patch.kind==='new-page'?'saved':'checking';await publisherUpdate(env.DB,job.id,{status,error:null});job.status=status;job.error=null;
 }
 async function publisherChecks(token,api,sha){
   const result=await publisherGitHub(token,api+'/commits/'+sha+'/check-runs?per_page=100');
@@ -84,7 +85,7 @@ async function publisherChecks(token,api,sha){
 async function publisherSync(job,data,env,token){
   const api='/repos/'+data.config.repository;
   if(job.status==='creating'){await publisherCreate(job,data,env,token);return}
-  if(!job.pr_number||['failed','discarded','live'].includes(job.status))return;
+  if(!job.pr_number||['failed','discarded','live','saved'].includes(job.status))return;
   const pr=await publisherGitHub(token,api+'/pulls/'+job.pr_number);
   if(pr.head.sha!==job.head_sha||pr.head.ref!==publisherBranch(job.id)||pr.base.ref!==data.config.repositoryBranch||pr.head.repo?.full_name!==data.config.repository)throw Error('Pull request changed. Automatic publication stopped.');
   if(pr.merged){job.merge_sha=pr.merge_commit_sha;await publisherUpdate(env.DB,job.id,{status:'deploying',merge_sha:job.merge_sha});job.status='deploying'}
@@ -96,7 +97,8 @@ async function publisherSync(job,data,env,token){
     const main=await publisherGitHub(token,api+'/git/ref/heads/'+data.config.repositoryBranch);
     if(main.object.sha!==job.base_sha)throw Error('The main branch changed while this edit was checking. Reload and republish against the latest site.');
     const files=await publisherGitHub(token,api+'/pulls/'+job.pr_number+'/files?per_page=100');
-    if(files.length!==1||files[0].filename!==JSON.parse(job.patch_json).file)throw Error('Unexpected files in the publishing pull request.');
+    const patch=JSON.parse(job.patch_json),expected=patch.files?patch.files.map(file=>file.path):[patch.file];
+    if(files.length!==expected.length||files.some(file=>!expected.includes(file.filename)))throw Error('Unexpected files in the publishing pull request.');
     const merged=await publisherGitHub(token,api+'/pulls/'+job.pr_number+'/merge','PUT',{sha:job.head_sha,merge_method:'merge'});
     if(!merged.merged)throw Error('GitHub did not merge the publication.');
     job.merge_sha=merged.sha;job.status='deploying';await publisherUpdate(env.DB,job.id,{status:'deploying',merge_sha:merged.sha,error:null});
@@ -105,7 +107,7 @@ async function publisherSync(job,data,env,token){
     const checks=await publisherChecks(token,api,job.merge_sha);
     if(checks==='failed'){await publisherUpdate(env.DB,job.id,{status:'failed',error:'A main-branch deployment check failed. Review the PR and deploy the previous validated commit if needed.'});return}
     const patch=JSON.parse(job.patch_json);
-    const visible=Object.entries(patch.record.copy).every(([id,change])=>data.editorCopy?.[job.page_path]?.[id]===change.after);
+    const visible=patch.kind==='new-page'?JSON.stringify(data.addedPages?.find(page=>page.path===job.page_path))===JSON.stringify(patch.record):Object.entries(patch.record.copy).every(([id,change])=>data.editorCopy?.[job.page_path]?.[id]===change.after);
     if(checks==='passed'&&visible)await publisherUpdate(env.DB,job.id,{status:'live',error:null});
   }
 }
@@ -154,7 +156,7 @@ export async function handleEditorPublish(request,env,data,author,payload){
   if(!catalog||!payload.copy||typeof payload.copy!=='object'||Array.isArray(payload.copy)||!Object.keys(payload.copy).length)return publisherJson({error:'No publishable wording changes.'},400);
   const record=JSON.parse(JSON.stringify(data.editorOverrides?.[payload.path]||{version:1,path:payload.path,copy:{}}));
   for(const [id,text] of Object.entries(payload.copy)){
-    if(!Object.hasOwn(catalog,id)||typeof text!=='string'||text.length>50000||!/[\p{L}\p{N}]/u.test(text))return publisherJson({error:'Invalid wording field.'},400);
+    if(!Object.hasOwn(catalog,id)||typeof text!=='string'||text.length>50000||(!/[\p{L}\p{N}]/u.test(text)&&!(text===''&&data.editorEmptyAllowed?.[payload.path]?.includes(id))))return publisherJson({error:'Invalid wording field.'},400);
     record.copy[id]={before:record.copy[id]?.before??catalog[id],after:text};
     if(record.copy[id].before===text)delete record.copy[id];
   }
@@ -169,4 +171,59 @@ export async function handleEditorPublish(request,env,data,author,payload){
   await env.DB.prepare("CREATE UNIQUE INDEX IF NOT EXISTS editor_publication_active ON editor_publications ((1)) WHERE status IN ('creating','checking','deploying')").run();
   try{await env.DB.prepare('INSERT INTO editor_publications (id,author_email,page_path,patch_json,updated_at) VALUES (?,?,?,?,?)').bind(payload.id,author,payload.path,patchJson,Date.now()).run()}catch{return publisherJson({error:'Another publication has started. Please wait.'},409)}
   return publisherJson({publication:publisherView({id:payload.id,status:'creating'},repository)},202);
+}
+
+export async function handleEditorPages(request,env,data,author,payload){
+ const url=new URL(request.url);
+ if(request.method==='POST'&&payload.action==='preview'){
+  try{const page=validateNewPage(payload.page||{},data);return publisherJson({html:renderNewPage(data.newPageTemplate,page,data.config.productionOrigin)})}catch(e){return publisherJson({error:e.message},400)}
+ }
+ if(!env.DB)return publisherJson({error:'The publishing database is unavailable.'},503);
+ await publisherEnsure(env.DB);
+ const id=request.method==='GET'?url.searchParams.get('id'):payload.id;
+ if(!/^[a-f0-9-]{36}$/.test(id||''))return publisherJson({error:'Invalid page save identifier.'},400);
+ const old=await env.DB.prepare('SELECT * FROM editor_publications WHERE id = ? AND author_email = ?').bind(id,author).first();
+ if(request.method==='GET'){
+  if(!old||JSON.parse(old.patch_json).kind!=='new-page')return publisherJson({error:'Saved page not found.'},404);
+  const page=JSON.parse(old.patch_json).record;
+  return publisherJson({page,html:renderNewPage(data.newPageTemplate,page,data.config.productionOrigin),publication:publisherView(old,data.config.repository)});
+ }
+ if(request.method!=='POST')return publisherJson({error:'Method not allowed.'},405);
+ if(['sync','discard'].includes(payload.action))return handleEditorPublish(request,env,data,author,payload);
+ if(!editorPublishConfigured(env))return publisherJson({error:'GitHub publishing is not configured. The page has not been saved.'},503);
+ if(payload.action==='publish'){
+  if(!old||JSON.parse(old.patch_json).kind!=='new-page')return publisherJson({error:'Saved page not found.'},404);
+  if(old.status!=='saved')return publisherJson({error:'Only a saved page can be published.'},409);
+  try{await publisherUpdate(env.DB,id,{status:'checking'})}catch{return publisherJson({error:'Another publication is in progress. Wait for it to finish.'},409)}
+  return publisherJson({publication:publisherView({...old,status:'checking'},data.config.repository)});
+ }
+ if(payload.action!=='save')return publisherJson({error:'Unknown page action.'},400);
+ let page;try{page=validateNewPage(payload.page||{},data)}catch(e){return publisherJson({error:e.message},400)}
+ const file='src/added-pages/'+page.path.slice(1,-1)+'.json';
+ const header=data.pageHeaders.find(h=>h.id===page.header).label;
+ const xmlEscape=value=>value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+ const entry=page.indexable?'  <url><loc>'+xmlEscape(data.config.productionOrigin+page.path)+'</loc></url>\n':'';
+ const markdown='# Added website page\n\n'+['URL: `'+page.path+'`','Header section: '+header,'Indexable when published: '+page.indexable,'Source: `'+file+'`','Template: existing service page, with the usual enquiry form and three content boxes.'].join('\n\n')+'\n\nSaving commits this proposal to an editor branch. Publish page starts validation and deployment. Review hosts remain blocked from indexing. The build regenerates sitemap.xml, public/sitemap.xml and docs/migration/current-design-sitemap.xml from the page inventory. Existing migration URLs remain unchanged.\n';
+ const files=[{path:file,mode:'100644',type:'blob',content:JSON.stringify(page,null,2)+'\n'},{path:'docs/editor-pages/'+page.path.slice(1,-1)+'.md',mode:'100644',type:'blob',content:markdown},{path:'docs/editor-pages/'+page.path.slice(1,-1)+'.sitemap.xml',mode:'100644',type:'blob',content:'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+entry+'</urlset>\n'}];
+ if(page.indexable){
+  const sitemap=data.sitemap.replace('</urlset>',entry+'</urlset>');
+  for(const path of ['sitemap.xml','public/sitemap.xml','docs/migration/current-design-sitemap.xml'])files.push({path,mode:'100644',type:'blob',content:sitemap});
+ }
+ const patchJson=JSON.stringify({kind:'new-page',record:page,files});
+ if(publisherEncoder.encode(patchJson).length>500000)return publisherJson({error:'Page content is too large.'},413);
+ if(old){if(old.patch_json!==patchJson)return publisherJson({error:'This page save identifier is already used. Reopen the saved proposal.'},409);return publisherJson({publication:publisherView(old,data.config.repository),html:renderNewPage(data.newPageTemplate,page,data.config.productionOrigin)})}
+ const duplicate=await env.DB.prepare("SELECT id FROM editor_publications WHERE page_path = ? AND status NOT IN ('discarded','failed') LIMIT 1").bind(page.path).first();
+ if(duplicate)return publisherJson({error:'This page already has a saved proposal. Reopen it from All pages.'},409);
+ await env.DB.prepare("CREATE UNIQUE INDEX IF NOT EXISTS editor_publication_active ON editor_publications ((1)) WHERE status IN ('creating','checking','deploying')").run();
+ await env.DB.prepare("CREATE UNIQUE INDEX IF NOT EXISTS editor_new_page_path ON editor_publications (page_path) WHERE json_extract(patch_json,'$.kind') = 'new-page' AND status IN ('creating','saved','checking','deploying')").run();
+ try{await env.DB.prepare('INSERT INTO editor_publications (id,author_email,page_path,patch_json,updated_at) VALUES (?,?,?,?,?)').bind(id,author,page.path,patchJson,Date.now()).run()}catch{return publisherJson({error:'Another publication is in progress. Wait before saving.'},409)}
+ try{const job=await env.DB.prepare('SELECT * FROM editor_publications WHERE id = ?').bind(id).first();await publisherRun(job,data,env,await publisherToken(env,data.config.repository));}catch(e){await publisherUpdate(env.DB,id,{status:'failed',error:e.message})}
+ const job=await env.DB.prepare('SELECT * FROM editor_publications WHERE id = ?').bind(id).first();
+ return publisherJson({publication:publisherView(job,data.config.repository),html:renderNewPage(data.newPageTemplate,page,data.config.productionOrigin)},202);
+}
+
+export async function listEditorPages(env,author){
+ if(!env.DB)return [];
+ await publisherEnsure(env.DB);
+ return (await env.DB.prepare("SELECT id,page_path,status FROM editor_publications WHERE author_email = ? AND json_extract(patch_json,'$.kind') = 'new-page' AND status != 'discarded' ORDER BY updated_at DESC LIMIT 100").bind(author).all()).results||[];
 }

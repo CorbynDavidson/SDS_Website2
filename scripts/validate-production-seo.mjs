@@ -82,6 +82,7 @@ for(const [path,page] of Object.entries(data.pages)){
   }else{
     assert.equal($('.sds-claim-enquiry,#sds-claim-enquiry').length,0,'Claim enquiry styling leaked to another page: '+path);report.otherTemplatesWithoutClaimEnquiryStylesVerified++;
   }
+  const addedPanel=(data.addedPages||[]).some(p=>p.path===path);
   const locationPanel=normalPath.startsWith(panelScope.locationPrefix),typePanel=panelTypes.has(normalPath),guidePanel=panelGuides.has(normalPath);
   if(normalPath===locationDirectory.path){
     const section=$('main > section[data-location-directory]');assert.equal(section.length,1,'Expected one directory box on All Locations.');
@@ -97,7 +98,7 @@ for(const [path,page] of Object.entries(data.pages)){
     assert.equal($('[data-location-directory],[data-location-link],#sds-location-directory').length,0,'Directory markup or styles leaked to another page: '+path);
     directoryAudit.otherTemplatesWithoutDirectoryChangesVerified++;
   }
-  if(locationPanel||typePanel||guidePanel){
+  if(locationPanel||typePanel||guidePanel||addedPanel){
     assert.equal($('main > header.service-hero.source-enquiry-panel').length,1,'Missing rounded enquiry section: '+path);
     assert.equal($('#sds-enquiry-panel').text(),panelCss,path);
     assert.equal($('main > .source-enquiry-panel h1').length,1,path);
@@ -193,7 +194,7 @@ for(const host of [origin,'https://housingconditionclaims.org','https://sds-hous
     }
   }
 }
-assert.equal(resourceAudit.desktopExploreGroupsVerified,index.pages.length);assert.equal(resourceAudit.mobileResourceGroupsVerified,1);assert.equal(resourceAudit.questionnaireTemplatesVerified,1);assert.equal(resourceAudit.otherTemplatesWithoutQuestionnaireStylesVerified,Object.keys(data.pages).length-1);
+assert.equal(resourceAudit.desktopExploreGroupsVerified,index.pages.length+(data.addedPages||[]).length);assert.equal(resourceAudit.mobileResourceGroupsVerified,1);assert.equal(resourceAudit.questionnaireTemplatesVerified,1);assert.equal(resourceAudit.otherTemplatesWithoutQuestionnaireStylesVerified,Object.keys(data.pages).length-1);
 report.resourceNavigationGroupsVerified=resourceAudit.desktopExploreGroupsVerified;
 report.reviewResourceLinksVerified=resourceAudit.reviewResourceLinksVerified;
 report.questionnaireOnlyLayoutVerified=true;
@@ -220,7 +221,7 @@ for(const node of originalSitemap('loc').toArray()){
     originalIndexable.push(url);
   }
 }
-assert.deepEqual([...urls].sort(),[...originalIndexable,...consolidation.retainedStandaloneRoutes.map(path=>origin+path)].sort(),'Sitemap must contain exactly the indexable original SDS URLs plus FAQs');
+assert.deepEqual([...urls].sort(),[...originalIndexable,...consolidation.retainedStandaloneRoutes.map(path=>origin+path),...(data.addedPages||[]).filter(page=>page.indexable).map(page=>origin+page.path)].sort(),'Sitemap must contain exactly the indexable original SDS URLs, retained standalone pages and indexable added pages');
 consolidationAudit.originalIndexableSitemapUrlsRetained=originalIndexable.length;
 assert.equal(originalIndexable.length,242);assert.equal(consolidationAudit.originalNoindexUrlsExcluded.length,6);
 const expectedConsolidations={};
