@@ -212,3 +212,18 @@ test('Postcode directory checks reject nonexistent postcodes before storage and 
  const rows=(await DB.prepare('SELECT payload_json FROM form_submissions').all()).results;
  for(const row of rows)assert.equal(JSON.parse(row.payload_json)[postcode].value,'M1 1AA');
 });
+
+test('added page enquiry forms retain their own source URL in stored submissions',async t=>{
+ const {gunzipSync}=await import('node:zlib');const {load}=await import('cheerio');
+ const {buildEditorPages}=await import('../scripts/lib/editor-pages.mjs');
+ const {mkdtemp,mkdir,writeFile,rm}=await import('node:fs/promises');const {tmpdir}=await import('node:os');
+ const temp=await mkdtemp(resolve(tmpdir(),'sds-form-page-'));t.after(()=>rm(temp,{recursive:true,force:true}));await mkdir(resolve(temp,'src/added-pages'),{recursive:true});
+ const page={version:1,path:'/new-form-source/',title:'Form source test',header:'resources',description:'',intro:'',sections:Array.from({length:3},()=>({heading:'',text:''})),indexable:false};
+ await writeFile(resolve(temp,'src/added-pages/new-form-source.json'),JSON.stringify(page));
+ const content=structuredClone(data);await buildEditorPages(temp,content.pages,content.routes,content.config);
+ const $=load(gunzipSync(Buffer.from(content.pages[page.path].gzip,'base64')).toString());const form=$('form[data-sds-form]').first(),definition=content.forms[form.attr('data-sds-form')];
+ assert.equal(form.attr('data-source-path'),page.path);definition.sourcePaths.push(page.path);
+ const DB=await localD1();t.after(()=>DB.close());const worker=createWorker(content,{checkEmailDomain:async()=>({status:'unknown'}),checkPostcode:async()=>({status:'unknown'})});
+ const response=await worker.fetch(post(definition,validFields(definition),{body:{sourcePath:page.path}}),{...base,DB});assert.equal(response.status,201,await response.clone().text());
+ const {id}=await response.json();assert.equal((await DB.prepare('SELECT source_path FROM form_submissions WHERE id = ?').bind(id).first()).source_path,page.path);
+});

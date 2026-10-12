@@ -365,6 +365,7 @@
       const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = url; link.download = 'sds-page-change.json'; link.click(); URL.revokeObjectURL(url);
       message.textContent = 'Change request downloaded for publication.';
     });
+    const addPage = document.createElement('a'); addPage.href='/editor?add=1'; addPage.textContent='Add page'; bar.append(addPage);
     const index = document.createElement('a'); index.href = '/editor'; index.textContent = 'All pages'; bar.append(index);
     if (draftInfo.draft) { const info = document.createElement('a'); info.href = '/api/editor/draft?path=' + encodeURIComponent(path); info.textContent = 'Saved draft'; bar.append(info); }
     button('Done', () => { if (dirty && !confirm('Leave without saving your wording changes?')) return; dirty = false; pageUrl.searchParams.delete('edit'); location.assign(pageUrl.pathname + pageUrl.search + pageUrl.hash); });

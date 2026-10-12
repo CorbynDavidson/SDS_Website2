@@ -52,3 +52,14 @@ test('Packaged Cloudflare editor opens, saves and restores drafts against the co
   assert.equal(reopened.status,200);
   assert.deepEqual(JSON.parse((await reopened.json()).draft.body_html),{version:2,copy});
 });
+
+test('packaged Add page editor is owner protected and previews the standard working-form layout',async t=>{
+ const packaged=(await import(pathToFileURL(resolve('dist/server/cloudflare.js')))).default;
+ const DB=await localD1();t.after(()=>DB.close());const origin='https://sds-website2.example.workers.dev';
+ const owner={'oai-authenticated-user-email':'corbyn.davidson@hotmail.com'};const env={AUTH_PROVIDER:'sites',RELEASE_MODE:'review',DB};
+ const anonymous=await packaged.fetch(new Request(origin+'/editor?add=1'),env);assert.equal(anonymous.status,302);
+ const editor=await packaged.fetch(new Request(origin+'/editor?add=1',{headers:owner}),env);assert.equal(editor.status,200);assert.ok((await editor.text()).includes('Save added page to GitHub'));
+ const request=other=>new Request(origin+'/api/editor/pages',{method:'POST',headers:{...owner,origin:other||origin,'content-type':'application/json'},body:JSON.stringify({action:'preview',page:{title:'Preview only',slug:'preview-only-new',header:'resources'}})});
+ assert.equal((await packaged.fetch(request('https://evil.example'),env)).status,403);
+ const preview=await packaged.fetch(request(),env);assert.equal(preview.status,200);const {html}=await preview.json();assert.ok(html.includes('data-source-path="/preview-only-new/"'));assert.ok(html.includes('service-hero-grid'));assert.ok(html.includes('Preview only'));
+});

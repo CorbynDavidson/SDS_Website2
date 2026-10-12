@@ -141,3 +141,20 @@ changed-main protection, unexpected PR files, and deployment confirmation. They
 mock GitHub and do not substitute for the first connected live test.
 
 Technical references: [GitHub App authentication](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app), [pull request merge API](https://docs.github.com/en/rest/pulls/pulls), and [Checks API](https://docs.github.com/en/rest/guides/using-the-rest-api-to-interact-with-checks).
+
+## Add pages from the editor
+
+Use **Add page** in the editing toolbar or at `/editor` (the creation screen is `/editor?add=1`, using the existing Access-protected path), then choose a title, a unique URL slug and an existing Explore header section (Disrepair types, Locations, Housing associations, or About & resources). The stock page uses the current service-page layout: an introduction beside the existing enquiry form, followed by three empty rounded content boxes. Text fields are plain text; HTML entered into them is escaped. The form records the new page as the enquiry source and uses the existing validation and submission storage.
+
+**Preview page** shows the layout in an inactive form preview. **Save added page to GitHub** creates an `editor/<publication-id>` branch and a pull request, committing:
+
+- `src/added-pages/<slug>.json`: page wording, navigation placement and indexing choice.
+- `docs/editor-pages/<slug>.md`: inventory and workflow documentation.
+- `docs/editor-pages/<slug>.sitemap.xml`: XML entry when indexing is enabled, or an empty URL set when disabled.
+- The three existing sitemap copies when an indexable URL is added.
+
+Saving waits in `saved` status and does not merge. Reopen saved proposals from **All pages**, or follow the branch and PR links. **Publish page** starts the existing GitHub Actions and Cloudflare checks; the publisher verifies the exact commit, base branch and expected changed files before merging. Deployment is confirmed once checks pass and the published page record is present. **Discard branch proposal** closes an unmerged proposal. Failed saves can be retried on a new branch against the current deployed source.
+
+New pages default to noindex. The build regenerates `sitemap.xml`, `public/sitemap.xml` and `docs/migration/current-design-sitemap.xml`; only indexable page records enter the production sitemap. Review hosts and any sitewide indexing pause continue to take precedence. A header choice changes menu placement, independently of the slug, and existing migration URLs, redirects and 410 entries are reserved.
+
+Published pages use the existing wording editor, including their initially empty boxes. Saving an existing page's wording draft continues to use the private database; the new GitHub-on-save behavior applies to **Save added page to GitHub**.

@@ -1,3 +1,4 @@
+import {buildEditorPages,addNewPageNavigation,renderedPageHeaders} from './lib/editor-pages.mjs';
 import { contactBundle, embedContactValidation } from './lib/contact-validation-bundle.mjs';
 import {execFileSync} from 'node:child_process';
 import {readFile,writeFile,mkdir,cp,rm,readdir} from 'node:fs/promises';
@@ -97,7 +98,7 @@ for(const asset of manifest.assets.filter(a=>a.status===200&&a.file)) {
   assets[sourcePath]={sha256:asset.sha256,bytes:bytes.length,type,storagePath};
   mediaSources[path].storagePath=storagePath;
 }
-for(const path of ['/sds-theme.css','/sds-runtime.js','/claim-assistant.js','/assets/sheldon-davidson-solicitors-logo.png',reviewsContent.recognition.imagePath]){
+for(const path of ['/sds-theme.css','/sds-runtime.js','/claim-assistant.js','/editor-pages.js','/assets/sheldon-davidson-solicitors-logo.png',reviewsContent.recognition.imagePath]){
   const bytes=path==='/sds-runtime.js' ? Buffer.from(contactBundle+'\n'+await readFile(resolve(root,'public'+path),'utf8')) : await readFile(resolve(root,'public'+path));
   assets[path]={sha256:sha256(bytes),bytes:bytes.length,type:typeByExtension[extname(path)],base64:bytes.toString('base64')};
 }
@@ -190,6 +191,12 @@ for(const page of index.pages){
   const url=productionUrl(canonical,{origin:config.productionOrigin,path:page.path,redirects});
   if(new URL(url).pathname===page.path)sitemapUrls.push(url);
 }
+const added=await buildEditorPages(root,pages,routeData,config);
+for(const page of added.records){
+  if(page.indexable)sitemapUrls.push(config.productionOrigin+page.path);
+  const html=gunzipSync(Buffer.from(pages[page.path].gzip,'base64')).toString(),$=load(html);
+  for(const node of $('form[data-sds-form]').toArray()){const definition=forms[node.attribs['data-sds-form']];assert.ok(definition,'Unknown added-page form');definition.sourcePaths.push(page.path);}
+}
 for(const path of Object.keys(pages)){if(path!=='/'&&path.endsWith('/'))redirects[path.slice(0,-1)]??=path;}
 for(const [path,destination] of Object.entries(redirects)){
   let target=destination;const seen=new Set([path]);
@@ -202,7 +209,7 @@ for(const path of routeData.productionGone){
   assert.ok(!pages[path]&&!routeData.gone.includes(path),'Planned 410 conflicts with a retained page or existing 410: '+path);
   assert.ok(!redirects[path],'Planned 410 conflicts with an existing redirect: '+path);
 }
-const editorCopy={},editorOverrides={};
+const editorCopy={},editorOverrides={},editorEmptyAllowed={};
 const overrideNames=(await readdir(resolve(root,'src/content-overrides'))).filter(name=>name.endsWith('.json'));
 const expectedFiles=new Set(Object.keys(pages).map(path=>overrideFile(path).split('/').pop()));
 for(const name of overrideNames)assert.ok(expectedFiles.has(name),'Override refers to an unknown page: '+name);
@@ -213,10 +220,13 @@ for(const [path,page] of Object.entries(pages)){
   const original=gunzipSync(Buffer.from(page.gzip,'base64')).toString('utf8')
     .replace(/(<span\b[^>]*\bclass="[^"]*\bbrand-caption\b[^"]*"[^>]*>)[^<]*(<\/span>)/g,'$1Housing Disrepair Claim Specialists$2');
   const result=applyContentOverrides(original,path,record);
+  result.html=addNewPageNavigation(result.html,added.records,config.productionOrigin);
   editorCopy[path]=result.catalog;
+  if(result.emptyAllowed.length)editorEmptyAllowed[path]=result.emptyAllowed;
   if(record)editorOverrides[path]=record;
   pages[path]={...page,gzip:gzipSync(Buffer.from(result.html),{level:9}).toString('base64'),sha256:sha256(result.html)};
 }
+added.pageHeaders=renderedPageHeaders(gunzipSync(Buffer.from(pages['/housing-disrepair-claims/social-housing/'].gzip,'base64')).toString());
 const sitemap=productionSitemap(sitemapUrls,config.productionOrigin);
 await writeFile(resolve(root,'docs/migration/current-design-sitemap.xml'),sitemap);
 await writeFile(resolve(root,'public/sitemap.xml'),sitemap);
@@ -224,9 +234,9 @@ await writeFile(resolve(root,'sitemap.xml'),sitemap);
 await writeFile(resolve(root,'public/robots.txt'),createProductionRouting(config,routeData).robots(new URL(config.productionOrigin),{RELEASE_MODE:'production'}));
 const routingRuntime=(await readFile(resolve(root,'worker/production-routing.mjs'),'utf8')).replace('export function createProductionRouting','function createProductionRouting');
 const editorSourceCommit=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
-const data={config,pages,forms,assets,editorCopy,editorOverrides,editorSourceCommit,routes:routeData,sourceCapturedAt:manifest.completed_at,sitemap,robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
+const data={config,pages,forms,assets,pageHeaders:added.pageHeaders,newPageTemplate:added.template,addedPages:added.records,editorCopy,editorEmptyAllowed,editorOverrides,editorSourceCommit,routes:routeData,sourceCapturedAt:manifest.completed_at,sitemap,robots:await readFile(resolve(root,'migration/original-robots.txt'),'utf8')};
 const fallbackLayoutHead='<style id="sds-layout-adjustments">'+layoutCss+'</style>';
-const backendRuntime=embedContactValidation((await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace("import { checkPostcode } from './postcode-lookup.mjs';", (await readFile(resolve(root,'worker/postcode-lookup.mjs'),'utf8')).replace('export async function','async function')).replace("import { checkEmailDomain } from './email-domain.mjs';", (await readFile(resolve(root,'worker/email-domain.mjs'),'utf8')).replace('export async function','async function'))).replace("import { handleEditorPublish, syncEditorPublishes, editorPublishConfigured } from './editor-publish.mjs';",(await readFile(resolve(root,'worker/editor-publish.mjs'),'utf8')).replaceAll('export ','')).replace('export function createWorker','function createWorker');
+const backendRuntime=embedContactValidation((await readFile(resolve(root,'worker/runtime.mjs'),'utf8')).replace("import { checkPostcode } from './postcode-lookup.mjs';", (await readFile(resolve(root,'worker/postcode-lookup.mjs'),'utf8')).replace('export async function','async function')).replace("import { checkEmailDomain } from './email-domain.mjs';", (await readFile(resolve(root,'worker/email-domain.mjs'),'utf8')).replace('export async function','async function'))).replace("import { handleEditorPublish, handleEditorPages, listEditorPages, syncEditorPublishes, editorPublishConfigured } from './editor-publish.mjs';",(await readFile(resolve(root,'worker/editor-publish.mjs'),'utf8')).replace("import {validateNewPage,renderNewPage} from './editor-pages.mjs';",'').replaceAll('export ','')).replace("import {newPageEditorHtml} from './editor-pages.mjs';",(await readFile(resolve(root,'worker/editor-pages.mjs'),'utf8')).replaceAll('export ','')).replace('export function createWorker','function createWorker');
 const assistantRuntime=(await readFile(resolve(root,'worker/claim-assistant.mjs'),'utf8')).replace('export async function respondToClaimQuestion','async function respondToClaimQuestion');
 data.releaseFingerprint=sha256(backendRuntime+JSON.stringify(data));
 await writeFile(resolve(root,'build/data.json'),JSON.stringify(data));
@@ -263,7 +273,7 @@ export default {async scheduled(event,env,ctx){ctx.waitUntil(contentBackend.sche
   else if(url.pathname==='/sitemap.xml'&&get)response=new Response(contentData.sitemap,{headers:{'content-type':'application/xml; charset=utf-8'}});
   else if(url.pathname==='/robots.txt'&&get)response=new Response(productionRouting.robots(url,env),{headers:{'content-type':'text/plain; charset=utf-8','cache-control':'public, max-age=300'}});
   else if(get&&contentData.routes.gone.includes(url.pathname))response=new Response('This page is no longer available.',{status:410,headers:{'content-type':'text/plain; charset=utf-8'}});
-  else if(url.pathname==='/health'||url.pathname.startsWith('/api/forms/')||url.pathname.startsWith('/api/editor/')||url.pathname==='/editor'||url.pathname.startsWith('/submissions'))response=await contentBackend.fetch(request,env,ctx);
+  else if(url.pathname==='/health'||url.pathname.startsWith('/api/forms/')||url.pathname.startsWith('/api/editor/')||(url.pathname==='/editor'||url.pathname==='/editor/new')||url.pathname.startsWith('/submissions'))response=await contentBackend.fetch(request,env,ctx);
   else {if(url.pathname==='/api/leads'&&request.method==='POST'&&(request.headers.get('origin')!==url.origin||request.headers.get('sec-fetch-site')==='cross-site'))return Response.json({error:'Please submit from this website.'},{status:403});response=await approvedDesignWorker.fetch(head?new Request(request.url,{headers:request.headers}):request,env,ctx);
     if(get&&response.headers.get('content-type')?.includes('text/html'))response=new Response(productionRouting.publicHtml(addAssistant((await response.text()).replace('</head>',${JSON.stringify(fallbackLayoutHead)}+'</head>')),url,env),response);
   }

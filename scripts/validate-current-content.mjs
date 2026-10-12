@@ -235,6 +235,7 @@ for(const page of report.pages){
  audit.originalParagraphsAndHeadingsVerified+=Object.values(blocks(originalCopy)).reduce((a,b)=>a+b,0);
  assert.equal($('main h1').length,1,'Expected one main heading: '+page.path);
  assert.deepEqual(styles(html).map(value=>displayFragment(value,page.path)),styles(before).map(value=>displayFragment(value,page.path)),'Approved fonts/CSS changed: '+page.path);audit.approvedStyleRoutesVerified++;
+ for(const node of $('[data-added-page],[data-added-page-group]').toArray())$(node).remove();
  for(const selector of ['body > nav','body > footer','.topbar'])assert.equal(displayFragment($(selector).html(),page.path),displayFragment(b(selector).html(),page.path),'Approved shared design changed: '+selector+' '+page.path);
  audit.approvedHeaderFooterRoutesVerified++;
  const main=html.match(/<main\b[\s\S]*?<\/main>/i)[0]+'\n',gitContent=await readFile(resolve(root,page.contentFile),'utf8');
@@ -283,7 +284,15 @@ for(const path of ['/submissions','/submissions.csv','/editor','/api/editor/sess
 audit.ownerProtectedAdministrationVerified=true;
 const production=await worker.fetch(new Request(origin+'/'),{...env,RELEASE_MODE:'production'});assert.equal(production.status,200);assert.ok(!production.headers.has('x-robots-tag'));audit.productionIndexationVerified=true;
 assert.equal((await fetchPage(worker,'/this-page-does-not-exist/')).status,404);
-audit.formKeys=[...forms];assert.deepEqual(data.forms,callbackFormDefinitions(inputForms,claimEnquiry),'Original handlers must remain unchanged apart from approved source URLs.');
+audit.formKeys=[...forms];
+const expectedForms=callbackFormDefinitions(inputForms,claimEnquiry);
+for(const page of data.addedPages||[]){
+ const $=load(gunzipSync(Buffer.from(data.pages[page.path].gzip,'base64')).toString());
+ const widgets=$('main form[data-sds-form]');assert.equal(widgets.length,1,'Added page must reuse one enquiry form');
+ const key=widgets.attr('data-sds-form');assert.ok(expectedForms[key],'Added page uses an unknown form');
+ assert.equal(widgets.attr('data-source-path'),page.path);expectedForms[key].sourcePaths.push(page.path);
+}
+assert.deepEqual(data.forms,expectedForms,'Original handlers must remain unchanged apart from approved source URLs.');
 for(const path of (await readJson('config/page-consolidation.json')).retainedStandaloneRoutes){
  const response=await fetchPage(worker,path);assert.equal(response.status,200,'Existing additional page unavailable: '+path);
  const $=load(await response.text());assert.equal($('#sds-layout-adjustments').text(),layoutCss,'Additional page must share header spacing and layout rules: '+path);assert.ok($('main form').length<=1,'Additional page has repeated forms: '+path);layoutAudit.fallbackLayoutsVerified++;

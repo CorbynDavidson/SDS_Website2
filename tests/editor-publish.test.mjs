@@ -33,7 +33,7 @@ async function fixture(t){
   if(path.endsWith('/pulls')&&method==='POST')return out({number:42});
   if(path.endsWith('/pulls/42'))return out({head:{sha:head,ref:calls.find(x=>x.path.endsWith('/git/refs'))?.body.ref.slice(11),repo:{full_name:content.config.repository}},base:{ref:'main'},state:'open',merged,merge_commit_sha:merge});
   if(path.endsWith('/check-runs'))return out({check_runs:checks==='pending'?[]:[{id:1,name:'validate',app:{slug:checks==='forged'?'fake-app':'github-actions'},status:'completed',conclusion:checks==='failed'?'failure':'success'},{id:2,name:'Workers Builds: sds-website2',app:{slug:'cloudflare-workers-and-pages'},status:'completed',conclusion:'success'}]});
-  if(path.endsWith('/pulls/42/files'))return out([{filename:unexpectedFile?'worker/runtime.mjs':overrideFile('/')}]);
+  if(path.endsWith('/pulls/42/files'))return out(unexpectedFile?[{filename:'worker/runtime.mjs'}]:(calls.find(x=>x.path.endsWith('/git/trees'))?.body.tree||[{path:overrideFile('/')}]).map(file=>({filename:file.path})));
   if(path.endsWith('/pulls/42/merge')){merged=true;return out({merged:true,sha:merge})}
   throw Error('Unexpected mock request: '+method+' '+path);
  };
@@ -122,4 +122,22 @@ test('discard closes only an unmerged proposal and never removes the public rele
  const response=await f.post({action:'discard',id:p.id});assert.equal(response.status,200);
  assert.equal((await response.json()).publication.status,'discarded');assert.equal(f.calls.some(x=>x.path.endsWith('/merge')),false);
  assert.equal(f.calls.find(x=>x.path.endsWith('/pulls/42')&&x.method==='PATCH').body.state,'closed');
+});
+
+test('new page save commits page and sitemap documentation to a branch and waits for explicit publication',async t=>{
+ const f=await fixture(t);f.content.pageHeaders=[{id:'guides',label:'Guides'}];f.content.newPageTemplate='<html><head><meta name="robots" content="{{PAGE_ROBOTS}}"></head><body><h1>{{PAGE_TITLE}}</h1>{{PAGE_INTRO}}{{PAGE_SECTIONS}}<form data-sds-form="ref"></form></body></html>';f.content.config.productionOrigin='https://www.sds-solicitors.com';f.content.sitemap='<urlset></urlset>';f.update();
+ const id=crypto.randomUUID(),page={title:'New advice',slug:'new-advice',header:'guides'};
+ const save=body=>createWorker(f.content).fetch(new Request(origin+'/api/editor/pages',{method:'POST',headers:{origin,'content-type':'application/json','oai-authenticated-user-email':owner},body:JSON.stringify(body)}),f.env);
+ const response=await save({action:'save',id,page});assert.equal(response.status,202);const result=await response.json();assert.equal(result.publication.status,'saved');
+ const tree=f.calls.find(x=>x.path.endsWith('/git/trees')).body.tree;
+ assert.ok(tree.some(x=>x.path==='src/added-pages/new-advice.json'));assert.ok(tree.some(x=>x.path==='docs/editor-pages/new-advice.md'));assert.ok(tree.some(x=>x.path==='docs/editor-pages/new-advice.sitemap.xml'));
+ assert.equal(JSON.parse(tree.find(x=>x.path.startsWith('src/added-pages/')).content).intro,'');
+ f.checks('passed');await f.schedule();assert.equal(f.calls.some(x=>x.path.endsWith('/merge')),false);
+ assert.equal((await save({action:'save',id,page})).status,200);
+ assert.equal((await save({action:'save',id:crypto.randomUUID(),page})).status,409);
+ const outsider=await createWorker(f.content).fetch(new Request(origin+'/api/editor/pages?id='+id,{headers:{'oai-authenticated-user-email':'other@example.com'}}),f.env);assert.equal(outsider.status,403);
+ const publication=await save({action:'publish',id});assert.equal(publication.status,200);assert.equal((await publication.json()).publication.status,'checking');
+ await f.schedule();assert.equal(f.calls.some(x=>x.path.endsWith('/merge')),true);
+ f.content.addedPages=[JSON.parse(tree.find(x=>x.path.startsWith('src/added-pages/')).content)];f.update();await f.schedule();
+ assert.equal((await (await f.get(id)).json()).publication.status,'live');
 });
