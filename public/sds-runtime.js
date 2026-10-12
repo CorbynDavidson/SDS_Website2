@@ -212,7 +212,7 @@
     const draftResponse = await fetch('/api/editor/draft?path=' + encodeURIComponent(path), { credentials: 'same-origin' });
     if (!draftResponse.ok) { message.textContent = 'This page could not be opened for editing. Please reload.'; return; }
     const draftInfo = await draftResponse.json();
-    const excluded = 'script,style,noscript,template,svg,math,iframe,form,input,select,textarea,option,[form],.callback,.source-form-widget,[data-source-wizard-card],[data-editor-ui],[data-sds-status],.about-count,.testimonial-count,sds-copy,#claimChatPanel,#claimChatLaunch';
+    const excluded = 'script,style,noscript,template,svg,math,iframe,form,input,select,textarea,option,[form],.callback,.source-form-widget,[data-source-wizard-card],[data-editor-ui],[data-sds-status],.about-count,.testimonial-count,[data-added-case-studies],sds-copy,#claimChatPanel,#claimChatLaunch';
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     const texts = [];
     while (walker.nextNode()) {
@@ -366,6 +366,7 @@
       message.textContent = 'Change request downloaded for publication.';
     });
     const addPage = document.createElement('a'); addPage.href='/editor?add=1'; addPage.textContent='Add page'; bar.append(addPage);
+    if(location.pathname.replace(/\/+$/,'')==='/about-us/case-studies'){const manage=document.createElement('a');manage.href='/editor?cases=1';manage.textContent='Manage case studies';bar.append(manage);const addCase=document.createElement('a');addCase.href='/editor?add=case-study';addCase.textContent='Add case study';bar.append(addCase);}
     const index = document.createElement('a'); index.href = '/editor'; index.textContent = 'All pages'; bar.append(index);
     if (draftInfo.draft) { const info = document.createElement('a'); info.href = '/api/editor/draft?path=' + encodeURIComponent(path); info.textContent = 'Saved draft'; bar.append(info); }
     button('Done', () => { if (dirty && !confirm('Leave without saving your wording changes?')) return; dirty = false; pageUrl.searchParams.delete('edit'); location.assign(pageUrl.pathname + pageUrl.search + pageUrl.hash); });

@@ -1,4 +1,4 @@
-import {validateNewPage,renderNewPage} from './editor-pages.mjs';
+import {validateNewPage,renderNewPage,addedPageFilename,renderCaseStudyCard} from './editor-pages.mjs';
 const publisherSchema=`CREATE TABLE IF NOT EXISTS editor_publications (
  id TEXT PRIMARY KEY, author_email TEXT NOT NULL, page_path TEXT NOT NULL,
  patch_json TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'creating',
@@ -71,7 +71,7 @@ async function publisherCreate(job,data,env,token){
     const pr=previous[0]||await publisherGitHub(token,api+'/pulls','POST',{head:branch,base:data.config.repositoryBranch,title:'Editor: '+(patch.kind==='new-page'?'add page ':'update wording on ')+job.page_path,body:(patch.kind==='new-page'?'Page creation from the authenticated editor. Includes page content, header placement and sitemap documentation. Publication requires an explicit Publish page action in the editor. ':'')+'Owner-approved text changes from the authenticated site editor. Original SDS captures, form controls and SEO metadata are preserved. Merge only after site validation and Cloudflare preview checks pass.'});
     job.pr_number=pr.number;await publisherUpdate(env.DB,job.id,{pr_number:job.pr_number});
   }
-  const status=patch.kind==='new-page'?'saved':'checking';await publisherUpdate(env.DB,job.id,{status,error:null});job.status=status;job.error=null;
+  const status=patch.files?'saved':'checking';await publisherUpdate(env.DB,job.id,{status,error:null});job.status=status;job.error=null;
 }
 async function publisherChecks(token,api,sha){
   const result=await publisherGitHub(token,api+'/commits/'+sha+'/check-runs?per_page=100');
@@ -107,7 +107,7 @@ async function publisherSync(job,data,env,token){
     const checks=await publisherChecks(token,api,job.merge_sha);
     if(checks==='failed'){await publisherUpdate(env.DB,job.id,{status:'failed',error:'A main-branch deployment check failed. Review the PR and deploy the previous validated commit if needed.'});return}
     const patch=JSON.parse(job.patch_json);
-    const visible=patch.kind==='new-page'?JSON.stringify(data.addedPages?.find(page=>page.path===job.page_path))===JSON.stringify(patch.record):Object.entries(patch.record.copy).every(([id,change])=>data.editorCopy?.[job.page_path]?.[id]===change.after);
+    const visible=patch.kind==='case-study-archive'?data.caseStudyArchives?.[job.page_path]?.archived===patch.record.archived:patch.kind==='new-page'?JSON.stringify(data.addedPages?.find(page=>page.path===job.page_path))===JSON.stringify(patch.record):Object.entries(patch.record.copy).every(([id,change])=>data.editorCopy?.[job.page_path]?.[id]===change.after);
     if(checks==='passed'&&visible)await publisherUpdate(env.DB,job.id,{status:'live',error:null});
   }
 }
@@ -176,7 +176,7 @@ export async function handleEditorPublish(request,env,data,author,payload){
 export async function handleEditorPages(request,env,data,author,payload){
  const url=new URL(request.url);
  if(request.method==='POST'&&payload.action==='preview'){
-  try{const page=validateNewPage(payload.page||{},data);return publisherJson({html:renderNewPage(data.newPageTemplate,page,data.config.productionOrigin)})}catch(e){return publisherJson({error:e.message},400)}
+  try{const page=validateNewPage(payload.page||{},data);return publisherJson({html:renderNewPage(data.newPageTemplate,page,data.config.productionOrigin),cardHtml:page.kind==='case-study'?renderCaseStudyCard(page,data.config.productionOrigin):null})}catch(e){return publisherJson({error:e.message},400)}
  }
  if(!env.DB)return publisherJson({error:'The publishing database is unavailable.'},503);
  await publisherEnsure(env.DB);
@@ -184,34 +184,36 @@ export async function handleEditorPages(request,env,data,author,payload){
  if(!/^[a-f0-9-]{36}$/.test(id||''))return publisherJson({error:'Invalid page save identifier.'},400);
  const old=await env.DB.prepare('SELECT * FROM editor_publications WHERE id = ? AND author_email = ?').bind(id,author).first();
  if(request.method==='GET'){
-  if(!old||JSON.parse(old.patch_json).kind!=='new-page')return publisherJson({error:'Saved page not found.'},404);
-  const page=JSON.parse(old.patch_json).record;
-  return publisherJson({page,html:renderNewPage(data.newPageTemplate,page,data.config.productionOrigin),publication:publisherView(old,data.config.repository)});
+  if(!old||!['new-page','case-study-archive'].includes(JSON.parse(old.patch_json).kind))return publisherJson({error:'Saved page not found.'},404);
+  const patch=JSON.parse(old.patch_json),page=patch.record;
+  if(patch.kind==='case-study-archive')return publisherJson({caseStudyChange:page,publication:publisherView(old,data.config.repository)});
+  return publisherJson({page,html:renderNewPage(data.newPageTemplate,page,data.config.productionOrigin),cardHtml:page.kind==='case-study'?renderCaseStudyCard(page,data.config.productionOrigin):null,publication:publisherView(old,data.config.repository)});
  }
  if(request.method!=='POST')return publisherJson({error:'Method not allowed.'},405);
  if(['sync','discard'].includes(payload.action))return handleEditorPublish(request,env,data,author,payload);
  if(!editorPublishConfigured(env))return publisherJson({error:'GitHub publishing is not configured. The page has not been saved.'},503);
  if(payload.action==='publish'){
-  if(!old||JSON.parse(old.patch_json).kind!=='new-page')return publisherJson({error:'Saved page not found.'},404);
+  if(!old||!['new-page','case-study-archive'].includes(JSON.parse(old.patch_json).kind))return publisherJson({error:'Saved page not found.'},404);
   if(old.status!=='saved')return publisherJson({error:'Only a saved page can be published.'},409);
   try{await publisherUpdate(env.DB,id,{status:'checking'})}catch{return publisherJson({error:'Another publication is in progress. Wait for it to finish.'},409)}
   return publisherJson({publication:publisherView({...old,status:'checking'},data.config.repository)});
  }
  if(payload.action!=='save')return publisherJson({error:'Unknown page action.'},400);
  let page;try{page=validateNewPage(payload.page||{},data)}catch(e){return publisherJson({error:e.message},400)}
- const file='src/added-pages/'+page.path.slice(1,-1)+'.json';
+ const file='src/added-pages/'+addedPageFilename(page);
+ const documentName=addedPageFilename(page).replace(/\.json$/,'');
  const header=data.pageHeaders.find(h=>h.id===page.header).label;
  const xmlEscape=value=>value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
  const entry=page.indexable?'  <url><loc>'+xmlEscape(data.config.productionOrigin+page.path)+'</loc></url>\n':'';
  const markdown='# Added website page\n\n'+['URL: `'+page.path+'`','Header section: '+header,'Indexable when published: '+page.indexable,'Source: `'+file+'`','Template: existing service page, with the usual enquiry form and three content boxes.'].join('\n\n')+'\n\nSaving commits this proposal to an editor branch. Publish page starts validation and deployment. Review hosts remain blocked from indexing. The build regenerates sitemap.xml, public/sitemap.xml and docs/migration/current-design-sitemap.xml from the page inventory. Existing migration URLs remain unchanged.\n';
- const files=[{path:file,mode:'100644',type:'blob',content:JSON.stringify(page,null,2)+'\n'},{path:'docs/editor-pages/'+page.path.slice(1,-1)+'.md',mode:'100644',type:'blob',content:markdown},{path:'docs/editor-pages/'+page.path.slice(1,-1)+'.sitemap.xml',mode:'100644',type:'blob',content:'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+entry+'</urlset>\n'}];
+ const files=[{path:file,mode:'100644',type:'blob',content:JSON.stringify(page,null,2)+'\n'},{path:'docs/editor-pages/'+documentName+'.md',mode:'100644',type:'blob',content:markdown},{path:'docs/editor-pages/'+documentName+'.sitemap.xml',mode:'100644',type:'blob',content:'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+entry+'</urlset>\n'}];
  if(page.indexable){
   const sitemap=data.sitemap.replace('</urlset>',entry+'</urlset>');
   for(const path of ['sitemap.xml','public/sitemap.xml','docs/migration/current-design-sitemap.xml'])files.push({path,mode:'100644',type:'blob',content:sitemap});
  }
  const patchJson=JSON.stringify({kind:'new-page',record:page,files});
  if(publisherEncoder.encode(patchJson).length>500000)return publisherJson({error:'Page content is too large.'},413);
- if(old){if(old.patch_json!==patchJson)return publisherJson({error:'This page save identifier is already used. Reopen the saved proposal.'},409);return publisherJson({publication:publisherView(old,data.config.repository),html:renderNewPage(data.newPageTemplate,page,data.config.productionOrigin)})}
+ if(old){if(old.patch_json!==patchJson)return publisherJson({error:'This page save identifier is already used. Reopen the saved proposal.'},409);return publisherJson({publication:publisherView(old,data.config.repository),html:renderNewPage(data.newPageTemplate,page,data.config.productionOrigin),cardHtml:page.kind==='case-study'?renderCaseStudyCard(page,data.config.productionOrigin):null})}
  const duplicate=await env.DB.prepare("SELECT id FROM editor_publications WHERE page_path = ? AND status NOT IN ('discarded','failed') LIMIT 1").bind(page.path).first();
  if(duplicate)return publisherJson({error:'This page already has a saved proposal. Reopen it from All pages.'},409);
  await env.DB.prepare("CREATE UNIQUE INDEX IF NOT EXISTS editor_publication_active ON editor_publications ((1)) WHERE status IN ('creating','checking','deploying')").run();
@@ -219,11 +221,43 @@ export async function handleEditorPages(request,env,data,author,payload){
  try{await env.DB.prepare('INSERT INTO editor_publications (id,author_email,page_path,patch_json,updated_at) VALUES (?,?,?,?,?)').bind(id,author,page.path,patchJson,Date.now()).run()}catch{return publisherJson({error:'Another publication is in progress. Wait before saving.'},409)}
  try{const job=await env.DB.prepare('SELECT * FROM editor_publications WHERE id = ?').bind(id).first();await publisherRun(job,data,env,await publisherToken(env,data.config.repository));}catch(e){await publisherUpdate(env.DB,id,{status:'failed',error:e.message})}
  const job=await env.DB.prepare('SELECT * FROM editor_publications WHERE id = ?').bind(id).first();
- return publisherJson({publication:publisherView(job,data.config.repository),html:renderNewPage(data.newPageTemplate,page,data.config.productionOrigin)},202);
+ return publisherJson({publication:publisherView(job,data.config.repository),html:renderNewPage(data.newPageTemplate,page,data.config.productionOrigin),cardHtml:page.kind==='case-study'?renderCaseStudyCard(page,data.config.productionOrigin):null},202);
 }
 
 export async function listEditorPages(env,author){
  if(!env.DB)return [];
  await publisherEnsure(env.DB);
- return (await env.DB.prepare("SELECT id,page_path,status FROM editor_publications WHERE author_email = ? AND json_extract(patch_json,'$.kind') = 'new-page' AND status != 'discarded' ORDER BY updated_at DESC LIMIT 100").bind(author).all()).results||[];
+ return (await env.DB.prepare("SELECT id,page_path,status,json_extract(patch_json,'$.kind') AS kind,json_extract(patch_json,'$.record.kind') AS page_kind FROM editor_publications WHERE author_email = ? AND json_extract(patch_json,'$.kind') IN ('new-page','case-study-archive') AND status != 'discarded' ORDER BY updated_at DESC LIMIT 100").bind(author).all()).results||[];
+}
+
+export async function handleCaseStudies(request,env,data,author,payload){
+ if(!env.DB)return publisherJson({error:'The publishing database is unavailable.'},503);
+ await publisherEnsure(env.DB);
+ const url=new URL(request.url);
+ if(request.method==='GET'){
+  const jobs=(await env.DB.prepare("SELECT * FROM editor_publications WHERE author_email = ? AND (json_extract(patch_json,'$.kind') = 'case-study-archive' OR (json_extract(patch_json,'$.kind') = 'new-page' AND json_extract(patch_json,'$.record.kind') = 'case-study')) AND status != 'discarded' ORDER BY updated_at DESC LIMIT 100").bind(author).all()).results||[];
+  return publisherJson({cases:data.caseStudyInventory||[],proposals:jobs.map(job=>({...publisherView(job,data.config.repository),type:JSON.parse(job.patch_json).kind,change:JSON.parse(job.patch_json).record}))});
+ }
+ if(request.method!=='POST')return publisherJson({error:'Method not allowed.'},405);
+ if(!editorPublishConfigured(env))return publisherJson({error:'GitHub publishing is not configured.'},503);
+ if(payload.action!=='archive'||typeof payload.archived!=='boolean'||!/^[a-f0-9-]{36}$/.test(payload.id||''))return publisherJson({error:'Invalid case study change.'},400);
+ const selected=data.caseStudyInventory?.find(record=>record.path===payload.path);
+ if(!selected||!data.pages[payload.path])return publisherJson({error:'Case study not found.'},404);
+ const record={version:1,path:selected.path,archived:payload.archived};
+ const file='src/case-study-archives/'+await publisherHash(record.path)+'.json';
+ const document='docs/editor-case-studies/'+await publisherHash(record.path);
+ const xml='<?xml version="1.0" encoding="UTF-8"?>\n<!-- Archived from listing: '+record.archived+'; Article URL retained. -->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+(data.sitemap?.includes(data.config.productionOrigin+record.path)?'<url><loc>'+data.config.productionOrigin+record.path+'</loc></url>':'')+'</urlset>\n';
+ const files=[{path:file,mode:'100644',type:'blob',content:JSON.stringify(record,null,2)+'\n'},{path:document+'.md',mode:'100644',type:'blob',content:'# Case study listing change\n\nURL: `'+record.path+'`\n\nArchived from listing: '+record.archived+'\n\nThe article URL is retained. Original content and metadata are retained, and the sitemap continues to follow the article indexing policy. Restore through the case study manager.\n'},{path:document+'.sitemap.xml',mode:'100644',type:'blob',content:xml}];
+ const patchJson=JSON.stringify({kind:'case-study-archive',baseSha256:data.pages[record.path].sha256,record,files});
+ const old=await env.DB.prepare('SELECT * FROM editor_publications WHERE id = ?').bind(payload.id).first();
+ if(old){if(old.author_email!==author||old.patch_json!==patchJson)return publisherJson({error:'Save identifier is already used.'},409);return publisherJson({publication:publisherView(old,data.config.repository)})}
+ if(selected.archived===record.archived)return publisherJson({error:'This case study already has that listing status.'},409);
+ const pending=await env.DB.prepare("SELECT id FROM editor_publications WHERE page_path = ? AND status IN ('creating','saved','checking','deploying') LIMIT 1").bind(record.path).first();
+ if(pending)return publisherJson({error:'A proposal for this case study already exists. Reopen it before starting another.'},409);
+ await env.DB.prepare("CREATE UNIQUE INDEX IF NOT EXISTS editor_publication_active ON editor_publications ((1)) WHERE status IN ('creating','checking','deploying')").run();
+ await env.DB.prepare("CREATE UNIQUE INDEX IF NOT EXISTS editor_case_study_pending ON editor_publications (page_path) WHERE json_extract(patch_json,'$.kind') = 'case-study-archive' AND status IN ('creating','saved','checking','deploying')").run();
+ try{await env.DB.prepare('INSERT INTO editor_publications (id,author_email,page_path,patch_json,updated_at) VALUES (?,?,?,?,?)').bind(payload.id,author,record.path,patchJson,Date.now()).run()}catch{return publisherJson({error:'Another publication is in progress. Wait before saving.'},409)}
+ try{const job=await env.DB.prepare('SELECT * FROM editor_publications WHERE id = ?').bind(payload.id).first();await publisherRun(job,data,env,await publisherToken(env,data.config.repository));}catch(e){await publisherUpdate(env.DB,payload.id,{status:'failed',error:e.message})}
+ const job=await env.DB.prepare('SELECT * FROM editor_publications WHERE id = ?').bind(payload.id).first();
+ return publisherJson({publication:publisherView(job,data.config.repository)},202);
 }

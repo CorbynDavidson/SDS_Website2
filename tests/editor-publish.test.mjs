@@ -141,3 +141,28 @@ test('new page save commits page and sitemap documentation to a branch and waits
  f.content.addedPages=[JSON.parse(tree.find(x=>x.path.startsWith('src/added-pages/')).content)];f.update();await f.schedule();
  assert.equal((await (await f.get(id)).json()).publication.status,'live');
 });
+
+test('case study removal saves a reversible archive proposal and requires explicit publish',async t=>{
+ const f=await fixture(t),path='/about-us/case-studies/original/';f.content.pages[path]={sha256:'casehash',gzip:gzipSync(html).toString('base64')};f.content.caseStudyInventory=[{path,title:'Original case',archived:false}];f.content.caseStudyArchives={};f.update();
+ const post=body=>createWorker(f.content).fetch(new Request(origin+'/api/editor/case-studies',{method:'POST',headers:{origin,'content-type':'application/json','oai-authenticated-user-email':owner},body:JSON.stringify(body)}),f.env);
+ const id=crypto.randomUUID();const result=await post({action:'archive',id,path,archived:true});assert.equal(result.status,202);assert.equal((await result.json()).publication.status,'saved');
+ const index=await createWorker(f.content).fetch(new Request(origin+'/editor',{headers:{'oai-authenticated-user-email':owner}}),f.env);assert.ok((await index.text()).includes('/editor?cases=1&amp;id='+id));
+ const files=f.calls.find(x=>x.path.endsWith('/git/trees')).body.tree;assert.ok(files.some(x=>x.path.startsWith('src/case-study-archives/')));assert.ok(files.some(x=>x.path.endsWith('.sitemap.xml')));assert.ok(files.find(x=>x.path.endsWith('.sitemap.xml')).content.includes('Archived from listing: true'));
+ f.checks('passed');await f.schedule();assert.ok(!f.calls.some(x=>x.path.endsWith('/merge')));
+ assert.equal((await f.post({action:'publish',id})).status,409);
+ const response=await createWorker(f.content).fetch(new Request(origin+'/api/editor/pages',{method:'POST',headers:{origin,'content-type':'application/json','oai-authenticated-user-email':owner},body:JSON.stringify({action:'publish',id})}),f.env);assert.equal(response.status,200);
+ await f.schedule();f.content.caseStudyArchives[path]={version:1,path,archived:true};f.update();await f.schedule();assert.equal((await (await f.get(id)).json()).publication.status,'live');
+});
+
+test('saved case study additions reopen in case study mode',async t=>{
+ const f=await fixture(t);f.content.pageHeaders=[{id:'resources',label:'About & resources'}];f.content.newPageTemplate='<html><body><h1>{{PAGE_TITLE}}</h1>{{PAGE_INTRO}}{{PAGE_SECTIONS}}</body></html>';f.content.config.productionOrigin='https://www.sds-solicitors.com';f.content.sitemap='<urlset></urlset>';f.update();
+ const id=crypto.randomUUID();const response=await createWorker(f.content).fetch(new Request(origin+'/api/editor/pages',{method:'POST',headers:{origin,'content-type':'application/json','oai-authenticated-user-email':owner},body:JSON.stringify({action:'save',id,page:{kind:'case-study',title:'New case',slug:'new-case',image:'/assets/photo.jpg'}})}),f.env);assert.equal(response.status,202);
+ const index=await createWorker(f.content).fetch(new Request(origin+'/editor',{headers:{'oai-authenticated-user-email':owner}}),f.env);assert.ok((await index.text()).includes('/editor?add=case-study&amp;id='+id));
+ const listing=await createWorker(f.content).fetch(new Request(origin+'/api/editor/case-studies',{headers:{'oai-authenticated-user-email':owner}}),f.env);const value=await listing.json();assert.equal(value.proposals[0].type,'new-page');
+});
+
+test('restore changes the XML documentation as well as the archive record, so exact PR file checks can pass',async t=>{
+ const f=await fixture(t),path='/about-us/case-studies/original/';f.content.pages[path]={sha256:'casehash',gzip:gzipSync(html).toString('base64')};f.content.caseStudyInventory=[{path,title:'Original case',archived:true}];f.content.caseStudyArchives={[path]:{version:1,path,archived:true}};f.content.config.productionOrigin='https://www.sds-solicitors.com';f.content.sitemap='<urlset><loc>https://www.sds-solicitors.com'+path+'</loc></urlset>';f.update();
+ const response=await createWorker(f.content).fetch(new Request(origin+'/api/editor/case-studies',{method:'POST',headers:{origin,'content-type':'application/json','oai-authenticated-user-email':owner},body:JSON.stringify({action:'archive',id:crypto.randomUUID(),path,archived:false})}),f.env);assert.equal(response.status,202);
+ const files=f.calls.find(x=>x.path.endsWith('/git/trees')).body.tree;const xml=files.find(x=>x.path.endsWith('.sitemap.xml')).content;assert.ok(xml.includes('Archived from listing: false'));assert.notEqual(xml,xml.replace('Archived from listing: false','Archived from listing: true'));assert.ok(xml.includes(path));assert.equal(JSON.parse(files[0].content).archived,false);
+});

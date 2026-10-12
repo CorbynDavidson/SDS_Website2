@@ -3,7 +3,7 @@ import {load} from 'cheerio';
 import {gunzipSync,gzipSync} from 'node:zlib';
 import {readFile,readdir} from 'node:fs/promises';
 import {resolve} from 'node:path';
-import {validateNewPage,renderNewPage} from '../../worker/editor-pages.mjs';
+import {validateNewPage,renderNewPage,addedPageFilename} from '../../worker/editor-pages.mjs';
 import {sha256} from './html.mjs';
 export const pageHeaders=[{id:'disrepair',label:'Disrepair types'},{id:'locations',label:'Locations'},{id:'associations',label:'Housing associations'},{id:'resources',label:'About & resources'}];
 export function stockPageTemplate(html){
@@ -11,7 +11,8 @@ export function stockPageTemplate(html){
  const hero=$('main header.service-hero').first().clone();
  if(!hero.find('form[data-sds-form]').length)throw Error('Stock page needs the existing enquiry form.');
  hero.find('.service-hero-grid > div').first().html('<h1>{{PAGE_TITLE}}</h1><div class="sds-source-copy">{{PAGE_INTRO}}</div>');
- $('main').attr('data-added-page-template','').html($.html(hero)+'{{PAGE_SECTIONS}}');
+ const trust=$('main #reviewsWidget').first().clone();
+ $('main').attr('data-added-page-template','').html($.html(hero)+'{{PAGE_SECTIONS}}'+(trust.length?$.html(trust):''));
  $('[data-sds-form]').attr('data-source-path','{{PAGE_PATH}}');
  $('input[name="_sds_source"]').attr('value','{{PAGE_PATH}}');
  $('title').text('{{PAGE_TITLE}} | Sheldon Davidson Solicitors');
@@ -33,7 +34,7 @@ export function addNewPageNavigation(html,records,origin=''){
  if(!$('.nav-menu .mega-panel').length)return html;
  const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
  for(const group of pageHeaders){
-  const pages=records.filter(p=>p.header===group.id);if(!pages.length)continue;
+  const pages=records.filter(p=>p.kind!=='case-study'&&p.header===group.id);if(!pages.length)continue;
   const links=pages.map(p=>'<a data-added-page href="'+escape(origin+p.path)+'">'+escape(p.title)+'</a>').join('');
   const strong=$(headerSelectors[group.id]).first();
   if(!strong.length)throw Error('Missing header section '+group.label);
@@ -53,8 +54,8 @@ export async function buildEditorPages(root,pages,routes,config){
  const records=[];
  for(const name of names.filter(n=>n.endsWith('.json')).sort()){
   const input=JSON.parse(await readFile(resolve(root,'src/added-pages',name),'utf8'));
-  const record=validateNewPage({...input,slug:input.path?.replace(/^\/+|\/+$/g,'')},{pages,routes,pageHeaders});
-  if(record.version!==input.version||record.path!==input.path||name!==record.path.slice(1,-1)+'.json')throw Error('Invalid added page record '+name);
+  const record=validateNewPage({...input,slug:input.path?.split('/').filter(Boolean).at(-1)},{pages,routes,pageHeaders});
+  if(record.version!==input.version||record.path!==input.path||name!==addedPageFilename(record))throw Error('Invalid added page record '+name);
   const html=applyProductionSeo(renderNewPage(template,record,config.productionOrigin),{config,path:record.path,redirects:routes.redirects});
   pages[record.path]={gzip:gzipSync(html).toString('base64'),sha256:sha256(html),status:200};records.push(record);
  }
