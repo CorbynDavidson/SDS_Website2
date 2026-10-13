@@ -10,6 +10,7 @@ const policy=createProductionRouting(data.config,data.routes);
 const env={RELEASE_MODE:'review',INDEXING_DISABLED:'true'};
 const report={publicTemplates:0,faqLinks:0,reviewLinks:0,sharedTrustBars:0,editorRuntimes:0,productionCanonicalsPreserved:true,indexingPausePreserved:true,explicitNoindexHeads:0,noStoreReviewPages:0,productionGonePathsVerified:0,reviewGoneRoutingUnchanged:true,browserVisualAuditComplete:false};
 for(const [path,page] of Object.entries(data.pages)){
+  if(page.seoMovedTo){const moved=await worker.fetch(new Request('https://housingconditionclaims.org'+path),env);assert.equal(moved.status,301);assert.equal(new URL(moved.headers.get('location')).pathname+new URL(moved.headers.get('location')).search,page.seoMovedTo);continue;}
   const stored=gunzipSync(Buffer.from(page.gzip,'base64')).toString('utf8'),origin='https://housingconditionclaims.org';
   const response=await worker.fetch(new Request(origin+path),env);
   assert.equal(response.status,200,path);
@@ -34,20 +35,20 @@ for(const [path,page] of Object.entries(data.pages)){
   assert.equal($('link[rel="canonical"]').attr('href'),load(stored)('link[rel="canonical"]').attr('href'),path);
   const cta=new URL($('#reviewsWidget .reviews-assessment').attr('href'));
   if(cta.hash)assert.equal($('[id="'+cta.hash.slice(1)+'"]').length,1,'Trust CTA target: '+path);
-  else assert.equal(cta.pathname,'/housing-disrepair-enquiries/',path);
+  else assert.equal(cta.pathname,data.pages['/housing-disrepair-enquiries/']?.seoMovedTo||'/housing-disrepair-enquiries/',path);
   for(const node of $('a[href]').toArray()){
     const href=node.attribs.href;
     assert.ok(!href.startsWith(data.config.productionOrigin+'/'),'Review link escaped to old site: '+path+' '+href);
     if(href.startsWith(origin+'/'))report.reviewLinks++;
     if(/^(FAQs|Frequently asked questions)$/i.test($(node).text().trim())){
-      assert.equal(new URL(href).pathname,'/faqs/','FAQ link: '+path);report.faqLinks++;
+      assert.equal(new URL(href).pathname,data.pages['/faqs/']?.seoMovedTo||'/faqs/','FAQ link: '+path);report.faqLinks++;
     }
   }
   assert.equal(policy.publicHtml(stored,new URL(data.config.productionOrigin+path),{RELEASE_MODE:'production'}),stored,'Production navigation changed at runtime.');
   report.publicTemplates++;report.sharedTrustBars++;report.editorRuntimes++;
 }
-assert.equal(data.routes.redirects['/faqs'],'/faqs/');
-assert.equal((await worker.fetch(new Request(data.config.productionOrigin+'/faqs'),{RELEASE_MODE:'production'})).headers.get('location'),data.config.productionOrigin+'/faqs/');
+assert.equal(data.routes.redirects['/faqs'],data.pages['/faqs/']?.seoMovedTo||'/faqs/');
+assert.equal((await worker.fetch(new Request(data.config.productionOrigin+'/faqs'),{RELEASE_MODE:'production'})).headers.get('location'),data.config.productionOrigin+(data.pages['/faqs/']?.seoMovedTo||'/faqs/'));
 assert.equal(data.routes.productionGone.length,23,'The workbook identifies 23 retirement candidates.');
 for(const path of data.routes.productionGone){
   assert.ok(!data.sitemap.includes(data.config.productionOrigin+path),'Retired path in sitemap: '+path);

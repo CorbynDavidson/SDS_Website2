@@ -71,3 +71,16 @@ test('packaged case study editor keeps existing Access paths and manager APIs ow
  const form=await packaged.fetch(new Request(origin+'/editor?add=case-study',{headers}),env);assert.equal(form.status,200);assert.ok((await form.text()).includes('value="case-study"'));
  const inventory=await packaged.fetch(new Request(origin+'/api/editor/case-studies',{headers}),env);assert.equal(inventory.status,200);assert.ok((await inventory.json()).cases.length>10);
 });
+
+test('packaged SEO manager is owner protected and sitemap executes deployed page index including HEAD and pause',async t=>{
+ const packaged=(await import('../dist/server/cloudflare.js')).default,DB=await localD1();t.after(()=>DB.close());
+ const origin='https://sds-website2.example.workers.dev',owner={'oai-authenticated-user-email':'corbyn.davidson@hotmail.com'};
+ const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'review',ASSETS:{async fetch(request){try{return new Response(await readFile(resolve('dist/client'+new URL(request.url).pathname)));}catch{return new Response('Not found',{status:404});}}}};
+ const opened=await packaged.fetch(new Request(origin+'/editor?seo=1',{headers:owner}),env);assert.equal(opened.status,200);const html=await opened.text();for(const id of ['seo-slug','legal-name','faq-rows','redirect-dialog','seo-publish'])assert.ok(html.includes('id="'+id+'"'));
+ const unauthorised=await packaged.fetch(new Request(origin+'/api/editor/seo?path=/'),env);assert.notEqual(unauthorised.status,200);
+ const loaded=await packaged.fetch(new Request(origin+'/api/editor/seo?path=/',{headers:owner}),env);assert.equal(loaded.status,200);const context=await loaded.json();assert.ok(context.pages.length>200);assert.equal(context.page.path,'/');
+ const sitemap=await packaged.fetch(new Request(origin+'/sitemap.xml'),env);assert.equal(sitemap.status,200);assert.equal(sitemap.headers.get('cache-control'),'no-store');assert.ok((await sitemap.text()).includes('https://www.sds-solicitors.com/'));
+ const paused=await packaged.fetch(new Request(origin+'/sitemap.xml'),{...env,INDEXING_DISABLED:'true'});assert.ok(!(await paused.text()).includes('<loc>'));
+ const head=await packaged.fetch(new Request(origin+'/sitemap.xml',{method:'HEAD'}),env);assert.equal(head.status,200);assert.equal(await head.text(),'');
+ assert.match(await readFile('dist/client/_redirects','utf8'),/Editor-managed/);
+});

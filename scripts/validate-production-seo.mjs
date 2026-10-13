@@ -18,6 +18,8 @@ const DB=await localD1();
 const storedAssets=new Map(Object.entries(data.assets).filter(([,asset])=>asset.storagePath).map(([path,asset])=>[asset.storagePath,{path,asset}]));
 const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'production',ASSETS:{async fetch(request){const requested=new URL(request.url).pathname,stored=storedAssets.get(requested),path=stored?.path||requested,asset=stored?.asset||data.assets[path];if(!asset)return new Response('Missing',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':asset.type}});}}};
 const request=(url,method='GET')=>worker.fetch(new Request(url,{method}),env);
+const publicPath=path=>data.pages[path]?.seoMovedTo||path;
+const requestPage=(url,method='GET')=>{const target=new URL(url);const moved=data.pages[target.pathname+target.search]?.seoMovedTo||data.pages[target.pathname]?.seoMovedTo;if(moved){const replacement=new URL(moved,origin);target.pathname=replacement.pathname;if(replacement.search)target.search=replacement.search;}return request(target.href,method);};
 const flatten=value=>Array.isArray(value)?value.flatMap(flatten):value&&typeof value==='object'?[value,...Object.values(value).flatMap(flatten)]:[];
 const stylesheetRequests=new Set();
 const panelScope=await readJson('config/enquiry-panel.json');
@@ -44,18 +46,19 @@ report.roundedEnquiryPanelsVerified=0;report.locationEnquiryPanelsVerified=0;rep
 report.reviewTermsLinksVerified=0;report.termsOnlyStylesheetVerified=false;
 report.claimEnquiryStyleTemplatesVerified=0;report.otherTemplatesWithoutClaimEnquiryStylesVerified=0;
 for(const [path,page] of Object.entries(data.pages)){
+  if(page.seoMovedTo)continue;
   const html=gunzipSync(Buffer.from(page.gzip,'base64')).toString(),$=load(html);
-  const normalPath=path.split('?')[0].replace(/\/+$/,'')+'/';
+  const normalPath=(data.pageSource?.[path]||path).split('?')[0].replace(/\/+$/,'')+'/';
   const menu=$('body > nav .nav-menu');
   if(menu.length){
     const heading=menu.find('.mega-panel strong').filter((_,node)=>$(node).text().trim()===resourceNavigation.heading);assert.equal(heading.length,1,path);
-    assert.deepEqual(heading.parent().children('a[data-resource-link]').toArray().map(node=>({label:$(node).text(),path:new URL(node.attribs.href).pathname})),resourceNavigation.links,'The four requested Explore links are missing or misplaced: '+path);
+    assert.deepEqual(heading.parent().children('a[data-resource-link]').toArray().map(node=>({label:$(node).text(),path:new URL(node.attribs.href).pathname})),resourceNavigation.links.map(link=>({...link,path:publicPath(link.path)})),'The four requested Explore links are missing or misplaced: '+path);
     resourceAudit.desktopExploreGroupsVerified++;
   }
   const mobile=$('body > nav .mobile-menu');
   if(mobile.length){
     assert.equal(mobile.find('[data-resource-navigation-heading]').text(),resourceNavigation.heading);
-    assert.deepEqual(mobile.find('a[data-resource-link]').toArray().map(node=>({label:$(node).text(),path:new URL(node.attribs.href).pathname})),resourceNavigation.links,path);
+    assert.deepEqual(mobile.find('a[data-resource-link]').toArray().map(node=>({label:$(node).text(),path:new URL(node.attribs.href).pathname})),resourceNavigation.links.map(link=>({...link,path:publicPath(link.path)})),path);
     resourceAudit.mobileResourceGroupsVerified++;
   }
   assert.equal($('[data-resource-link]').length,(menu.length+mobile.length)*resourceNavigation.links.length,'Extra resource links were introduced: '+path);
@@ -82,7 +85,7 @@ for(const [path,page] of Object.entries(data.pages)){
   }else{
     assert.equal($('.sds-claim-enquiry,#sds-claim-enquiry').length,0,'Claim enquiry styling leaked to another page: '+path);report.otherTemplatesWithoutClaimEnquiryStylesVerified++;
   }
-  const addedPanel=(data.addedPages||[]).some(p=>p.path===path);
+  const addedPanel=(data.addedPages||[]).some(p=>p.path===(data.pageSource?.[path]||path));
   const locationPanel=normalPath.startsWith(panelScope.locationPrefix),typePanel=panelTypes.has(normalPath),guidePanel=panelGuides.has(normalPath);
   if(normalPath===locationDirectory.path){
     const section=$('main > section[data-location-directory]');assert.equal(section.length,1,'Expected one directory box on All Locations.');
@@ -90,7 +93,7 @@ for(const [path,page] of Object.entries(data.pages)){
     assert.equal(section.attr('aria-labelledby'),section.find('h2').attr('id'));
     assert.equal(section.find('nav').attr('aria-labelledby'),section.find('h2').attr('id'));
     assert.equal(section.find('ul > li').length,directoryPaths.length);
-    assert.deepEqual(section.find('a[data-location-link]').toArray().map(node=>({label:$(node).text(),path:new URL(node.attribs.href).pathname})),locationDirectory.links,'Directory labels or original URL paths differ.');
+    assert.deepEqual(section.find('a[data-location-link]').toArray().map(node=>({label:$(node).text(),path:new URL(node.attribs.href).pathname})),locationDirectory.links.map(link=>({...link,path:publicPath(link.path)})),'Directory labels or original URL paths differ.');
     assert.equal($('#sds-location-directory').text(),locationDirectoryCss,'Directory styling differs from Git source.');
     assert.equal(section.find('form').length,0,'The directory must not add another enquiry form.');
     directoryAudit.directoryTemplatesVerified++;
@@ -117,10 +120,14 @@ for(const [path,page] of Object.entries(data.pages)){
   assert.equal($('meta[name="twitter:url"]').attr('content'),canonical,path);
   for(const selector of ['meta[property="og:image"]','meta[name="twitter:image"]'])assert.equal(new URL($(selector).attr('content')).origin,origin,path);
   const graph=$('head script[type="application/ld+json"]').toArray().flatMap(node=>flatten(JSON.parse($(node).text())));
-  const legal=graph.filter(node=>node['@type']==='LegalService'&&node.telephone==='0161 796 3000');assert.equal(legal.length,1,path);
-  assert.equal(legal[0].name,'Sheldon Davidson Solicitors');assert.equal(legal[0].url,origin+'/');assert.equal(legal[0].identifier.value,'519502');assert.equal(legal[0].identifier.propertyID,'sraNumber');
-  assert.deepEqual(legal[0].address,{'@type':'PostalAddress',streetAddress:'219 Bury New Road',addressLocality:'Whitefield, Manchester',addressRegion:'Greater Manchester',postalCode:'M45 8GW',addressCountry:'GB'});report.legalServiceSchemasVerified++;
-  if(path.startsWith('/housing-disrepair')){assert.ok(graph.some(node=>node['@type']==='Service'&&node.provider?.['@id']===origin+'/#corporation'),path);report.disrepairServiceSchemasVerified++;}
+  const record=data.pageSeo?.[data.pageSource?.[path]||path],customLegal=record?.legalService;
+  const legal=graph.filter(node=>node['@type']==='LegalService'&&node['@id']===origin+'/#corporation'&&node.identifier?.propertyID==='sraNumber');assert.equal(legal.length,1,path);
+  const expected=customLegal||{name:'Sheldon Davidson Solicitors',telephone:'0161 796 3000',streetAddress:'219 Bury New Road',addressLocality:'Whitefield, Manchester',addressRegion:'Greater Manchester',postalCode:'M45 8GW',addressCountry:'GB'};
+  assert.equal(legal[0].name,expected.name);assert.equal(legal[0].telephone||'',expected.telephone);assert.equal(legal[0].url,origin+'/');assert.equal(legal[0].identifier.value,'519502');assert.equal(legal[0].identifier.propertyID,'sraNumber');
+  assert.deepEqual(legal[0].address,{'@type':'PostalAddress',streetAddress:expected.streetAddress,addressLocality:expected.addressLocality,...(expected.addressRegion?{addressRegion:expected.addressRegion}:{}),postalCode:expected.postalCode,addressCountry:expected.addressCountry});report.legalServiceSchemasVerified++;
+  if(record?.faq.length&&!path.includes('?')){const faq=graph.filter(n=>n['@type']==='FAQPage'&&n['@id']===origin+record.path+'#faq');assert.equal(faq.length,1,path);assert.deepEqual(faq[0].mainEntity.map(n=>({question:n.name,answer:n.acceptedAnswer.text})),record.faq);assert.deepEqual($('[data-editor-faq] summary').map((_,n)=>$(n).text()).get(),record.faq.map(n=>n.question));}
+
+  if(normalPath.startsWith('/housing-disrepair')){assert.ok(graph.some(node=>node['@type']==='Service'&&node.provider?.['@id']===origin+'/#corporation'),path);report.disrepairServiceSchemasVerified++;}
   for(const node of $('a[href]').toArray()){
     const href=node.attribs.href;if(/^(?:#|\/)(?!\/)/.test(href))throw new Error('Internal link is not absolute: '+path+' '+href);
     if(href.startsWith(origin+'/'))assert.ok(!data.routes.consolidations[new URL(href).pathname],'Internal link still targets a retired design page: '+path+' '+href);
@@ -145,12 +152,12 @@ for(const [path,page] of Object.entries(data.pages)){
     const target=new URL(node.attribs.href,review+path);
     if('data-resource-link' in node.attribs){
       assert.equal(target.origin,review,'New resource link opens the old website: '+path);
-      assert.ok(resourceNavigation.links.some(link=>link.path===target.pathname));
+      assert.ok(resourceNavigation.links.some(link=>publicPath(link.path)===target.pathname));
       resourceAudit.reviewResourceLinksVerified++;
     }
-    if(target.pathname.replace(/\/+$/,'')!=='/about-us/terms-business')continue;
+    if((data.pageSource?.[target.pathname]||target.pathname).replace(/\/+$/,'')!=='/about-us/terms-business')continue;
     assert.equal(target.origin,review,'Terms link opens the old website: '+path);
-    assert.equal(target.pathname,'/about-us/terms-business/');
+    assert.equal(target.pathname,publicPath('/about-us/terms-business/'));
     report.reviewTermsLinksVerified++;
   }
   assert.equal(reviewPage('head link[rel=canonical]').attr('href'),canonical,'Review canonical changed: '+path);
@@ -167,15 +174,15 @@ for(const page of index.pages){
   report.capturedRoutesVerified++;
 }
 for(const host of [origin,review,'https://housingconditionclaims.org','https://sds-housing-condition-claims.corbyn-davidson.chatgpt.site']){
-  const response=await request(host+locationDirectory.path);assert.equal(response.status,200);
+  const response=await requestPage(host+locationDirectory.path);assert.equal(response.status,200);
   const $=load(await response.text()),anchors=$('[data-location-directory] a[data-location-link]');
   assert.equal(anchors.length,directoryPaths.length);
-  assert.equal($('link[rel=canonical]').attr('href'),origin+locationDirectory.path,'The review directory canonical must remain on SDS.');
+  assert.equal($('link[rel=canonical]').attr('href'),origin+publicPath(locationDirectory.path),'The review directory canonical must remain on SDS.');
   for(const [i,node] of anchors.toArray().entries()){
     const link=locationDirectory.links[i],href=node.attribs.href;
-    assert.equal(href,host+link.path,'Directory link opens a different website: '+host+' '+link.path);
+    assert.equal(href,host+publicPath(link.path),'Directory link opens a different website: '+host+' '+link.path);
     const destination=await request(href);assert.equal(destination.status,200,'Directory destination is missing or redirects: '+href);
-    const page=load(await destination.text());assert.equal(page('link[rel=canonical]').attr('href'),origin+link.path);
+    const page=load(await destination.text());assert.equal(page('link[rel=canonical]').attr('href'),origin+publicPath(link.path));
     if(host===origin){assert.ok(!destination.headers.has('x-robots-tag'));directoryAudit.productionLinksVerified++;directoryAudit.links.push({...link,productionUrl:href,status:destination.status,canonical:page('link[rel=canonical]').attr('href')});}
     else{assert.match(destination.headers.get('x-robots-tag'),/noindex/);directoryAudit.reviewLinksVerified++;}
   }
@@ -184,7 +191,7 @@ report.locationDirectoryLinksVerified=directoryAudit.productionLinksVerified;
 report.reviewDirectoryLinksVerified=directoryAudit.reviewLinksVerified;
 for(const host of [origin,'https://housingconditionclaims.org','https://sds-housing-condition-claims.corbyn-davidson.chatgpt.site']){
   for(const path of ['/',resourceNavigation.questionnairePath]){
-    const response=await request(host+path);assert.equal(response.status,200);
+    const response=await requestPage(host+path);assert.equal(response.status,200);
     const $=load(await response.text());
     for(const node of $('body > nav a[data-resource-link]').toArray()){
       const target=new URL(node.attribs.href);assert.equal(target.origin,host,'Resource link must open the current design, including in a new tab.');
@@ -194,7 +201,7 @@ for(const host of [origin,'https://housingconditionclaims.org','https://sds-hous
     }
   }
 }
-assert.equal(resourceAudit.desktopExploreGroupsVerified,index.pages.length+(data.addedPages||[]).length);assert.equal(resourceAudit.mobileResourceGroupsVerified,1);assert.equal(resourceAudit.questionnaireTemplatesVerified,1);assert.equal(resourceAudit.otherTemplatesWithoutQuestionnaireStylesVerified,Object.keys(data.pages).length-1);
+assert.equal(resourceAudit.desktopExploreGroupsVerified,index.pages.length+(data.addedPages||[]).length);assert.equal(resourceAudit.mobileResourceGroupsVerified,1);assert.equal(resourceAudit.questionnaireTemplatesVerified,1);assert.equal(resourceAudit.otherTemplatesWithoutQuestionnaireStylesVerified,Object.values(data.pages).filter(p=>!p.seoMovedTo).length-1);
 report.resourceNavigationGroupsVerified=resourceAudit.desktopExploreGroupsVerified;
 report.reviewResourceLinksVerified=resourceAudit.reviewResourceLinksVerified;
 report.questionnaireOnlyLayoutVerified=true;
@@ -212,7 +219,8 @@ for(const url of urls){assert.equal(new URL(url).origin,origin);const response=a
 const originalIndexable=[];
 for(const node of originalSitemap('loc').toArray()){
   const url=originalSitemap(node).text(),path=new URL(url).pathname;
-  assert.equal((await request(url)).status,200,'An original sitemap URL was retired: '+url);
+  const target=data.pages[path]?.seoMovedTo;const response=await request(url);if(target){assert.equal(response.status,301,'Approved sitemap URL move requires 301');assert.equal(response.headers.get('location'),origin+target);assert.equal((await request(origin+target)).status,200);assert.ok(!urls.includes(url));const canonical=origin+target;const $=load(gunzipSync(Buffer.from(data.pages[target].gzip,'base64')).toString());if(!/noindex/i.test($('meta[name=robots]').attr('content')||''))originalIndexable.push(canonical);else consolidationAudit.originalNoindexUrlsExcluded.push(canonical);continue;}
+  assert.equal(response.status,200,'An original sitemap URL was retired: '+url);
   const $=load(gunzipSync(Buffer.from(data.pages[path].gzip,'base64')).toString());
   if(/noindex/i.test($('meta[name=robots]').attr('content')||'')){
     assert.ok(!urls.includes(url),'Noindex utility page appears in sitemap: '+url);consolidationAudit.originalNoindexUrlsExcluded.push(url);
@@ -221,7 +229,7 @@ for(const node of originalSitemap('loc').toArray()){
     originalIndexable.push(url);
   }
 }
-assert.deepEqual([...urls].sort(),[...originalIndexable,...consolidation.retainedStandaloneRoutes.map(path=>origin+path),...(data.addedPages||[]).filter(page=>page.indexable).map(page=>origin+page.path)].sort(),'Sitemap must contain exactly the indexable original SDS URLs, retained standalone pages and indexable added pages');
+assert.deepEqual([...urls].sort(),[...originalIndexable,...consolidation.retainedStandaloneRoutes.map(path=>origin+publicPath(path)),...(data.addedPages||[]).filter(page=>page.indexable).map(page=>origin+publicPath(page.path))].sort(),'Sitemap must contain exactly the indexable original SDS URLs, retained standalone pages and indexable added pages');
 consolidationAudit.originalIndexableSitemapUrlsRetained=originalIndexable.length;
 assert.equal(originalIndexable.length,242);assert.equal(consolidationAudit.originalNoindexUrlsExcluded.length,6);
 const expectedConsolidations={};
@@ -269,18 +277,18 @@ for(const route of [...legacy.liveEvidence,...legacy.prefixEvidence].filter(rout
   const response=await request(origin+route.path);assert.equal(response.status,route.status,route.path);report.knownNonHousingRoutesVerified++;
 }
 for(const url of ['http://sds-solicitors.com/housing-disrepair?utm_campaign=launch','http://www.sds-solicitors.com/housing-disrepair?utm_campaign=launch']){
-  const response=await request(url);assert.equal(response.status,301);assert.equal(response.headers.get('location'),origin+'/housing-disrepair/?utm_campaign=launch');
+  const response=await request(url);assert.equal(response.status,301);assert.equal(response.headers.get('location'),origin+publicPath('/housing-disrepair/')+'?utm_campaign=launch');
 }
-const pageOne=await request(origin+'/about-us/news/?ccm_paging_p_b1269=1&utm_source=test');assert.equal(pageOne.status,301);assert.equal(pageOne.headers.get('location'),origin+'/about-us/news/?utm_source=test');
-const pageTwo=await request(origin+'/about-us/news/?ccm_paging_p_b1269=2');assert.equal(pageTwo.status,200);
-const reviewResponse=await request(review+'/housing-disrepair/');assert.equal(reviewResponse.status,200);assert.match(reviewResponse.headers.get('x-robots-tag'),/noindex/);
+const pageOne=await request(origin+'/about-us/news/?ccm_paging_p_b1269=1&utm_source=test');assert.equal(pageOne.status,301);assert.equal(pageOne.headers.get('location'),origin+publicPath('/about-us/news/')+'?utm_source=test');
+const pageTwo=await requestPage(origin+'/about-us/news/?ccm_paging_p_b1269=2');assert.equal(pageTwo.status,200);
+const reviewResponse=await requestPage(review+'/housing-disrepair/');assert.equal(reviewResponse.status,200);assert.match(reviewResponse.headers.get('x-robots-tag'),/noindex/);
 assert.match(await(await request(review+'/robots.txt')).text(),/Disallow: \/\n/);report.reviewNoindexVerified=true;
 const robots=await(await request(origin+'/robots.txt')).text();assert.match(robots,/Allow: \/\n/);assert.ok(!/^Disallow: \/$/m.test(robots));assert.match(robots,/Sitemap: https:\/\/www\.sds-solicitors\.com\/sitemap.xml/);
 for(const path of ['/api/','/submissions','/editor','/staging/','/preview/'])assert.ok(robots.includes('Disallow: '+path));report.productionRobotsVerified=true;
 assert.equal(robots,await readFile(resolve(root,'public/robots.txt'),'utf8'));
 for(const path of ['/submissions','/submissions.csv','/editor','/?edit=1','/staging/secret/','/preview/test/']){const response=await request(origin+path);assert.match(response.headers.get('x-robots-tag'),/noindex/);if(path.startsWith('/staging')||path.startsWith('/preview'))assert.equal(response.status,404);}report.privateRoutesNoindexVerified=true;
 const terms=$=>$('main [data-source-copy]').toArray().filter(node=>!$(node).parents('[data-source-copy]').length).map(node=>$(node).text().replace(/\s+/gu,' ').trim()).join(' ').replace(/\s+/g,' ').trim();
-const termPage=load(await(await request(origin+'/about-us/terms-business/')).text());assert.ok(termPage('main').hasClass('sds-legal-page'));
+const termPage=load(await(await requestPage(origin+'/about-us/terms-business/')).text());assert.ok(termPage('main').hasClass('sds-legal-page'));
 const capturedTerms=index.pages.find(page=>page.path==='/about-us/terms-business/'),sourceTerms=load(await readFile(resolve(root,capturedTerms.contentFile),'utf8'));
 const exactTermsText=extractContent(await readFile(resolve(root,capturedTerms.contentFile),'utf8')).text;
 const oldText=sourceTerms('#banner,#top,#central,#wide,#wrapper > .cms-container:not(#call)').text().replace(/\s+/gu,' ').trim();
@@ -291,12 +299,12 @@ assert.equal(termPage('main table').length,sourceTerms('#top table,#central tabl
 assert.ok(oldText.length>40000);assert.ok(report.reviewTermsLinksVerified>0);report.termsExactWordingVerified=true;report.termsOnlyStylesheetVerified=true;
 report.termsWordingCharacters=exactTermsText.length;report.termsWordingSha256=createHash('sha256').update(exactTermsText).digest('hex');report.termsTablesPreserved=termPage('main table').length;
 const claimEnquiry=await readJson('config/claim-enquiry.json');
-const enquiry=load(await(await request(origin+claimEnquiry.path)).text());
+const enquiry=load(await(await requestPage(origin+claimEnquiry.path)).text());
 assert.equal(enquiry('main form').length,1);assert.equal(enquiry('main form[data-source-form-presentation="reference-callback"]').length,1);
 assert.equal(enquiry('main form').attr('data-sds-form'),claimEnquiry.formKey);assert.equal(enquiry('main form').attr('data-source-path'),claimEnquiry.path);
 assert.equal(enquiry('main form[data-sds-wizard],main [data-source-wizard-card]').length,0);
 assert.equal(enquiry('main form .source-form-field').length,5);assert.equal(enquiry('main form button[type=submit]').length,1);assert.equal(enquiry('main form button').text().trim(),'Get in touch');
-const home=load(await(await request(origin+claimEnquiry.referencePath)).text());
+const home=load(await(await requestPage(origin+claimEnquiry.referencePath)).text());
 assert.equal(enquiry('main form fieldset').html(),home('main form[data-sds-form="'+claimEnquiry.formKey+'"] fieldset').html(),'Reference callback questions, options or consent changed');
 report.claimEnquiryUsesReferenceCallback=true;report.claimEnquiryFieldsVerified=5;
 report.wizardFormsConsistent=true;

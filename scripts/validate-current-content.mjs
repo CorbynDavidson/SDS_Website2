@@ -24,7 +24,7 @@ const DB=await localD1();
 const origin='https://www.sds-solicitors.com';
 const storedAssets=new Map(Object.entries(data.assets).filter(([,asset])=>asset.storagePath).map(([path,asset])=>[asset.storagePath,{path,asset}]));
 const env={DB,AUTH_PROVIDER:'sites',RELEASE_MODE:'review',RATE_LIMIT_SECRET:'local-validation-only',ASSETS:{async fetch(request){const requested=new URL(request.url).pathname,stored=storedAssets.get(requested),path=stored?.path||requested,asset=stored?.asset||data.assets[path];if(!asset)return new Response('Missing',{status:404});return new Response(await readFile(resolve(root,'public'+path)),{headers:{'content-type':'application/octet-stream'}});}}};
-const fetchPage=(module,path)=>module.fetch(new Request(origin+path),env);
+const fetchPage=async(module,path)=>{const response=await module.fetch(new Request(origin+path),env);if(module===worker&&data.pages[path]?.seoMovedTo){assert.equal(response.status,301,'Approved slug move requires 301: '+path);assert.equal(new URL(response.headers.get('location')).pathname+new URL(response.headers.get('location')).search,data.pages[path].seoMovedTo);return module.fetch(new Request(response.headers.get('location')),env);}return response;};
 const withoutEditorFields=html=>html.replace(/<sds-copy data-sds-copy-id="copy-\d{4,}" style="display:contents">|<\/sds-copy>/g,'');
 const escapeCopy=text=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const sourceByUrl=new Map(manifest.pages.map(page=>[page.url,page]));
@@ -92,7 +92,7 @@ const seoLink=attrs=>(attrs.rel||'').toLowerCase().split(/\s+/).some(rel=>['cano
 function seo(html){const $=load(html,{scriptingEnabled:false});return {title:$('head title').text(),meta:$('head meta').toArray().filter(n=>seoMeta(n.attribs)).map(n=>({...n.attribs})),links:$('head link').toArray().filter(n=>seoLink(n.attribs)).map(n=>({...n.attribs})),structuredData:$('script[type="application/ld+json"]').toArray().map(n=>$(n).text())};}
 function displayFragment(html,path){
  const $=load(html,{scriptingEnabled:false});
- $('[data-resource-link],[data-resource-navigation-heading]').remove();
+ $('[data-resource-link],[data-resource-navigation-heading],[data-editor-faq]').remove();
  for(const node of $('a[href],link[href]').toArray()){
    if(/^(mailto:|tel:|javascript:|data:)/i.test(node.attribs.href))continue;
    const url=new URL(node.attribs.href,origin+path);
@@ -100,6 +100,7 @@ function displayFragment(html,path){
    url.pathname=data.routes.redirects[url.pathname]||url.pathname;
    $(node).attr('href',url.href);
  }
+ for(const node of $('[data-source-path],input[name="_sds_source"]').toArray()){const key=node.attribs.name==='_sds_source'?'value':'data-source-path',value=$(node).attr(key);if(value&&data.pages[value]?.seoMovedTo)$(node).attr(key,data.pages[value].seoMovedTo);}
  return $.html();
 }
 function styles(html){const $=load(html,{scriptingEnabled:false,sourceCodeLocationInfo:true});return $('head style:not(#sds-content-design):not(#sds-layout-adjustments):not(#sds-enquiry-panel):not(#sds-terms-business):not(#sds-claim-enquiry):not(#sds-location-directory):not(#sds-questionnaire):not(#claim-assistant-style),head link').toArray().filter(n=>n.tagName==='style'||!seoLink(n.attribs)).map(n=>html.slice(n.sourceCodeLocation.startOffset,n.sourceCodeLocation.endOffset));}
@@ -239,7 +240,7 @@ for(const page of report.pages){
  for(const selector of ['body > nav','body > footer','.topbar'])assert.equal(displayFragment($(selector).html(),page.path),displayFragment(b(selector).html(),page.path),'Approved shared design changed: '+selector+' '+page.path);
  audit.approvedHeaderFooterRoutesVerified++;
  const main=html.match(/<main\b[\s\S]*?<\/main>/i)[0]+'\n',gitContent=await readFile(resolve(root,page.contentFile),'utf8');
- assert.equal(originalCopyEdits.length?displayFragment(main,page.path):main,originalCopyEdits.length?displayFragment(gitContent,page.path):gitContent,'Corresponding Git content differs: '+page.path);
+ assert.equal((originalCopyEdits.length||Object.keys(data.pageSeo||{}).length)?displayFragment(main,page.path):main,(originalCopyEdits.length||Object.keys(data.pageSeo||{}).length)?displayFragment(gitContent,page.path):gitContent,'Corresponding Git content differs: '+page.path);
  assert.ok(!html.includes('href="/sds-theme.css"'),'Old CMS stylesheet must not be loaded.');assert.ok(!html.includes('hcc-page-copy-v3:'),'Browser-local editor must be removed.');
  for(const n of $('main [data-source-copy] img[src]').toArray())if(n.attribs.src.startsWith('/'))media.add(n.attribs.src);
  for(const n of $('main [data-source-copy] a[href]').toArray())if(n.attribs.href.startsWith(origin))links.add(n.attribs.href);
@@ -292,6 +293,7 @@ for(const page of data.addedPages||[]){
  const key=widgets.attr('data-sds-form');assert.ok(expectedForms[key],'Added page uses an unknown form');
  assert.equal(widgets.attr('data-source-path'),page.path);expectedForms[key].sourcePaths.push(page.path);
 }
+for(const form of Object.values(expectedForms))form.sourcePaths=[...new Set(form.sourcePaths.flatMap(path=>[path,data.pages[path]?.seoMovedTo||path]))];
 assert.deepEqual(data.forms,expectedForms,'Original handlers must remain unchanged apart from approved source URLs.');
 for(const path of (await readJson('config/page-consolidation.json')).retainedStandaloneRoutes){
  const response=await fetchPage(worker,path);assert.equal(response.status,200,'Existing additional page unavailable: '+path);

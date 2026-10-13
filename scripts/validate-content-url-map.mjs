@@ -20,7 +20,8 @@ for(const row of mapping.rows){
   assert.ok(record,'Mapped source is not in captured content: '+row.sourceUrl);
   const verification=audited.get(record.path);
   assert.ok(verification?.paragraphsAndHeadingsMatch&&verification.seoMatchesOriginal,'Content/SEO audit did not pass: '+row.sourceUrl);
-  const response=await worker.fetch(new Request(row.productionUrl),{RELEASE_MODE:'production'});
+  let response=await worker.fetch(new Request(row.productionUrl),{RELEASE_MODE:'production'});
+  const moved=data.pages[record.path]?.seoMovedTo;if(moved){assert.equal(response.status,301,'Approved source move requires 301');assert.equal(new URL(response.headers.get('location')).pathname+new URL(response.headers.get('location')).search,moved);response=await worker.fetch(new Request(response.headers.get('location')),{RELEASE_MODE:'production'});}
   assert.equal(response.status,200,'Workbook final target does not serve 200: '+row.productionUrl);
   const raw=gunzipSync(Buffer.from(data.pages[record.path].gzip,'base64')).toString('utf8');
   const $=load(raw,{scriptingEnabled:false});

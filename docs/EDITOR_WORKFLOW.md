@@ -164,3 +164,16 @@ Published pages use the existing wording editor, including their initially empty
 On `/about-us/case-studies/?edit=1`, use **Add case study** or **Manage case studies**. These screens use the existing protected `/editor` path (`?add=case-study` and `?cases=1`). New cases accept a title, URL slug, listing summary, optional image URL or asset path, and three content sections. Preview shows the article and its matching listing box. Save commits the article record and sitemap documentation to one new branch; the build creates the article at `/about-us/case-studies/<slug>/` and places its box before the existing listing. Case studies default to noindex until the owner enables indexing; sitewide controls still apply.
 
 **Remove case study** creates a reversible archive proposal for its listing box. **Restore case study** brings the box back. The manager supports original and editor-added cases, including the existing paginated listings. Articles, existing URLs and source copy stay available; removal from the listing is not a withdrawal of the article. No 410 or redirect is needed for this archive action. The archive record and documentation, including XML documenting the retained article URL and archive state, are committed together. **Publish change** runs the same exact-file and exact-head release checks before merge and deployment. Saved additions and archive proposals can be reopened from the manager or All pages.
+
+## SEO and redirects
+
+Choose **SEO & redirects** in the authenticated edit toolbar or All pages.
+Page slug changes, LegalService details and FAQs save to a stable source record
+in `src/page-seo/`. A slug move also saves both old slash variants in `_redirects`
+in the same Git commit. The custom redirect modal manages exact local 301 rules;
+protected migration routes, loops and unpublished destinations are rejected.
+Save creates a branch proposal; Publish uses the existing exact-head/base/files
+and two-provider checks. Sitemap proposal notes are committed with each save.
+The deployed `/sitemap.xml` uses the serving build's canonical page index and
+excludes drafts, redirects and noindex URLs. Source captures and wording override
+identities survive public URL changes. See [SEO_EDITOR_IMPLEMENTATION.md](SEO_EDITOR_IMPLEMENTATION.md).
