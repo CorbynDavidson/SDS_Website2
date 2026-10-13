@@ -14,7 +14,9 @@ export function createProductionRouting(config,routes){
     // The selected design alternatives are retired on every host. Review
     // redirects stay on the current origin so reviewers see the new design.
     const consolidation=routes.consolidations?.[url.pathname];
-    if(!isProduction&&!consolidation)return null;
+    if(!isProduction&&!consolidation&&!routes.editorRedirects?.[url.pathname])return null;
+    const custom=routes.editorRedirects?.[url.pathname];
+    if(custom){const target=new URL(url.href);if(isProduction){target.protocol='https:';target.host=production.host;}target.pathname=custom;return Response.redirect(target.href,301);}
     const target=new URL(url.href);
     if(isProduction){target.protocol='https:';target.host=production.host;}
     target.pathname=isProduction?(routes.gone.includes(url.pathname)?url.pathname:(routes.redirects[url.pathname]||routes.prefixRedirects?.find(rule=>url.pathname===rule.prefix||url.pathname.startsWith(rule.prefix+'/'))?.target||url.pathname)):consolidation;

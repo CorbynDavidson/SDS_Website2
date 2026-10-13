@@ -101,7 +101,7 @@ test('All-wording drafts persist text changes with owner protection and unchange
  for(const invalid of[[],{'bad-id':'bad'},{'copy-0001':42}])assert.equal((await worker.fetch(request(invalid),env)).status,400);
  const index=await(await worker.fetch(admin('/editor'),env)).text();
  assert.ok(index.includes('All wording'));
- for(const path of Object.keys(data.pages))assert.ok(index.includes(path.replaceAll('&','&amp;').replaceAll('"','&quot;')),'Page missing from editor: '+path);
+ for(const [path,page] of Object.entries(data.pages))if(!page.seoMovedTo)assert.ok(index.includes(path.replaceAll('&','&amp;').replaceAll('"','&quot;')),'Page missing from editor: '+path);
 });
 test('Legacy enquiries remain readable, HTML is escaped and CSV formula values are neutralised',async t=>{
  const{worker,env,DB}=await fixture(t);

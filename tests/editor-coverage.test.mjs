@@ -13,7 +13,7 @@ test('Every page paragraph stays editable outside the actual forms, including so
     const $=load(gunzipSync(Buffer.from(page.gzip,'base64')).toString(),{scriptingEnabled:false});
     for(const node of $('main p').toArray()){
       const paragraph=$(node);
-      if(paragraph.closest('form,.callback,.source-form-widget,[data-source-wizard-card],[data-added-case-studies],template,noscript').length||!/[\p{L}\p{N}]/u.test(paragraph.text()))continue;
+      if(paragraph.closest('form,.callback,.source-form-widget,[data-source-wizard-card],[data-added-case-studies],[data-editor-faq],template,noscript').length||!/[\p{L}\p{N}]/u.test(paragraph.text()))continue;
       assert.equal(paragraph.closest(excluded).length,0,'Paragraph excluded: '+path+' '+paragraph.text().slice(0,90));
       paragraphs++;
       if(paragraph.closest('.source-wizard').length)styledParagraphs++;

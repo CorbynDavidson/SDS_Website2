@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {generateKeyPairSync} from 'node:crypto';
+import {generateKeyPairSync,createHash} from 'node:crypto';
 import {gzipSync} from 'node:zlib';
 import {load} from 'cheerio';
 import {applyContentOverrides,overrideFile} from '../scripts/lib/content-overrides.mjs';
@@ -165,4 +165,35 @@ test('restore changes the XML documentation as well as the archive record, so ex
  const f=await fixture(t),path='/about-us/case-studies/original/';f.content.pages[path]={sha256:'casehash',gzip:gzipSync(html).toString('base64')};f.content.caseStudyInventory=[{path,title:'Original case',archived:true}];f.content.caseStudyArchives={[path]:{version:1,path,archived:true}};f.content.config.productionOrigin='https://www.sds-solicitors.com';f.content.sitemap='<urlset><loc>https://www.sds-solicitors.com'+path+'</loc></urlset>';f.update();
  const response=await createWorker(f.content).fetch(new Request(origin+'/api/editor/case-studies',{method:'POST',headers:{origin,'content-type':'application/json','oai-authenticated-user-email':owner},body:JSON.stringify({action:'archive',id:crypto.randomUUID(),path,archived:false})}),f.env);assert.equal(response.status,202);
  const files=f.calls.find(x=>x.path.endsWith('/git/trees')).body.tree;const xml=files.find(x=>x.path.endsWith('.sitemap.xml')).content;assert.ok(xml.includes('Archived from listing: false'));assert.notEqual(xml,xml.replace('Archived from listing: false','Archived from listing: true'));assert.ok(xml.includes(path));assert.equal(JSON.parse(files[0].content).archived,false);
+});
+
+test('SEO saving atomically commits a stable page record, redirects and sitemap documentation, then waits for Publish',async t=>{
+ const f=await fixture(t),path='/old/';f.content.config.productionOrigin='https://www.sds-solicitors.com';f.content.pages[path]={status:200,sha256:'seohash',gzip:gzipSync(html).toString('base64')};f.content.routes={redirects:{},gone:[],productionGone:[]};f.content.pageSource={[path]:path};f.content.pageSeo={};f.content.editorRedirectText='# Editor-managed local 301 redirects\n';f.content.editorLegacyRedirects={};f.content.editorSourceFiles={'_redirects':f.content.editorRedirectText};f.content.pageIndex=[{path,canonical:f.content.config.productionOrigin+path,status:200,indexable:true}];f.update();
+ const post=(body,headers={})=>createWorker(f.content).fetch(new Request(origin+'/api/editor/seo',{method:'POST',headers:{origin,'content-type':'application/json','oai-authenticated-user-email':owner,...headers},body:JSON.stringify(body)}),f.env);
+ const p={action:'save',scope:'page',id:crypto.randomUUID(),path,baseSha256:'seohash',page:{slug:'new',legalService:null,faq:[{question:'Can you help?',answer:'Contact us.'}]}};
+ assert.equal((await post(p,{origin:'https://evil.example'})).status,403);assert.equal((await post(p,{'oai-authenticated-user-email':'other@example.com'})).status,403);
+ const response=await post(p);assert.equal(response.status,202,await response.clone().text());assert.equal((await response.json()).publication.status,'saved');
+ const files=f.calls.find(x=>x.path.endsWith('/git/trees')).body.tree;
+ assert.ok(files.some(x=>x.path==='src/page-seo/'+createHash('sha256').update(path).digest('hex')+'.json'));
+ assert.ok(files.find(x=>x.path==='_redirects').content.includes('/old/ /new/ 301'));assert.ok(files.some(x=>x.path.endsWith('.sitemap.xml')));
+ assert.equal((await post(p)).status,200);f.checks('passed');await f.schedule();assert.equal(f.calls.some(x=>x.path.endsWith('/merge')),false);
+ assert.equal((await post({action:'publish',id:p.id})).status,200);await f.schedule();assert.equal(f.calls.some(x=>x.path.endsWith('/merge')),true);
+ const file=files.find(x=>x.path.startsWith('src/page-seo/'));f.content.pageSeo[path]=JSON.parse(file.content);f.content.editorRedirectText=files.find(x=>x.path==='_redirects').content;f.update();await f.schedule();
+ assert.equal((await (await f.get(p.id)).json()).publication.status,'live');
+});
+
+test('manual redirects can be saved, reopened and managed without changing page content',async t=>{
+ const f=await fixture(t);f.content.config.productionOrigin='https://www.sds-solicitors.com';f.content.pages['/'].status=200;f.content.routes={redirects:{},gone:[],productionGone:[]};f.content.pageSeo={};f.content.pageIndex=[];f.content.editorRedirectText='# Editor-managed local 301 redirects\n';f.content.editorLegacyRedirects={};f.content.editorSourceFiles={'_redirects':f.content.editorRedirectText};f.update();
+ const send=body=>createWorker(f.content).fetch(new Request(origin+'/api/editor/seo',{method:'POST',headers:{origin,'content-type':'application/json','oai-authenticated-user-email':owner},body:JSON.stringify(body)}),f.env);
+ const p={action:'save',scope:'redirects',id:crypto.randomUUID(),baseRelease:base,rules:[{from:'/retired-advice/',to:'/'}]};
+ assert.equal((await send({...p,baseRelease:'stale'})).status,409);const saved=await send(p);assert.equal(saved.status,202,await saved.clone().text());assert.equal((await saved.json()).publication.status,'saved');
+ const files=f.calls.find(x=>x.path.endsWith('/git/trees')).body.tree;assert.ok(files.some(x=>x.path==='_redirects'));assert.ok(!files.some(x=>x.path.startsWith('src/page-seo/')));
+ const reopened=await createWorker(f.content).fetch(new Request(origin+'/api/editor/seo?id='+p.id,{headers:{'oai-authenticated-user-email':owner}}),f.env);assert.equal(reopened.status,200);assert.equal((await reopened.json()).rules[0].from,'/retired-advice/');
+ const index=await createWorker(f.content).fetch(new Request(origin+'/editor',{headers:{'oai-authenticated-user-email':owner}}),f.env);assert.ok((await index.text()).includes('/editor?seo=1&amp;id='+p.id));
+ assert.equal((await send(p)).status,200);assert.equal((await send({...p,rules:[]})).status,409);
+});
+
+test('wording publication after a slug move uses the stable source file',async t=>{
+ const f=await fixture(t),path='/new/',source='/old/';f.content.pages[path]={sha256:'pagehash',gzip:gzipSync(html).toString('base64')};f.content.pageSource={[path]:source};f.content.editorCopy[path]=catalog;f.update();
+ await f.post({...proposal(),path});await f.schedule();const file=f.calls.find(x=>x.path.endsWith('/git/trees')).body.tree[0];assert.equal(file.path,overrideFile(source));assert.equal(JSON.parse(file.content).path,source);
 });

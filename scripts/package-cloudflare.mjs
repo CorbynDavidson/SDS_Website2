@@ -27,3 +27,5 @@ assert.ok(gzipBytes<3*1024*1024,'Cloudflare free-plan Worker exceeds 3 MiB: '+gz
 await writeFile(resolve(root,'dist/server/cloudflare.js'),source);
 await writeFile(resolve(root,'build/cloudflare-package.json'),JSON.stringify({pages:Object.keys(data.pages).length,designImages:Object.keys(designAssets).length,workerGzipBytes:gzipBytes,designAssets},null,2)+'\n');
 console.log('Packaged '+Object.keys(data.pages).length+' byte-identical pages and '+Object.keys(designAssets).length+' design images; Worker gzip '+gzipBytes+' bytes.');
+
+await stage('/_redirects',await readFile(resolve(root,'_redirects')));

@@ -1,6 +1,6 @@
 import {load} from 'cheerio';
 import {createHash} from 'node:crypto';
-export const copyExcluded='script,style,noscript,template,svg,math,iframe,form,input,select,textarea,option,[form],.callback,.source-form-widget,[data-source-wizard-card],[data-editor-ui],[data-sds-status],.about-count,.testimonial-count,[data-added-case-studies],sds-copy,#claimChatPanel,#claimChatLaunch';
+export const copyExcluded='script,style,noscript,template,svg,math,iframe,form,input,select,textarea,option,[form],.callback,.source-form-widget,[data-source-wizard-card],[data-editor-ui],[data-sds-status],.about-count,.testimonial-count,[data-added-case-studies],[data-editor-faq],sds-copy,#claimChatPanel,#claimChatLaunch';
 export const overrideFile=path=>'src/content-overrides/'+createHash('sha256').update(path).digest('hex')+'.json';
 const escape=value=>value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 // IDs address text nodes in the assembled page, never arbitrary HTML or source paths.
