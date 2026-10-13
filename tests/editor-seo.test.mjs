@@ -77,3 +77,9 @@ test('long invalid query paths are rejected promptly rather than stalling the bu
  const result=spawnSync(process.execPath,['--input-type=module','-e',script],{encoding:'utf8',timeout:1500});
  assert.equal(result.status,0,result.error?.message);assert.equal(result.stdout.trim(),'rejected');
 });
+
+test('slug redirects normalize page-one pagination while preserving campaign parameters',async()=>{
+ const {createProductionRouting}=await import('../worker/production-routing.mjs');
+ const policy=createProductionRouting({productionOrigin:origin,defaultReleaseMode:'production'},{...routes(),editorRedirects:{'/old-news/':'/new-news/'}});
+ for(const host of [origin,'https://review.example']){const response=policy.redirect(new URL(host+'/old-news/?ccm_paging_p_b1=1&utm_source=test'),{RELEASE_MODE:host===origin?'production':'review'});assert.equal(response.status,301);assert.equal(response.headers.get('location'),host+'/new-news/?utm_source=test');}
+});
