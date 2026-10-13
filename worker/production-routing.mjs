@@ -16,7 +16,7 @@ export function createProductionRouting(config,routes){
     const consolidation=routes.consolidations?.[url.pathname];
     if(!isProduction&&!consolidation&&!routes.editorRedirects?.[url.pathname])return null;
     const custom=routes.editorRedirects?.[url.pathname];
-    if(custom){const target=new URL(url.href);if(isProduction){target.protocol='https:';target.host=production.host;}target.pathname=custom;return Response.redirect(target.href,301);}
+    if(custom){const target=new URL(url.href);if(isProduction){target.protocol='https:';target.host=production.host;}target.pathname=custom;for(const [name,value]of [...target.searchParams])if(name.startsWith('ccm_paging_')&&value==='1')target.searchParams.delete(name);return Response.redirect(target.href,301);}
     const target=new URL(url.href);
     if(isProduction){target.protocol='https:';target.host=production.host;}
     target.pathname=isProduction?(routes.gone.includes(url.pathname)?url.pathname:(routes.redirects[url.pathname]||routes.prefixRedirects?.find(rule=>url.pathname===rule.prefix||url.pathname.startsWith(rule.prefix+'/'))?.target||url.pathname)):consolidation;
