@@ -24,7 +24,7 @@
   "vars": {
     "RELEASE_MODE": "review",
     "AUTH_PROVIDER": "cloudflare-access",
-    "EDITOR_EMAILS": "bailey@cure-digital.co.uk,cddigital.web.analytics@gmail.com,sheldon.davidson@sds-solicitors.com",
+    "EDITOR_EMAILS": "bailey@cure-digital.co.uk,cddigital.web.analytics@gmail.com,sheldon.davidson@sds-solicitors.com,corbyn.davidson@sds-solicitors.com,corbyn.davidson@hotmail.com",
     "CF_ACCESS_AUD": "42381871f2bf3d75b5dd6b6d977cd6e25f532d72d1b0c28a7582136ea74f828d",
     "CF_ACCESS_TEAM_DOMAIN": "odd-limit-b3c6.cloudflareaccess.com",
     "EDITOR_PUBLISH_ENABLED": "true",
