@@ -116,6 +116,18 @@ Set `AUTH_PROVIDER=cloudflare-access`, `CF_ACCESS_TEAM_DOMAIN`,
 JWT-verifying backend must authenticate successfully before draft saving or
 publishing is allowed. Merely knowing `?edit=1` gives no publishing access.
 
+Access authentication and Worker permissions are separate checks. For editor
+collaborators, also set `EDITOR_EMAILS` to their comma-separated email addresses.
+The checked deployment configuration includes `bailey@cure-digital.co.uk`.
+These users can use `/editor` and `/api/editor/*` after JWT verification, including
+draft saving and publishing; they cannot read `/submissions`, CSV exports or
+uploaded enquiry files. `ADMIN_EMAILS` retains access to both areas. Keep the
+Cloudflare Access email policy and the application's login methods configured
+for the same identities. Use One-time PIN for collaborators who are not members
+of the Cloudflare account. A 401 indicates missing or invalid authentication;
+`You do not have access to this page.` (403) means a verified email is absent
+from the applicable Worker allowlist.
+
 D1 uses the existing `DB` binding. The publisher idempotently creates
 `editor_publications` on first authorised use; the same schema is also recorded
 in `drizzle/0002_editor_publications.sql` and `db/schema.ts`. It retains the patch,

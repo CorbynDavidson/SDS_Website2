@@ -147,6 +147,18 @@ test('Portable administration verifies signed Access JWTs and rejects spoofed Si
  assert.equal((await worker.fetch(request(await token()),env)).status,200);
  for(const jwt of[await token({exp:1}),await token({aud:['wrong']}),await token({iss:'https://attacker.invalid'}),await token({},true)])assert.equal((await worker.fetch(request(jwt),env)).status,401);
  assert.equal((await worker.fetch(request(await token({email:'other@example.invalid'})),env)).status,403);
+ // Editor collaborators must pass signed authentication without receiving enquiry access.
+ env.ADMIN_EMAILS=owner;
+ env.EDITOR_EMAILS=' Bailey@cure-digital.co.uk ';
+ const bailey=await token({email:'bailey@cure-digital.co.uk'});
+ assert.equal((await worker.fetch(request(bailey),env)).status,200);
+ for(const path of ['/submissions','/submissions.csv','/submissions/files/test-file']){
+   assert.equal((await worker.fetch(new Request(origin+path,{headers:{'cf-access-jwt-assertion':bailey}}),env)).status,403,path);
+ }
+ assert.equal((await worker.fetch(request(await token()),env)).status,200);
+ assert.equal((await worker.fetch(request(await token({email:'other@example.invalid'})),env)).status,403);
+ assert.equal((await worker.fetch(request(await token({email:'bailey@cure-digital.co.uk'},true)),env)).status,401);
+ assert.equal((await worker.fetch(new Request(origin+'/api/editor/session',{headers:{'cf-access-authenticated-user-email':'bailey@cure-digital.co.uk'}}),env)).status,401);
 });
 test('Asset import is authenticated, checksum-bound and disabled in production',async t=>{
  const{worker,env}=await fixture(t);env.MIGRATION_UPLOAD_TOKEN='test-migration-secret-with-at-least-32-characters';

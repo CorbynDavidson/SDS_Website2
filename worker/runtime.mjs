@@ -56,6 +56,10 @@ async function authorise(request, env, config) {
     return { response: json({ error: 'Sign in to access this page.' }, 401) };
   }
   const emails = (env.ADMIN_EMAILS || config.adminEmails.join(',')).split(',').map(value => value.trim().toLowerCase());
+  const path = new URL(request.url).pathname;
+  if (path === '/editor' || path.startsWith('/editor/') || path.startsWith('/api/editor/')) {
+    emails.push(...(env.EDITOR_EMAILS || '').split(',').map(value => value.trim().toLowerCase()).filter(Boolean));
+  }
   if (!emails.includes(email)) return { response: json({ error: 'You do not have access to this page.' }, 403) };
   return { email };
 }
